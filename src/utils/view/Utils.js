@@ -2,8 +2,8 @@
  * Created by lundfall on 01/09/16.
  */
 
-import Surface                      from 'famous/core/Surface.js';
-import ImageSurface                 from 'famous/surfaces/ImageSurface.js';
+import Surface                      from '../../famous/core/Surface.js';
+import ImageSurface                 from '../../famous/surfaces/ImageSurface.js';
 
 
 export class Utils {

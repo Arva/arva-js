@@ -2,8 +2,8 @@
  * Created by lundfall on 02/06/2017.
  */
 import Bowser           from 'bowser';
-import Surface          from 'famous/core/Surface.js';
-import ElementOutput    from 'famous/core/ElementOutput.js';
+import Surface          from '../../famous/core/Surface.js';
+import ElementOutput    from '../../famous/core/ElementOutput.js';
 
 
 export let invalidateLayoutForElement = (element) => {

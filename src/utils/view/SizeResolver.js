@@ -7,17 +7,16 @@ import browser                      from 'bowser';
 
 import _unescape                    from 'lodash/unescape.js';
 import LayoutUtility                from 'famous-flex/LayoutUtility.js';
-import Engine                       from 'famous/core/Engine.js';
-import Timer                        from 'famous/utilities/Timer.js';
+import Engine                       from '../../famous/core/Engine.js';
+import Timer                        from '../../famous/utilities/Timer.js';
 import {limit}                      from 'arva-js/utils/Limiter.js';
 
-import ImageSurface                 from 'famous/surfaces/ImageSurface.js';
+import ImageSurface                 from '../../famous/surfaces/ImageSurface.js';
 import AnimationController          from 'famous-flex/AnimationController.js';
 
 import {View}                       from '../../core/View.js';
 import {Utils}                      from './Utils.js';
 
-import ElementOutput                from 'famous/core/ElementOutput';
 
 /**
  * Used by the view to keep track of sizes. Emits events to communicate with the view to do certain actions

@@ -9,11 +9,11 @@
 
 import extend                       from 'lodash/extend.js'
 import cloneDeep                    from 'lodash/cloneDeep.js'
-import FamousView                   from 'famous/core/View.js'
-import {RenderablePrototype}      from 'famous/utilities/RenderablePrototype.js'
+import FamousView                   from '../famous/core/View.js'
+import {RenderablePrototype}        from '../famous/utilities/RenderablePrototype.js'
 import LayoutController             from 'famous-flex/LayoutController.js'
-import Surface                      from 'famous/core/Surface.js'
-import Engine                       from 'famous/core/Engine.js'
+import Surface                      from '../famous/core/Surface.js'
+import Engine                       from '../famous/core/Engine.js'
 import LayoutUtility                from 'famous-flex/LayoutUtility.js';
 
 import {limit}                      from 'arva-js/utils/Limiter.js'

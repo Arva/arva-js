@@ -4,7 +4,6 @@
  *
  * Fix z-index support for famo.us in MSIE / FF
  */
-import ElementOutput                    from 'famous/core/ElementOutput';
 import Bowser                           from 'bowser';
 
 let browser = Bowser;

@@ -7,7 +7,7 @@
 
  */
 
-import Easing               from 'famous/transitions/Easing.js';
+import Easing               from '../famous/transitions/Easing.js';
 
 import {layout, flow}               from './Decorators.js';
 

@@ -1,7 +1,7 @@
 /**
  * Created by lundfall on 12/07/2017.
  */
-import FamousSurface from 'famous/core/Surface.js';
+import FamousSurface from '../famous/core/Surface.js';
 
 /**
  * A base class for viewable content and event

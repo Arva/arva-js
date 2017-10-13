@@ -2,14 +2,14 @@
  * Created by lundfall on 06/07/2017.
  */
 import {Surface}            from 'arva-js/surfaces/Surface.js';
-import Entity               from 'famous/core/Entity.js'
+import Entity               from '../famous/core/Entity.js'
 import { View }             from 'arva-js/core/View.js'
 import { ObjectHelper }     from 'arva-js/utils/ObjectHelper.js'
 import { OptionObserver }   from 'arva-js/utils/view/OptionObserver.js'
 import { Utils }            from 'arva-js/utils/view/Utils.js'
 import { layout }           from 'arva-js/layout/Decorators.js'
 import { PrioritisedArray}  from 'arva-js/data/PrioritisedArray.js'
-import EventEmitter         from 'famous/core/EventEmitter.js'
+import EventEmitter         from '../famous/core/EventEmitter.js'
 
 window.getFromID = (id) => {
   return Entity.get(id)

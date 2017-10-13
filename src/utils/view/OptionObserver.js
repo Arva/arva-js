@@ -4,9 +4,9 @@
 import cloneDeepWith            from 'lodash/cloneDeepWith';
 import difference               from 'lodash/difference';
 import each                     from 'lodash/each';
-import Timer                    from 'famous/utilities/Timer.js';
-import {RenderablePrototype}    from 'famous/utilities/RenderablePrototype.js';
-import ElementOutput            from 'famous/core/ElementOutput.js';
+import Timer                    from '../../famous/utilities/Timer.js';
+import {RenderablePrototype}    from '../../famous/utilities/RenderablePrototype.js';
+import ElementOutput            from '../../famous/core/ElementOutput.js';
 
 import EventEmitter             from 'eventemitter3';
 

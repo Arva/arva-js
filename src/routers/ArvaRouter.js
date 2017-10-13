@@ -10,7 +10,7 @@
 import isEqual                      from 'lodash/isEqual';
 import {Router}                     from '../core/Router.js';
 import {provide}                    from '../utils/di/Decorators.js';
-import Easing                       from 'famous/transitions/Easing.js';
+import Easing                       from '../famous/transitions/Easing.js';
 import AnimationController          from 'famous-flex/AnimationController.js';
 
 /**

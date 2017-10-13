@@ -1,10 +1,10 @@
 /**
  * Created by lundfall on 06/07/16.
  */
-import Surface               from 'famous/core/Surface';
-import FamousContext         from 'famous/core/Context.js';
-import Timer                 from 'famous/utilities/Timer';
-import Easing                from 'famous/transitions/Easing.js';
+import Surface               from '../famous/core/Surface';
+import FamousContext         from '../famous/core/Context.js';
+import Timer                 from '../famous/utilities/Timer';
+import Easing                from '../famous/transitions/Easing.js';
 import AnimationController   from 'famous-flex/AnimationController';
 
 import {Injection}           from './Injection.js';

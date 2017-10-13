@@ -6,7 +6,7 @@
 
  */
 
-import Timer                            from 'famous/utilities/Timer.js';
+import Timer                            from '../famous/utilities/Timer.js';
 import {ObjectHelper}                   from './ObjectHelper.js';
 
 export class Throttler {

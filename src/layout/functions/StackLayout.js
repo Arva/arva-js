@@ -2,8 +2,8 @@
  * Karl Lundfall
  */
 // import dependencies
-import Utility  from 'famous/utilities/Utility';
-import LayoutUtility  from 'famous-flex/LayoutUtility.js';
+import Utility          from '../../famous/utilities/Utility';
+import LayoutUtility    from 'famous-flex/LayoutUtility.js';
 
 // Define capabilities of this layout function
 var capabilities = {

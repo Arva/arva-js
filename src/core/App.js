@@ -8,9 +8,10 @@
  */
 
 import FastClick                from 'fastclick';
-import Engine                   from 'famous/core/Engine.js';
-import Context                  from 'famous/core/Context.js';
+import Engine                   from '../famous/core/Engine.js';
+import Context                  from '../famous/core/Context.js';
 import AnimationController      from 'famous-flex/AnimationController.js';
+
 
 import {provide}                from '../utils/di/Decorators.js';
 import {DialogManager}          from '../utils/DialogManager.js';

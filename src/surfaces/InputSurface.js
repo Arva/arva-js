@@ -2,7 +2,7 @@
  * Created by lundfall on 12/07/2017.
  */
 
-import FamousInputSurface   from 'famous/surfaces/InputSurface.js';
+import FamousInputSurface   from '../famous/surfaces/InputSurface.js';
 import {onOptionChange}     from '../utils/view/OptionObserver.js'
 import {combineOptions}     from 'arva-js/utils/CombineOptions.js';
 

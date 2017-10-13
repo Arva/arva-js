@@ -3,7 +3,6 @@
  */
 import isEqual                      from 'lodash/isEqual.js';
 import findIndex                    from 'lodash/findIndex.js';
-import Easing                       from 'famous/transitions/Easing.js';
 
 import {Utils}                      from './Utils.js';
 import {TrueSizedLayoutDockHelper}  from '../../layout/TrueSizedLayoutDockHelper.js';

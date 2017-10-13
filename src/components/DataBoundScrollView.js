@@ -11,7 +11,7 @@
 
 import sortBy                         from 'lodash/sortBy.js'
 import findIndex                      from 'lodash/findIndex.js'
-import Timer                          from 'famous/utilities/Timer.js'
+import Timer                          from '../famous/utilities/Timer.js'
 import ListLayout                     from 'famous-flex/layouts/ListLayout.js'
 
 import {debounce}                   from 'lodash-decorators'
@@ -20,7 +20,7 @@ import {Throttler}                  from '../utils/Throttler.js'
 import {Utils}                      from '../utils/view/Utils.js'
 import {ReflowingScrollView}        from './ReflowingScrollView.js'
 import {combineOptions}             from '../utils/CombineOptions.js'
-import {RenderablePrototype}        from 'famous/utilities/RenderablePrototype.js'
+import {RenderablePrototype}        from '../famous/utilities/RenderablePrototype.js'
 import {ScrollController}           from '../core/ScrollController.js'
 import {StackLayout}                from '../layout/functions/StackLayout.js'
 

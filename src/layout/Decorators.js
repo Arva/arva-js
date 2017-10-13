@@ -11,11 +11,11 @@ import extend                   from 'lodash/extend.js'
 
 import AnimationController      from 'famous-flex/AnimationController.js'
 import LayoutUtility            from 'famous-flex/LayoutUtility.js'
-import Easing                   from 'famous/transitions/Easing.js'
+import Easing                   from 'arva-js/famous/transitions/Easing.js'
 
 import { Utils }                    from '../utils/view/Utils.js'
 import { onOptionChange }           from '../utils/view/OptionObserver'
-import { RenderablePrototype }      from 'famous/utilities/RenderablePrototype.js'
+import { RenderablePrototype }      from '../famous/utilities/RenderablePrototype.js'
 
 
 /**
