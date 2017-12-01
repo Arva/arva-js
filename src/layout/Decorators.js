@@ -966,6 +966,7 @@ class Layout {
    */
   columnDockPadding (maxContentWidth = 720, defaultPadding = [0, 16, 0, 16]) {
     return this.createChainableDecorator((decorations) => {
+
       let normalisedPadding = LayoutUtility.normalizeMargins(defaultPadding);
 
       /* Default to 16px dockPadding */
@@ -981,7 +982,7 @@ class Layout {
                 let sideWidth = size[0] > newWidth + 32 ? (size[0] - newWidth) / 2 : normalisedPadding[1];
                 return [normalisedPadding[0], sideWidth, normalisedPadding[2], sideWidth];
             }
-        }, decoratorTypes.viewDecorator);
+        }, decoratorTypes.viewOrChild);
     }
 
   /**
