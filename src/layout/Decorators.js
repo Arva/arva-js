@@ -475,7 +475,7 @@ class Layout {
    * @param {Number} z The rotation around the z axis (rotatesin in the more intuitive sense)
    * @returns {Layout} A chainable function
    */
-  rotate (x, y, z) {
+  rotate (x = 0, y = 0, z = 0) {
     return this.createChainableDecorator((decorations) => {
       decorations.rotate = [x, y, z]
     }, decoratorTypes.childDecorator)
