@@ -12,6 +12,7 @@ import {Router}                     from '../core/Router.js';
 import {provide}                    from '../utils/di/Decorators.js';
 import Easing                       from 'famous/transitions/Easing.js';
 import AnimationController          from 'famous-flex/AnimationController.js';
+import Transform                    from 'famous/core/Transform.js';
 
 /**
  * Emits the event 'routechange' with {url,controller,controllerObject,method,keys,values} when the route has changed
@@ -391,13 +392,22 @@ export class ArvaRouter extends Router {
 
             /* Default method-to-method animations, used only if not overridden in app's controllers spec. */
             let defaults = {
-                'previous': {
-                    transition: { duration: 400, curve: Easing.outCubic },
-                    animation: AnimationController.Animation.Slide.Right
+                next: {
+                    hide: {
+                        animation: () =>
+                            (
+                                {transform: Transform.translate(0, 0, -1000)}
+                            ),
+                    },
+                    show: {animation: AnimationController.Animation.Slide.Left}
                 },
-                'next': {
-                    transition: { duration: 400, curve: Easing.outCubic },
-                    animation: AnimationController.Animation.Slide.Left
+                previous: {
+                    show: {
+                        animation: () => ({
+                            transform: Transform.translate(0, 0, -1000)
+                        })
+                    },
+                    hide: {animation: AnimationController.Animation.Slide.Right}
                 }
             };
             return defaults[direction];
