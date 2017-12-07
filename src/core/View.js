@@ -589,16 +589,17 @@ export class View extends FamousView {
      * @private
      */
     _layoutDecoratedRenderables(context) {
-        let dockedRenderables = this._renderableHelper;
+        let groupedRenderables = this._renderableHelper;
         let nativeScrollableOptions = this.decorations.nativeScrollable;
         if (nativeScrollableOptions) {
             let thisSize = this.getSize();
             context.size = context.size.map((size, index) =>
                 (nativeScrollableOptions[`scroll${index === 0 ? 'X' : 'Y'}`] && Math.max(thisSize[index], size)) || size)
         }
-        this._dockedRenderablesHelper.layout(dockedRenderables.getRenderableGroup('docked'), dockedRenderables.getRenderableGroup('filled'), context, this.decorations);
-        this._fullSizeLayoutHelper.layout(dockedRenderables.getRenderableGroup('fullSize'), context, this.decorations);
-        this._traditionalLayoutHelper.layout(dockedRenderables.getRenderableGroup('traditional'), context, this.decorations)
+        this._renderableHelper.flushTransitions(context);
+        this._dockedRenderablesHelper.layout(groupedRenderables.getRenderableGroup('docked'), groupedRenderables.getRenderableGroup('filled'), context, this.decorations);
+        this._fullSizeLayoutHelper.layout(groupedRenderables.getRenderableGroup('fullSize'), context, this.decorations);
+        this._traditionalLayoutHelper.layout(groupedRenderables.getRenderableGroup('traditional'), context, this.decorations)
     }
 
     /**
@@ -610,7 +611,7 @@ export class View extends FamousView {
         let hasFlowyRenderables = this._renderableHelper.hasFlowyRenderables();
         this.layout = new LayoutController({
             flow: !!this.decorations.useFlow || hasFlowyRenderables,
-            partialFlow: !this.decorations.useFlow,
+            partialFlow: true,
             nativeScroll: !!this.decorations.nativeScrollable,
             perspective: !!this.decorations.perspective,
             flowOptions: this.decorations.flowOptions || {spring: {period: 200}},

@@ -1182,6 +1182,19 @@ class Flow {
       }, decoratorTypes.viewOrChild)
   }
 
+  transition(transition) {
+      return (layoutDecorator) => {
+          return this.createChainableDecorator((decorations) => {
+              let layoutDecorations = {};
+              layoutDecorator({decorations: layoutDecorations});
+              if(!decorations.tweenTransitions){
+                decorations.tweenTransitions = [];
+              }
+              decorations.tweenTransitions.push({transition, decorations: layoutDecorations});
+          }, decoratorTypes.childDecorator);
+      }
+  }
+
   /**
    * Functions the same as @flow.stateStep(), and additionally also immediately applies the decorators passed into the 'transformations' argument.
    * Used to define a state step, without having to also manually apply the same decorators to the renderable to ensure it is rendered this way
