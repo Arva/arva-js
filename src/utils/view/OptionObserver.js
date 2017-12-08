@@ -79,7 +79,6 @@ export class OptionObserver extends EventEmitter {
     constructor(defaultOptions, options, preprocessMethods, debugName) {
         super();
         this._errorName = debugName;
-        ObjectHelper.bindAllMethods(this, this);
         this._preprocessMethods = preprocessMethods || [];
         OptionObserver._registerNewInstance(this);
         this.defaultOptions = defaultOptions;
@@ -1093,7 +1092,7 @@ export class OptionObserver extends EventEmitter {
     }
 
     _createListenerTree() {
-        this._listenerTree = cloneDeepWith(this.defaultOptions, this._listenerTreeCloner) || {[listeners]: {}}
+        this._listenerTree = cloneDeepWith(this.defaultOptions, this._listenerTreeCloner.bind(this)) || {[listeners]: {}}
     }
 
     /**
@@ -1122,7 +1121,7 @@ export class OptionObserver extends EventEmitter {
                     valueToClone = {value: value[0] || {}, [listeners]: {}, [isArrayListener]: true}
                 }
 
-                return cloneDeepWith(valueToClone, this._listenerTreeCloner);
+                return cloneDeepWith(valueToClone, this._listenerTreeCloner.bind(this));
             }
         } else {
             return {[listeners]: {}}

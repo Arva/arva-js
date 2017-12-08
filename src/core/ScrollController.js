@@ -287,12 +287,12 @@ export class ScrollController extends FamousView {
 
   _initNativeScrollGroup () {
     this._group = new NativeScrollGroup()
-    this._group.add({render: this._innerRender})
+    this._group.add({render: this._innerRender.bind(this)})
     /* Prevent scrolling in the opposite direction */
     this._group.setProperties({[`overflow${this.options.layoutDirection === 0 ? 'Y' : 'X'}`]: 'hidden'})
-    this.on('mousewheel', this._onManualScrollAttempt)
-    this.on('wheel', this._onManualScrollAttempt)
-    this.on('touchmove', this._onManualScrollAttempt)
+    this.on('mousewheel', this._onManualScrollAttempt.bind(this));
+    this.on('wheel', this._onManualScrollAttempt.bind(this));
+    this.on('touchmove', this._onManualScrollAttempt.bind(this));
     this.on('scroll', (e) => {
       this._eventOutput.emit('userScroll', e)
       if (!this._shouldIgnoreScrollEvent) {
