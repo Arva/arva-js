@@ -621,10 +621,11 @@ export class RenderableHelper {
     async setViewFlowState(stateName = '', flowOptions) {
         let steps = flowOptions.viewStates[stateName]
 
-        if (!steps) {
-            Utils.warn(`Flow state name '${stateName}' does not exist`)
-            return false
+        if(!steps) {
+            Utils.warn(`Warning: flow state name '${stateName}' does not exist`);
+            return false;
         }
+
         /* If there is just one step, it might not be an array */
         if (!Array.isArray(steps)) {
             steps = [steps]

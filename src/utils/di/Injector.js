@@ -197,9 +197,8 @@ class Injector {
 
         /* Add custom construction parameters to construction */
         args = args.concat(constructionParams);
+        instance = provider.create(args);
 
-
-      instance = provider.create(args);
 
         if (!hasAnnotation(provider.provider, TransientScopeAnnotation)) {
             this._cache.set(combinedToken, instance);
