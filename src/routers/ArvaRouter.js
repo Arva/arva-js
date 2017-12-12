@@ -33,12 +33,12 @@ export class ArvaRouter extends Router {
         if (window === null) {
             return;
         }
-        window.addEventListener('hashchange', this.run);
+        window.addEventListener('hashchange', this.run.bind(this));
 
         this.routeStack = [];
         this.decode = decodeURIComponent;
 
-        window.addEventListener('hashchange', this.run);
+        window.addEventListener('hashchange', this.run.bind(this));
         this._setupNativeBackButtonListener();
     }
 
