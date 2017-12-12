@@ -549,7 +549,7 @@ export class OptionObserver extends EventEmitter {
     }
 
     flushUpdates() {
-
+        this._flushArrayObserverChanges();
         /* Do a traverse only for the leafs of the new updates, to avoid doing extra work */
         this._deepTraverseWithShallowArrays(this._newOptionUpdates, (nestedPropertyPath, updateObjectParent, updateObject, propertyName, [defaultOptionParent, listenerTree, optionObject]) => {
                     this._handleNewOptionUpdateLeaf(nestedPropertyPath, updateObject, propertyName, defaultOptionParent, listenerTree, optionObject);
@@ -557,7 +557,6 @@ export class OptionObserver extends EventEmitter {
             [true, false, false],
             true
         );
-        this._flushArrayObserverChanges();
         this._newOptionUpdates = {};
         this._handleResultingUpdates();
         this.emit('postFlush');
@@ -1031,7 +1030,7 @@ export class OptionObserver extends EventEmitter {
         let arrayObserver = new ArrayObserver(newValue, (index, value) => {
             /* copy the listener tree information */
             listenerTree[index] = listenerTree.value;
-
+            //TODO This might be overkill since it's already handled in the flush function (Try removing code below and see if it still works)
             value = this._processNewOptionUpdates({
                 defaultOptionParent: defaultOption,
                 nestedPropertyPath: nestedPropertyPath.concat(outerPropertyName),
