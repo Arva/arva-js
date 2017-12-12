@@ -96,8 +96,8 @@ export class InputOption {
 
         let recordedEntryNames = Object.keys(activeRecordings);
         if (recordedEntryNames.length !== 1) {
-            throw new Error(recordedEntryNames[OptionObserver.preprocess] ?
-                'Input option cannot be unwrapped inside preprocess function' :
+            throw new Error(recordedEntryNames[OptionObserver.triggers] ?
+                'Input option cannot be unwrapped inside trigger function' :
                 recordedEntryNames.length === 0 ?
                     'Cannot unwrap input option outside renderable initializer' :
                     'Trying to unwrap value in InputOption but OptionObserver should have exactly one recording');

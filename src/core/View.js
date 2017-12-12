@@ -780,8 +780,8 @@ export class View extends FamousView {
                     this.decorations[property] = decoration;
                 } else if (property === 'defaultOptions' && this.decorations.defaultOptions) {
                     this.decorations.defaultOptions = combineOptions(decoration, this.decorations.defaultOptions);
-                } else if (property === 'preprocessBindings') {
-                    this.decorations.preprocessBindings.push(...decoration);
+                } else if (property === 'bindingTriggers') {
+                    this.decorations.bindingTriggers.push(...decoration);
                 }
             }
         }
@@ -794,7 +794,7 @@ export class View extends FamousView {
             this.decorations.extraTranslate = [0, 0, 10]
         }
 
-        this._initPreprocessBindings();
+        this._initBindingsTriggers();
     }
 
     onNewSize(callback) {
@@ -842,7 +842,7 @@ export class View extends FamousView {
          *
          * @type {Object}
          */
-        this._optionObserver = new OptionObserver(defaultOptions, options, this._preprocessBindings, this._name());
+        this._optionObserver = new OptionObserver(defaultOptions, options, this._bindingTriggers, this._name());
         /* Call setup function after initialize to prevent problems when this._optionObserver is undefined inside setup */
         this._optionObserver.setup();
         this._optionObserver.on('needUpdate', (renderableName) =>
@@ -878,7 +878,7 @@ export class View extends FamousView {
         this._runningRepeatingFlowStates = {};
         this._renderableConstructors = {};
 
-        this._preprocessBindings = [];
+        this._bindingTriggers = [];
 
     }
 
@@ -1170,22 +1170,22 @@ export class View extends FamousView {
     }
 
     /**
-     * Initializes the part of the decorations object that contains the preprocessing functions
+     * Initializes the part of the decorations object that contains the binding trigger functions
      * @private
      */
-    _initPreprocessBindings() {
-        let {preprocessBindings = []} = this.decorations;
+    _initBindingsTriggers() {
+        let {bindingTriggers = []} = this.decorations;
 
-        for (let [index, {preprocessFunction, name}] of preprocessBindings.entries()) {
+        for (let [index, {triggerMethod, name}] of bindingTriggers.entries()) {
             this[name] = () => {
-                return this._optionObserver.preprocessForIndex(this.options, index);
+                return this._optionObserver.triggerMethodForIndex(this.options, index);
             };
 
             /* TODO Think of a more clever solution than receiving the optionObserver as an argument */
-            this._preprocessBindings.push((optionObserver) => {
+            this._bindingTriggers.push((optionObserver) => {
                 this.options = optionObserver.getOptions();
                 /* TODO: Change this to a getter function or at least figure out a plan how to handle default options */
-                preprocessFunction.call(this, this.options, optionObserver.defaultOptions);
+                triggerMethod.call(this, this.options, optionObserver.defaultOptions);
             });
         }
 

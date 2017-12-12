@@ -33,7 +33,7 @@ let newChanges = Symbol('newChanges'),
     optionRecorder = Symbol('optionRecorder'),
     arrayRecorder = Symbol('arrayRecorder');
 
-/* Some symbols are exported since they are used elsewhere. Note that the preprocess symbol is defined directly on
+/* Some symbols are exported since they are used elsewhere. Note that the triggers symbol is defined directly on
 *  the OptionObserver to make it easier to access from outside Arva (not just in internal classes) */
 export let onOptionChange = Symbol('onOptionChange'),
     storedArrayObserver = Symbol('storedArrayObserver'),
@@ -66,20 +66,20 @@ export class OptionObserver extends EventEmitter {
 
     /* The max supported depth in deep-checking iterations */
     static maxSupportedDepth = 10;
-    /* Used for preprocessing of options, which is a special type of update */
-    static preprocess = Symbol('preprocess');
+    /* Used for trigger function of options, which is a special type of update */
+    static triggers = Symbol('triggers');
 
     /**
      *
      * @param defaultOptions
      * @param options
-     * @param {Array<Function>} preprocessMethods
+     * @param {Array<Function>} bindingsTriggerFunctions
      * @param debugName Used for displaying error messages and being able to trace them back more easily
      */
-    constructor(defaultOptions, options, preprocessMethods, debugName) {
+    constructor(defaultOptions, options, bindingsTriggerFunctions, debugName) {
         super();
         this._errorName = debugName;
-        this._preprocessMethods = preprocessMethods || [];
+        this._bindingsTriggerMethods = bindingsTriggerFunctions || [];
         OptionObserver._registerNewInstance(this);
         this.defaultOptions = defaultOptions;
         this.options = options;
@@ -124,21 +124,21 @@ export class OptionObserver extends EventEmitter {
     }
 
     /**
-     * Executes the preprocess function. The preprocess function is treated similarly to that of a renderable,
-     * but it's identified with the symbol OptionObserver.preprocess accompanied by an index, instead of a string
+     * Executes the trigger function. The trigger function is treated similarly to that of a renderable,
+     * but it's identified with the symbol OptionObserver.triggers accompanied by an index, instead of a string
      *
-     * Different examples of preprocessing situations:
+     * Different examples of trigger situations:
      * Scenario 1: Construction
-     * A. The preprocessing function is called
+     * A. The trigger function is called
      * B. Getters are detected for the pre-process function
      * C. this.options isn't set, so nothing more happens
      *
      * TODO This description is outdated
      *
-     * Scenario 2. Setter trigger of a preprocess function
-     * A. After flushing, it is concluded to belong to the preprocess function (and other renderables)
-     * B. The preprocess function is triggered immediately and firstly when flushing change events
-     * C. The preprocess function re-executes the function and getters are triggered again
+     * Scenario 2. Setter trigger of a trigger function
+     * A. After flushing, it is concluded to belong to the trigger function (and other renderables)
+     * B. The trigger function is triggered immediately and firstly when flushing change events
+     * C. The trigger function re-executes the function and getters are triggered again
      * D. this.options is defined, and it setters will be notified.
      * E. An inner flush is forced within the flush, and it there might be new renderables needing update now
      * F. The flush completes and resets the _updatesForNextTick
@@ -146,22 +146,22 @@ export class OptionObserver extends EventEmitter {
      * H. Since we made changes within a flush, the static OptionObserver loop _flushAllUpdates, will call the flush function once again, but doing nothing
      *
      * Scenario 3. Recombine options
-     * A. After flushing, it is concluded that the option changes belong to one of the preprocess functions (and other renderables)
+     * A. After flushing, it is concluded that the option changes belong to one of the trigger functions (and other renderables)
      * B. Continues same as scenario 2.
      *
      * @private
      */
-    preprocessForIndex(incomingOptions, index) {
-        if (!this._preprocessMethods[index]) {
-            return this._throwError(`Internal error in OptionObserver: preprocess function with index ${index} doesn't exist`)
+    triggerMethodForIndex(incomingOptions, index) {
+        if (!this._bindingsTriggerMethods[index]) {
+            return this._throwError(`Internal error in OptionObserver: trigger function with index ${index} doesn't exist`)
         }
 
-        this._recordForPreprocessing(() =>
-            this._preprocessMethods[index](this), index);
-        /* Prevent the preprocess from being triggered within the next flush. This is important
-         * to do in case the preprocess function sets variables that it also gets, (ie if(!options.color) options.color = 'red')
+        this._recordForTriggerMethod(() =>
+            this._bindingsTriggerMethods[index](this), index);
+        /* Prevent the trigger method from being triggered within the next flush. This is important
+         * to do in case the trigger function sets variables that it also gets, (ie if(!options.color) options.color = 'red')
          */
-        this.preventEntryFromBeingUpdated([OptionObserver.preprocess, index])
+        this.preventEntryFromBeingUpdated([OptionObserver.triggers, index])
     }
 
     preventEntryFromBeingUpdated(entryNames) {
@@ -187,8 +187,8 @@ export class OptionObserver extends EventEmitter {
 
     setup() {
         this._createListenerTree();
-        //todo this order changed, we used to do the option merging after preprocessing. What is needed? Pass option to adjust behaviour?
-        this._updatesForNextTick[OptionObserver.preprocess] = new Array(this._preprocessMethods.length).fill(true);
+        //todo this order changed, we used to do the option merging after trigger function. What is needed? Pass option to adjust behaviour?
+        this._updatesForNextTick[OptionObserver.triggers] = new Array(this._bindingsTriggerMethods.length).fill(true);
         this._markAllOptionsAsUpdated();
     }
 
@@ -243,7 +243,7 @@ export class OptionObserver extends EventEmitter {
     _getUpdatesEntryNamesForLocalListenerTree(localListenerTree) {
         let forbiddenUpdatesForNextTick = this._forbiddenUpdatesForNextTick;
         let doubleNestedPaths = Object.keys(localListenerTree)
-            .concat(localListenerTree[OptionObserver.preprocess] ? OptionObserver.preprocess : [])
+            .concat(localListenerTree[OptionObserver.triggers] ? OptionObserver.triggers : [])
             .map((key) => localListenerTree[key] === true ? [[key]] :
                 this._getDeeplyNestedListenerPaths(localListenerTree[key]).map((path) => [key].concat(path)));
 
@@ -251,7 +251,7 @@ export class OptionObserver extends EventEmitter {
         let paths = [].concat(...doubleNestedPaths);
         /* Make sure that we are not updating something that is forbidden during this tick */
         let forbiddenUpdatePathsForNextTick = Object.keys(forbiddenUpdatesForNextTick).concat(
-            forbiddenUpdatesForNextTick[OptionObserver.preprocess] ? OptionObserver.preprocess : []);
+            forbiddenUpdatesForNextTick[OptionObserver.triggers] ? OptionObserver.triggers : []);
         if(forbiddenUpdatePathsForNextTick.length){
             paths = paths.filter((path) => {
                 return this.accessObjectPath(this._forbiddenUpdatesForNextTick, path) === notFound
@@ -261,10 +261,10 @@ export class OptionObserver extends EventEmitter {
 
     }
 
-    _recordForPreprocessing(callback, preprocessIndex) {
-        this._recordForEntry([OptionObserver.preprocess, preprocessIndex], true);
+    _recordForTriggerMethod(callback, triggerIndex) {
+        this._recordForEntry([OptionObserver.triggers, triggerIndex], true);
         callback();
-        this._stopRecordingForEntry(OptionObserver.preprocess)
+        this._stopRecordingForEntry(OptionObserver.triggers)
     }
 
     /**
@@ -339,13 +339,13 @@ export class OptionObserver extends EventEmitter {
     }
 
     /**
-     * Performs all available preprocessing functions
+     * Performs all available bindings triggering functions
      * @param incomingOptions
      * @private
      */
-    _doPreprocessing(incomingOptions) {
-        for (let [index] of this._preprocessMethods.entries()) {
-            this.preprocessForIndex(incomingOptions, index)
+    _doAllTriggerMethods(incomingOptions) {
+        for (let [index] of this._bindingsTriggerMethods.entries()) {
+            this.triggerMethodForIndex(incomingOptions, index)
         }
     }
 
@@ -876,13 +876,13 @@ export class OptionObserver extends EventEmitter {
     }
 
     _handleResultingUpdates() {
-        let preprocessInstructions = this._updatesForNextTick[OptionObserver.preprocess];
-        if (preprocessInstructions) {
-            for (let index in preprocessInstructions) {
-                this.preprocessForIndex(this.options, index);
+        let triggerIndices = this._updatesForNextTick[OptionObserver.triggers];
+        if (triggerIndices) {
+            for (let index in triggerIndices) {
+                this.triggerMethodForIndex(this.options, index);
             }
-            delete this._updatesForNextTick[OptionObserver.preprocess];
-            /* Reflush to take the changes made by the preprocessing into account */
+            delete this._updatesForNextTick[OptionObserver.triggers];
+            /* Reflush to take the changes made by the trigger methods into account */
             this.flushUpdates();
         }
 

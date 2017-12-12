@@ -39,12 +39,12 @@ export const bindings = {
     }
   },
   /**
-   * Defines a preprocess function to use before the options are assigned. This can be used to simplify the
-   * flow of your app. The preprocess function should modify the contents of the options passed.
+   * Defines a trigger function to use before the options are assigned. This can be used to simplify the
+   * flow of your app. The trigger function should modify the contents of the options passed.
    * Return value is ignored. It is important that the function doesn't modify defaultOptions
    *
    * @example
-   * @bindings.preprocess()
+   * @bindings.trigger()
    * propagateBackgroundColor((options, defaultOptions) {
    *  // Shortcut way of specifying the sideMenu.menuItem.backgroundColor
    *  options.sideMenu = combineOptions(defaultOptions.sideMenu, {menuItem: {backgroundColor: options.backgroundColor}})
@@ -52,15 +52,15 @@ export const bindings = {
    *
    * @returns {function(*)}
    */
-  preprocess: () => {
+  trigger: () => {
     return (prototype, methodName, descriptor) => {
       let decorations = prepPrototypeDecorations(prototype);
-        let {preprocessBindings} = decorations;
-          if(!preprocessBindings){
-            preprocessBindings = decorations.preprocessBindings = [];
+        let {bindingTriggers} = decorations;
+          if(!bindingTriggers){
+            bindingTriggers = decorations.bindingTriggers = [];
           }
-          let preprocessFunction  = descriptor.value;
-          preprocessBindings.push({preprocessFunction, name: methodName});
+          let triggerMethod  = descriptor.value;
+          bindingTriggers.push({triggerMethod, name: methodName});
     }
   }
 
