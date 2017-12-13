@@ -49,10 +49,18 @@ export class RenderableHelper {
         this._pipedRenderables = {};
         this._groupedRenderables = {};
         this._queuedRenderableTransitions = {};
+        this._delayedTransitions = {};
+        this._newRenderables = {};
     }
 
+    /**
+     * Adds a new renderable
+     * @param renderable
+     * @param renderableName
+     */
     assignRenderable(renderable, renderableName) {
         this._renderables[renderableName] = renderable;
+        this._newRenderables[renderableName] = true;
         let renderableEquivalent = renderable;
         if (renderable.decorations) {
             renderableEquivalent = this._addDecoratedRenderable(renderable, renderableName);
@@ -336,11 +344,11 @@ export class RenderableHelper {
         if (renderableCounterpart instanceof AnimationController) {
             renderable.animationController = renderableCounterpart
             renderable.animationController.setOptions(options)
-            pipeRenderable()
+            pipeRenderable();
         } else {
-            let animationController = renderable.animationController = new AnimationController(options)
-            pipeRenderable()
-            let showMethod = this.showWithAnimationController.bind(this, animationController, renderable)
+            let animationController = renderable.animationController = new AnimationController(options);
+            pipeRenderable();
+            let showMethod = this.showWithAnimationController.bind(this, animationController, renderable);
 
             if (options.delay && options.delay > 0 && options.showInitially) {
                 Timer.setTimeout(showMethod, options.delay)
@@ -483,10 +491,20 @@ export class RenderableHelper {
                 /* If it's not a queued animation, then it means that it is something that should execute asap and cancelled the last animaiton */
                 this.cancelRenderableTransition(renderableName);
             }
-            this._ongoingTransitions[renderableName] = [];
+            /* We shouldn't worry about priority if it's a brand new renderable, it should just execute immediately */
+            let priority = this._newRenderables[renderableName] ?
+                undefined : tweenTransitions[0].transition.queuePriority;
+
+            this._ongoingTransitions[renderableName] = { callbacks: [], priority };
+            if(typeof priority === 'number'){
+                if(this._mostUrgentTransitionPriority === undefined){
+                    this._mostUrgentTransitionPriority = priority;
+                } else {
+                    this._mostUrgentTransitionPriority = Math.min(this._mostUrgentTransitionPriority, priority);
+                }
+            }
 
             this._queuedRenderableTransitions[renderableName] = tweenTransitions;
-            Object.assign(decorations, tweenTransitions[0].decorations);
         }
     }
 
@@ -508,15 +526,22 @@ export class RenderableHelper {
             if (dock) {
                 sizesToCheck.push(dock.size);
             }
+            let isTrueSized = false;
             let trueSizedInfo = this._sizeResolver.getSurfaceTrueSizedInfo(renderable);
             for (let sizeToCheck of sizesToCheck) {
                 for (let dimension of [0, 1]) {
                     if (this._sizeResolver.isValueTrueSized(sizeToCheck[dimension])) {
+                        isTrueSized = true;
                         if (!trueSizedInfo) {
                             this._sizeResolver.configureTrueSizedSurface(renderable, sizeToCheck);
                         }
                     }
                 }
+            }
+            /* When the renderable used to be true sized, and now isn't, the size property has to be reset in order for the renderable
+            *  to read the context size*/
+            if(trueSizedInfo && !isTrueSized){
+                renderable.setSize(null);
             }
         }
         let oldRenderableGroupName = this._getGroupName(renderable);
@@ -843,7 +868,7 @@ export class RenderableHelper {
     waitForRenderableTransition(renderableID){
         if(this._ongoingTransitions[renderableID]){
             return new Promise((resolve, reject) => {
-                this._ongoingTransitions[renderableID].push({resolve, reject})
+                this._ongoingTransitions[renderableID].callbacks.push({resolve, reject})
             })
 
         }
@@ -859,32 +884,65 @@ export class RenderableHelper {
     }
 
     _terminateRenderableTransition(renderableID, wasSuccessful) {
-        let transitionCallbacks = this._ongoingTransitions[renderableID];
-        if(!transitionCallbacks){
+        let ongoingTransitions = this._ongoingTransitions[renderableID];
+        if(!ongoingTransitions){
             return;
         }
-        for(let transitionCallback of transitionCallbacks){
+        for(let transitionCallback of ongoingTransitions.callbacks){
             wasSuccessful ? transitionCallback.resolve(renderableID) : transitionCallback.reject({reason: 'Canceled'});
         }
         delete this._ongoingTransitions[renderableID];
+        this._determineMostUrgentTransitionPriority();
+        /*this._mostUrgentTransitionPriority =
+            Math.min(...Object.entries(this._ongoingTransitions).map(([_, {priority}]) => firstTransition.queuePriority))*/
+    }
+
+    _determineMostUrgentTransitionPriority() {
+        let lowestPriority;
+        for(let [_, {priority}] of Object.entries(this._ongoingTransitions)){
+            if(priority !== undefined){
+                if(lowestPriority === undefined){
+                    lowestPriority = Infinity;
+                }
+                lowestPriority = Math.min(lowestPriority, priority);
+            }
+        }
+        this._mostUrgentTransitionPriority = lowestPriority;
     }
 
     flushTransitions(context) {
         for (let [renderableID, transitions] of Object.entries(this._queuedRenderableTransitions || {})) {
+
+            let priority = transitions[0].transition.queuePriority;
+            if(this._mostUrgentTransitionPriority !== undefined && priority > this._mostUrgentTransitionPriority){
+                this._delayedTransitions[renderableID] = transitions;
+                continue;
+            }
+            delete this._delayedTransitions[renderableID];
+
             /* Take the first transition off */
             let currentTransitionObject = transitions.shift();
-            context.transition(renderableID, currentTransitionObject.transition,
 
+            this.applyDecoratorObjectToRenderable(renderableID, currentTransitionObject.decorations, true);
+
+            context.transition(renderableID, currentTransitionObject.transition,
                 (() => {
+                    Object.assign(this._queuedRenderableTransitions, this._delayedTransitions);
+                    /* Only apply the callback if there are transitions left in queue */
                     if(!transitions.length){
-                        return this.completeRenderableTransition(renderableID);
+                        this.completeRenderableTransition(renderableID);
+                    } else {
+                        this._ongoingTransitions[renderableID].priority = transitions[0].transition.queuePriority;
+                        this._determineMostUrgentTransitionPriority();
+                        this._queuedRenderableTransitions[renderableID] = transitions;
                     }
-                    /* Only apply the callback if there are transitions left in queuue */
-                    this.applyDecoratorObjectToRenderable(renderableID, transitions[0].decorations, true);
-                    this._queuedRenderableTransitions[renderableID] = transitions;
                     this._sizeResolver.requestReflow();
                 }));
         }
         this._queuedRenderableTransitions = {};
+        /* Unmark the renderbles as new */
+        this._newRenderables = {};
     }
+
+
 }

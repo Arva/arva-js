@@ -400,7 +400,7 @@ export class OptionObserver extends EventEmitter {
      * Updates the options from an external reason
      * @param newOptions
      */
-    recombineOptions(newOptions) {
+    recombineOptions(newOptions = {}) {
         let newOptionsAreAlsoOptions = !!newOptions[optionMetaData];
         if (newOptionsAreAlsoOptions) {
             if (newOptions === this.options) {
@@ -412,7 +412,7 @@ export class OptionObserver extends EventEmitter {
         }
         this._deepTraverse(this.options, (nestedPropertyPath, optionObject, existingOptionValue, key, [newOptionObject, defaultOption]) => {
             let newOptionValue = newOptionObject[key];
-            if (!newOptionValue && optionObject[key] !== null) {     //todo confirm whether this check is appropriate (I don't think it is)
+            if (newOptionValue === undefined && optionObject[key] !== null) {     //todo confirm whether this check is appropriate (I don't think it is)
                 let defaultOptionValue = defaultOption[key];
                 if (defaultOptionValue !== newOptionValue && (defaultOptionValue !== existingOptionValue &&
                         /* If new value is undefined, and the previous one was already the default, then don't update (will go false)*/

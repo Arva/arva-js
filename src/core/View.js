@@ -7,32 +7,32 @@
 
  */
 
-import extend                   from 'lodash/extend.js'
-import cloneDeep                from 'lodash/cloneDeep.js'
-import FamousView               from 'famous/core/View.js'
-import {RenderablePrototype}    from 'famous/utilities/RenderablePrototype.js'
-import LayoutController         from 'famous-flex/LayoutController.js'
-import {Surface}                from '../surfaces/Surface.js'
-import Engine                   from 'famous/core/Engine.js'
-import LayoutUtility            from 'famous-flex/LayoutUtility.js';
+import extend from 'lodash/extend.js'
+import cloneDeep from 'lodash/cloneDeep.js'
+import FamousView from 'famous/core/View.js'
+import {RenderablePrototype} from 'famous/utilities/RenderablePrototype.js'
+import LayoutController from 'famous-flex/LayoutController.js'
+import {Surface} from '../surfaces/Surface.js'
+import Engine from 'famous/core/Engine.js'
+import LayoutUtility from 'famous-flex/LayoutUtility.js';
 
-import {limit}                  from 'arva-js/utils/Limiter.js'
+import {limit} from 'arva-js/utils/Limiter.js'
 
-import {layout}                 from '../layout/Decorators.js'
-import {ObjectHelper}           from '../utils/ObjectHelper.js'
-import {SizeResolver}           from '../utils/view/SizeResolver.js'
-import {Utils}                  from '../utils/view/Utils.js'
+import {layout} from '../layout/Decorators.js'
+import {ObjectHelper} from '../utils/ObjectHelper.js'
+import {SizeResolver} from '../utils/view/SizeResolver.js'
+import {Utils} from '../utils/view/Utils.js'
 import {
     DockedLayoutHelper,
     FullSizeLayoutHelper,
     TraditionalLayoutHelper
 }
-                                from '../utils/view/LayoutHelpers.js'
-import {RenderableHelper}       from '../utils/view/RenderableHelper.js'
-import {ReflowingScrollView}    from '../components/ReflowingScrollView.js'
-import {MappedArray}            from '../utils/view/ArrayObserver.js'
-import {combineOptions}         from '../utils/CombineOptions.js'
-import {OptionObserver}         from '../utils/view/OptionObserver.js'
+    from '../utils/view/LayoutHelpers.js'
+import {RenderableHelper} from '../utils/view/RenderableHelper.js'
+import {ReflowingScrollView} from '../components/ReflowingScrollView.js'
+import {MappedArray} from '../utils/view/ArrayObserver.js'
+import {combineOptions} from '../utils/CombineOptions.js'
+import {OptionObserver} from '../utils/view/OptionObserver.js'
 
 /**
  * An Arva View. This is the base class for everything composite within Arva.
@@ -810,7 +810,7 @@ export class View extends FamousView {
         this._setupExtraRenderables();
     }
 
-    setNewChildren(children){
+    setNewChildren(children) {
         this._setupExtraRenderables(children);
     }
 
@@ -951,9 +951,9 @@ export class View extends FamousView {
                 renderable = factoryFunction(this.options);
             }
 
-            if (renderable instanceof MappedArray) {
+            if (Array.isArray(renderable)) {
                 renderableIsArray = true;
-                let renderables = renderable.getArray();
+                let renderables = renderable instanceof MappedArray ? renderable.getArray() : renderable;
                 if (currentRenderable && !Array.isArray(currentRenderable)) {
                     throw new Error('Cannot dynamically reassign renderable to array')
                 }
@@ -972,8 +972,7 @@ export class View extends FamousView {
                 }
 
                 let actualRenderables = new Array(totalLength);
-
-
+                let dockedRenderables = this._renderableHelper.getRenderableGroup('docked');
                 for (index = 0; index < renderables.length; index++) {
                     actualRenderables[index] = this._arrangeRenderableAssignment(currentRenderables[index],
                         renderables[index],
@@ -982,10 +981,13 @@ export class View extends FamousView {
                         decorations,
                         true);
                     if (index) {
-                        /* Make sure that the order is correct */
-                        this.prioritiseDockAfter(actualRenderables[index], actualRenderables[index - 1])
+                        if (dockedRenderables && dockedRenderables.has(Utils.getRenderableID(actualRenderables[index]))) {
+                            /* Make sure that the order is correct */
+                            this.prioritiseDockAfter(actualRenderables[index], actualRenderables[index - 1])
+                        }
                     }
                 }
+
 
                 for (; index < currentRenderables.length; index++) {
                     this.removeRenderable(currentRenderables[index])
@@ -993,9 +995,8 @@ export class View extends FamousView {
 
                 this._readjustRenderableInitializer(localRenderableName);
                 this[localRenderableName] = actualRenderables
-            } else if (Array.isArray(renderable)) {
-                throw new Error('Passing plain arrays as renderables is not yet supported. Please use the map function.')
             }
+
             if (!renderableIsArray) {
                 this._arrangeRenderableAssignment(currentRenderable, renderable, dynamicDecorations, localRenderableName, decorations)
             }
@@ -1005,7 +1006,6 @@ export class View extends FamousView {
         if (dynamicDecorations.length) {
             this._doReflow();
         }
-
 
 
         return renderable;
@@ -1070,7 +1070,7 @@ export class View extends FamousView {
             let {options, type, children} = renderablePrototype;
             if (oldRenderable && oldRenderable.constructor === type && oldRenderable.setNewOptions) {
                 oldRenderable.setNewOptions(options);
-                if(children){
+                if (children) {
                     oldRenderable.setNewChildren(children);
                 }
                 newRenderable = oldRenderable;
@@ -1203,13 +1203,14 @@ export class View extends FamousView {
         }
     }
 
-    async whenFlowFinished(renderable){
+    async whenFlowFinished(renderable) {
         await this._optionObserver.whenSettled();
         /* If the renderable doesn't exist (yet), this means that we shouldn't continue */
-        if(!renderable){
+        if (!renderable) {
             return;
         }
         await this._renderableHelper.waitForRenderableTransition(Utils.getRenderableID(renderable));
+        await this._optionObserver.whenSettled();
     }
 
     static empty() {
