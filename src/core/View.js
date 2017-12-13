@@ -1203,6 +1203,15 @@ export class View extends FamousView {
         }
     }
 
+    async whenFlowFinished(renderable){
+        await this._optionObserver.whenSettled();
+        /* If the renderable doesn't exist (yet), this means that we shouldn't continue */
+        if(!renderable){
+            return;
+        }
+        await this._renderableHelper.waitForRenderableTransition(Utils.getRenderableID(renderable));
+    }
+
     static empty() {
         //TODO Think of a more performant solution
         return Surface.with();

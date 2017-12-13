@@ -44,10 +44,11 @@ export class RenderableHelper {
         this._getIDfromLocalName = getIDfromLocalNameMethod;
         this.waitingAnimations = [];
         this._renderables = {};
+        this._ongoingTransitions = {};
         this._groupedRenderables = {};
         this._pipedRenderables = {};
         this._groupedRenderables = {};
-        this._renderableTransitions = {};
+        this._queuedRenderableTransitions = {};
     }
 
     assignRenderable(renderable, renderableName) {
@@ -186,7 +187,7 @@ export class RenderableHelper {
         if (dock && dock.size) {
             this._bindSizeFunctions(dock.size)
         }
-        this._handleDecoratorTransitions(renderableName, decorations);
+        this._handleDecoratorTransitions(renderableName, decorations, false);
 
         let renderableCounterpart = this._processsDecoratedRenderableCounterpart(renderable, renderableName)
 
@@ -366,24 +367,24 @@ export class RenderableHelper {
             if (callback) {
                 callback()
             }
-        }
+        };
         let emitOnFinished = () => {
             if (renderable.emit) {
-                renderable.emit(show ? 'shown' : 'hidden')
+                renderable.emit(show ? 'shown' : 'hidden');
             }
-            callbackIfExists()
-        }
+            callbackIfExists();
+        };
 
         if (show) {
-            animationController.show(renderable.containerSurface || renderable, options, emitOnFinished)
+            animationController.show(renderable.containerSurface || renderable, options, emitOnFinished);
         } else {
-            animationController.hide(null, emitOnFinished)
+            animationController.hide(null, emitOnFinished);
         }
     }
 
     _addRenderableToDecoratorGroup(renderable, renderableCounterpart, renderableName) {
         /* Group the renderable */
-        let groupName = this._getGroupName(renderable)
+        let groupName = this._getGroupName(renderable);
 
         if (groupName) {
             if (!(groupName in this._groupedRenderables)) {
@@ -395,11 +396,11 @@ export class RenderableHelper {
     }
 
     _getGroupName(renderable) {
-        let {decorations} = renderable
+        let {decorations} = renderable;
 
         if (!!decorations.dock) {
             /* 'filled' is a special subset of 'docked' renderables, that need to be rendered after the normal 'docked' renderables are rendered. */
-            return decorations.dock.dockMethod === 'fill' ? 'filled' : 'docked'
+            return decorations.dock.dockMethod === 'fill' ? 'filled' : 'docked';
         } else if (!!decorations.fullSize) {
             return 'fullSize'
         } else if (decorations.size || decorations.origin || decorations.align || decorations.translate) {
@@ -424,13 +425,15 @@ export class RenderableHelper {
      * @param {String} renderableName The name of the renderable
      */
     removeRenderable(renderableName) {
-        let renderable = this._renderables[renderableName]
-        this._setDecorationPipes(renderableName, false)
-        this._setDecorationEvents(renderableName, false)
-        this._unpipeRenderable(renderableName, renderableName)
-        this._removeRenderableFromDecoratorGroup(renderable, renderableName)
-        delete this._renderableCounterparts[renderableName]
-        delete this._renderables[renderableName]
+        let renderable = this._renderables[renderableName];
+        this._setDecorationPipes(renderableName, false);
+        this._setDecorationEvents(renderableName, false);
+        this._unpipeRenderable(renderableName, renderableName);
+        this._removeRenderableFromDecoratorGroup(renderable, renderableName);
+        delete this._ongoingTransitions[renderableName];
+        delete this._queuedRenderableTransitions[renderableName];
+        delete this._renderableCounterparts[renderableName];
+        delete this._renderables[renderableName];
     }
 
     //Done
@@ -473,16 +476,22 @@ export class RenderableHelper {
 
     }
 
-    _handleDecoratorTransitions(renderableName, decorations) {
+    _handleDecoratorTransitions(renderableName, decorations, inQueue) {
         let {tweenTransitions} = decorations;
         if (tweenTransitions) {
-            this._renderableTransitions[renderableName] = tweenTransitions;
+            if(!inQueue){
+                /* If it's not a queued animation, then it means that it is something that should execute asap and cancelled the last animaiton */
+                this.cancelRenderableTransition(renderableName);
+            }
+            this._ongoingTransitions[renderableName] = [];
+
+            this._queuedRenderableTransitions[renderableName] = tweenTransitions;
             Object.assign(decorations, tweenTransitions[0].decorations);
         }
     }
 
-    applyDecoratorObjectToRenderable(renderableName, decorations) {
-        this._handleDecoratorTransitions(renderableName, decorations);
+    applyDecoratorObjectToRenderable(renderableName, decorations, inQueue = false) {
+        this._handleDecoratorTransitions(renderableName, decorations, inQueue);
         let renderable = this._renderables[renderableName];
         let renderableOrEquivalent = this._getPipeableRenderableFromName(renderableName);
         /* We might need to do extra piping */
@@ -831,19 +840,51 @@ export class RenderableHelper {
         this.applyDecoratorFunctionsToRenderable(decorations, renderablePrototype.getDirectlyAppliedDecoratorFunctions());
     }
 
+    waitForRenderableTransition(renderableID){
+        if(this._ongoingTransitions[renderableID]){
+            return new Promise((resolve, reject) => {
+                this._ongoingTransitions[renderableID].push({resolve, reject})
+            })
+
+        }
+        return Promise.resolve();
+    }
+
+    cancelRenderableTransition(renderableID){
+        this._terminateRenderableTransition(renderableID, false);
+    }
+
+    completeRenderableTransition(renderableID) {
+        this._terminateRenderableTransition(renderableID, true);
+    }
+
+    _terminateRenderableTransition(renderableID, wasSuccessful) {
+        let transitionCallbacks = this._ongoingTransitions[renderableID];
+        if(!transitionCallbacks){
+            return;
+        }
+        for(let transitionCallback of transitionCallbacks){
+            wasSuccessful ? transitionCallback.resolve(renderableID) : transitionCallback.reject({reason: 'Canceled'});
+        }
+        delete this._ongoingTransitions[renderableID];
+    }
+
     flushTransitions(context) {
-        for (let [renderableID, transitions] of Object.entries(this._renderableTransitions || {})) {
+        for (let [renderableID, transitions] of Object.entries(this._queuedRenderableTransitions || {})) {
             /* Take the first transition off */
             let currentTransitionObject = transitions.shift();
             context.transition(renderableID, currentTransitionObject.transition,
-                /* Only apply the callback if there are transitions left in queuue */
-                transitions.length &&
+
                 (() => {
-                    this.applyDecoratorObjectToRenderable(renderableID, transitions[0].decorations);
-                    this._renderableTransitions[renderableID] = transitions;
+                    if(!transitions.length){
+                        return this.completeRenderableTransition(renderableID);
+                    }
+                    /* Only apply the callback if there are transitions left in queuue */
+                    this.applyDecoratorObjectToRenderable(renderableID, transitions[0].decorations, true);
+                    this._queuedRenderableTransitions[renderableID] = transitions;
                     this._sizeResolver.requestReflow();
                 }));
         }
-        this._renderableTransitions = {};
+        this._queuedRenderableTransitions = {};
     }
 }

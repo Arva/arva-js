@@ -875,6 +875,13 @@ export class OptionObserver extends EventEmitter {
         return this._deepTraverse(this.options, callback)
     }
 
+    whenSettled() {
+        if(Object.keys(this._updatesForNextTick).length || Object.keys(this._newOptionUpdates).length){
+            return new Promise((resolve) => this.once('settled', resolve));
+        }
+        return Promise.resolve();
+    }
+
     _handleResultingUpdates() {
         let triggerIndices = this._updatesForNextTick[OptionObserver.triggers];
         if (triggerIndices) {
@@ -893,8 +900,10 @@ export class OptionObserver extends EventEmitter {
             this.emit('needUpdate', renderableName)
         }
         this._updatesForNextTick = {};
+        this.emit('settled');
         this._forbiddenUpdatesForNextTick = {};
     }
+
 
     /**
      *
