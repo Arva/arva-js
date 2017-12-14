@@ -7,21 +7,21 @@
 
  */
 
-import extend from 'lodash/extend.js'
-import cloneDeep from 'lodash/cloneDeep.js'
-import FamousView from 'famous/core/View.js'
-import {RenderablePrototype} from 'famous/utilities/RenderablePrototype.js'
-import LayoutController from 'famous-flex/LayoutController.js'
-import {Surface} from '../surfaces/Surface.js'
-import Engine from 'famous/core/Engine.js'
-import LayoutUtility from 'famous-flex/LayoutUtility.js';
+import extend                   from 'lodash/extend.js'
+import cloneDeep                from 'lodash/cloneDeep.js'
+import FamousView               from 'famous/core/View.js'
+import {RenderablePrototype}    from 'famous/utilities/RenderablePrototype.js'
+import LayoutController         from 'famous-flex/LayoutController.js'
+import {Surface}                from '../surfaces/Surface.js'
+import Engine                   from 'famous/core/Engine.js'
+import LayoutUtility            from 'famous-flex/LayoutUtility.js';
 
-import {limit} from 'arva-js/utils/Limiter.js'
+import {limit}                  from 'arva-js/utils/Limiter.js'
 
-import {layout} from '../layout/Decorators.js'
-import {ObjectHelper} from '../utils/ObjectHelper.js'
-import {SizeResolver} from '../utils/view/SizeResolver.js'
-import {Utils} from '../utils/view/Utils.js'
+import {layout}                 from '../layout/Decorators.js'
+import {ObjectHelper}           from '../utils/ObjectHelper.js'
+import {SizeResolver}           from '../utils/view/SizeResolver.js'
+import {Utils}                  from '../utils/view/Utils.js'
 import {
     DockedLayoutHelper,
     FullSizeLayoutHelper,
