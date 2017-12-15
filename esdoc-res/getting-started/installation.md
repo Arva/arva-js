@@ -7,11 +7,10 @@ The easiest way to get started quickly is by cloning the <a href="https://github
 settings to build a hello world application across multiple platforms.
 
 ```bash
-npm install -g cordova
+npm install -g cordova@6.5.0
 git clone https://github.com/Arva/arva-seed.git
 cd arva-seed
-npm install
-jspm install
+npm i
 ```
 
 ## On we go!

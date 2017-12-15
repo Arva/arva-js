@@ -1,20 +1,14 @@
 # Writing your first application
-Now that you've [[successfully installed|Installation]] Arva, you've already got the seed project, which is your starting point for building a new app. Let's have a look at the main components of an Arva seed project.
+Now that you've successfully Arva, you've already got the seed project, which is your starting point for building a new app. Let's have a look at the main components of an Arva seed project.
 
 ### 1. App.js ###
 In _src/App.js_ you'll find the entry point to your freshly cloned app. This class is the basis of our App. We instantiate our controllers here, and hook them up to the Router that automatically handles switching between controllers when the page URL changes. The inner workings of App.js are elaborated by inline comments:
 
 
 ```javascript
-import firebase                     from 'firebase';
-
-import {FirebaseDataSource}         from 'arva-js/data/datasources/FirebaseDataSource.js';
-import {provide}                    from 'arva-js/utils/di/Decorators.js';
-import {Injection}                  from 'arva-js/utils/Injection.js';
-import {DataSource}                 from 'arva-js/data/DataSource.js';
 import {App as ArvaApp}             from 'arva-js/core/App.js';
 
-/* Importing CSS in jspm bundled builds injects them into the DOM automagically */
+/* Importing CSS in jspm bundled builds injects them into the DOM automatically */
 import './famous.css';
 import './fonts.css';
 
@@ -23,21 +17,8 @@ import {HomeController}             from './controllers/HomeController.js';
 
 export class App extends ArvaApp {
 
-    /* References to Dependency Injection created App and Controller instances, so they are not garbage collected. */
-    static references = {};
-
     static controllers = [HomeController];
 
-    @provide(DataSource)
-    static defaultDataSource() {
-        firebase.initializeApp({
-            apiKey: '<api-key>',
-            authDomain: '<subdomain>.firebaseapp.com',
-            databaseURL: 'https://<subdomain>.firebaseio.com',
-            storageBucket: '<subdomain>.appspot.com'
-        });
-        return new FirebaseDataSource('/', {});
-    }
 
     /**
      *  Called before the App is constructed and before the basic components (Router, Famous Context, Controllers, DataSource)
@@ -69,7 +50,8 @@ document.addEventListener('deviceready', App.initialize.bind(App));
 ```
 
 ### 2. HomeController.js ###
-In our App class we imported a HomeController, and made it the default controller called by the Router if no route is present. This controller was already created in _/src/controllers/HomeController.js_ and shows how easy it is to set up logic in Arva apps.
+In our App class we imported a HomeController, and made it the default controller called by the Router if no route is present in the URL.
+This controller was already created in _/src/controllers/HomeController.js_ and shows how easy it is to set up logic in Arva apps.
 
 
 ```javascript
@@ -100,14 +82,14 @@ import {layout, event}      from 'arva-js/layout/Decorators.js';
 export class HomeView extends View {
 
     @layout.size(~100, ~25)
-    @layout.stick.center()
+        .stick.center()
     message = new Surface({content: `Hello ${this.options.welcomeName}`});
 
 }
 ```
 
 ### 4. Building and previewing ###
-In order to transpile all our neat ES6 code to browser-understandable ES5 code we need to execute `npm run build` in the base Arva seed folder. The transpiled code will be saved in _/www/bundle.js_. You can also use `npm run watch` for continuous watching and recompilation of changed files.
+In order to transpile all our neat ES6 code to compatible ES5 code we need to execute `npm run build` in the base Arva seed folder. The transpiled code will be saved in _/www/bundle.js_. You can also use `npm run watch` for continuous watching and recompilation of changed files.
 
 
 
@@ -120,7 +102,7 @@ This is what _index.html_ looks like:
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com wss://*.firebaseio.com https://*.firebaseio.com https://auth.firebase.com https://*.firebaseapp.com http://apis.google.com https://*.googleapis.com http://connect.facebook.net https://connect.facebook.net http://*.ak.facebook.com https://*.ak.facebook.com https://fonts.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; media-src *">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="mobile-web-app-capable" content="yes"/>
