@@ -15,6 +15,9 @@ import {UrlParser}          from '../../../utils/request/UrlParser.js';
 import {ParseStringToXml}   from '../../../utils/request/XmlParser.js';
 
 
+/**
+ * @ignore
+ */
 export class DataModelGenerator {
 
     constructor(originalPath, schema) {

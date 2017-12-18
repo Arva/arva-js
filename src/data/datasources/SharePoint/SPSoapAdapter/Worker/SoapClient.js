@@ -16,6 +16,9 @@ import {ObjectHelper}       from '../../../../../utils/ObjectHelper';
 import {PostRequest}        from '../../../../../utils/request/RequestClient';
 import {ParseStringToXml}   from '../../../../../utils/request/XmlParser';
 
+/**
+ * @ignore
+ */
 export class SoapClient {
 
     constructor() {

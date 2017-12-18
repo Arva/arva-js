@@ -7,6 +7,10 @@
 
  */
 
+/**
+ * @ignore
+ * The DataSource in the abstract interface for communicating with data
+ */
 export class DataSource {
 
     /**

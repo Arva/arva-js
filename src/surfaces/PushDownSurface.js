@@ -2,7 +2,7 @@
  * Created by lundfall on 18/10/2016.
  */
 
-import {Surface} from '../surfaces/Surface';
+import {Surface} from './Surface';
 
 export class PushDownSurface extends Surface {
     

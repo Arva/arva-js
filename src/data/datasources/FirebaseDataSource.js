@@ -13,6 +13,10 @@ import {ObjectHelper}               from '../../utils/ObjectHelper.js';
 import {provide}                    from '../../utils/di/Decorators.js';
 import {combineOptions}             from '../../utils/CombineOptions.js';
 
+/**
+ * @ignore
+ * An implementation of the DataSource allowing Firebase integration
+ */
 @provide(DataSource)
 export class FirebaseDataSource extends DataSource {
 

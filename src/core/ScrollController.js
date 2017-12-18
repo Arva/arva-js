@@ -39,12 +39,12 @@ import { Utils }                 from '../utils/view/Utils.js'
 import { combineOptions }        from '../utils/CombineOptions.js'
 import { ObjectHelper }          from '../utils/ObjectHelper.js'
 import { StackLayout }           from '../layout/functions/StackLayout.js'
-import { PushDownSurface }       from './PushDownSurface.js'
+import { PushDownSurface }       from '../surfaces/PushDownSurface.js'
 
 //TODO: There's a bug when having chat scrolling on, and adding a lot of stuff, removing it all, and adding them again back
 
 /**
- * Only supports linkedListViews as dataSource. Meant to be used with the dbsv.
+ * Enables a native scrolling list to be rendered.
  */
 export class ScrollController extends FamousView {
 

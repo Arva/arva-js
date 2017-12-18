@@ -16,7 +16,9 @@ SPWorker.onmessage = (messageEvent) => {
     workerEvents.emit('message', messageEvent);
 };
 
+
 /**
+ * @ignore
  * The SharePoint class will utilize a Web Worker to perform data operations. Running the data interfacing in a
  * seperate thread from the UI thread will ensure there is minimal interruption of the user interaction.
  */

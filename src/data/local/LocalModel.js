@@ -7,6 +7,9 @@ import {Model}          from '../../core/Model';
 import {DataSource}     from '../DataSource.js';
 import {ObjectHelper}   from 'arva-js/utils/ObjectHelper.js';
 
+/**
+ * A model where data is not synchronized to any back-end
+ */
 export class LocalModel extends Model {
 
     get id() {

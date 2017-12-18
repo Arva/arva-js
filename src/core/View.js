@@ -35,7 +35,7 @@ import {combineOptions} from '../utils/CombineOptions.js'
 import {OptionObserver} from '../utils/view/OptionObserver.js'
 
 /**
- * An Arva View. This is the base class for everything composite within Arva.
+ * An Arva View. This is the heart of Arva and responsible for providing state management and animation.
  *
  */
 export class View extends FamousView {

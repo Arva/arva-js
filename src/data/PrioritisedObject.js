@@ -15,6 +15,9 @@ import {ObjectHelper}   from '../utils/ObjectHelper.js';
 import {Injection}      from '../utils/Injection.js';
 import {DataSource}     from '../data/DataSource.js';
 
+/**
+ * @ignore
+ */
 export class PrioritisedObject extends EventEmitter {
 
     _accessedKeys = [];

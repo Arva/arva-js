@@ -10,6 +10,10 @@
 import {ObjectHelper}               from '../../../utils/ObjectHelper.js';
 import {Snapshot}                   from '../../Snapshot.js';
 
+/**
+ * @ignore
+ * An implementation of a snapshot made through SharePoint
+ */
 export class SharePointSnapshot extends Snapshot {
 
     constructor(dataSnapshot, dataSource = null, kvpair = null) {

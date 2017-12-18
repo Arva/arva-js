@@ -18,9 +18,9 @@ import {Router}                 from './Router.js';
 
 
 /**
- * The Controller class provides the highest level of control regarding the application features. Within the Controller context
- * each method will registered to receive calls from the Routing engine. With direct access to the Famo.us Context, every method can
- * control the creation of Views and Transitions.
+ * The Controller class provides the highest level of control regarding the application features. Every controller method
+ * corresponds to a subroute (Usually defaulting to Index), and every controller maps to a parent-route (usually called Home)
+ * The controller methods should return views or dialogs. These will be displayed by the framework when the route is entered.
  */
 @inject(Router, AnimationController, DialogManager)
 export class Controller extends EventEmitter {

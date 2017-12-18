@@ -8,6 +8,9 @@ import {DataSource}         from '../DataSource';
 import {PrioritisedArray}   from '../PrioritisedArray.js';
 import {ObjectHelper}       from '../../utils/ObjectHelper.js';
 
+/**
+ * Provides a way to create PrioritisedArrays without back-end synchronization
+ */
 export class LocalPrioritisedArray extends PrioritisedArray {
 
     constructor(dataType) {

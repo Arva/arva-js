@@ -1,7 +1,9 @@
 /**
  * Created by tom on 07/02/2017.
  */
-
+/**
+ * @ignore
+ */
 export class FileSource {
 
     /**

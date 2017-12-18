@@ -17,6 +17,10 @@ import {SharePointSnapshot}         from './SharePoint/SharePointSnapshot.js';
 
 let _currentUser;
 
+/**
+ * @ignore
+ * An implementation of the DataSource allowing Sharepoint integration
+ */
 @provide(DataSource)
 export class SharePointDataSource extends DataSource {
 

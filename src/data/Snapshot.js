@@ -8,6 +8,10 @@
 
  */
 
+/**
+ * @ignore
+ * Abstraction of a data snapshot
+ */
 export class Snapshot{
     constructor(dataSnapshot){}
 
