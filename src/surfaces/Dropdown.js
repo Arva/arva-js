@@ -5,6 +5,11 @@
 /**
  * Created by lundfall on 21/09/16.
  */
+import {
+    InputOption,
+    unwrapValue,
+    changeValue
+}                                   from '../utils/view/InputOption.js'
 
 import {View}                       from 'arva-js/core/View.js';
 import {flow, layout, event}        from 'arva-js/layout/Decorators.js';
@@ -28,7 +33,7 @@ export class Dropdown extends Surface {
                     optionChangeListeners.selectedItem(selectedItem);
                 }
                 if(optionChangeListeners.selectedItemIndex){
-                    optionChangeListeners.selectedItemIndex(selectedItem);
+                    optionChangeListeners.selectedItemIndex(selectedItemIndex);
                 }
             }
         })
@@ -43,9 +48,20 @@ export class Dropdown extends Surface {
     }
 
     static with(options) {
+        let {selectedItemIndex} = options;
+        if (selectedItemIndex instanceof InputOption) {
+            if ((!options[onOptionChange] || !options[onOptionChange].selectedItemIndex)) {
+                let optionChangeListener = options[onOptionChange];
+                if (!optionChangeListener) {
+                    optionChangeListener = options[onOptionChange] = {};
+                }
+                optionChangeListener.selectedItemIndex = (changedValue) => selectedItemIndex[changeValue](changedValue);
+            }
+            options.selectedItemIndex = selectedItemIndex[unwrapValue]();
+        }
         return super.with({
             ...options,
-            selectedItem: options.selectedItemIndex ? options.items[selectedItemIndex] : options.items.find((item) => item.selected),
+            selectedItem: options.selectedItemIndex ? options.items[options.selectedItemIndex] : options.items.find((item) => item.selected),
             properties: {
                 overflow: 'hidden',
                 border: '1px solid rgba(0, 0, 0, 0.1)',
