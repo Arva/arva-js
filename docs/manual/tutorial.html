@@ -32,9 +32,9 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#what--39-s-arva-js-" data-ice="link">What&apos;s Arva JS?</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#layout-and-hierarchy" data-ice="link">Layout and hierarchy</a></li>
 <li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#animations-and-states" data-ice="link">Animations and states</a></li>
 <li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#data-binding-and-views" data-ice="link">Data binding and Views</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/tutorial.html"><a href="manual/tutorial.html#chained-decorators" data-ice="link">Chained decorators</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/tutorial.html"><a href="manual/tutorial.html#two-way-data-binding" data-ice="link">Two-way data binding</a></li>
 <li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#but-what-about-react-" data-ice="link">But what about React?</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/tutorial.html"><a href="manual/tutorial.html#state-updates" data-ice="link">State updates</a></li>
@@ -63,18 +63,61 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="what--39-s-arva-js-">What&apos;s Arva JS?</h1><p>Arva JS solves the problem of <strong>layout</strong> and <strong>animation</strong> without the need to bother with CSS nor HTML. While CSS is still used for <strong>styling</strong> of the content, whereas <strong>positioning</strong> and <strong>sizing</strong> is handled through different processes.
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="what--39-s-arva-js-">What&apos;s Arva JS?</h1><p>Arva is a fresh-cut framework for building interactive applications. When we talk about <strong>applications</strong> that are <strong>interactive</strong>,
+we leverage complete built-in animation capabilities along with powerful state maintenance to successfully maintain UI interaction in a fluid way.
+In other words, this is not only an <strong>animation library</strong> (GreenSock, Velocity.js etc), nor an <strong>application framework</strong> (React, Angular, etc), but a holistic solution of both.</p>
+<p>Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for <strong>styling</strong> of the content, whereas <strong>positioning</strong> and <strong>sizing</strong> is handled through different processes.
 Arva astracts away some of the concerns that many front-end developers face,
 which includes CSS deep-dives and directives like <code>display: inline-block</code> <code>margin:auto</code>, <code>position:relative</code>, <code>clear:left</code>, <code>float: right</code>, <code>zoom: 1</code> <code>overflow: auto</code>, <code>-webkit-box-sizing: border-box</code> and so on.</p>
-<p>Even modern paradigms like flexbox won&apos;t be necessary anymore. Let&apos;s get started.</p>
-<h1 id="animations-and-states">Animations and states</h1><p>Animation states can be defined using the <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow">flow</a> operator.</p>
-<p>The core concept of Flow is that the renderables can have multiple <strong>states</strong>,
-each of which contain a collection of layout properties.</p>
-<p>When the renderable changes from one state to another using the <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout">layout</a> operations,
+<p>Even modern paradigms like <code>flexbox</code> won&apos;t be necessary anymore. In addition, arva refrains from using any templating language, and only uses standard EcmaScript syntax. Let&apos;s get started.</p>
+<h1 id="layout-and-hierarchy">Layout and hierarchy</h1><p>The API surface of layout in much smaller than that of css, and an example is usually the best way to start out an explanation. We demonstrate how to construct the following layout:</p>
+<p><img src="./manual/asset/layout.png" alt="layout-example =250x"></p>
+<p>We see a top bar, a background color, and a bottom button, along with some box shadows to create a sense of depth in line with the current fashion of material design.</p>
+<p>This is achieved with the following code.</p>
+<pre><code><code class="source-code prettyprint">
+export class RootView extends View {
+
+    @layout
+        /* Take up the full space*/
+        .fullSize()
+        /* -1 negative z-index to make space for the foreground content*/
+        .translate(0, 0, -1)
+        /* The surface is the most fundamental element to compose views with */
+    background = Surface.with({properties: {backgroundColor: &apos;aliceblue&apos; }});
+
+
+    @layout
+        /* Docking makes something appear at the top with a height of 44 pixels */
+        .dock.top(44)
+    /* This is a top bar */
+    topBar = TopBar.with({title: &apos;Dashboard&apos;})
+
+    @layout
+        /* Stick bottom right, and translate upwards/left for margin*/
+        .stick.bottomRight()
+        .translate(-10, -10, 0)
+        .size(52, 52)
+    bottomButton = Button.with()
+
+}</code>
+</code></pre><p><a href="https://github.com/Arva/demo">Full source code can be found here under &apos;layout&apos;</a>
+For API reference regarding layout, see the <a href="http://arva.io/arva-js/class/src/layout/Decorators.js~Layout.html">docs</a>.</p>
+<p>As you can see, all decorators of the same type (<a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout">layout</a>, <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event">event</a>, and <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow">flow</a>) can be chained when used.</p>
+<p>For example,</p>
+<pre><code><code class="source-code prettyprint">    @layout.dock.top()
+        .size(undefined, true)
+    centeredText = Surface.with({content: &apos;This is centered!&apos;})</code>
+</code></pre><p>Is the same as</p>
+<pre><code><code class="source-code prettyprint">    @layout.dock.top()
+    @layout.size(undefined, true)
+    centeredText = Surface.with({content: &apos;This is centered!&apos;})</code>
+</code></pre><h1 id="animations-and-states">Animations and states</h1><p>Animation states can be defined using the <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow">flow</a> operator.</p>
+<p>The core concept of Flow is to animate using any of the existing <em>layout</em> operators.
+When the renderable changes from one state to another using the <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout">layout</a> operations,
 their <strong>layout properties</strong> are tweened into each other, creating the effect of seamless animation.</p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">    @flow.stateStep(&apos;hidden&apos;, layout.opacity(0))
-    @flow.stateStep(&apos;shown&apos;, layout.opacity(1))
-    layer = Surface.with({properties: {backgroundColor: &apos;red&apos;}});</code>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">    @flow.transition({duration: 200, curve: Easing.inCubic})(
+        layout.size(300, 300)
+    )</code>
 </code></pre>
 <p>For a contextual example of using flow and animation, we made a sample component for showing and hiding a menu:</p>
 <p><img src="./manual/asset/animation-demo.gif" alt="animation"></p>
@@ -92,20 +135,20 @@ their <strong>layout properties</strong> are tweened into each other, creating t
 class HomeView extends View {
 ....</code>
 </code></pre><p>The <code>backgroundColor</code> can then be referenced inside the view:</p>
-<pre><code><code class="source-code prettyprint">    background = Surface.with({properties: {backgroundColor: this.options.backgroundColor}})</code>
+<pre><code><code class="source-code prettyprint">    background = Surface.with({
+        properties:
+            {backgroundColor: this.options.backgroundColor
+         }
+    })</code>
 </code></pre><p>It can be changed through different triggers, one being <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event">events</a>.</p>
 <pre><code><code class="source-code prettyprint">    @event.on(&apos;click&apos;, function() {
         this.options.backgroundColor = &apos;green&apos;;
     })
-    background = Surface.with({properties: {backgroundColor: this.options.backgroundColor}})</code>
-</code></pre><h2 id="chained-decorators">Chained decorators</h2><p>All decorators of the same type (<a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout">layout</a>, <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event">event</a>, and <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow">flow</a>) can be chained when used.</p>
-<pre><code><code class="source-code prettyprint">    @layout.dock.top()
-        .size(undefined, true)
-    centeredText = Surface.with({content: &apos;This is centered!&apos;})</code>
-</code></pre><p>Is the same as</p>
-<pre><code><code class="source-code prettyprint">    @layout.dock.top()
-    @layout.size(undefined, true)
-    centeredText = Surface.with({content: &apos;This is centered!&apos;})</code>
+    background = Surface.with({
+            properties:
+                {backgroundColor: this.options.backgroundColor
+             }
+        })</code>
 </code></pre><h2 id="two-way-data-binding">Two-way data binding</h2><p>Data can go two ways. An example of data that becomes modified is the value of the <a href="http://localhost:63342/arva-js/docs/class/src/surfaces/InputSurface.js~InputSurface.html">InputSurface</a>.</p>
 <pre><code><code class="source-code prettyprint">    @layout.dock.top()
         .size(undefined, true)

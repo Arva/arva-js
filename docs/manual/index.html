@@ -32,9 +32,9 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#what--39-s-arva-js-" data-ice="link">What&apos;s Arva JS?</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#layout-and-hierarchy" data-ice="link">Layout and hierarchy</a></li>
 <li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#animations-and-states" data-ice="link">Animations and states</a></li>
 <li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#data-binding-and-views" data-ice="link">Data binding and Views</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/tutorial.html"><a href="manual/tutorial.html#chained-decorators" data-ice="link">Chained decorators</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/tutorial.html"><a href="manual/tutorial.html#two-way-data-binding" data-ice="link">Two-way data binding</a></li>
 <li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#but-what-about-react-" data-ice="link">But what about React?</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/tutorial.html"><a href="manual/tutorial.html#state-updates" data-ice="link">State updates</a></li>
@@ -65,23 +65,17 @@
 
 <div class="content" data-ice="content"><div class="github-markdown">
   <div class="manual-user-index" data-ice="manualUserIndex"><h1 id="prerequisites">Prerequisites</h1><ul>
-<li>General understanding of Javascript Package Managers, including NPM and JSPM</li>
-<li>Basic understanding of Famo.us, documentation can be found here: <a href="http://famo.us/docs/">http://famo.us/docs/</a></li>
-<li>Basic understanding of Famous-flex, documentation can be found here: <a href="https://github.com/ijzerenhein/famous-flex/">https://github.com/ijzerenhein/famous-flex/</a></li>
-<li>Basic understanding of Javascript and the ES6/7 (ES2015) semantics</li>
+<li>An installation of NPM and basic understanding of it.</li>
+<li>Basic understanding of Javascript and the ES6/7 (ES2015) semantics.</li>
 </ul>
-<h2 id="installation">Installation</h2><p>The easiest way to get started quickly is by cloning the <a href="https://github.com/Bizboard/arva-seed">Arva Seed</a> project. This project contains all the necessary components and default
+<h2 id="installation">Installation</h2><p>The easiest way to get started quickly is by cloning the <a href="https://github.com/Arva/arva-seed">Arva Seed</a> project. This project contains all the necessary components and default
 settings to build a hello world application across multiple platforms.</p>
-<pre><code class="lang-bash"><code class="source-code prettyprint">npm install -g cordova
-git clone https://github.com/Bizboard/arva-seed.git
+<pre><code class="lang-bash"><code class="source-code prettyprint">npm install -g cordova@6.5.0
+git clone https://github.com/Arva/arva-seed.git
 cd arva-seed
-npm install
-jspm install</code>
+npm i</code>
 </code></pre>
-<blockquote>
-<p>If you&apos;re using WebStorm, now would be a good time to dive into your preferences and set your JavaScript version to ECMAScript 6.</p>
-</blockquote>
-<h2 id="on-we-go-">On we go!</h2><p>Excited? You should be! Let&apos;s move on to [[Writing your first Arva app]].</p>
+<h2 id="on-we-go-">On we go!</h2><p>Excited? You should be! Let&apos;s move on!</p>
 </div>
 
   
@@ -100,33 +94,22 @@ springboard for rapid application development.</p></div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
         <div data-ice="card"><h1>Prerequisites</h1><ul>
-<li>General understanding of Javascript Package Managers, including NPM and JSPM</li>
-<li>Basic understanding of Famo.us, documentation can be found here: <a href="http://famo.us/docs/">http://famo.us/docs/</a></li>
-<li>Basic understanding of Famous-flex, documentation can be found here: <a href="https://github.com/ijzerenhein/famous-flex/">https://github.com/ijzerenhein/famous-flex/</a></li>
-<li>Basic understanding of Javascript and the ES6/7 (ES2015) semantics</li>
-</ul><h2>Installation</h2><p>The easiest way to get started quickly is by cloning the <a href="https://github.com/Bizboard/arva-seed">Arva Seed</a> project. This project contains all the necessary components and default
-settings to build a hello world application across multiple platforms.</p><pre><code class="lang-bash"><code class="source-code prettyprint">npm install -g cordova
-git clone https://github.com/Bizboard/arva-seed.git
+<li>An installation of NPM and basic understanding of it.</li>
+<li>Basic understanding of Javascript and the ES6/7 (ES2015) semantics.</li>
+</ul><h2>Installation</h2><p>The easiest way to get started quickly is by cloning the <a href="https://github.com/Arva/arva-seed">Arva Seed</a> project. This project contains all the necessary components and default
+settings to build a hello world application across multiple platforms.</p><pre><code class="lang-bash"><code class="source-code prettyprint">npm install -g cordova@6.5.0
+git clone https://github.com/Arva/arva-seed.git
 cd arva-seed
-npm install
-jspm install</code>
-</code></pre><blockquote>
-<p>If you&apos;re using WebStorm, now would be a good time to dive into your preferences and set your JavaScript version to ECMAScript 6.</p>
-</blockquote><h2>On we go!</h2><p>Excited? You should be! Let&apos;s move on to [[Writing your first Arva app]].</p></div>
+npm i</code>
+</code></pre><h2>On we go!</h2><p>Excited? You should be! Let&apos;s move on!</p></div>
         <a data-ice="link" href="manual/installation.html"></a>
       </div>
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Writing your first application</h1><p>Now that you&apos;ve [[successfully installed|Installation]] Arva, you&apos;ve already got the seed project, which is your starting point for building a new app. Let&apos;s have a look at the main components of an Arva seed project.</p><h3>1. App.js</h3><p>In <em>src/App.js</em> you&apos;ll find the entry point to your freshly cloned app. This class is the basis of our App. We instantiate our controllers here, and hook them up to the Router that automatically handles switching between controllers when the page URL changes. The inner workings of App.js are elaborated by inline comments:</p><pre><code class="lang-javascript"><code class="source-code prettyprint">import firebase                     from &apos;firebase&apos;;
+        <div data-ice="card"><h1>Writing your first application</h1><p>Now that you&apos;ve successfully Arva, you&apos;ve already got the seed project, which is your starting point for building a new app. Let&apos;s have a look at the main components of an Arva seed project.</p><h3>1. App.js</h3><p>In <em>src/App.js</em> you&apos;ll find the entry point to your freshly cloned app. This class is the basis of our App. We instantiate our controllers here, and hook them up to the Router that automatically handles switching between controllers when the page URL changes. The inner workings of App.js are elaborated by inline comments:</p><pre><code class="lang-javascript"><code class="source-code prettyprint">import {App as ArvaApp}             from &apos;arva-js/core/App.js&apos;;
 
-import {FirebaseDataSource}         from &apos;arva-js/data/datasources/FirebaseDataSource.js&apos;;
-import {provide}                    from &apos;arva-js/utils/di/Decorators.js&apos;;
-import {Injection}                  from &apos;arva-js/utils/Injection.js&apos;;
-import {DataSource}                 from &apos;arva-js/data/DataSource.js&apos;;
-import {App as ArvaApp}             from &apos;arva-js/core/App.js&apos;;
-
-/* Importing CSS in jspm bundled builds injects them into the DOM automagically */
+/* Importing CSS in jspm bundled builds injects them into the DOM automatically */
 import &apos;./famous.css&apos;;
 import &apos;./fonts.css&apos;;
 
@@ -135,21 +118,8 @@ import {HomeController}             from &apos;./controllers/HomeController.js&a
 
 export class App extends ArvaApp {
 
-    /* References to Dependency Injection created App and Controller instances, so they are not garbage collected. */
-    static references = {};
-
     static controllers = [HomeController];
 
-    @provide(DataSource)
-    static defaultDataSource() {
-        firebase.initializeApp({
-            apiKey: &apos;&lt;api-key&gt;&apos;,
-            authDomain: &apos;&lt;subdomain&gt;.firebaseapp.com&apos;,
-            databaseURL: &apos;https://&lt;subdomain&gt;.firebaseio.com&apos;,
-            storageBucket: &apos;&lt;subdomain&gt;.appspot.com&apos;
-        });
-        return new FirebaseDataSource(&apos;/&apos;, {});
-    }
 
     /**
      *  Called before the App is constructed and before the basic components (Router, Famous Context, Controllers, DataSource)
@@ -178,7 +148,8 @@ export class App extends ArvaApp {
 }
 
 document.addEventListener(&apos;deviceready&apos;, App.initialize.bind(App));</code>
-</code></pre><h3>2. HomeController.js</h3><p>In our App class we imported a HomeController, and made it the default controller called by the Router if no route is present. This controller was already created in <em>/src/controllers/HomeController.js</em> and shows how easy it is to set up logic in Arva apps.</p><pre><code class="lang-javascript"><code class="source-code prettyprint">import {Controller}                 from &apos;arva-js/core/Controller.js&apos;;
+</code></pre><h3>2. HomeController.js</h3><p>In our App class we imported a HomeController, and made it the default controller called by the Router if no route is present in the URL.
+This controller was already created in <em>/src/controllers/HomeController.js</em> and shows how easy it is to set up logic in Arva apps.</p><pre><code class="lang-javascript"><code class="source-code prettyprint">import {Controller}                 from &apos;arva-js/core/Controller.js&apos;;
 import {HomeView}                   from &apos;../views/HomeView.js&apos;;
 
 export class HomeController extends Controller {
@@ -198,16 +169,16 @@ import {layout, event}      from &apos;arva-js/layout/Decorators.js&apos;;
 export class HomeView extends View {
 
     @layout.size(~100, ~25)
-    @layout.stick.center()
+        .stick.center()
     message = new Surface({content: `Hello ${this.options.welcomeName}`});
 
 }</code>
-</code></pre><h3>4. Building and previewing</h3><p>In order to transpile all our neat ES6 code to browser-understandable ES5 code we need to execute <code>npm run build</code> in the base Arva seed folder. The transpiled code will be saved in <em>/www/bundle.js</em>. You can also use <code>npm run watch</code> for continuous watching and recompilation of changed files.</p><p>Now that you&apos;ve finished building your first app, it&apos;s time to see how it looks like. Open <em>/www/index.html</em> in your browser and behold your very first Arva application!</p><p>This is what <em>index.html</em> looks like:</p><pre><code class="lang-html"><code class="source-code prettyprint">&lt;!DOCTYPE html&gt;
+</code></pre><h3>4. Building and previewing</h3><p>In order to transpile all our neat ES6 code to compatible ES5 code we need to execute <code>npm run build</code> in the base Arva seed folder. The transpiled code will be saved in <em>/www/bundle.js</em>. You can also use <code>npm run watch</code> for continuous watching and recompilation of changed files.</p><p>Now that you&apos;ve finished building your first app, it&apos;s time to see how it looks like. Open <em>/www/index.html</em> in your browser and behold your very first Arva application!</p><p>This is what <em>index.html</em> looks like:</p><pre><code class="lang-html"><code class="source-code prettyprint">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head lang=&quot;en&quot;&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
-    &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &apos;self&apos; data: gap: https://ssl.gstatic.com wss://*.firebaseio.com https://*.firebaseio.com https://auth.firebase.com https://*.firebaseapp.com http://apis.google.com https://*.googleapis.com http://connect.facebook.net https://connect.facebook.net http://*.ak.facebook.com https://*.ak.facebook.com https://fonts.gstatic.com &apos;unsafe-eval&apos;; style-src &apos;self&apos; &apos;unsafe-inline&apos; https://fonts.googleapis.com; media-src *&quot;&gt;
+    &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &apos;self&apos; data: &apos;unsafe-eval&apos;; style-src &apos;self&apos; &apos;unsafe-inline&apos; https://fonts.googleapis.com; media-src *&quot;&gt;
     &lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;
     &lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;
     &lt;meta name=&quot;mobile-web-app-capable&quot; content=&quot;yes&quot;/&gt;

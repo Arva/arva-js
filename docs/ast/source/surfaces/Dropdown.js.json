@@ -522,31 +522,48 @@
         },
         "specifiers": [
           {
-            "type": "ImportDefaultSpecifier",
-            "start": 389,
-            "end": 396,
+            "type": "ImportSpecifier",
+            "start": 390,
+            "end": 397,
             "loc": {
               "start": {
                 "line": 14,
-                "column": 7
+                "column": 8
               },
               "end": {
                 "line": 14,
-                "column": 14
+                "column": 15
               }
             },
-            "local": {
+            "imported": {
               "type": "Identifier",
-              "start": 389,
-              "end": 396,
+              "start": 390,
+              "end": 397,
               "loc": {
                 "start": {
                   "line": 14,
-                  "column": 7
+                  "column": 8
                 },
                 "end": {
                   "line": 14,
-                  "column": 14
+                  "column": 15
+                },
+                "identifierName": "Surface"
+              },
+              "name": "Surface"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 390,
+              "end": 397,
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 8
+                },
+                "end": {
+                  "line": 14,
+                  "column": 15
                 },
                 "identifierName": "Surface"
               },
@@ -569,10 +586,10 @@
             }
           },
           "extra": {
-            "rawValue": "famous/core/Surface.js",
-            "raw": "'famous/core/Surface.js'"
+            "rawValue": "../surfaces/Surface.js",
+            "raw": "'../surfaces/Surface.js'"
           },
-          "value": "famous/core/Surface.js"
+          "value": "../surfaces/Surface.js"
         }
       },
       {
@@ -5196,6 +5213,31 @@
     },
     {
       "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 389,
+      "end": 390,
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 7
+        },
+        "end": {
+          "line": 14,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
         "label": "name",
         "beforeExpr": false,
         "startsExpr": true,
@@ -5207,16 +5249,41 @@
         "binop": null
       },
       "value": "Surface",
-      "start": 389,
-      "end": 396,
+      "start": 390,
+      "end": 397,
       "loc": {
         "start": {
           "line": 14,
-          "column": 7
+          "column": 8
         },
         "end": {
           "line": 14,
-          "column": 14
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 397,
+      "end": 398,
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 15
+        },
+        "end": {
+          "line": 14,
+          "column": 16
         }
       }
     },
@@ -5259,7 +5326,7 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "famous/core/Surface.js",
+      "value": "../surfaces/Surface.js",
       "start": 423,
       "end": 447,
       "loc": {

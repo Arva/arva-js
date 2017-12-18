@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Manual | Arva</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<link rel="stylesheet" href="./inject/css/0-styles.css"><meta name="description" content="this is awesome library"><meta property="og:type" content="website"><meta property="og:url" content="http://arva.io"><meta property="og:site_name" content="Arva"><meta property="og:title" content="Arva"><meta property="og:image" content="http://arva.io/img/logo-arva.png"><meta property="og:description" content="this is awesome library"><meta property="og:author" content="https://twitter.com/arvamazing"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="Arva"><meta property="twitter:description" content="this is awesome library"><meta property="twitter:image" content="http://arva.io/img/logo-arva.png"></head>
+<body class="layout-container manual-root" data-ice="rootContainer">
+
+<header>
+  <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.png" style="width:34px;"></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/Arva/arva-js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#what--39-s-arva-js-" data-ice="link">What&apos;s Arva JS?</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#layout-and-hierarchy" data-ice="link">Layout and hierarchy</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#animations-and-states" data-ice="link">Animations and states</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#data-binding-and-views" data-ice="link">Data binding and Views</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/tutorial.html"><a href="manual/tutorial.html#two-way-data-binding" data-ice="link">Two-way data binding</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#but-what-about-react-" data-ice="link">But what about React?</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/tutorial.html"><a href="manual/tutorial.html#state-updates" data-ice="link">State updates</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/tutorial.html"><a href="manual/tutorial.html#layout-and-animation" data-ice="link">Layout and Animation</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/tutorial.html"><a href="manual/tutorial.html#the-bigger-picture" data-ice="link">The bigger picture</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/installation.html"><a href="manual/installation.html" data-ice="link">Prerequisites</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/installation.html"><a href="manual/installation.html#installation" data-ice="link">Installation</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/installation.html"><a href="manual/installation.html#on-we-go-" data-ice="link">On we go!</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/first-app.html"><a href="manual/first-app.html" data-ice="link">Writing your first application</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/first-app.html"><a href="manual/first-app.html#1--app-js" data-ice="link">1. App.js</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/first-app.html"><a href="manual/first-app.html#2--homecontroller-js" data-ice="link">2. HomeController.js</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/first-app.html"><a href="manual/first-app.html#3--homeview-js" data-ice="link">3. HomeView.js</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/first-app.html"><a href="manual/first-app.html#4--building-and-previewing" data-ice="link">4. Building and previewing</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="writing-your-first-application">Writing your first application</h1><p>Now that you&apos;ve successfully Arva, you&apos;ve already got the seed project, which is your starting point for building a new app. Let&apos;s have a look at the main components of an Arva seed project.</p>
+<h3 id="1--app-js">1. App.js</h3><p>In <em>src/App.js</em> you&apos;ll find the entry point to your freshly cloned app. This class is the basis of our App. We instantiate our controllers here, and hook them up to the Router that automatically handles switching between controllers when the page URL changes. The inner workings of App.js are elaborated by inline comments:</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">import {App as ArvaApp}             from &apos;arva-js/core/App.js&apos;;
+
+/* Importing CSS in jspm bundled builds injects them into the DOM automatically */
+import &apos;./famous.css&apos;;
+import &apos;./fonts.css&apos;;
+
+/* Here we import all controllers we want to use in the app */
+import {HomeController}             from &apos;./controllers/HomeController.js&apos;;
+
+export class App extends ArvaApp {
+
+    static controllers = [HomeController];
+
+
+    /**
+     *  Called before the App is constructed and before the basic components (Router, Famous Context, Controllers, DataSource)
+     *  have loaded.
+     */
+    static initialize(){
+        this.start();
+    }
+
+    /**
+     * Called after the Router, Famous Context, and Controllers have been instantiated,
+     * but before any Controller method is executed by the Router. Keep in mind that there is still
+     * a static context here, so no access to &quot;this&quot; of the App instance can be used yet, outside of the static &quot;this.references&quot;.
+     */
+    static loaded(){
+        /* Instantiate things you need before the router is executed here. For example:
+         *
+         * this.references.menu = Injection.get(Menu); */
+    }
+
+    /**
+     * Called by super class after all components (routing, controllers, views, etc.) have been loaded by the Dependency Injection engine.
+     */
+    done(){
+    }
+}
+
+document.addEventListener(&apos;deviceready&apos;, App.initialize.bind(App));</code>
+</code></pre>
+<h3 id="2--homecontroller-js">2. HomeController.js</h3><p>In our App class we imported a HomeController, and made it the default controller called by the Router if no route is present in the URL.
+This controller was already created in <em>/src/controllers/HomeController.js</em> and shows how easy it is to set up logic in Arva apps.</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">import {Controller}                 from &apos;arva-js/core/Controller.js&apos;;
+import {HomeView}                   from &apos;../views/HomeView.js&apos;;
+
+export class HomeController extends Controller {
+
+    Index(){
+        if(!this.homeView) {
+            this.homeView = new HomeView({welcomeName: &apos;world&apos;});
+        }
+        return this.homeView;
+    }
+
+}</code>
+</code></pre>
+<h3 id="3--homeview-js">3. HomeView.js</h3><p>The view we used in our HomeController is already present in <em>/src/views/HomeView.js</em>. This is where the visual components of the app can be added.</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">import Surface              from &apos;famous/core/Surface.js&apos;;
+import {View}               from &apos;arva-js/core/View.js&apos;;
+import {layout, event}      from &apos;arva-js/layout/Decorators.js&apos;;
+
+export class HomeView extends View {
+
+    @layout.size(~100, ~25)
+        .stick.center()
+    message = new Surface({content: `Hello ${this.options.welcomeName}`});
+
+}</code>
+</code></pre>
+<h3 id="4--building-and-previewing">4. Building and previewing</h3><p>In order to transpile all our neat ES6 code to compatible ES5 code we need to execute <code>npm run build</code> in the base Arva seed folder. The transpiled code will be saved in <em>/www/bundle.js</em>. You can also use <code>npm run watch</code> for continuous watching and recompilation of changed files.</p>
+<p>Now that you&apos;ve finished building your first app, it&apos;s time to see how it looks like. Open <em>/www/index.html</em> in your browser and behold your very first Arva application!</p>
+<p>This is what <em>index.html</em> looks like:</p>
+<pre><code class="lang-html"><code class="source-code prettyprint">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &apos;self&apos; data: &apos;unsafe-eval&apos;; style-src &apos;self&apos; &apos;unsafe-inline&apos; https://fonts.googleapis.com; media-src *&quot;&gt;
+    &lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;
+    &lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;
+    &lt;meta name=&quot;mobile-web-app-capable&quot; content=&quot;yes&quot;/&gt;
+    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;/&gt;
+    &lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;/&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width&quot;&gt;
+&lt;/head&gt;
+&lt;body style=&quot;background-color: rgb(230, 230, 230)&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;application/javascript&quot; src=&quot;bundle.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+</code></pre>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

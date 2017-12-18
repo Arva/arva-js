@@ -1,26 +1,93 @@
 # What's Arva JS?
 
-Arva JS solves the problem of **layout** and **animation** without the need to bother with CSS nor HTML. While CSS is still used for **styling** of the content, whereas **positioning** and **sizing** is handled through different processes.
+Arva is a fresh-cut framework for building interactive applications. When we talk about **applications** that are **interactive**,
+we leverage complete built-in animation capabilities along with powerful state maintenance to successfully maintain UI interaction in a fluid way.
+In other words, this is not only an **animation library** (GreenSock, Velocity.js etc), nor an **application framework** (React, Angular, etc), but a holistic solution of both.
+
+Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for **styling** of the content, whereas **positioning** and **sizing** is handled through different processes.
 Arva astracts away some of the concerns that many front-end developers face,
 which includes CSS deep-dives and directives like `display: inline-block` `margin:auto`, `position:relative`, `clear:left`, `float: right`, `zoom: 1` `overflow: auto`, `-webkit-box-sizing: border-box` and so on.
 
-Even modern paradigms like flexbox won't be necessary anymore. Let's get started.
+Even modern paradigms like `flexbox` won't be necessary anymore. In addition, arva refrains from using any templating language, and only uses standard EcmaScript syntax. Let's get started.
+
+# Layout and hierarchy
+
+The API surface of layout in much smaller than that of css, and an example is usually the best way to start out an explanation. We demonstrate how to construct the following layout:
+
+![layout-example =250x](asset/layout.png)
+
+We see a top bar, a background color, and a bottom button, along with some box shadows to create a sense of depth in line with the current fashion of material design.
+
+
+This is achieved with the following code.
+
+
+```
+
+export class RootView extends View {
+
+    @layout
+        /* Take up the full space*/
+        .fullSize()
+        /* -1 negative z-index to make space for the foreground content*/
+        .translate(0, 0, -1)
+        /* The surface is the most fundamental element to compose views with */
+    background = Surface.with({properties: {backgroundColor: 'aliceblue' }});
+
+
+    @layout
+        /* Docking makes something appear at the top with a height of 44 pixels */
+        .dock.top(44)
+    /* This is a top bar */
+    topBar = TopBar.with({title: 'Dashboard'})
+
+    @layout
+        /* Stick bottom right, and translate upwards/left for margin*/
+        .stick.bottomRight()
+        .translate(-10, -10, 0)
+        .size(52, 52)
+    bottomButton = Button.with()
+
+}
+
+```
+
+[Full source code can be found here under 'layout'](https://github.com/Arva/demo)
+For API reference regarding layout, see the [docs](http://arva.io/arva-js/class/src/layout/Decorators.js~Layout.html).
+
+As you can see, all decorators of the same type ([layout](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout), [event](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event), and [flow](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow)) can be chained when used.
+
+For example,
+
+```
+    @layout.dock.top()
+        .size(undefined, true)
+    centeredText = Surface.with({content: 'This is centered!'})
+```
+
+Is the same as
+
+
+```
+    @layout.dock.top()
+    @layout.size(undefined, true)
+    centeredText = Surface.with({content: 'This is centered!'})
+```
+
 
 # Animations and states
 
 Animation states can be defined using the [flow](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow) operator.
 
-The core concept of Flow is that the renderables can have multiple **states**,
-each of which contain a collection of layout properties.
-
+The core concept of Flow is to animate using any of the existing *layout* operators.
 When the renderable changes from one state to another using the [layout](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout) operations,
 their **layout properties** are tweened into each other, creating the effect of seamless animation.
 
 
 ```javascript
-    @flow.stateStep('hidden', layout.opacity(0))
-    @flow.stateStep('shown', layout.opacity(1))
-    layer = Surface.with({properties: {backgroundColor: 'red'}});
+    @flow.transition({duration: 200, curve: Easing.inCubic})(
+        layout.size(300, 300)
+    )
 ```
 
 For a contextual example of using flow and animation, we made a sample component for showing and hiding a menu:
@@ -28,8 +95,6 @@ For a contextual example of using flow and animation, we made a sample component
 ![animation](asset/animation-demo.gif)
 
 [Source code can be found here under 'stateful-animations'](https://github.com/Arva/demo)
-
-
 
 # Data binding and Views
 
@@ -58,7 +123,11 @@ class HomeView extends View {
 The `backgroundColor` can then be referenced inside the view:
 
 ```
-    background = Surface.with({properties: {backgroundColor: this.options.backgroundColor}})
+    background = Surface.with({
+        properties:
+            {backgroundColor: this.options.backgroundColor
+         }
+    })
 ```
 
 It can be changed through different triggers, one being [events](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event).
@@ -67,26 +136,11 @@ It can be changed through different triggers, one being [events](http://localhos
     @event.on('click', function() {
         this.options.backgroundColor = 'green';
     })
-    background = Surface.with({properties: {backgroundColor: this.options.backgroundColor}})
-```
-
-## Chained decorators
-
-All decorators of the same type ([layout](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout), [event](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event), and [flow](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow)) can be chained when used.
-
-```
-    @layout.dock.top()
-        .size(undefined, true)
-    centeredText = Surface.with({content: 'This is centered!'})
-```
-
-Is the same as
-
-
-```
-    @layout.dock.top()
-    @layout.size(undefined, true)
-    centeredText = Surface.with({content: 'This is centered!'})
+    background = Surface.with({
+            properties:
+                {backgroundColor: this.options.backgroundColor
+             }
+        })
 ```
 
 

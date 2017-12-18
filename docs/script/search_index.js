@@ -18,6 +18,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "arva-js/src/surfaces/audiosurface.js~audiosurface",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html",
+    "<span>AudioSurface</span> <span class=\"search-result-import-path\">arva-js/src/surfaces/AudioSurface.js</span>",
+    "class"
+  ],
+  [
     "arva-js/src/utils/view/layouthelpers.js~baselayouthelper",
     "class/src/utils/view/LayoutHelpers.js~BaseLayoutHelper.html",
     "<span>BaseLayoutHelper</span> <span class=\"search-result-import-path\">arva-js/src/utils/view/LayoutHelpers.js</span>",
@@ -27,18 +33,6 @@ window.esdocSearchIndex = [
     "arva-js/src/utils/blobhelper.js~blobhelper",
     "class/src/utils/BlobHelper.js~BlobHelper.html",
     "<span>BlobHelper</span> <span class=\"search-result-import-path\">arva-js/src/utils/BlobHelper.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/components/logic/branding/brandingengine.js~brandingengine",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html",
-    "<span>BrandingEngine</span> <span class=\"search-result-import-path\">arva-js/src/components/logic/branding/BrandingEngine.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/components/logic/branding/brandingenginesingleton.js~brandingenginesingleton",
-    "class/src/components/logic/branding/BrandingEngineSingleton.js~BrandingEngineSingleton.html",
-    "<span>BrandingEngineSingleton</span> <span class=\"search-result-import-path\">arva-js/src/components/logic/branding/BrandingEngineSingleton.js</span>",
     "class"
   ],
   [
@@ -57,18 +51,6 @@ window.esdocSearchIndex = [
     "arva-js/src/components/databoundscrollview.js~databoundscrollview",
     "class/src/components/DataBoundScrollView.js~DataBoundScrollView.html",
     "<span>DataBoundScrollView</span> <span class=\"search-result-import-path\">arva-js/src/components/DataBoundScrollView.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html",
-    "<span>DataModelGenerator</span> <span class=\"search-result-import-path\">arva-js/src/data/datasources/SharePoint/DataModelGenerator.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/data/datasource.js~datasource",
-    "class/src/data/DataSource.js~DataSource.html",
-    "<span>DataSource</span> <span class=\"search-result-import-path\">arva-js/src/data/DataSource.js</span>",
     "class"
   ],
   [
@@ -120,24 +102,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "arva-js/src/data/storage/filesource.js~filesource",
-    "class/src/data/storage/FileSource.js~FileSource.html",
-    "<span>FileSource</span> <span class=\"search-result-import-path\">arva-js/src/data/storage/FileSource.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/data/datasources/firebasedatasource.js~firebasedatasource",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html",
-    "<span>FirebaseDataSource</span> <span class=\"search-result-import-path\">arva-js/src/data/datasources/FirebaseDataSource.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/data/storage/firebasefilesource.js~firebasefilesource",
-    "class/src/data/storage/FirebaseFileSource.js~FirebaseFileSource.html",
-    "<span>FirebaseFileSource</span> <span class=\"search-result-import-path\">arva-js/src/data/storage/FirebaseFileSource.js</span>",
-    "class"
-  ],
-  [
     "arva-js/src/layout/decorators.js~flow",
     "class/src/layout/Decorators.js~Flow.html",
     "<span>Flow</span> <span class=\"search-result-import-path\">arva-js/src/layout/Decorators.js</span>",
@@ -174,6 +138,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "arva-js/src/utils/view/inputoption.js~inputoption",
+    "class/src/utils/view/InputOption.js~InputOption.html",
+    "<span>InputOption</span> <span class=\"search-result-import-path\">arva-js/src/utils/view/InputOption.js</span>",
+    "class"
+  ],
+  [
     "arva-js/src/surfaces/inputsurface.js~inputsurface",
     "class/src/surfaces/InputSurface.js~InputSurface.html",
     "<span>InputSurface</span> <span class=\"search-result-import-path\">arva-js/src/surfaces/InputSurface.js</span>",
@@ -189,6 +159,12 @@ window.esdocSearchIndex = [
     "arva-js/src/layout/decorators.js~layout",
     "class/src/layout/Decorators.js~Layout.html",
     "<span>Layout</span> <span class=\"search-result-import-path\">arva-js/src/layout/Decorators.js</span>",
+    "class"
+  ],
+  [
+    "arva-js/src/utils/view/lazyloadedoptionclone.js~lazyloadedoptionclone",
+    "class/src/utils/view/LazyLoadedOptionClone.js~LazyLoadedOptionClone.html",
+    "<span>LazyLoadedOptionClone</span> <span class=\"search-result-import-path\">arva-js/src/utils/view/LazyLoadedOptionClone.js</span>",
     "class"
   ],
   [
@@ -246,15 +222,15 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "arva-js/src/data/prioritisedobject.js~prioritisedobject",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html",
-    "<span>PrioritisedObject</span> <span class=\"search-result-import-path\">arva-js/src/data/PrioritisedObject.js</span>",
-    "class"
-  ],
-  [
     "arva-js/src/utils/di/decorators.js~provide",
     "class/src/utils/di/Decorators.js~Provide.html",
     "<span>Provide</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
+    "class"
+  ],
+  [
+    "arva-js/src/surfaces/pushdownsurface.js~pushdownsurface",
+    "class/src/surfaces/PushDownSurface.js~PushDownSurface.html",
+    "<span>PushDownSurface</span> <span class=\"search-result-import-path\">arva-js/src/surfaces/PushDownSurface.js</span>",
     "class"
   ],
   [
@@ -276,15 +252,15 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "arva-js/src/data/datasources/sharepoint/spsoapadapter/settings.js~settings",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Settings.js~Settings.html",
-    "<span>Settings</span> <span class=\"search-result-import-path\">arva-js/src/data/datasources/SharePoint/SPSoapAdapter/Settings.js</span>",
+    "arva-js/src/core/scrollcontroller.js~scrollcontroller",
+    "class/src/core/ScrollController.js~ScrollController.html",
+    "<span>ScrollController</span> <span class=\"search-result-import-path\">arva-js/src/core/ScrollController.js</span>",
     "class"
   ],
   [
-    "arva-js/src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html",
-    "<span>SharePoint</span> <span class=\"search-result-import-path\">arva-js/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js</span>",
+    "arva-js/src/data/datasources/sharepoint/spsoapadapter/settings.js~settings",
+    "class/src/data/datasources/SharePoint/SPSoapAdapter/Settings.js~Settings.html",
+    "<span>Settings</span> <span class=\"search-result-import-path\">arva-js/src/data/datasources/SharePoint/SPSoapAdapter/Settings.js</span>",
     "class"
   ],
   [
@@ -294,33 +270,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "arva-js/src/data/datasources/sharepointdatasource.js~sharepointdatasource",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html",
-    "<span>SharePointDataSource</span> <span class=\"search-result-import-path\">arva-js/src/data/datasources/SharePointDataSource.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html",
-    "<span>SharePointSnapshot</span> <span class=\"search-result-import-path\">arva-js/src/data/datasources/SharePoint/SharePointSnapshot.js</span>",
-    "class"
-  ],
-  [
     "arva-js/src/utils/view/sizeresolver.js~sizeresolver",
     "class/src/utils/view/SizeResolver.js~SizeResolver.html",
     "<span>SizeResolver</span> <span class=\"search-result-import-path\">arva-js/src/utils/view/SizeResolver.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/data/snapshot.js~snapshot",
-    "class/src/data/Snapshot.js~Snapshot.html",
-    "<span>Snapshot</span> <span class=\"search-result-import-path\">arva-js/src/data/Snapshot.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/data/datasources/sharepoint/spsoapadapter/worker/soapclient.js~soapclient",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient.html",
-    "<span>SoapClient</span> <span class=\"search-result-import-path\">arva-js/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js</span>",
     "class"
   ],
   [
@@ -378,6 +330,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "arva-js/src/surfaces/webglsurface.js~webglsurface",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html",
+    "<span>WebGLSurface</span> <span class=\"search-result-import-path\">arva-js/src/surfaces/WebGLSurface.js</span>",
+    "class"
+  ],
+  [
     "arva-js/src/utils/di/decorators.js~annotate",
     "function/index.html#static-function-annotate",
     "<span>annotate</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
@@ -396,9 +354,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "arva-js/src/utils/view/inputoption.js~changevalue",
+    "variable/index.html#static-variable-changeValue",
+    "<span>changeValue</span> <span class=\"search-result-import-path\">arva-js/src/utils/view/InputOption.js</span>",
+    "variable"
+  ],
+  [
     "arva-js/src/utils/combineoptions.js~combineoptions",
     "function/index.html#static-function-combineOptions",
     "<span>combineOptions</span> <span class=\"search-result-import-path\">arva-js/src/utils/CombineOptions.js</span>",
+    "function"
+  ],
+  [
+    "arva-js/src/layout/decoratorhelpers.js~createchainabledecorator",
+    "function/index.html#static-function-createChainableDecorator",
+    "<span>createChainableDecorator</span> <span class=\"search-result-import-path\">arva-js/src/layout/DecoratorHelpers.js</span>",
     "function"
   ],
   [
@@ -406,6 +376,12 @@ window.esdocSearchIndex = [
     "function/index.html#static-function-createProviderFromFnOrClass",
     "<span>createProviderFromFnOrClass</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Providers.js</span>",
     "function"
+  ],
+  [
+    "arva-js/src/layout/decoratorhelpers.js~decoratortypes",
+    "variable/index.html#static-variable-decoratorTypes",
+    "<span>decoratorTypes</span> <span class=\"search-result-import-path\">arva-js/src/layout/DecoratorHelpers.js</span>",
+    "variable"
   ],
   [
     "arva-js/src/layout/decorators.js~dynamic",
@@ -490,6 +466,18 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-ownKeys",
     "<span>ownKeys</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Util.js</span>",
     "variable"
+  ],
+  [
+    "arva-js/src/layout/decoratorhelpers.js~prepdecoratedrenderable",
+    "function/index.html#static-function-prepDecoratedRenderable",
+    "<span>prepDecoratedRenderable</span> <span class=\"search-result-import-path\">arva-js/src/layout/DecoratorHelpers.js</span>",
+    "function"
+  ],
+  [
+    "arva-js/src/layout/decoratorhelpers.js~prepprototypedecorations",
+    "function/index.html#static-function-prepPrototypeDecorations",
+    "<span>prepPrototypeDecorations</span> <span class=\"search-result-import-path\">arva-js/src/layout/DecoratorHelpers.js</span>",
+    "function"
   ],
   [
     "arva-js/src/utils/di/decorators.js~provide",
@@ -846,6 +834,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/components/databoundscrollview.js~databoundscrollview#_eventcallbacks",
+    "class/src/components/DataBoundScrollView.js~DataBoundScrollView.html#instance-member-_eventCallbacks",
+    "src/components/DataBoundScrollView.js~DataBoundScrollView#_eventCallbacks",
+    "member"
+  ],
+  [
     "src/components/databoundscrollview.js~databoundscrollview#_finddata",
     "class/src/components/DataBoundScrollView.js~DataBoundScrollView.html#instance-method-_findData",
     "src/components/DataBoundScrollView.js~DataBoundScrollView#_findData",
@@ -1200,84 +1194,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/components/logic/branding/brandingengine.js",
-    "file/src/components/logic/branding/BrandingEngine.js.html",
-    "src/components/logic/branding/BrandingEngine.js",
-    "file"
-  ],
-  [
-    "src/components/logic/branding/brandingengine.js~brandingengine#_datasource",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html#instance-member-_dataSource",
-    "src/components/logic/branding/BrandingEngine.js~BrandingEngine#_dataSource",
-    "member"
-  ],
-  [
-    "src/components/logic/branding/brandingengine.js~brandingengine#_options",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html#instance-member-_options",
-    "src/components/logic/branding/BrandingEngine.js~BrandingEngine#_options",
-    "member"
-  ],
-  [
-    "src/components/logic/branding/brandingengine.js~brandingengine#constructor",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html#instance-constructor-constructor",
-    "src/components/logic/branding/BrandingEngine.js~BrandingEngine#constructor",
-    "method"
-  ],
-  [
-    "src/components/logic/branding/brandingengine.js~brandingengine#get",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html#instance-method-get",
-    "src/components/logic/branding/BrandingEngine.js~BrandingEngine#get",
-    "method"
-  ],
-  [
-    "src/components/logic/branding/brandingengine.js~brandingengine#getall",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html#instance-method-getAll",
-    "src/components/logic/branding/BrandingEngine.js~BrandingEngine#getAll",
-    "method"
-  ],
-  [
-    "src/components/logic/branding/brandingengine.js~brandingengine#options",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html#instance-set-options",
-    "src/components/logic/branding/BrandingEngine.js~BrandingEngine#options",
-    "member"
-  ],
-  [
-    "src/components/logic/branding/brandingengine.js~brandingengine#options",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html#instance-get-options",
-    "src/components/logic/branding/BrandingEngine.js~BrandingEngine#options",
-    "member"
-  ],
-  [
-    "src/components/logic/branding/brandingengine.js~brandingengine#setoption",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html#instance-method-setOption",
-    "src/components/logic/branding/BrandingEngine.js~BrandingEngine#setOption",
-    "method"
-  ],
-  [
-    "src/components/logic/branding/brandingengine.js~brandingengine#setoptions",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html#instance-method-setOptions",
-    "src/components/logic/branding/BrandingEngine.js~BrandingEngine#setOptions",
-    "method"
-  ],
-  [
-    "src/components/logic/branding/brandingengine.js~brandingengine#setoptionsfromdatasource",
-    "class/src/components/logic/branding/BrandingEngine.js~BrandingEngine.html#instance-method-setOptionsFromDataSource",
-    "src/components/logic/branding/BrandingEngine.js~BrandingEngine#setOptionsFromDataSource",
-    "method"
-  ],
-  [
-    "src/components/logic/branding/brandingenginesingleton.js",
-    "file/src/components/logic/branding/BrandingEngineSingleton.js.html",
-    "src/components/logic/branding/BrandingEngineSingleton.js",
-    "file"
-  ],
-  [
-    "src/components/logic/branding/brandingenginesingleton.js~brandingenginesingleton.getinstance",
-    "class/src/components/logic/branding/BrandingEngineSingleton.js~BrandingEngineSingleton.html#static-method-getInstance",
-    "src/components/logic/branding/BrandingEngineSingleton.js~BrandingEngineSingleton.getInstance",
-    "method"
-  ],
-  [
     "src/core/app.js",
     "file/src/core/App.js.html",
     "src/core/App.js",
@@ -1572,6 +1488,432 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/core/scrollcontroller.js",
+    "file/src/core/ScrollController.js.html",
+    "src/core/ScrollController.js",
+    "file"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_accountformodificationshappeningatstart",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_accountForModificationsHappeningAtStart",
+    "src/core/ScrollController.js~ScrollController#_accountForModificationsHappeningAtStart",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_adjustdistancetobottom",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_adjustDistanceToBottom",
+    "src/core/ScrollController.js~ScrollController#_adjustDistanceToBottom",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_adjustdistancetotop",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_adjustDistanceToTop",
+    "src/core/ScrollController.js~ScrollController#_adjustDistanceToTop",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_adjusttotalheight",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_adjustTotalHeight",
+    "src/core/ScrollController.js~ScrollController#_adjustTotalHeight",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_allocateextraheightattop",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_allocateExtraHeightAtTop",
+    "src/core/ScrollController.js~ScrollController#_allocateExtraHeightAtTop",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_allocationlock",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_allocationLock",
+    "src/core/ScrollController.js~ScrollController#_allocationLock",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_cachedspecs",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_cachedSpecs",
+    "src/core/ScrollController.js~ScrollController#_cachedSpecs",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_commitactions",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_commitActions",
+    "src/core/ScrollController.js~ScrollController#_commitActions",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_currentscrolloffset",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_currentScrollOffset",
+    "src/core/ScrollController.js~ScrollController#_currentScrollOffset",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_datasource",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_dataSource",
+    "src/core/ScrollController.js~ScrollController#_dataSource",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_didmanualscroll",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_didManualScroll",
+    "src/core/ScrollController.js~ScrollController#_didManualScroll",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_enqueuecommitaction",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_enqueueCommitAction",
+    "src/core/ScrollController.js~ScrollController#_enqueueCommitAction",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_ensurevisiblenode",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_ensureVisibleNode",
+    "src/core/ScrollController.js~ScrollController#_ensureVisibleNode",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_firstnodeindex",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_firstNodeIndex",
+    "src/core/ScrollController.js~ScrollController#_firstNodeIndex",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_forcenormalizebottom",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_forceNormalizeBottom",
+    "src/core/ScrollController.js~ScrollController#_forceNormalizeBottom",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_group",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_group",
+    "src/core/ScrollController.js~ScrollController#_group",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_id",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_id",
+    "src/core/ScrollController.js~ScrollController#_id",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_initnativescrollgroup",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_initNativeScrollGroup",
+    "src/core/ScrollController.js~ScrollController#_initNativeScrollGroup",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_initoverscrollphysics",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_initOverScrollPhysics",
+    "src/core/ScrollController.js~ScrollController#_initOverScrollPhysics",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_innerrender",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_innerRender",
+    "src/core/ScrollController.js~ScrollController#_innerRender",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_isdirty",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_isDirty",
+    "src/core/ScrollController.js~ScrollController#_isDirty",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_islayoutnecessary",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_isLayoutNecessary",
+    "src/core/ScrollController.js~ScrollController#_isLayoutNecessary",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_ispositionoutsidecurrentview",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_isPositionOutsideCurrentView",
+    "src/core/ScrollController.js~ScrollController#_isPositionOutsideCurrentView",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_isreflownecessary",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_isReflowNecessary",
+    "src/core/ScrollController.js~ScrollController#_isReflowNecessary",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_lastnodeindex",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_lastNodeIndex",
+    "src/core/ScrollController.js~ScrollController#_lastNodeIndex",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_layout",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_layout",
+    "src/core/ScrollController.js~ScrollController#_layout",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_layoutnodemanager",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_layoutNodeManager",
+    "src/core/ScrollController.js~ScrollController#_layoutNodeManager",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_maxknowntranslate",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_maxKnownTranslate",
+    "src/core/ScrollController.js~ScrollController#_maxKnownTranslate",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_movesequence",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_moveSequence",
+    "src/core/ScrollController.js~ScrollController#_moveSequence",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_nodes",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_nodes",
+    "src/core/ScrollController.js~ScrollController#_nodes",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_normalizesequence",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_normalizeSequence",
+    "src/core/ScrollController.js~ScrollController#_normalizeSequence",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_onmanualscrollattempt",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_onManualScrollAttempt",
+    "src/core/ScrollController.js~ScrollController#_onManualScrollAttempt",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_othernodes",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_otherNodes",
+    "src/core/ScrollController.js~ScrollController#_otherNodes",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_overscrollspring",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_overScrollSpring",
+    "src/core/ScrollController.js~ScrollController#_overScrollSpring",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_performenqueuedcommitactions",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_performEnqueuedCommitActions",
+    "src/core/ScrollController.js~ScrollController#_performEnqueuedCommitActions",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_physicsengine",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_physicsEngine",
+    "src/core/ScrollController.js~ScrollController#_physicsEngine",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_piperenderableasnecessary",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_pipeRenderableAsNecessary",
+    "src/core/ScrollController.js~ScrollController#_pipeRenderableAsNecessary",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_previousvalues",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_previousValues",
+    "src/core/ScrollController.js~ScrollController#_previousValues",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_relayout",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_reLayout",
+    "src/core/ScrollController.js~ScrollController#_reLayout",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_resetsequencetofirstnode",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_resetSequenceToFirstNode",
+    "src/core/ScrollController.js~ScrollController#_resetSequenceToFirstNode",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_scrollparticle",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_scrollParticle",
+    "src/core/ScrollController.js~ScrollController#_scrollParticle",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_scrolltotransitionable",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_scrollToTransitionable",
+    "src/core/ScrollController.js~ScrollController#_scrollToTransitionable",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_scrolltopheight",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_scrollTopHeight",
+    "src/core/ScrollController.js~ScrollController#_scrollTopHeight",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_scrollvoidheight",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_scrollVoidHeight",
+    "src/core/ScrollController.js~ScrollController#_scrollVoidHeight",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_setscrolltopheight",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_setScrollTopHeight",
+    "src/core/ScrollController.js~ScrollController#_setScrollTopHeight",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_shouldignorescrollevent",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_shouldIgnoreScrollEvent",
+    "src/core/ScrollController.js~ScrollController#_shouldIgnoreScrollEvent",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_size",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_size",
+    "src/core/ScrollController.js~ScrollController#_size",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_specs",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_specs",
+    "src/core/ScrollController.js~ScrollController#_specs",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_startoverscrollanimation",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_startOverscrollAnimation",
+    "src/core/ScrollController.js~ScrollController#_startOverscrollAnimation",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_stickingtoends",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_stickingToEnds",
+    "src/core/ScrollController.js~ScrollController#_stickingToEnds",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_updatethissizecache",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-_updateThisSizeCache",
+    "src/core/ScrollController.js~ScrollController#_updateThisSizeCache",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#_viewsequence",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-_viewSequence",
+    "src/core/ScrollController.js~ScrollController#_viewSequence",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#animatetotoporbottom",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-animateToTopOrBottom",
+    "src/core/ScrollController.js~ScrollController#animateToTopOrBottom",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#commit",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-commit",
+    "src/core/ScrollController.js~ScrollController#commit",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#constructor",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-constructor-constructor",
+    "src/core/ScrollController.js~ScrollController#constructor",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#getdatasource",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-getDataSource",
+    "src/core/ScrollController.js~ScrollController#getDataSource",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#getid",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-getID",
+    "src/core/ScrollController.js~ScrollController#getID",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#getsize",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-getSize",
+    "src/core/ScrollController.js~ScrollController#getSize",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#insert",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-insert",
+    "src/core/ScrollController.js~ScrollController#insert",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#invalidatelayout",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-invalidateLayout",
+    "src/core/ScrollController.js~ScrollController#invalidateLayout",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#isatbottom",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-isAtBottom",
+    "src/core/ScrollController.js~ScrollController#isAtBottom",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#isattop",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-isAtTop",
+    "src/core/ScrollController.js~ScrollController#isAtTop",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#options",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-member-options",
+    "src/core/ScrollController.js~ScrollController#options",
+    "member"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#reflow",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-reflow",
+    "src/core/ScrollController.js~ScrollController#reflow",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#remove",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-remove",
+    "src/core/ScrollController.js~ScrollController#remove",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#render",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-render",
+    "src/core/ScrollController.js~ScrollController#render",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#replace",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-replace",
+    "src/core/ScrollController.js~ScrollController#replace",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#scrolltobottom",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-scrollToBottom",
+    "src/core/ScrollController.js~ScrollController#scrollToBottom",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#sticktobottom",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-stickToBottom",
+    "src/core/ScrollController.js~ScrollController#stickToBottom",
+    "method"
+  ],
+  [
+    "src/core/scrollcontroller.js~scrollcontroller#sticktotoporbottom",
+    "class/src/core/ScrollController.js~ScrollController.html#instance-method-stickToTopOrBottom",
+    "src/core/ScrollController.js~ScrollController#stickToTopOrBottom",
+    "method"
+  ],
+  [
     "src/core/view.js",
     "file/src/core/View.js.html",
     "src/core/View.js",
@@ -1632,9 +1974,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/core/view.js~view#_bindingtriggers",
+    "class/src/core/View.js~View.html#instance-member-_bindingTriggers",
+    "src/core/View.js~View#_bindingTriggers",
+    "member"
+  ],
+  [
     "src/core/view.js~view#_calllegacylayoutfunctions",
     "class/src/core/View.js~View.html#instance-method-_callLegacyLayoutFunctions",
     "src/core/View.js~View#_callLegacyLayoutFunctions",
+    "method"
+  ],
+  [
+    "src/core/view.js~view#_clonedecorationsforrenderable",
+    "class/src/core/View.js~View.html#instance-method-_cloneDecorationsForRenderable",
+    "src/core/View.js~View#_cloneDecorationsForRenderable",
     "method"
   ],
   [
@@ -1656,6 +2010,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/core/view.js~view#_doreflow",
+    "class/src/core/View.js~View.html#instance-method-_doReflow",
+    "src/core/View.js~View#_doReflow",
+    "method"
+  ],
+  [
     "src/core/view.js~view#_dotruesizedsurfacesbookkeeping",
     "class/src/core/View.js~View.html#instance-method-_doTrueSizedSurfacesBookkeeping",
     "src/core/View.js~View#_doTrueSizedSurfacesBookkeeping",
@@ -1666,6 +2026,12 @@ window.esdocSearchIndex = [
     "class/src/core/View.js~View.html#instance-member-_dockedRenderablesHelper",
     "src/core/View.js~View#_dockedRenderablesHelper",
     "member"
+  ],
+  [
+    "src/core/view.js~view#_extendfromdynamicfunctions",
+    "class/src/core/View.js~View.html#instance-method-_extendFromDynamicFunctions",
+    "src/core/View.js~View#_extendFromDynamicFunctions",
+    "method"
   ],
   [
     "src/core/view.js~view#_fullsizelayouthelper",
@@ -1686,15 +2052,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/core/view.js~view#_getrenderableid",
-    "class/src/core/View.js~View.html#instance-method-_getRenderableID",
-    "src/core/View.js~View#_getRenderableID",
-    "method"
-  ],
-  [
     "src/core/view.js~view#_getrenderablename",
     "class/src/core/View.js~View.html#instance-method-_getRenderableName",
     "src/core/View.js~View#_getRenderableName",
+    "method"
+  ],
+  [
+    "src/core/view.js~view#_initbindingstriggers",
+    "class/src/core/View.js~View.html#instance-method-_initBindingsTriggers",
+    "src/core/View.js~View#_initBindingsTriggers",
     "method"
   ],
   [
@@ -1752,12 +2118,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/core/view.js~view#_onnewsizecallbacks",
-    "class/src/core/View.js~View.html#instance-member-_onNewSizeCallbacks",
-    "src/core/View.js~View#_onNewSizeCallbacks",
-    "member"
-  ],
-  [
     "src/core/view.js~view#_optionobserver",
     "class/src/core/View.js~View.html#instance-member-_optionObserver",
     "src/core/View.js~View#_optionObserver",
@@ -1774,12 +2134,6 @@ window.esdocSearchIndex = [
     "class/src/core/View.js~View.html#instance-method-_readjustRenderableInitializer",
     "src/core/View.js~View#_readjustRenderableInitializer",
     "method"
-  ],
-  [
-    "src/core/view.js~view#_realrenderables",
-    "class/src/core/View.js~View.html#instance-member-_realRenderables",
-    "src/core/View.js~View#_realRenderables",
-    "member"
   ],
   [
     "src/core/view.js~view#_renderableconstructors",
@@ -1938,6 +2292,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/core/view.js~view#inputoptions",
+    "class/src/core/View.js~View.html#instance-get-inputOptions",
+    "src/core/View.js~View#inputOptions",
+    "member"
+  ],
+  [
+    "src/core/view.js~view#isdisplaying",
+    "class/src/core/View.js~View.html#instance-method-isDisplaying",
+    "src/core/View.js~View#isDisplaying",
+    "method"
+  ],
+  [
     "src/core/view.js~view#isrenderableshowing",
     "class/src/core/View.js~View.html#instance-method-isRenderableShowing",
     "src/core/View.js~View#isRenderableShowing",
@@ -2028,6 +2394,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/core/view.js~view#setmaxcontentwidth",
+    "class/src/core/View.js~View.html#instance-method-setMaxContentWidth",
+    "src/core/View.js~View#setMaxContentWidth",
+    "method"
+  ],
+  [
+    "src/core/view.js~view#setnewchildren",
+    "class/src/core/View.js~View.html#instance-method-setNewChildren",
+    "src/core/View.js~View#setNewChildren",
+    "method"
+  ],
+  [
     "src/core/view.js~view#setnewoptions",
     "class/src/core/View.js~View.html#instance-method-setNewOptions",
     "src/core/View.js~View#setNewOptions",
@@ -2058,6 +2436,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/core/view.js~view#whenflowfinished",
+    "class/src/core/View.js~View.html#instance-method-whenFlowFinished",
+    "src/core/View.js~View#whenFlowFinished",
+    "method"
+  ],
+  [
+    "src/core/view.js~view.empty",
+    "class/src/core/View.js~View.html#static-method-empty",
+    "src/core/View.js~View.empty",
+    "method"
+  ],
+  [
     "src/core/view.js~view.with",
     "class/src/core/View.js~View.html#static-method-with",
     "src/core/View.js~View.with",
@@ -2070,274 +2460,22 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/data/datasource.js~datasource#_datareference",
-    "class/src/data/DataSource.js~DataSource.html#instance-member-_dataReference",
-    "src/data/DataSource.js~DataSource#_dataReference",
-    "member"
-  ],
-  [
-    "src/data/datasource.js~datasource#atomictransaction",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-atomicTransaction",
-    "src/data/DataSource.js~DataSource#atomicTransaction",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#authanonymously",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-authAnonymously",
-    "src/data/DataSource.js~DataSource#authAnonymously",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#authwithcustomtoken",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-authWithCustomToken",
-    "src/data/DataSource.js~DataSource#authWithCustomToken",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#authwithoauthtoken",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-authWithOAuthToken",
-    "src/data/DataSource.js~DataSource#authWithOAuthToken",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#authwithpassword",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-authWithPassword",
-    "src/data/DataSource.js~DataSource#authWithPassword",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#child",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-child",
-    "src/data/DataSource.js~DataSource#child",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#constructor",
-    "class/src/data/DataSource.js~DataSource.html#instance-constructor-constructor",
-    "src/data/DataSource.js~DataSource#constructor",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#createproviderfromcredential",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-createProviderFromCredential",
-    "src/data/DataSource.js~DataSource#createProviderFromCredential",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#getauth",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-getAuth",
-    "src/data/DataSource.js~DataSource#getAuth",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#gettimestampsymbol",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-getTimestampSymbol",
-    "src/data/DataSource.js~DataSource#getTimestampSymbol",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#inheritable",
-    "class/src/data/DataSource.js~DataSource.html#instance-get-inheritable",
-    "src/data/DataSource.js~DataSource#inheritable",
-    "member"
-  ],
-  [
-    "src/data/datasource.js~datasource#key",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-key",
-    "src/data/DataSource.js~DataSource#key",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#limittofirst",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-limitToFirst",
-    "src/data/DataSource.js~DataSource#limitToFirst",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#limittolast",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-limitToLast",
-    "src/data/DataSource.js~DataSource#limitToLast",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#linkcurrentuserwithprovider",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-linkCurrentUserWithProvider",
-    "src/data/DataSource.js~DataSource#linkCurrentUserWithProvider",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#off",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-off",
-    "src/data/DataSource.js~DataSource#off",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#on",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-on",
-    "src/data/DataSource.js~DataSource#on",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#once",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-once",
-    "src/data/DataSource.js~DataSource#once",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#orderbychild",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-orderByChild",
-    "src/data/DataSource.js~DataSource#orderByChild",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#orderbykey",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-orderByKey",
-    "src/data/DataSource.js~DataSource#orderByKey",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#orderbyvalue",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-orderByValue",
-    "src/data/DataSource.js~DataSource#orderByValue",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#path",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-path",
-    "src/data/DataSource.js~DataSource#path",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#push",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-push",
-    "src/data/DataSource.js~DataSource#push",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#registerwithpassword",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-registerWithPassword",
-    "src/data/DataSource.js~DataSource#registerWithPassword",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#remove",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-remove",
-    "src/data/DataSource.js~DataSource#remove",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#removechildaddedcallback",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-removeChildAddedCallback",
-    "src/data/DataSource.js~DataSource#removeChildAddedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#removechildchangedcallback",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-removeChildChangedCallback",
-    "src/data/DataSource.js~DataSource#removeChildChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#removechildmovedcallback",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-removeChildMovedCallback",
-    "src/data/DataSource.js~DataSource#removeChildMovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#removechildremovedcallback",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-removeChildRemovedCallback",
-    "src/data/DataSource.js~DataSource#removeChildRemovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#removevaluechangedcallback",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-removeValueChangedCallback",
-    "src/data/DataSource.js~DataSource#removeValueChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#set",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-set",
-    "src/data/DataSource.js~DataSource#set",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#setchildaddedcallback",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-setChildAddedCallback",
-    "src/data/DataSource.js~DataSource#setChildAddedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#setchildchangedcallback",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-setChildChangedCallback",
-    "src/data/DataSource.js~DataSource#setChildChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#setchildmovedcallback",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-setChildMovedCallback",
-    "src/data/DataSource.js~DataSource#setChildMovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#setchildremovedcallback",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-setChildRemovedCallback",
-    "src/data/DataSource.js~DataSource#setChildRemovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#setpriority",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-setPriority",
-    "src/data/DataSource.js~DataSource#setPriority",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#setvaluechangedcallback",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-setValueChangedCallback",
-    "src/data/DataSource.js~DataSource#setValueChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#setwithpriority",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-setWithPriority",
-    "src/data/DataSource.js~DataSource#setWithPriority",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#synced",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-synced",
-    "src/data/DataSource.js~DataSource#synced",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#tostring",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-toString",
-    "src/data/DataSource.js~DataSource#toString",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#unauth",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-unauth",
-    "src/data/DataSource.js~DataSource#unauth",
-    "method"
-  ],
-  [
-    "src/data/datasource.js~datasource#update",
-    "class/src/data/DataSource.js~DataSource.html#instance-method-update",
-    "src/data/DataSource.js~DataSource#update",
-    "method"
-  ],
-  [
     "src/data/prioritisedarray.js",
     "file/src/data/PrioritisedArray.js.html",
     "src/data/PrioritisedArray.js",
     "file"
   ],
   [
-    "src/data/prioritisedarray.js~prioritisedarray#[newposition]",
-    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-member-[newPosition]",
-    "src/data/PrioritisedArray.js~PrioritisedArray#[newPosition]",
-    "member"
+    "src/data/prioritisedarray.js~prioritisedarray#[symbol.iterator]",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-[Symbol.iterator]",
+    "src/data/PrioritisedArray.js~PrioritisedArray#[Symbol.iterator]",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#[symbol.toprimitive]",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-[Symbol.toPrimitive]",
+    "src/data/PrioritisedArray.js~PrioritisedArray#[Symbol.toPrimitive]",
+    "method"
   ],
   [
     "src/data/prioritisedarray.js~prioritisedarray#_buildfromdatasource",
@@ -2355,6 +2493,12 @@ window.esdocSearchIndex = [
     "src/data/prioritisedarray.js~prioritisedarray#_childaddedthrottler",
     "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-member-_childAddedThrottler",
     "src/data/PrioritisedArray.js~PrioritisedArray#_childAddedThrottler",
+    "member"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#_children",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-member-_children",
+    "src/data/PrioritisedArray.js~PrioritisedArray#_children",
     "member"
   ],
   [
@@ -2436,9 +2580,21 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/data/prioritisedarray.js~prioritisedarray#_referencelength",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-member-_referenceLength",
+    "src/data/PrioritisedArray.js~PrioritisedArray#_referenceLength",
+    "member"
+  ],
+  [
     "src/data/prioritisedarray.js~prioritisedarray#_registercallbacks",
     "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-_registerCallbacks",
     "src/data/PrioritisedArray.js~PrioritisedArray#_registerCallbacks",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#_updatereferenceproperties",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-_updateReferenceProperties",
+    "src/data/PrioritisedArray.js~PrioritisedArray#_updateReferenceProperties",
     "method"
   ],
   [
@@ -2454,15 +2610,51 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/data/prioritisedarray.js~prioritisedarray#concat",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-concat",
+    "src/data/PrioritisedArray.js~PrioritisedArray#concat",
+    "method"
+  ],
+  [
     "src/data/prioritisedarray.js~prioritisedarray#constructor",
     "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-constructor-constructor",
     "src/data/PrioritisedArray.js~PrioritisedArray#constructor",
     "method"
   ],
   [
+    "src/data/prioritisedarray.js~prioritisedarray#entries",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-entries",
+    "src/data/PrioritisedArray.js~PrioritisedArray#entries",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#every",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-every",
+    "src/data/PrioritisedArray.js~PrioritisedArray#every",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#filter",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-filter",
+    "src/data/PrioritisedArray.js~PrioritisedArray#filter",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#find",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-find",
+    "src/data/PrioritisedArray.js~PrioritisedArray#find",
+    "method"
+  ],
+  [
     "src/data/prioritisedarray.js~prioritisedarray#findbyid",
     "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-findById",
     "src/data/PrioritisedArray.js~PrioritisedArray#findById",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#findindex",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-findIndex",
+    "src/data/PrioritisedArray.js~PrioritisedArray#findIndex",
     "method"
   ],
   [
@@ -2478,22 +2670,52 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/data/prioritisedarray.js~prioritisedarray#includes",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-includes",
+    "src/data/PrioritisedArray.js~PrioritisedArray#includes",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#includes",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-includes",
+    "src/data/PrioritisedArray.js~PrioritisedArray#includes",
+    "method"
+  ],
+  [
     "src/data/prioritisedarray.js~prioritisedarray#insertat",
     "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-insertAt",
     "src/data/PrioritisedArray.js~PrioritisedArray#insertAt",
     "method"
   ],
   [
-    "src/data/prioritisedarray.js~prioritisedarray#length",
-    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-set-length",
-    "src/data/PrioritisedArray.js~PrioritisedArray#length",
-    "member"
+    "src/data/prioritisedarray.js~prioritisedarray#join",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-join",
+    "src/data/PrioritisedArray.js~PrioritisedArray#join",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#keys",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-keys",
+    "src/data/PrioritisedArray.js~PrioritisedArray#keys",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#lastindexof",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-lastIndexOf",
+    "src/data/PrioritisedArray.js~PrioritisedArray#lastIndexOf",
+    "method"
   ],
   [
     "src/data/prioritisedarray.js~prioritisedarray#length",
     "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-get-length",
     "src/data/PrioritisedArray.js~PrioritisedArray#length",
     "member"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#map",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-map",
+    "src/data/PrioritisedArray.js~PrioritisedArray#map",
+    "method"
   ],
   [
     "src/data/prioritisedarray.js~prioritisedarray#off",
@@ -2520,6 +2742,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/data/prioritisedarray.js~prioritisedarray#reduce",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-reduce",
+    "src/data/PrioritisedArray.js~PrioritisedArray#reduce",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#reduceright",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-reduceRight",
+    "src/data/PrioritisedArray.js~PrioritisedArray#reduceRight",
+    "method"
+  ],
+  [
     "src/data/prioritisedarray.js~prioritisedarray#remove",
     "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-remove",
     "src/data/PrioritisedArray.js~PrioritisedArray#remove",
@@ -2532,256 +2766,22 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/data/prioritisedarray.js~prioritisedarray#some",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-some",
+    "src/data/PrioritisedArray.js~PrioritisedArray#some",
+    "method"
+  ],
+  [
+    "src/data/prioritisedarray.js~prioritisedarray#splice",
+    "class/src/data/PrioritisedArray.js~PrioritisedArray.html#instance-method-splice",
+    "src/data/PrioritisedArray.js~PrioritisedArray#splice",
+    "method"
+  ],
+  [
     "src/data/prioritisedobject.js",
     "file/src/data/PrioritisedObject.js.html",
     "src/data/PrioritisedObject.js",
     "file"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_accessedkeys",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-member-_accessedKeys",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_accessedKeys",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_buildfromdata",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_buildFromData",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_buildFromData",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_buildfromdatasource",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_buildFromDataSource",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_buildFromDataSource",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_buildfromsnapshot",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_buildFromSnapshot",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_buildFromSnapshot",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_buildfromsnapshotwithoutsynchronizing",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_buildFromSnapshotWithoutSynchronizing",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_buildFromSnapshotWithoutSynchronizing",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_changelistenersdisabled",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-member-_changeListenersDisabled",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_changeListenersDisabled",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_childchangedlisteners",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-member-_childChangedListeners",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_childChangedListeners",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_datasource",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-member-_dataSource",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_dataSource",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_events",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-member-_events",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_events",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_getdiffingkeysfromother",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_getDiffingKeysFromOther",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_getDiffingKeysFromOther",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_getparentdatasource",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_getParentDataSource",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_getParentDataSource",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_haslistenersoftype",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_hasListenersOfType",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_hasListenersOfType",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_id",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-member-_id",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_id",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_inheritable",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-get-_inheritable",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_inheritable",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_onchildadded",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_onChildAdded",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_onChildAdded",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_onchildmoved",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_onChildMoved",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_onChildMoved",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_onchildremoved",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_onChildRemoved",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_onChildRemoved",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_onchildvalue",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_onChildValue",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_onChildValue",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_ongettertriggered",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_onGetterTriggered",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_onGetterTriggered",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_onsettertriggered",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-_onSetterTriggered",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_onSetterTriggered",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_priority",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-member-_priority",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_priority",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#_valuechangedcallback",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-member-_valueChangedCallback",
-    "src/data/PrioritisedObject.js~PrioritisedObject#_valueChangedCallback",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#constructor",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-constructor-constructor",
-    "src/data/PrioritisedObject.js~PrioritisedObject#constructor",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#dataexists",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-dataExists",
-    "src/data/PrioritisedObject.js~PrioritisedObject#dataExists",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#datasource",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-get-dataSource",
-    "src/data/PrioritisedObject.js~PrioritisedObject#dataSource",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#disablechangelistener",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-disableChangeListener",
-    "src/data/PrioritisedObject.js~PrioritisedObject#disableChangeListener",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#enablechangelistener",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-enableChangeListener",
-    "src/data/PrioritisedObject.js~PrioritisedObject#enableChangeListener",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#getdatasource",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-getDataSource",
-    "src/data/PrioritisedObject.js~PrioritisedObject#getDataSource",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#getdatasourcepath",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-getDataSourcePath",
-    "src/data/PrioritisedObject.js~PrioritisedObject#getDataSourcePath",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#id",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-get-id",
-    "src/data/PrioritisedObject.js~PrioritisedObject#id",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#id",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-set-id",
-    "src/data/PrioritisedObject.js~PrioritisedObject#id",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#off",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-off",
-    "src/data/PrioritisedObject.js~PrioritisedObject#off",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#on",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-on",
-    "src/data/PrioritisedObject.js~PrioritisedObject#on",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#once",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-once",
-    "src/data/PrioritisedObject.js~PrioritisedObject#once",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#priority",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-set-priority",
-    "src/data/PrioritisedObject.js~PrioritisedObject#priority",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#priority",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-get-priority",
-    "src/data/PrioritisedObject.js~PrioritisedObject#priority",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#remove",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-remove",
-    "src/data/PrioritisedObject.js~PrioritisedObject#remove",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject#transaction",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#instance-method-transaction",
-    "src/data/PrioritisedObject.js~PrioritisedObject#transaction",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject._propertygetterspy",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#static-member-_propertyGetterSpy",
-    "src/data/PrioritisedObject.js~PrioritisedObject._propertyGetterSpy",
-    "member"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject.removepropertygetterspy",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#static-method-removePropertyGetterSpy",
-    "src/data/PrioritisedObject.js~PrioritisedObject.removePropertyGetterSpy",
-    "method"
-  ],
-  [
-    "src/data/prioritisedobject.js~prioritisedobject.setpropertygetterspy",
-    "class/src/data/PrioritisedObject.js~PrioritisedObject.html#static-method-setPropertyGetterSpy",
-    "src/data/PrioritisedObject.js~PrioritisedObject.setPropertyGetterSpy",
-    "method"
   ],
   [
     "src/data/snapshot.js",
@@ -2790,562 +2790,16 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/data/snapshot.js~snapshot#constructor",
-    "class/src/data/Snapshot.js~Snapshot.html#instance-constructor-constructor",
-    "src/data/Snapshot.js~Snapshot#constructor",
-    "method"
-  ],
-  [
-    "src/data/snapshot.js~snapshot#foreach",
-    "class/src/data/Snapshot.js~Snapshot.html#instance-method-forEach",
-    "src/data/Snapshot.js~Snapshot#forEach",
-    "method"
-  ],
-  [
-    "src/data/snapshot.js~snapshot#getpriority",
-    "class/src/data/Snapshot.js~Snapshot.html#instance-method-getPriority",
-    "src/data/Snapshot.js~Snapshot#getPriority",
-    "method"
-  ],
-  [
-    "src/data/snapshot.js~snapshot#key",
-    "class/src/data/Snapshot.js~Snapshot.html#instance-get-key",
-    "src/data/Snapshot.js~Snapshot#key",
-    "member"
-  ],
-  [
-    "src/data/snapshot.js~snapshot#numchildren",
-    "class/src/data/Snapshot.js~Snapshot.html#instance-method-numChildren",
-    "src/data/Snapshot.js~Snapshot#numChildren",
-    "method"
-  ],
-  [
-    "src/data/snapshot.js~snapshot#ref",
-    "class/src/data/Snapshot.js~Snapshot.html#instance-get-ref",
-    "src/data/Snapshot.js~Snapshot#ref",
-    "member"
-  ],
-  [
-    "src/data/snapshot.js~snapshot#val",
-    "class/src/data/Snapshot.js~Snapshot.html#instance-method-val",
-    "src/data/Snapshot.js~Snapshot#val",
-    "method"
-  ],
-  [
     "src/data/datasources/firebasedatasource.js",
     "file/src/data/datasources/FirebaseDataSource.js.html",
     "src/data/datasources/FirebaseDataSource.js",
     "file"
   ],
   [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_authdatapresent",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-_authDataPresent",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_authDataPresent",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_datareference",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-_dataReference",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_dataReference",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_firebase",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-_firebase",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_firebase",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_onaddcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-_onAddCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_onAddCallback",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_onchangecallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-_onChangeCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_onChangeCallback",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_onmovecallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-_onMoveCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_onMoveCallback",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_onremovecallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-_onRemoveCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_onRemoveCallback",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_onvaluecallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-_onValueCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_onValueCallback",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_ordereddatareference",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-_orderedDataReference",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_orderedDataReference",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_rethrowfirebaseerror",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-_rethrowFirebaseError",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_rethrowFirebaseError",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#_synced",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-_synced",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#_synced",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#atomictransaction",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-atomicTransaction",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#atomicTransaction",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#authanonymously",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-authAnonymously",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#authAnonymously",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#authwithcustomtoken",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-authWithCustomToken",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#authWithCustomToken",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#authwithoauthtoken",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-authWithOAuthToken",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#authWithOAuthToken",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#authwithpassword",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-authWithPassword",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#authWithPassword",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#child",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-child",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#child",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#constructor",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-constructor-constructor",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#constructor",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#createproviderfromcredential",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-createProviderFromCredential",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#createProviderFromCredential",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#dataexists",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-dataExists",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#dataExists",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#datareference",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-get-dataReference",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#dataReference",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#datareference",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-set-dataReference",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#dataReference",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#getauth",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-getAuth",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#getAuth",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#gettimestampsymbol",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-getTimestampSymbol",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#getTimestampSymbol",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#handlers",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-handlers",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#handlers",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#key",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-key",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#key",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#limittofirst",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-limitToFirst",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#limitToFirst",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#limittolast",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-limitToLast",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#limitToLast",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#linkcurrentuserwithprovider",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-linkCurrentUserWithProvider",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#linkCurrentUserWithProvider",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#off",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-off",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#off",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#on",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-on",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#on",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#once",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-once",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#once",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#options",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-member-options",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#options",
-    "member"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#orderbychild",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-orderByChild",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#orderByChild",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#orderbykey",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-orderByKey",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#orderByKey",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#orderbyvalue",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-orderByValue",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#orderByValue",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#parent",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-parent",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#parent",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#path",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-path",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#path",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#push",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-push",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#push",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#registerwithpassword",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-registerWithPassword",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#registerWithPassword",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#remove",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-remove",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#remove",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#removechildaddedcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-removeChildAddedCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#removeChildAddedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#removechildchangedcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-removeChildChangedCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#removeChildChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#removechildmovedcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-removeChildMovedCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#removeChildMovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#removechildremovedcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-removeChildRemovedCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#removeChildRemovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#removevaluechangedcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-removeValueChangedCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#removeValueChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#root",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-root",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#root",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#sendpasswordresetemail",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-sendPasswordResetEmail",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#sendPasswordResetEmail",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#set",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-set",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#set",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#setchildaddedcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-setChildAddedCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#setChildAddedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#setchildchangedcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-setChildChangedCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#setChildChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#setchildmovedcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-setChildMovedCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#setChildMovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#setchildremovedcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-setChildRemovedCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#setChildRemovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#setpriority",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-setPriority",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#setPriority",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#setvaluechangedcallback",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-setValueChangedCallback",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#setValueChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#setwithpriority",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-setWithPriority",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#setWithPriority",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#synced",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-synced",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#synced",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#tostring",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-toString",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#toString",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#unauth",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-unauth",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#unauth",
-    "method"
-  ],
-  [
-    "src/data/datasources/firebasedatasource.js~firebasedatasource#update",
-    "class/src/data/datasources/FirebaseDataSource.js~FirebaseDataSource.html#instance-method-update",
-    "src/data/datasources/FirebaseDataSource.js~FirebaseDataSource#update",
-    "method"
-  ],
-  [
     "src/data/datasources/sharepoint/datamodelgenerator.js",
     "file/src/data/datasources/SharePoint/DataModelGenerator.js.html",
     "src/data/datasources/SharePoint/DataModelGenerator.js",
     "file"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#deploy",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-Deploy",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#Deploy",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#seed",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-Seed",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#Seed",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_createlookup",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_CreateLookup",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_CreateLookup",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_getlistservice",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-get-_GetListService",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_GetListService",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_getorcreatelist",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_GetOrCreateList",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_GetOrCreateList",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_getorcreatemodel",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_GetOrCreateModel",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_GetOrCreateModel",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_getviewservice",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-get-_GetViewService",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_GetViewService",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_parsepath",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_ParsePath",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_ParsePath",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_resolvelistid",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_ResolveListID",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_ResolveListID",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_resolveviewid",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_ResolveViewID",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_ResolveViewID",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_schema",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-member-_Schema",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_Schema",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_seed",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-member-_Seed",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_Seed",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_updatedefaultview",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_UpdateDefaultView",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_UpdateDefaultView",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_applicationid",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-member-_applicationId",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_applicationId",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_applysoaptemplate",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_applySoapTemplate",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_applySoapTemplate",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_getdefaultviewrequest",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_getDefaultViewRequest",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_getDefaultViewRequest",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_getlistcreationrequest",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_getListCreationRequest",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_getListCreationRequest",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_getlistexistrequest",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_getListExistRequest",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_getListExistRequest",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_getlistupdaterequest",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_getListUpdateRequest",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_getListUpdateRequest",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_getupdateviewrequest",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_getUpdateViewRequest",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_getUpdateViewRequest",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_originalpath",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-member-_originalPath",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_originalPath",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#_serializeparams",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-method-_serializeParams",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#_serializeParams",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#constructor",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-constructor-constructor",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#constructor",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/datamodelgenerator.js~datamodelgenerator#hidden",
-    "class/src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator.html#instance-member-hidden",
-    "src/data/datasources/SharePoint/DataModelGenerator.js~DataModelGenerator#hidden",
-    "member"
   ],
   [
     "src/data/datasources/sharepoint/spsoapadapter/settings.js",
@@ -3364,108 +2818,6 @@ window.esdocSearchIndex = [
     "file/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js.html",
     "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js",
     "file"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#_handleauthresult",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-method-_handleAuthResult",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#_handleAuthResult",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#_handlecachedata",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-method-_handleCacheData",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#_handleCacheData",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#_initialise",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-method-_initialise",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#_initialise",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#_initialised",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-member-_initialised",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#_initialised",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#_onmessage",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-method-_onMessage",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#_onMessage",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#_ready",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-member-_ready",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#_ready",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#cache",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-member-cache",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#cache",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#constructor",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-constructor-constructor",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#constructor",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#getauth",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-method-getAuth",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#getAuth",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#off",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-method-off",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#off",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#on",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-method-on",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#on",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#once",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-method-once",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#once",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#options",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-member-options",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#options",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#remove",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-method-remove",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#remove",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#set",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-method-set",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#set",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint#subscriberid",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#instance-member-subscriberID",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint#subscriberID",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js~sharepoint.hashcode",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.html#static-method-hashCode",
-    "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js~SharePoint.hashCode",
-    "method"
   ],
   [
     "src/data/datasources/sharepoint/spsoapadapter/worker/manager.js",
@@ -3744,42 +3096,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/soapclient.js~soapclient#_applysoaptemplate",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient.html#instance-method-_applySoapTemplate",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient#_applySoapTemplate",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/soapclient.js~soapclient#_handleerror",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient.html#instance-method-_handleError",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient#_handleError",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/soapclient.js~soapclient#_replacetempkeys",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient.html#instance-method-_replaceTempKeys",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient#_replaceTempKeys",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/soapclient.js~soapclient#_serializeparams",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient.html#instance-method-_serializeParams",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient#_serializeParams",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/soapclient.js~soapclient#call",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient.html#instance-method-call",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient#call",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/soapclient.js~soapclient#constructor",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient.html#instance-constructor-constructor",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SoapClient.js~SoapClient#constructor",
-    "method"
-  ],
-  [
     "src/data/datasources/sharepoint/spsoapadapter/worker/xmljs.js",
     "file/src/data/datasources/SharePoint/SPSoapAdapter/Worker/xmljs.js.html",
     "src/data/datasources/SharePoint/SPSoapAdapter/Worker/xmljs.js",
@@ -3792,66 +3108,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot#_data",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html#instance-member-_data",
-    "src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot#_data",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot#_datasource",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html#instance-member-_dataSource",
-    "src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot#_dataSource",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot#_kvpair",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html#instance-member-_kvpair",
-    "src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot#_kvpair",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot#constructor",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html#instance-constructor-constructor",
-    "src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot#constructor",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot#foreach",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html#instance-method-forEach",
-    "src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot#forEach",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot#getpriority",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html#instance-method-getPriority",
-    "src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot#getPriority",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot#key",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html#instance-get-key",
-    "src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot#key",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot#numchildren",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html#instance-method-numChildren",
-    "src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot#numChildren",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot#ref",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html#instance-get-ref",
-    "src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot#ref",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/sharepointsnapshot.js~sharepointsnapshot#val",
-    "class/src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot.html#instance-method-val",
-    "src/data/datasources/SharePoint/SharePointSnapshot.js~SharePointSnapshot#val",
-    "method"
-  ],
-  [
     "src/data/datasources/sharepoint/xml2js.js",
     "file/src/data/datasources/SharePoint/xml2js.js.html",
     "src/data/datasources/SharePoint/xml2js.js",
@@ -3862,336 +3118,6 @@ window.esdocSearchIndex = [
     "file/src/data/datasources/SharePointDataSource.js.html",
     "src/data/datasources/SharePointDataSource.js",
     "file"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_parsepath",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-_ParsePath",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_ParsePath",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_parseselector",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-_ParseSelector",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_ParseSelector",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_callbacks",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-member-_callbacks",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_callbacks",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_datareference",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-member-_dataReference",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_dataReference",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_notifyonvalue",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-_notifyOnValue",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_notifyOnValue",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_onaddcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-member-_onAddCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_onAddCallback",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_onchangecallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-member-_onChangeCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_onChangeCallback",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_onmovecallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-member-_onMoveCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_onMoveCallback",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_onremovecallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-member-_onRemoveCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_onRemoveCallback",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_onvaluecallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-member-_onValueCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_onValueCallback",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#_originalpath",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-member-_originalPath",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#_originalPath",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#atomictransaction",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-atomicTransaction",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#atomicTransaction",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#authanonymously",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-authAnonymously",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#authAnonymously",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#authwithcustomtoken",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-authWithCustomToken",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#authWithCustomToken",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#authwithoauthtoken",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-authWithOAuthToken",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#authWithOAuthToken",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#authwithpassword",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-authWithPassword",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#authWithPassword",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#child",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-child",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#child",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#constructor",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-constructor-constructor",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#constructor",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#createproviderfromcredential",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-createProviderFromCredential",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#createProviderFromCredential",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#getauth",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-getAuth",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#getAuth",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#gettimestampsymbol",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-getTimestampSymbol",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#getTimestampSymbol",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#inheritable",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-get-inheritable",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#inheritable",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#key",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-key",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#key",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#limittofirst",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-limitToFirst",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#limitToFirst",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#limittolast",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-limitToLast",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#limitToLast",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#linkcurrentuserwithprovider",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-linkCurrentUserWithProvider",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#linkCurrentUserWithProvider",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#off",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-off",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#off",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#on",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-on",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#on",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#once",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-once",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#once",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#options",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-member-options",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#options",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#path",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-path",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#path",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#push",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-push",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#push",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#registerwithpassword",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-registerWithPassword",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#registerWithPassword",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#remove",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-remove",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#remove",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#removechildaddedcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-removeChildAddedCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#removeChildAddedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#removechildchangedcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-removeChildChangedCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#removeChildChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#removechildmovedcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-removeChildMovedCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#removeChildMovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#removechildremovedcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-removeChildRemovedCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#removeChildRemovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#removevaluechangedcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-removeValueChangedCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#removeValueChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#root",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-root",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#root",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#set",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-set",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#set",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#setchildaddedcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-setChildAddedCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#setChildAddedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#setchildchangedcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-setChildChangedCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#setChildChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#setchildmovedcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-setChildMovedCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#setChildMovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#setchildremovedcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-setChildRemovedCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#setChildRemovedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#setpriority",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-setPriority",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#setPriority",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#setvaluechangedcallback",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-setValueChangedCallback",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#setValueChangedCallback",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#setwithpriority",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-setWithPriority",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#setWithPriority",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#synced",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-synced",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#synced",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#tostring",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-toString",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#toString",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#unauth",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-unauth",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#unauth",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource#update",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#instance-method-update",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource#update",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource.createfromchild",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#static-method-createFromChild",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource.createFromChild",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource.currentuser",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#static-get-currentUser",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource.currentUser",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepointdatasource.js~sharepointdatasource.currentuser",
-    "class/src/data/datasources/SharePointDataSource.js~SharePointDataSource.html#static-set-currentUser",
-    "src/data/datasources/SharePointDataSource.js~SharePointDataSource.currentUser",
-    "member"
   ],
   [
     "src/data/local/localmodel.js",
@@ -4320,76 +3246,16 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/data/storage/filesource.js~filesource#_datareference",
-    "class/src/data/storage/FileSource.js~FileSource.html#instance-member-_dataReference",
-    "src/data/storage/FileSource.js~FileSource#_dataReference",
-    "member"
-  ],
-  [
-    "src/data/storage/filesource.js~filesource#constructor",
-    "class/src/data/storage/FileSource.js~FileSource.html#instance-constructor-constructor",
-    "src/data/storage/FileSource.js~FileSource#constructor",
-    "method"
-  ],
-  [
-    "src/data/storage/filesource.js~filesource#get",
-    "class/src/data/storage/FileSource.js~FileSource.html#instance-method-get",
-    "src/data/storage/FileSource.js~FileSource#get",
-    "method"
-  ],
-  [
-    "src/data/storage/filesource.js~filesource#push",
-    "class/src/data/storage/FileSource.js~FileSource.html#instance-method-push",
-    "src/data/storage/FileSource.js~FileSource#push",
-    "method"
-  ],
-  [
-    "src/data/storage/filesource.js~filesource#remove",
-    "class/src/data/storage/FileSource.js~FileSource.html#instance-method-remove",
-    "src/data/storage/FileSource.js~FileSource#remove",
-    "method"
-  ],
-  [
-    "src/data/storage/filesource.js~filesource#set",
-    "class/src/data/storage/FileSource.js~FileSource.html#instance-method-set",
-    "src/data/storage/FileSource.js~FileSource#set",
-    "method"
-  ],
-  [
     "src/data/storage/firebasefilesource.js",
     "file/src/data/storage/FirebaseFileSource.js.html",
     "src/data/storage/FirebaseFileSource.js",
     "file"
   ],
   [
-    "src/data/storage/firebasefilesource.js~firebasefilesource#constructor",
-    "class/src/data/storage/FirebaseFileSource.js~FirebaseFileSource.html#instance-constructor-constructor",
-    "src/data/storage/FirebaseFileSource.js~FirebaseFileSource#constructor",
-    "method"
-  ],
-  [
-    "src/data/storage/firebasefilesource.js~firebasefilesource#path",
-    "class/src/data/storage/FirebaseFileSource.js~FirebaseFileSource.html#instance-member-path",
-    "src/data/storage/FirebaseFileSource.js~FirebaseFileSource#path",
-    "member"
-  ],
-  [
-    "src/data/storage/firebasefilesource.js~firebasefilesource#push",
-    "class/src/data/storage/FirebaseFileSource.js~FirebaseFileSource.html#instance-method-push",
-    "src/data/storage/FirebaseFileSource.js~FirebaseFileSource#push",
-    "method"
-  ],
-  [
-    "src/data/storage/firebasefilesource.js~firebasefilesource#storage",
-    "class/src/data/storage/FirebaseFileSource.js~FirebaseFileSource.html#instance-member-storage",
-    "src/data/storage/FirebaseFileSource.js~FirebaseFileSource#storage",
-    "member"
-  ],
-  [
-    "src/data/storage/firebasefilesource.js~firebasefilesource#storageref",
-    "class/src/data/storage/FirebaseFileSource.js~FirebaseFileSource.html#instance-member-storageRef",
-    "src/data/storage/FirebaseFileSource.js~FirebaseFileSource#storageRef",
-    "member"
+    "src/layout/decoratorhelpers.js",
+    "file/src/layout/DecoratorHelpers.js.html",
+    "src/layout/DecoratorHelpers.js",
+    "file"
   ],
   [
     "src/layout/decorators.js",
@@ -4422,6 +3288,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/layout/decorators.js~flow#_defaultoptiondecorator",
+    "class/src/layout/Decorators.js~Flow.html#instance-method-_defaultOptionDecorator",
+    "src/layout/Decorators.js~Flow#_defaultOptionDecorator",
+    "method"
+  ],
+  [
+    "src/layout/decorators.js~flow#auto",
+    "class/src/layout/Decorators.js~Flow.html#instance-method-auto",
+    "src/layout/Decorators.js~Flow#auto",
+    "method"
+  ],
+  [
     "src/layout/decorators.js~flow#defaultoptions",
     "class/src/layout/Decorators.js~Flow.html#instance-method-defaultOptions",
     "src/layout/Decorators.js~Flow#defaultOptions",
@@ -4443,6 +3321,12 @@ window.esdocSearchIndex = [
     "src/layout/decorators.js~flow#statestep",
     "class/src/layout/Decorators.js~Flow.html#instance-method-stateStep",
     "src/layout/Decorators.js~Flow#stateStep",
+    "method"
+  ],
+  [
+    "src/layout/decorators.js~flow#transition",
+    "class/src/layout/Decorators.js~Flow.html#instance-method-transition",
+    "src/layout/Decorators.js~Flow#transition",
     "method"
   ],
   [
@@ -4518,12 +3402,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/layout/decorators.js~layout#extra",
-    "class/src/layout/Decorators.js~Layout.html#instance-get-extra",
-    "src/layout/Decorators.js~Layout#extra",
-    "member"
-  ],
-  [
     "src/layout/decorators.js~layout#flow",
     "class/src/layout/Decorators.js~Layout.html#instance-method-flow",
     "src/layout/Decorators.js~Layout#flow",
@@ -4533,6 +3411,12 @@ window.esdocSearchIndex = [
     "src/layout/decorators.js~layout#fullsize",
     "class/src/layout/Decorators.js~Layout.html#instance-method-fullSize",
     "src/layout/Decorators.js~Layout#fullSize",
+    "method"
+  ],
+  [
+    "src/layout/decorators.js~layout#modifier",
+    "class/src/layout/Decorators.js~Layout.html#instance-method-modifier",
+    "src/layout/Decorators.js~Layout#modifier",
     "method"
   ],
   [
@@ -4551,6 +3435,12 @@ window.esdocSearchIndex = [
     "src/layout/decorators.js~layout#origin",
     "class/src/layout/Decorators.js~Layout.html#instance-method-origin",
     "src/layout/Decorators.js~Layout#origin",
+    "method"
+  ],
+  [
+    "src/layout/decorators.js~layout#perspective",
+    "class/src/layout/Decorators.js~Layout.html#instance-method-perspective",
+    "src/layout/Decorators.js~Layout#perspective",
     "method"
   ],
   [
@@ -4618,12 +3508,6 @@ window.esdocSearchIndex = [
     "class/src/layout/Decorators.js~Layout.html#instance-method-translateFrom",
     "src/layout/Decorators.js~Layout#translateFrom",
     "method"
-  ],
-  [
-    "src/layout/decorators.js~layout.docktypes",
-    "typedef/index.html#static-typedef-DockTypes",
-    "src/layout/Decorators.js~Layout.DockTypes",
-    "typedef"
   ],
   [
     "src/layout/decorators.js~layout.sticktypes",
@@ -4866,6 +3750,180 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/surfaces/audiosurface.js",
+    "file/src/surfaces/AudioSurface.js.html",
+    "src/surfaces/AudioSurface.js",
+    "file"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#_analyser",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-member-_analyser",
+    "src/surfaces/AudioSurface.js~AudioSurface#_analyser",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#_analyserid",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-member-_analyserId",
+    "src/surfaces/AudioSurface.js~AudioSurface#_analyserId",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#_bufferlength",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-member-_bufferLength",
+    "src/surfaces/AudioSurface.js~AudioSurface#_bufferLength",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#_contentdirty",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-member-_contentDirty",
+    "src/surfaces/AudioSurface.js~AudioSurface#_contentDirty",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#_handleplaybackevents",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-_handlePlaybackEvents",
+    "src/surfaces/AudioSurface.js~AudioSurface#_handlePlaybackEvents",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#_loopanalyser",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-_loopAnalyser",
+    "src/surfaces/AudioSurface.js~AudioSurface#_loopAnalyser",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#_name",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-member-_name",
+    "src/surfaces/AudioSurface.js~AudioSurface#_name",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#_streamdata",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-member-_streamData",
+    "src/surfaces/AudioSurface.js~AudioSurface#_streamData",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#_value",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-member-_value",
+    "src/surfaces/AudioSurface.js~AudioSurface#_value",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#_volume",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-member-_volume",
+    "src/surfaces/AudioSurface.js~AudioSurface#_volume",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#analyseractive",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-get-analyserActive",
+    "src/surfaces/AudioSurface.js~AudioSurface#analyserActive",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#blur",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-blur",
+    "src/surfaces/AudioSurface.js~AudioSurface#blur",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#bufferlength",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-get-bufferLength",
+    "src/surfaces/AudioSurface.js~AudioSurface#bufferLength",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#constructor",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-constructor-constructor",
+    "src/surfaces/AudioSurface.js~AudioSurface#constructor",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#deploy",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-deploy",
+    "src/surfaces/AudioSurface.js~AudioSurface#deploy",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#elementclass",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-get-elementClass",
+    "src/surfaces/AudioSurface.js~AudioSurface#elementClass",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#elementtype",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-get-elementType",
+    "src/surfaces/AudioSurface.js~AudioSurface#elementType",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#focus",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-focus",
+    "src/surfaces/AudioSurface.js~AudioSurface#focus",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#getname",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-getName",
+    "src/surfaces/AudioSurface.js~AudioSurface#getName",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#load",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-load",
+    "src/surfaces/AudioSurface.js~AudioSurface#load",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#pause",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-pause",
+    "src/surfaces/AudioSurface.js~AudioSurface#pause",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#play",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-play",
+    "src/surfaces/AudioSurface.js~AudioSurface#play",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#setname",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-setName",
+    "src/surfaces/AudioSurface.js~AudioSurface#setName",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#seturl",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-setUrl",
+    "src/surfaces/AudioSurface.js~AudioSurface#setUrl",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#startanalyser",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-startAnalyser",
+    "src/surfaces/AudioSurface.js~AudioSurface#startAnalyser",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#stopanalyser",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-method-stopAnalyser",
+    "src/surfaces/AudioSurface.js~AudioSurface#stopAnalyser",
+    "method"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#streamurl",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-member-streamUrl",
+    "src/surfaces/AudioSurface.js~AudioSurface#streamUrl",
+    "member"
+  ],
+  [
+    "src/surfaces/audiosurface.js~audiosurface#volume",
+    "class/src/surfaces/AudioSurface.js~AudioSurface.html#instance-get-volume",
+    "src/surfaces/AudioSurface.js~AudioSurface#volume",
+    "member"
+  ],
+  [
     "src/surfaces/dropdown.js",
     "file/src/surfaces/Dropdown.js.html",
     "src/surfaces/Dropdown.js",
@@ -4906,6 +3964,12 @@ window.esdocSearchIndex = [
     "file/src/surfaces/InputSurface.js.html",
     "src/surfaces/InputSurface.js",
     "file"
+  ],
+  [
+    "src/surfaces/inputsurface.js~inputsurface#_notifylistenersifapplicable",
+    "class/src/surfaces/InputSurface.js~InputSurface.html#instance-method-_notifyListenersIfApplicable",
+    "src/surfaces/InputSurface.js~InputSurface#_notifyListenersIfApplicable",
+    "method"
   ],
   [
     "src/surfaces/inputsurface.js~inputsurface#_onfieldchange",
@@ -4968,10 +4032,112 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/surfaces/pushdownsurface.js",
+    "file/src/surfaces/PushDownSurface.js.html",
+    "src/surfaces/PushDownSurface.js",
+    "file"
+  ],
+  [
+    "src/surfaces/pushdownsurface.js~pushdownsurface#allocate",
+    "class/src/surfaces/PushDownSurface.js~PushDownSurface.html#instance-method-allocate",
+    "src/surfaces/PushDownSurface.js~PushDownSurface#allocate",
+    "method"
+  ],
+  [
+    "src/surfaces/pushdownsurface.js~pushdownsurface#elementclass",
+    "class/src/surfaces/PushDownSurface.js~PushDownSurface.html#instance-member-elementClass",
+    "src/surfaces/PushDownSurface.js~PushDownSurface#elementClass",
+    "member"
+  ],
+  [
     "src/surfaces/surface.js",
     "file/src/surfaces/Surface.js.html",
     "src/surfaces/Surface.js",
     "file"
+  ],
+  [
+    "src/surfaces/webglsurface.js",
+    "file/src/surfaces/WebGLSurface.js.html",
+    "src/surfaces/WebGLSurface.js",
+    "file"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_buffer",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-member-_buffer",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_buffer",
+    "member"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_createprogram",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-method-_createProgram",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_createProgram",
+    "method"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_createshader",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-method-_createShader",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_createShader",
+    "method"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_currentprogram",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-member-_currentProgram",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_currentProgram",
+    "member"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_extraparams",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-member-_extraParams",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_extraParams",
+    "member"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_gl",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-member-_gl",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_gl",
+    "member"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_parameters",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-member-_parameters",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_parameters",
+    "member"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_render",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-method-_render",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_render",
+    "method"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_resizecanvas",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-method-_resizeCanvas",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_resizeCanvas",
+    "method"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_resolutionlocation",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-member-_resolutionLocation",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_resolutionLocation",
+    "member"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#_timelocation",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-member-_timeLocation",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#_timeLocation",
+    "member"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#constructor",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-constructor-constructor",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#constructor",
+    "method"
+  ],
+  [
+    "src/surfaces/webglsurface.js~webglsurface#setextraparam",
+    "class/src/surfaces/WebGLSurface.js~WebGLSurface.html#instance-method-setExtraParam",
+    "src/surfaces/WebGLSurface.js~WebGLSurface#setExtraParam",
+    "method"
   ],
   [
     "src/utils/blobhelper.js",
@@ -5778,12 +4944,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils/view/arrayobserver.js~arrayobserver#dirtypositions",
-    "class/src/utils/view/ArrayObserver.js~ArrayObserver.html#instance-member-dirtyPositions",
-    "src/utils/view/ArrayObserver.js~ArrayObserver#dirtyPositions",
-    "member"
-  ],
-  [
     "src/utils/view/arrayobserver.js~arrayobserver#rebuild",
     "class/src/utils/view/ArrayObserver.js~ArrayObserver.html#instance-method-rebuild",
     "src/utils/view/ArrayObserver.js~ArrayObserver#rebuild",
@@ -5811,6 +4971,102 @@ window.esdocSearchIndex = [
     "src/utils/view/arrayobserver.js~mappedarray#getarray",
     "class/src/utils/view/ArrayObserver.js~MappedArray.html#instance-method-getArray",
     "src/utils/view/ArrayObserver.js~MappedArray#getArray",
+    "method"
+  ],
+  [
+    "src/utils/view/inputoption.js",
+    "file/src/utils/view/InputOption.js.html",
+    "src/utils/view/InputOption.js",
+    "file"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#[changevalue]",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-method-[changeValue]",
+    "src/utils/view/InputOption.js~InputOption#[changeValue]",
+    "method"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#[foreignnestedpropertypath]",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-member-[foreignNestedPropertyPath]",
+    "src/utils/view/InputOption.js~InputOption#[foreignNestedPropertyPath]",
+    "member"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#[foreignoptionobserver]",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-member-[foreignOptionObserver]",
+    "src/utils/view/InputOption.js~InputOption#[foreignOptionObserver]",
+    "member"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#[listenertree]",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-member-[listenerTree]",
+    "src/utils/view/InputOption.js~InputOption#[listenerTree]",
+    "member"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#[nestedpropertypath]",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-member-[nestedPropertyPath]",
+    "src/utils/view/InputOption.js~InputOption#[nestedPropertyPath]",
+    "member"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#[optionobserver]",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-member-[optionObserver]",
+    "src/utils/view/InputOption.js~InputOption#[optionObserver]",
+    "member"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#[propertyname]",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-member-[propertyName]",
+    "src/utils/view/InputOption.js~InputOption#[propertyName]",
+    "member"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#[unwrapvalue]",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-method-[unwrapValue]",
+    "src/utils/view/InputOption.js~InputOption#[unwrapValue]",
+    "method"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#_determinewhethershouldmuteupdates",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-method-_determineWhetherShouldMuteUpdates",
+    "src/utils/view/InputOption.js~InputOption#_determineWhetherShouldMuteUpdates",
+    "method"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#_entrynames",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-member-_entryNames",
+    "src/utils/view/InputOption.js~InputOption#_entryNames",
+    "member"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#_setupforeignoptionobserverlistener",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-method-_setupForeignOptionObserverListener",
+    "src/utils/view/InputOption.js~InputOption#_setupForeignOptionObserverListener",
+    "method"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#_shouldmuteupdateswhenchanging",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-member-_shouldMuteUpdatesWhenChanging",
+    "src/utils/view/InputOption.js~InputOption#_shouldMuteUpdatesWhenChanging",
+    "member"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#_valueshouldbeinvalidated",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-member-_valueShouldBeInvalidated",
+    "src/utils/view/InputOption.js~InputOption#_valueShouldBeInvalidated",
+    "member"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#constructor",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-constructor-constructor",
+    "src/utils/view/InputOption.js~InputOption#constructor",
+    "method"
+  ],
+  [
+    "src/utils/view/inputoption.js~inputoption#updatevalueifnecessary",
+    "class/src/utils/view/InputOption.js~InputOption.html#instance-method-updateValueIfNecessary",
+    "src/utils/view/InputOption.js~InputOption#updateValueIfNecessary",
     "method"
   ],
   [
@@ -5898,6 +5154,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils/view/lazyloadedoptionclone.js",
+    "file/src/utils/view/LazyLoadedOptionClone.js.html",
+    "src/utils/view/LazyLoadedOptionClone.js",
+    "file"
+  ],
+  [
+    "src/utils/view/lazyloadedoptionclone.js~lazyloadedoptionclone.get",
+    "class/src/utils/view/LazyLoadedOptionClone.js~LazyLoadedOptionClone.html#static-method-get",
+    "src/utils/view/LazyLoadedOptionClone.js~LazyLoadedOptionClone.get",
+    "method"
+  ],
+  [
     "src/utils/view/optionobserver.js",
     "file/src/utils/view/OptionObserver.js.html",
     "src/utils/view/OptionObserver.js",
@@ -5910,9 +5178,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils/view/optionobserver.js~optionobserver#_accessobjectpath",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_accessObjectPath",
-    "src/utils/view/OptionObserver.js~OptionObserver#_accessObjectPath",
+    "src/utils/view/optionobserver.js~optionobserver#_accommodateinsideobject",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_accommodateInsideObject",
+    "src/utils/view/OptionObserver.js~OptionObserver#_accommodateInsideObject",
     "method"
   ],
   [
@@ -5958,10 +5226,10 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils/view/optionobserver.js~optionobserver#_copyimportantsymbols",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_copyImportantSymbols",
-    "src/utils/view/OptionObserver.js~OptionObserver#_copyImportantSymbols",
-    "method"
+    "src/utils/view/optionobserver.js~optionobserver#_bindingstriggermethods",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-member-_bindingsTriggerMethods",
+    "src/utils/view/OptionObserver.js~OptionObserver#_bindingsTriggerMethods",
+    "member"
   ],
   [
     "src/utils/view/optionobserver.js~optionobserver#_createlistenertree",
@@ -5988,9 +5256,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils/view/optionobserver.js~optionobserver#_dopreprocessing",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_doPreprocessing",
-    "src/utils/view/OptionObserver.js~OptionObserver#_doPreprocessing",
+    "src/utils/view/optionobserver.js~optionobserver#_doalltriggermethods",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_doAllTriggerMethods",
+    "src/utils/view/OptionObserver.js~OptionObserver#_doAllTriggerMethods",
     "method"
   ],
   [
@@ -6012,21 +5280,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils/view/optionobserver.js~optionobserver#_flushupdates",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_flushUpdates",
-    "src/utils/view/OptionObserver.js~OptionObserver#_flushUpdates",
-    "method"
-  ],
-  [
     "src/utils/view/optionobserver.js~optionobserver#_forbiddenupdatesfornexttick",
     "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-member-_forbiddenUpdatesForNextTick",
     "src/utils/view/OptionObserver.js~OptionObserver#_forbiddenUpdatesForNextTick",
     "member"
   ],
   [
-    "src/utils/view/optionobserver.js~optionobserver#_getupdatesentriesforlocallistenertree",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_getUpdatesEntriesForLocalListenerTree",
-    "src/utils/view/OptionObserver.js~OptionObserver#_getUpdatesEntriesForLocalListenerTree",
+    "src/utils/view/optionobserver.js~optionobserver#_getdeeplynestedlistenerpaths",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_getDeeplyNestedListenerPaths",
+    "src/utils/view/OptionObserver.js~OptionObserver#_getDeeplyNestedListenerPaths",
+    "method"
+  ],
+  [
+    "src/utils/view/optionobserver.js~optionobserver#_getupdatesentrynamesforlocallistenertree",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_getUpdatesEntryNamesForLocalListenerTree",
+    "src/utils/view/OptionObserver.js~OptionObserver#_getUpdatesEntryNamesForLocalListenerTree",
     "method"
   ],
   [
@@ -6036,21 +5304,27 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils/view/optionobserver.js~optionobserver#_handlenewoptionupdateleaf",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_handleNewOptionUpdateLeaf",
+    "src/utils/view/OptionObserver.js~OptionObserver#_handleNewOptionUpdateLeaf",
+    "method"
+  ],
+  [
     "src/utils/view/optionobserver.js~optionobserver#_handleresultingupdates",
     "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_handleResultingUpdates",
     "src/utils/view/OptionObserver.js~OptionObserver#_handleResultingUpdates",
     "method"
   ],
   [
+    "src/utils/view/optionobserver.js~optionobserver#_ignorelisteners",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-member-_ignoreListeners",
+    "src/utils/view/OptionObserver.js~OptionObserver#_ignoreListeners",
+    "member"
+  ],
+  [
     "src/utils/view/optionobserver.js~optionobserver#_ismyoption",
     "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_isMyOption",
     "src/utils/view/OptionObserver.js~OptionObserver#_isMyOption",
-    "method"
-  ],
-  [
-    "src/utils/view/optionobserver.js~optionobserver#_isplainobject",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_isPlainObject",
-    "src/utils/view/OptionObserver.js~OptionObserver#_isPlainObject",
     "method"
   ],
   [
@@ -6144,18 +5418,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils/view/optionobserver.js~optionobserver#_preprocessbindings",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-member-_preprocessBindings",
-    "src/utils/view/OptionObserver.js~OptionObserver#_preprocessBindings",
-    "member"
-  ],
-  [
-    "src/utils/view/optionobserver.js~optionobserver#_prevententryfrombeingupdated",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_preventEntryFromBeingUpdated",
-    "src/utils/view/OptionObserver.js~OptionObserver#_preventEntryFromBeingUpdated",
-    "method"
-  ],
-  [
     "src/utils/view/optionobserver.js~optionobserver#_processimmediateoptionreassignment",
     "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_processImmediateOptionReassignment",
     "src/utils/view/OptionObserver.js~OptionObserver#_processImmediateOptionReassignment",
@@ -6174,9 +5436,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils/view/optionobserver.js~optionobserver#_recordforpreprocessing",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_recordForPreprocessing",
-    "src/utils/view/OptionObserver.js~OptionObserver#_recordForPreprocessing",
+    "src/utils/view/optionobserver.js~optionobserver#_recordfortriggermethod",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_recordForTriggerMethod",
+    "src/utils/view/OptionObserver.js~OptionObserver#_recordForTriggerMethod",
     "method"
   ],
   [
@@ -6210,12 +5472,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils/view/optionobserver.js~optionobserver#_setupoptions",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_setupOptions",
-    "src/utils/view/OptionObserver.js~OptionObserver#_setupOptions",
-    "method"
-  ],
-  [
     "src/utils/view/optionobserver.js~optionobserver#_shallowcloneoption",
     "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-_shallowCloneOption",
     "src/utils/view/OptionObserver.js~OptionObserver#_shallowCloneOption",
@@ -6246,6 +5502,18 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/utils/view/optionobserver.js~optionobserver#accessobjectpath",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-accessObjectPath",
+    "src/utils/view/OptionObserver.js~OptionObserver#accessObjectPath",
+    "method"
+  ],
+  [
+    "src/utils/view/optionobserver.js~optionobserver#allowentrytobeupdated",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-allowEntryToBeUpdated",
+    "src/utils/view/OptionObserver.js~OptionObserver#allowEntryToBeUpdated",
+    "method"
+  ],
+  [
     "src/utils/view/optionobserver.js~optionobserver#constructor",
     "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-constructor-constructor",
     "src/utils/view/OptionObserver.js~OptionObserver#constructor",
@@ -6264,6 +5532,30 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils/view/optionobserver.js~optionobserver#flushupdates",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-flushUpdates",
+    "src/utils/view/OptionObserver.js~OptionObserver#flushUpdates",
+    "method"
+  ],
+  [
+    "src/utils/view/optionobserver.js~optionobserver#getactiverecordings",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-getActiveRecordings",
+    "src/utils/view/OptionObserver.js~OptionObserver#getActiveRecordings",
+    "method"
+  ],
+  [
+    "src/utils/view/optionobserver.js~optionobserver#getinputoptions",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-getInputOptions",
+    "src/utils/view/OptionObserver.js~OptionObserver#getInputOptions",
+    "method"
+  ],
+  [
+    "src/utils/view/optionobserver.js~optionobserver#getlistenertree",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-getListenerTree",
+    "src/utils/view/OptionObserver.js~OptionObserver#getListenerTree",
+    "method"
+  ],
+  [
     "src/utils/view/optionobserver.js~optionobserver#getoptions",
     "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-getOptions",
     "src/utils/view/OptionObserver.js~OptionObserver#getOptions",
@@ -6276,6 +5568,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/utils/view/optionobserver.js~optionobserver#prevententryfrombeingupdated",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-preventEntryFromBeingUpdated",
+    "src/utils/view/OptionObserver.js~OptionObserver#preventEntryFromBeingUpdated",
+    "method"
+  ],
+  [
     "src/utils/view/optionobserver.js~optionobserver#recombineoptions",
     "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-recombineOptions",
     "src/utils/view/OptionObserver.js~OptionObserver#recombineOptions",
@@ -6285,6 +5583,24 @@ window.esdocSearchIndex = [
     "src/utils/view/optionobserver.js~optionobserver#recordforrenderable",
     "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-recordForRenderable",
     "src/utils/view/OptionObserver.js~OptionObserver#recordForRenderable",
+    "method"
+  ],
+  [
+    "src/utils/view/optionobserver.js~optionobserver#setup",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-setup",
+    "src/utils/view/OptionObserver.js~OptionObserver#setup",
+    "method"
+  ],
+  [
+    "src/utils/view/optionobserver.js~optionobserver#triggermethodforindex",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-triggerMethodForIndex",
+    "src/utils/view/OptionObserver.js~OptionObserver#triggerMethodForIndex",
+    "method"
+  ],
+  [
+    "src/utils/view/optionobserver.js~optionobserver#whensettled",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#instance-method-whenSettled",
+    "src/utils/view/OptionObserver.js~OptionObserver#whenSettled",
     "method"
   ],
   [
@@ -6336,9 +5652,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/utils/view/optionobserver.js~optionobserver.preprocess",
-    "class/src/utils/view/OptionObserver.js~OptionObserver.html#static-member-preprocess",
-    "src/utils/view/OptionObserver.js~OptionObserver.preprocess",
+    "src/utils/view/optionobserver.js~optionobserver.triggers",
+    "class/src/utils/view/OptionObserver.js~OptionObserver.html#static-member-triggers",
+    "src/utils/view/OptionObserver.js~OptionObserver.triggers",
     "member"
   ],
   [
@@ -6372,6 +5688,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils/view/renderablehelper.js~renderablehelper#_delayedtransitions",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-member-_delayedTransitions",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#_delayedTransitions",
+    "member"
+  ],
+  [
+    "src/utils/view/renderablehelper.js~renderablehelper#_determinemosturgenttransitionpriority",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-_determineMostUrgentTransitionPriority",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#_determineMostUrgentTransitionPriority",
+    "method"
+  ],
+  [
     "src/utils/view/renderablehelper.js~renderablehelper#_determineswipeevents",
     "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-_determineSwipeEvents",
     "src/utils/view/RenderableHelper.js~RenderableHelper#_determineSwipeEvents",
@@ -6402,10 +5730,34 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/utils/view/renderablehelper.js~renderablehelper#_handledecoratortransitions",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-_handleDecoratorTransitions",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#_handleDecoratorTransitions",
+    "method"
+  ],
+  [
     "src/utils/view/renderablehelper.js~renderablehelper#_initswipable",
     "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-_initSwipable",
     "src/utils/view/RenderableHelper.js~RenderableHelper#_initSwipable",
     "method"
+  ],
+  [
+    "src/utils/view/renderablehelper.js~renderablehelper#_mosturgenttransitionpriority",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-member-_mostUrgentTransitionPriority",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#_mostUrgentTransitionPriority",
+    "member"
+  ],
+  [
+    "src/utils/view/renderablehelper.js~renderablehelper#_newrenderables",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-member-_newRenderables",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#_newRenderables",
+    "member"
+  ],
+  [
+    "src/utils/view/renderablehelper.js~renderablehelper#_ongoingtransitions",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-member-_ongoingTransitions",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#_ongoingTransitions",
+    "member"
   ],
   [
     "src/utils/view/renderablehelper.js~renderablehelper#_piperenderable",
@@ -6442,6 +5794,12 @@ window.esdocSearchIndex = [
     "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-_processsDecoratedRenderableCounterpart",
     "src/utils/view/RenderableHelper.js~RenderableHelper#_processsDecoratedRenderableCounterpart",
     "method"
+  ],
+  [
+    "src/utils/view/renderablehelper.js~renderablehelper#_queuedrenderabletransitions",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-member-_queuedRenderableTransitions",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#_queuedRenderableTransitions",
+    "member"
   ],
   [
     "src/utils/view/renderablehelper.js~renderablehelper#_removerenderablefromdecoratorgroup",
@@ -6492,6 +5850,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/utils/view/renderablehelper.js~renderablehelper#_terminaterenderabletransition",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-_terminateRenderableTransition",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#_terminateRenderableTransition",
+    "method"
+  ],
+  [
     "src/utils/view/renderablehelper.js~renderablehelper#_unpiperenderable",
     "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-_unpipeRenderable",
     "src/utils/view/RenderableHelper.js~RenderableHelper#_unpipeRenderable",
@@ -6504,9 +5868,33 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils/view/renderablehelper.js~renderablehelper#applydecoratorobjecttorenderable",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-applyDecoratorObjectToRenderable",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#applyDecoratorObjectToRenderable",
+    "method"
+  ],
+  [
+    "src/utils/view/renderablehelper.js~renderablehelper#applydirectdecoratorsfromrenderableprototype",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-applyDirectDecoratorsFromRenderablePrototype",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#applyDirectDecoratorsFromRenderablePrototype",
+    "method"
+  ],
+  [
     "src/utils/view/renderablehelper.js~renderablehelper#assignrenderable",
     "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-assignRenderable",
     "src/utils/view/RenderableHelper.js~RenderableHelper#assignRenderable",
+    "method"
+  ],
+  [
+    "src/utils/view/renderablehelper.js~renderablehelper#cancelrenderabletransition",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-cancelRenderableTransition",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#cancelRenderableTransition",
+    "method"
+  ],
+  [
+    "src/utils/view/renderablehelper.js~renderablehelper#completerenderabletransition",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-completeRenderableTransition",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#completeRenderableTransition",
     "method"
   ],
   [
@@ -6519,6 +5907,12 @@ window.esdocSearchIndex = [
     "src/utils/view/renderablehelper.js~renderablehelper#decoraterenderable",
     "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-decorateRenderable",
     "src/utils/view/RenderableHelper.js~RenderableHelper#decorateRenderable",
+    "method"
+  ],
+  [
+    "src/utils/view/renderablehelper.js~renderablehelper#flushtransitions",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-flushTransitions",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#flushTransitions",
     "method"
   ],
   [
@@ -6609,6 +6003,12 @@ window.esdocSearchIndex = [
     "src/utils/view/renderablehelper.js~renderablehelper#showwithanimationcontroller",
     "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-showWithAnimationController",
     "src/utils/view/RenderableHelper.js~RenderableHelper#showWithAnimationController",
+    "method"
+  ],
+  [
+    "src/utils/view/renderablehelper.js~renderablehelper#waitforrenderabletransition",
+    "class/src/utils/view/RenderableHelper.js~RenderableHelper.html#instance-method-waitForRenderableTransition",
+    "src/utils/view/RenderableHelper.js~RenderableHelper#waitForRenderableTransition",
     "method"
   ],
   [
@@ -6711,6 +6111,12 @@ window.esdocSearchIndex = [
     "src/utils/view/sizeresolver.js~sizeresolver#_sizeisfinalfor",
     "class/src/utils/view/SizeResolver.js~SizeResolver.html#instance-member-_sizeIsFinalFor",
     "src/utils/view/SizeResolver.js~SizeResolver#_sizeIsFinalFor",
+    "member"
+  ],
+  [
+    "src/utils/view/sizeresolver.js~sizeresolver#_sizeisresolvedfor",
+    "class/src/utils/view/SizeResolver.js~SizeResolver.html#instance-member-_sizeIsResolvedFor",
+    "src/utils/view/SizeResolver.js~SizeResolver#_sizeIsResolvedFor",
     "member"
   ],
   [
@@ -6837,6 +6243,18 @@ window.esdocSearchIndex = [
     "src/utils/view/utils.js~utils.getrenderablegroupname",
     "class/src/utils/view/Utils.js~Utils.html#static-method-getRenderableGroupName",
     "src/utils/view/Utils.js~Utils.getRenderableGroupName",
+    "method"
+  ],
+  [
+    "src/utils/view/utils.js~utils.getrenderableid",
+    "class/src/utils/view/Utils.js~Utils.html#static-method-getRenderableID",
+    "src/utils/view/Utils.js~Utils.getRenderableID",
+    "method"
+  ],
+  [
+    "src/utils/view/utils.js~utils.isplainobject",
+    "class/src/utils/view/Utils.js~Utils.html#static-method-isPlainObject",
+    "src/utils/view/Utils.js~Utils.isPlainObject",
     "method"
   ],
   [

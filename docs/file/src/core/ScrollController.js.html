@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/core/ScrollController.js | Arva</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<link rel="stylesheet" href="./inject/css/0-styles.css"><meta name="description" content="this is awesome library"><meta property="og:type" content="website"><meta property="og:url" content="http://arva.io"><meta property="og:site_name" content="Arva"><meta property="og:title" content="Arva"><meta property="og:image" content="http://arva.io/img/logo-arva.png"><meta property="og:description" content="this is awesome library"><meta property="og:author" content="https://twitter.com/arvamazing"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="Arva"><meta property="twitter:description" content="this is awesome library"><meta property="twitter:image" content="http://arva.io/img/logo-arva.png"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.png" style="width:34px;"></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/Arva/arva-js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/DataBoundScrollView.js~DataBoundScrollView.html">DataBoundScrollView</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Dialog.js~Dialog.html">Dialog</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/ReflowingScrollView.js~ReflowingScrollView.html">ReflowingScrollView</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#core">core</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Controller.js~Controller.html">Controller</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Model.js~Model.html">Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Router.js~Router.html">Router</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/ScrollController.js~ScrollController.html">ScrollController</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/View.js~View.html">View</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#data">data</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/data/PrioritisedArray.js~PrioritisedArray.html">PrioritisedArray</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#data-datasources-sharepoint-spsoapadapter">data/datasources/SharePoint/SPSoapAdapter</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/data/datasources/SharePoint/SPSoapAdapter/Settings.js~Settings.html">Settings</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#data-datasources-sharepoint-spsoapadapter-worker">data/datasources/SharePoint/SPSoapAdapter/Worker</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html">SharePointClient</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#data-local">data/local</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/data/local/LocalModel.js~LocalModel.html">LocalModel</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/data/local/LocalPrioritisedArray.js~LocalPrioritisedArray.html">LocalPrioritisedArray</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#layout">layout</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/layout/Decorators.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/layout/Decorators.js~Flow.html">Flow</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/layout/Decorators.js~Layout.html">Layout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChainableDecorator">createChainableDecorator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepDecoratedRenderable">prepDecoratedRenderable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prepPrototypeDecorations">prepPrototypeDecorations</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dynamic">dynamic</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-TrueSizedLayoutDockHelper">TrueSizedLayoutDockHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-decoratorTypes">decoratorTypes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-bindings">bindings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-event">event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-flow">flow</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-layout">layout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-flowStates">flowStates</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-StickTypes">StickTypes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-StickTypes">StickTypes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-dockBottom">dockBottom</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-dockLeft">dockLeft</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-dockRight">dockRight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-dockTop">dockTop</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-fill">fill</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routers">routers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routers/ArvaRouter.js~ArvaRouter.html">ArvaRouter</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#surfaces">surfaces</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/surfaces/AudioSurface.js~AudioSurface.html">AudioSurface</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/surfaces/Dropdown.js~Dropdown.html">Dropdown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/surfaces/InputSurface.js~InputSurface.html">InputSurface</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/surfaces/PushDownSurface.js~PushDownSurface.html">PushDownSurface</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/surfaces/WebGLSurface.js~WebGLSurface.html">WebGLSurface</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Surface">Surface</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils">utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/BlobHelper.js~BlobHelper.html">BlobHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/DialogManager.js~DialogManager.html">DialogManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/Injection.js~Injection.html">Injection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/KeyboardHelper.js~KeyboardHelper.html">KeyboardHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/ObjectHelper.js~ObjectHelper.html">ObjectHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/Throttler.js~Throttler.html">Throttler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-callbackToPromise">callbackToPromise</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-successAndErrorToPromise">successAndErrorToPromise</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-waitMilliseconds">waitMilliseconds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-combineOptions">combineOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-limit">limit</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils-di">utils/di</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/di/Decorators.js~ClassProvider.html">ClassProvider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/di/Decorators.js~FactoryProvider.html">FactoryProvider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/di/Decorators.js~Inject.html">Inject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/di/Decorators.js~Provide.html">Provide</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/di/Decorators.js~SuperConstructor.html">SuperConstructor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/di/Decorators.js~TransientScope.html">TransientScope</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/di/Injector.js~Injector.html">Injector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-annotate">annotate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-hasAnnotation">hasAnnotation</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-inject">inject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-provide">provide</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-readAnnotations">readAnnotations</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createProviderFromFnOrClass">createProviderFromFnOrClass</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isFunction">isFunction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isObject">isObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isUpperCase">isUpperCase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toString">toString</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ownKeys">ownKeys</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils-dialog">utils/dialog</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/dialog/DialogWrapper.js~DialogWrapper.html">DialogWrapper</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils-hotfixes">utils/hotfixes</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-invalidateLayoutForElement">invalidateLayoutForElement</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils-request">utils/request</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ExistsRequest">ExistsRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-GetRequest">GetRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-PostRequest">PostRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-UrlParser">UrlParser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ParseStringToXml">ParseStringToXml</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils-view">utils/view</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/ArrayObserver.js~ArrayObserver.html">ArrayObserver</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/ArrayObserver.js~MappedArray.html">MappedArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/InputOption.js~InputOption.html">InputOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/LayoutHelpers.js~BaseLayoutHelper.html">BaseLayoutHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/LayoutHelpers.js~DockedLayoutHelper.html">DockedLayoutHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/LayoutHelpers.js~FullSizeLayoutHelper.html">FullSizeLayoutHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/LayoutHelpers.js~TraditionalLayoutHelper.html">TraditionalLayoutHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/LazyLoadedOptionClone.js~LazyLoadedOptionClone.html">LazyLoadedOptionClone</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/OptionObserver.js~OptionObserver.html">OptionObserver</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/RenderableHelper.js~RenderableHelper.html">RenderableHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/SizeResolver.js~SizeResolver.html">SizeResolver</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/view/Utils.js~Utils.html">Utils</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-changeValue">changeValue</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-onOptionChange">onOptionChange</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/core/ScrollController.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Created by lundfall on 06/10/16.
+ */
+
+
+/* Imports that can be needed. TODO: Remove unused dependencies */
+import EventEmitter            from &apos;eventemitter3&apos;
+import isEqual                 from &apos;lodash/isEqual.js&apos;
+
+/* Famous-flex */
+import LinkedListViewSequence  from &apos;famous-flex/LinkedListViewSequence.js&apos;
+import LayoutNodeManager       from &apos;famous-flex/LayoutNodeManager.js&apos;
+import FlowLayoutNode          from &apos;famous-flex/FlowLayoutNode.js&apos;
+import LayoutUtility           from &apos;famous-flex/LayoutUtility.js&apos;
+
+/* Famous */
+import Particle                from &apos;famous/physics/bodies/Particle&apos;
+import Transitionable          from &apos;famous/transitions/Transitionable.js&apos;
+import NativeScrollGroup       from &apos;famous/core/NativeScrollGroup&apos;
+import {Surface}               from &apos;../surfaces/Surface.js&apos;
+import DOMBuffer               from &apos;famous/core/DOMBuffer.js&apos;
+import PhysicsEngine           from &apos;famous/physics/PhysicsEngine&apos;
+import Engine                  from &apos;famous/core/Engine.js&apos;
+import Timer                   from &apos;famous/utilities/Timer.js&apos;
+import Spring                  from &apos;famous/physics/forces/Spring&apos;
+import Drag                    from &apos;famous/physics/forces/Drag&apos;
+import ScrollSync              from &apos;famous/inputs/ScrollSync&apos;
+import TouchSync               from &apos;famous/inputs/TouchSync.js&apos;
+import EventHandler            from &apos;famous/core/EventHandler&apos;
+import Transform               from &apos;famous/core/Transform&apos;
+import Entity                  from &apos;famous/core/Entity&apos;
+import Vector                  from &apos;famous/math/Vector&apos;
+import Group                   from &apos;famous/core/Group&apos;
+import FamousUtility           from &apos;famous/utilities/Utility&apos;
+import FamousView              from &apos;famous/core/View.js&apos;
+
+/* Arva */
+import { Utils }                 from &apos;../utils/view/Utils.js&apos;
+import { combineOptions }        from &apos;../utils/CombineOptions.js&apos;
+import { ObjectHelper }          from &apos;../utils/ObjectHelper.js&apos;
+import { StackLayout }           from &apos;../layout/functions/StackLayout.js&apos;
+import { PushDownSurface }       from &apos;../surfaces/PushDownSurface.js&apos;
+
+//TODO: There&apos;s a bug when having chat scrolling on, and adding a lot of stuff, removing it all, and adding them again back
+
+/**
+ * Enables a native scrolling list to be rendered.
+ */
+export class ScrollController extends FamousView {
+
+  _scrollVoidHeight = 0;
+  _scrollTopHeight = 0;
+  _previousValues = {
+    contextSize: [0, 0],
+    scrollOffset: 0
+  };
+  _cachedSpecs = {};
+  _stickingToEnds = {bottom: false, top: false};
+  /* Actions for doing before the layout function */
+  _commitActions = [];
+  _isDirty = true;
+  _scrollToTransitionable = new Transitionable();
+  /* TODO: Implement functionality for ensurevisible */
+  _ensureVisibleNode = null
+
+  constructor (options = {}) {
+    super()
+
+    ObjectHelper.bindAllMethods(this, this)
+    this.options = combineOptions({
+      /* Previously called this._configuredDirection in famous-flex/ScrollController.js */
+      layoutDirection: FamousUtility.Direction.Y,
+      /*The extra bounds space make up for a smooth insertion and deletion of the nodes at the edges */
+      extraBoundsSpace: [0, 0],
+      autoPipeEvents: true,
+      layoutAll: false,
+      showScrollBar: true,
+      alwaysLayout: false,
+      /* Own layout function that isn&apos;t compatible with famous-flex. TODO: Make a collectionlayout equivalent */
+      layout: StackLayout,
+      layoutOptions: {
+        /* Margins are specified with css*/
+        margins: LayoutUtility.normalizeMargins(options.layoutOptions ? (options.layoutOptions.margins || [10]) : [10])
+      },
+      /* Currently only flow: true is supported. TODO: Make flow: false work */
+      flow: true,
+      /* Set animation option of the flow */
+      flowOptions: {},
+      /* Set to have some extra estimated scrolling opportunity */
+      initialHeight: 0
+    }, options)
+    this._id = Entity.register(this);
+
+    /* The distance before the first node, e.g. the translate before this._viewSequence.get() */
+    this._initOverScrollPhysics();
+
+    this._maxKnownTranslate = this.options.initialHeight;
+    this._otherNodes = {bottomScroller: new Surface(), topScroller: new PushDownSurface()};
+
+
+    /* The thing that provides us the context for the layout function */
+    this._layoutNodeManager = new LayoutNodeManager(FlowLayoutNode, (node, spec) =&gt; {
+      if (!spec &amp;&amp; this.options.flowOptions.insertSpec) {
+        node.setSpec(this.options.flowOptions.insertSpec)
+      }
+    }, true)
+    this._layoutNodeManager.setNodeOptions(this.options.flowOptions)
+    this._initNativeScrollGroup()
+
+    /* TODO: Remove duplicates this._viewSequence, this._dataSource. Kept for DBSV compatibility */
+    this._dataSource = this._viewSequence = new LinkedListViewSequence([])
+
+    this.on(&apos;recursiveReflow&apos;, (forWhichRenderables) =&gt; {
+      let renderableIDs = Object.keys(forWhichRenderables)
+      /* Backwards loop because in almost all the time the last renderable in the sequence is the one to look for*/
+      for (let index = renderableIDs.length - 1; index &gt;= 0; index--) {
+        let renderableID = renderableIDs[index]
+        if (renderableID in this._cachedSpecs) {
+          delete this._cachedSpecs[renderableID]
+          break
+        }
+      }
+      //TODO change to w/e function does this
+      this.reflow();
+    })
+  }
+
+  insert (position, renderable, insertSpec) {
+    insertSpec = insertSpec || this.options.flowOptions.insertSpec
+
+    if (this._currentScrollOffset === 0 &amp;&amp; !this.options.chatScrolling) {
+      this._enqueueCommitAction(() =&gt; this.stickToTopOrBottom(false))
+    } else if(this._currentScrollOffset &gt;= this._group.getMaxScrollOffset()){
+      this.stickToBottom()
+    }
+
+    /* Insert data */
+    this._viewSequence.insert(position, renderable)
+
+    this._pipeRenderableAsNecessary(renderable)
+
+    /* Mark as flowy renderable for the layoutnodemanager */
+    renderable.isFlowy = true
+
+    if (this._isPositionOutsideCurrentView(position)) {
+      return this
+    }
+    this._accountForModificationsHappeningAtStart()
+
+    /* When a custom insert-spec was specified, store that in the layout-node */
+    if (insertSpec) {
+      let newNode = this._layoutNodeManager.createNode(renderable, insertSpec)
+      newNode.executeInsertSpec()
+      newNode.releaseLock(true)
+      this._layoutNodeManager.insertNode(newNode)
+    }
+
+    this.reflow()
+    return this
+  };
+
+  remove (position) {
+
+
+    // Remove the renderable
+    let sequence = this._viewSequence.findByIndex(position)
+
+    if (!sequence) {
+      Utils.warn(`Cannot remove non-existent index: ${position}`)
+      return
+    }
+
+    delete this._cachedSpecs[Utils.getRenderableID(sequence._value)]
+
+    this._viewSequence = this._viewSequence.remove(sequence)
+    let renderNode = sequence.get()
+    /* TODO: Implement logic for remove spec.
+     */
+
+    if (this._isPositionOutsideCurrentView(position)) {
+      return this
+    }
+    this._accountForModificationsHappeningAtStart()
+
+    if (renderNode || !this._viewSequence.getLength()) {
+      this.reflow()
+    }
+    return renderNode
+
+  }
+
+  replace (indexOrId, renderable, noAnimation) {
+    let sequence = this._viewSequence.findByIndex(indexOrId)
+    let oldRenderable = sequence.get()
+    if (!oldRenderable) {
+      Utils.warn(`Cannot replace non-existent index: ${indexOrId}`)
+      return
+    }
+    if (oldRenderable !== renderable &amp;&amp; noAnimation &amp;&amp; oldRenderable &amp;&amp; (this._ensureVisibleNode === oldRenderable)) {
+      this._ensureVisibleNode = renderable
+    }
+    sequence.set(renderable)
+    if (oldRenderable !== renderable) {
+      this._pipeRenderableAsNecessary(renderable)
+      /* Mark as flowy renderable for the layoutnodemanager */
+      renderable.isFlowy = true
+      if (noAnimation &amp;&amp; oldRenderable) {
+        let node = this._layoutNodeManager.getNodeByRenderNode(oldRenderable)
+        if (node) {
+          node.setRenderNode(renderable)
+        }
+      } else {
+        if (!this._isPositionOutsideCurrentView(indexOrId)) {
+          this.reflow()
+        }
+      }
+    }
+    this._accountForModificationsHappeningAtStart()
+    /* Else, the renderable is the same as the old one, do nothing */
+
+  }
+
+  stickToBottom () {
+    this.stickToTopOrBottom(true)
+  }
+
+  stickToTopOrBottom (isBottom) {
+    let sequenceToMatch = isBottom ? this._viewSequence.getTail() : this._viewSequence.getHead()
+    if (sequenceToMatch &amp;&amp; this._viewSequence !== sequenceToMatch) {
+      this._moveSequence(sequenceToMatch, isBottom)
+    }
+    this.animateToTopOrBottom(isBottom)
+
+    this._stickingToEnds[isBottom ? &apos;bottom&apos; : &apos;top&apos;] = true
+    this._stickingToEnds[isBottom ? &apos;top&apos; : &apos;bottom&apos;] = false
+  }
+
+  /**
+   *
+   * @param {Boolean} isBottom
+   */
+  animateToTopOrBottom (isBottom) {
+    if (!this._scrollToTransitionable.isActive()) {
+      /* Set the scroll transitionable to go from the current position to where it has to go (hence settings twice)*/
+      this._scrollToTransitionable.set(Math.max(0, this._group.getScrollOffset()))
+      this._scrollToTransitionable.set(Math.max(0, isBottom ? this._group.getMaxScrollOffset() : 0), {
+        curve: function linear (x) {
+          return x
+        }, duration: 300
+      }, () =&gt; {
+        this._group.forceScrollOffsetInvalidation()
+      })
+    }
+
+  }
+
+  scrollToBottom () {
+    this._shouldIgnoreScrollEvent = true
+    this._group.scrollToBottom()
+  }
+
+  _isPositionOutsideCurrentView (position) {
+    return position &lt; this._firstNodeIndex || position &gt; this._lastNodeIndex
+  }
+
+  _accountForModificationsHappeningAtStart () {
+    /* If we&apos;re doing modifications and we&apos;re at the beginning, we should be sure to reset the sequence to the first node
+     * in order to to update the layout in a faulty way
+     */
+    if (this._firstNodeIndex === 0) {
+      // this._resetSequenceToFirstNode();
+    }
+  }
+
+  getDataSource () {
+    return this._viewSequence
+  }
+
+  invalidateLayout () {
+    this._reLayout = true
+  }
+
+  reflow () {
+    this._isDirty = true
+    this._cachedSpecs = {}
+  }
+
+  _initNativeScrollGroup () {
+    this._group = new NativeScrollGroup()
+    this._group.add({render: this._innerRender.bind(this)})
+    /* Prevent scrolling in the opposite direction */
+    this._group.setProperties({[`overflow${this.options.layoutDirection === 0 ? &apos;Y&apos; : &apos;X&apos;}`]: &apos;hidden&apos;})
+    this.on(&apos;mousewheel&apos;, this._onManualScrollAttempt.bind(this));
+    this.on(&apos;wheel&apos;, this._onManualScrollAttempt.bind(this));
+    this.on(&apos;touchmove&apos;, this._onManualScrollAttempt.bind(this));
+    this.on(&apos;scroll&apos;, (e) =&gt; {
+      this._eventOutput.emit(&apos;userScroll&apos;, e)
+      if (!this._shouldIgnoreScrollEvent) {
+        this._shouldIgnoreScrollEvent = false
+      }
+    })
+
+    if (!this.options.showScrollBar) {
+      this._group.addClass(&apos;hide-scrollbar&apos;)
+    }
+  }
+
+  _onManualScrollAttempt () {
+    this._eventOutput.emit(&apos;manualScroll&apos;)
+    this._didManualScroll = true
+    for (let direction in this._stickingToEnds) {
+      this._stickingToEnds[direction] = false
+    }
+  }
+
+  _initOverScrollPhysics () {
+    /* These are used for overscrolling */
+    this._physicsEngine = new PhysicsEngine(this.options.scrollPhysicsEngine)
+    this._overScrollSpring = new Spring({
+      dampingRatio: 1,
+      period: 400,
+      anchor: new Vector([0, 0, 0])
+    })
+    this._scrollParticle = new Particle({mass: 100})
+    this._physicsEngine.addBody(this._scrollParticle)
+    this._physicsEngine.attach(this._overScrollSpring, this._scrollParticle)
+  }
+
+  _isLayoutNecessary (newSize, newScrollOffset) {
+
+    let upperMargin = this.options.layoutOptions.margins[0]
+    let lowerMargin = this.options.layoutOptions.margins[2]
+    let lastNormalizedScrollOffset = this._previousValues.normalizedScrollOffset
+    let scrollHeight = this._group.getMaxScrollOffset()
+    return this._isReflowNecessary() || /* Changes have been made that means that a new flow animation will take place */
+      /* Changes have been made that aren&apos;t as big as starting new flow animation but still need new layout */
+      this._reLayout ||
+      /* Size has changed */ !isEqual(newSize, this._previousValues.contextSize) ||
+      /* There is no normalizedScollOffset */
+      lastNormalizedScrollOffset === undefined ||
+      /* The scrolling has changed too much since last normalization */
+      Math.abs(lastNormalizedScrollOffset - newScrollOffset) &gt; newSize[this.options.layoutDirection] * 0.8 ||
+      (newScrollOffset &lt; upperMargin &amp;&amp; lastNormalizedScrollOffset &gt;= upperMargin) ||
+      (scrollHeight - newScrollOffset &lt; lowerMargin &amp;&amp; scrollHeight - lastNormalizedScrollOffset &gt;= lowerMargin) ||
+      /* We should always layout */
+      this.options.alwaysLayout
+
+  }
+
+  _isReflowNecessary () {
+    return this._isDirty
+  }
+
+  _pipeRenderableAsNecessary (renderable) {
+    if (this.options.autoPipeEvents &amp;&amp; renderable &amp;&amp; renderable.pipe) {
+      renderable.pipe(this)
+      renderable.pipe(this._eventOutput)
+    }
+  }
+
+  _enqueueCommitAction (actionToPerform) {
+    this._commitActions.push(actionToPerform)
+  }
+
+  _layout (size, scrollOffset) {
+
+    let scrollSize = size[this.options.layoutDirection]
+    let scrollLength = this._maxKnownTranslate + this.options.extraBoundsSpace[1]
+    /* Display elements that are one screen above and one screen below */
+    let scrollStart = scrollOffset - scrollSize - this._scrollTopHeight
+    let scrollEnd = scrollSize * 2 + scrollOffset - this._scrollTopHeight
+
+    /* If everything should be layouted, then are bounds should be infinite */
+    if (this.options.layoutAll) {
+      scrollStart = -this._scrollTopHeight
+      scrollEnd = 10000
+    }
+
+    /* Prepare for layout */
+    let layoutContext = this._layoutNodeManager.prepareForLayout(
+      this._viewSequence, /* first node to layout */
+      this._otherNodes, /* Nodes by id */
+      {
+        size,
+        direction: this.options.layoutDirection,
+        reverse: false,
+        scrollOffset: this._scrollVoidHeight + this.options.extraBoundsSpace[0],
+        scrollStart,
+        scrollEnd,
+        scrollLength,
+        scrollTopHeight: this._scrollTopHeight
+      },
+    )
+
+    /* Call speificied layout function */
+    this.options.layout(
+      layoutContext, /* context which the layout-function can use */
+      this.options.layoutOptions      /* additional layout-options */
+    )
+
+    /* Currently no support for postLayout function. TODO: Examine whether we need a postlayout function */
+
+    /* Mark non-invalidated nodes for removal */
+    this._layoutNodeManager.removeNonInvalidatedNodes(this.options.flowOptions.removeSpec)
+
+    this._normalizeSequence(scrollOffset, scrollSize)
+    this._adjustTotalHeight(scrollOffset, scrollSize)
+
+    /* Cleanup nodes */
+    this._layoutNodeManager.removeVirtualViewSequenceNodes()
+
+    this._updateThisSizeCache()
+  }
+
+  _updateThisSizeCache () {
+    let scrollLength = 0
+    let node = this._layoutNodeManager.getStartEnumNode()
+    while (node) {
+      if (node._invalidated &amp;&amp; node.scrollLength) {
+        scrollLength += node.scrollLength
+      }
+      node = node._next
+    }
+
+    this._size = [undefined, undefined]
+    this._size[this.options.layoutDirection] = scrollLength
+  }
+
+  _adjustTotalHeight (scrollOffset, scrollSize) {
+    this._adjustDistanceToTop(scrollOffset, scrollSize)
+    this._adjustDistanceToBottom(scrollOffset, scrollSize)
+  }
+
+  _adjustDistanceToTop (scrollOffset, scrollSize) {
+    let firstNode = this._layoutNodeManager.getFirstRenderedNode()
+    /* Determine the position of the first node */
+    if (firstNode &amp;&amp; !this._stickingToEnds.bottom) {
+      /* If this if clause is true, we need to allocate more space to scroll upwards */
+      if (this._firstNodeIndex !== 0 &amp;&amp; scrollOffset &lt;= this.options.layoutOptions.margins[0] &amp;&amp; this._group.getMaxScrollOffset()) {
+        /* If we can&apos;t scroll that much, we also can&apos;t allocate too much space at the top since
+         * allocating space at top also implies scrolling down with the same amount.
+         */
+        let extraSpaceToAllocate = Math.min(scrollSize, this._group.getMaxScrollOffset())
+        this._allocateExtraHeightAtTop(extraSpaceToAllocate, scrollOffset)
+        /* If we are the first node, then redefine the top position. It can have been (over/under)estimated previously */
+        //TODO This if clause triggers too often
+      } else if (this._firstNodeIndex === 0 &amp;&amp; (firstNode.getTranslate()[this.options.layoutDirection] + this._scrollTopHeight) !== this.options.layoutOptions.margins[0]
+      ) {
+        let newScrollTopHeight = this.options.layoutOptions.margins[0] - firstNode.getTranslate()[this.options.layoutDirection]
+        if (newScrollTopHeight &gt; this._scrollTopHeight) {
+          let scrollTopHeightDiff = newScrollTopHeight - this._scrollTopHeight
+          this._allocateExtraHeightAtTop(scrollTopHeightDiff, scrollOffset)
+        } else {
+          this._setScrollTopHeight(newScrollTopHeight)
+        }
+      }
+    }
+  }
+
+  _adjustDistanceToBottom (scrollOffset, scrollSize) {
+    /* Determine what the point furthest away was */
+    let lastNode = this._layoutNodeManager.getLastRenderedNode()
+    if (lastNode) {
+      let bottomPosition = lastNode.getTranslate()[this.options.layoutDirection] + lastNode.scrollLength
+      /* If we are seeing the last node, then redefine the bottom position. It can have been (over/under)estimated previously */
+      if (lastNode.renderNode === this._layoutNodeManager.getLastRenderNodeInSequence()) {
+        if (bottomPosition !== this._maxKnownTranslate) {
+          this._enqueueCommitAction(this.invalidateLayout)
+          this._maxKnownTranslate = bottomPosition
+        }
+      } else {
+        this._maxKnownTranslate = Math.max(this._maxKnownTranslate, bottomPosition)
+      }
+    } else {
+      /* If there are no nodes, then the max translate should not be anywhere else than at the top */
+      this._maxKnownTranslate = 0
+    }
+  }
+
+  _allocateExtraHeightAtTop (space, scrollOffset) {
+    if (!this._allocationLock) {
+      this._allocationLock = true
+      this._setScrollTopHeight(this._scrollTopHeight + space)
+      this._otherNodes.topScroller.once(&apos;resize&apos;, () =&gt; {
+        this._group.setScrollOffset(space + this._currentScrollOffset)
+        this._allocationLock = false
+      })
+    }
+
+  }
+
+  _setScrollTopHeight (scrollTopHeight) {
+    /* TODO: If anything doesn&apos;t work well when scrolling upwards through the roof, try adding this line:
+     /* this._cachedSpecs = {} */
+
+    this._scrollTopHeight = scrollTopHeight
+    /* Negative height exists in CSS if done as negative margin-top */
+    this._otherNodes.topScroller.setProperties({&apos;margin-top&apos;: `${scrollTopHeight &lt; 0 ? scrollTopHeight : 0}px`})
+    this._enqueueCommitAction(this.invalidateLayout.bind(this))
+  }
+
+  /**
+   * Determines whether the user has scrolled to the bottom
+   * @returns {boolean} True if the scroll is all the way to the bottom
+   */
+  isAtBottom () {
+    return Math.floor(this._group.getScrollOffset()) &gt;= Math.floor(this._group.getMaxScrollOffset())
+  }
+
+  isAtTop () {
+    return this._group.getScrollOffset() === 0
+  }
+
+  /**
+   * Normalizes the viewsequence so that the layout function doens&apos;t have to loop through more nodes than necessary
+   * @param {Integer} scrollOffset
+   * @param {Integer} scrollSize
+   * @returns {boolean}
+   * @private
+   */
+  _normalizeSequence (scrollOffset, scrollSize) {
+    this._previousValues.normalizedScrollOffset = scrollOffset
+    this._firstNodeIndex = this._layoutNodeManager.getFirstRenderedNodeIndex()
+    this._lastNodeIndex = this._layoutNodeManager.getLastRenderedNodeIndex()
+
+    let sequenceHead = this._viewSequence.getHead()
+    let sequenceTail = this._viewSequence.getTail()
+    /* Normalize to top to make sure that the top margin is correct */
+
+    let shouldAllowScroll = this._layoutNodeManager.getCoveredScrollHeight() &gt;= scrollSize || !this.options.chatScrolling
+    this._group.setProperties({[`overflow${this.options.layoutDirection === 1 ? &apos;Y&apos; : &apos;X&apos;}`]: shouldAllowScroll ? &apos;scroll&apos; : &apos;hidden&apos;})
+
+    if (sequenceHead &amp;&amp; scrollOffset &lt;= this.options.layoutOptions.margins[0] &amp;&amp; this._stickingToEnds.bottom) {
+      /* Make sure that we&apos;re seeing the first node and just not temporary hitting bottom*/
+      this._scrollVoidHeight = scrollSize
+    }
+    /* Normalize to bottom to make sure that the bottom margin is always correct. TODO This if-clause triggers too often. Further more, forceNormalizeBottom seems unused */
+    else if (this._forceNormalizeBottom ||
+      (sequenceTail &amp;&amp; this._group.getMaxScrollOffset() - scrollOffset &lt;= this.options.layoutOptions.margins[1] &amp;&amp;
+        /* Make sure that we&apos;re seeing the last node and just not temporary hitting bottom*/
+        (this._lastNodeIndex === Infinity || this._lastNodeIndex === sequenceTail.getIndex())
+      ) &amp;&amp;
+      !this._stickingToEnds.top) {
+      if (this._forceNormalizeBottom) {
+        this._forceNormalizeBottom = false
+      }
+      if (sequenceTail !== this._viewSequence) {
+        this._moveSequence(sequenceTail, true)
+        this._enqueueCommitAction(this.invalidateLayout)
+        return
+      }
+    }
+
+    /* Normalize if we are somewhere in the middle */
+    if (this._layoutNodeManager.isSequenceMoved() &amp;&amp; !this._stickingToEnds.bottom) {
+      let isForwards = this._layoutNodeManager.getMovedSequenceDirection() === 1
+      /* Normalize scroll offset so that the current viewsequence node is as close to the
+       * top as possible and the layout function will need to process the least amount
+       * of renderables.*/
+      let normalizedStartSequence = this._layoutNodeManager.getStartSequence()
+      if (normalizedStartSequence) {
+        this._moveSequence(normalizedStartSequence, isForwards)
+        this._enqueueCommitAction(this.invalidateLayout)
+      }
+    }
+
+  }
+
+  /**
+   * Resets the sequence to the first node, as it started out
+   * @private
+   */
+  _resetSequenceToFirstNode () {
+    this._moveSequence(this._viewSequence.getHead(), false)
+  }
+
+  /**
+   * Moves the sequence to the specific node
+   * @param newSequence
+   * @param isForwards
+   * @private
+   */
+  _moveSequence (newSequence, isForwards) {
+    let node = this._layoutNodeManager.getStartEnumNode(isForwards)
+    let oldScrollVoidHeight = this._scrollVoidHeight
+    while (node &amp;&amp; node.renderNode !== newSequence.get()) {
+      /* If there is no scrollLength, then it must be the bottomScroller, skip it */
+      if (node.scrollLength) {
+        if (isForwards) {
+          this._scrollVoidHeight += node.scrollLength || 0
+        } else {
+          this._scrollVoidHeight -= node.scrollLength || 0
+        }
+      }
+      node = isForwards ? node._next : node._prev
+    }
+    if (!isForwards) {
+      if (node) {
+        this._scrollVoidHeight -= node.scrollLength || 0
+      }
+    }
+    this._viewSequence = newSequence
+    return oldScrollVoidHeight - this._scrollVoidHeight
+  }
+
+  /* Used to return the specs by the native group */
+  _innerRender () {
+    let specsForThisCommit = {}
+    for (let [index, spec] of this._specs.entries()) {
+      if (spec.renderNode === this._otherNodes.bottomScroller ||
+        ( spec.renderNode &amp;&amp;
+        (!this._nodes[index].stoppedFlowing || this._nodes[index].stoppedFlowing()
+        ))
+      ) {
+        this._cachedSpecs[spec.target] = spec
+      } else {
+        specsForThisCommit[spec.target] = spec
+      }
+    }
+    Object.assign(specsForThisCommit, this._cachedSpecs)
+    let specs = Object.keys(specsForThisCommit).map((target) =&gt; specsForThisCommit[target])
+    /* Removed cleanup registration code.
+     TODO: Examine whether the cleanup registration is still necessary to add here */
+    return specs
+  }
+
+  /**
+   *  Gets the size of the scrollcontroller
+   *  */
+  getSize () {
+    return this._size || [undefined, undefined]
+  }
+
+  /**
+   * Performs enqueued functions
+   */
+
+  _performEnqueuedCommitActions () {
+    let actionsToPerform = [...this._commitActions]
+    this._commitActions = []
+    for (let action of actionsToPerform) {
+      action()
+    }
+  }
+
+  commit (context) {
+    let {size, transform} = context
+
+    this._performEnqueuedCommitActions()
+
+    let scrollOffset
+    if (this._scrollToTransitionable.isActive()) {
+      scrollOffset = this._scrollToTransitionable.get()
+      this._group.setScrollOffset(scrollOffset)
+    } else {
+      scrollOffset = this._group.getScrollOffset()
+    }
+    this._currentScrollOffset = scrollOffset
+
+    let eventData = {
+      target: this,
+      oldSize: this._previousValues.contextSize,
+      size,
+      oldScrollOffset: this._previousValues.scrollOffset,
+      scrollOffset
+    }
+    let didLayout = false
+
+    //TODO: Add events scrollstart and scrollend, or maybe not. Not sure if needed
+    if (this._isLayoutNecessary(size, scrollOffset)) {
+
+      didLayout = true
+      this._eventOutput.emit(&apos;layoutstart&apos;, eventData)
+
+      /* When the layout has changed, and we are not just scrolling,
+       * disable the locked state of the layout-nodes so that they
+       * can freely transition between the old and new state. */
+      if (this.options.flow &amp;&amp; (this._isReflowNecessary())) {
+        /* TODO Refactor linkedViewList to support symbol.iterator so we can do for of */
+        let node = this._layoutNodeManager.getStartEnumNode()
+        while (node) {
+          if (node.releaseLock) {
+            node.releaseLock(true)
+          }
+          node = node._next
+        }
+      }
+
+      /* Perform layout */
+      this._layout(size, scrollOffset)
+    } else {
+      /* Reset the ensureVisibleRenderNode to prevent unwanted behaviour when doing replace and not finding the renderable */
+      this._ensureVisibleNode = null
+    }
+    /* Do the paper-work for creating the entire spec for the nodes */
+    //TODO See if we have to add a translate here
+    let result
+    if (this._previousValues.resultModified || didLayout) {
+      result = this._layoutNodeManager.buildSpecAndDestroyUnrenderedNodes()
+      this._nodes = result.nodes
+      this._specs = result.specs
+    }
+
+    if (result &amp;&amp; result.modified) {
+      this._eventOutput.emit(&apos;reflow&apos;, {
+        target: this
+      })
+    }
+
+    /* Reset variables */
+    this._isDirty = false
+    this._reLayout = false
+
+    this._previousValues.scrollDelta = this._previousValues.scrollOffset ? this._previousValues.scrollOffset - scrollOffset : 0
+    this._previousValues.scrollOffset = scrollOffset
+    this._previousValues.contextSize = size
+    this._previousValues.resultModified = (result &amp;&amp; result.modified) || didLayout
+    this._previousValues.maxKnownTranslate = this._maxKnownTranslate
+
+    if (this._stickingToEnds.bottom &amp;&amp; !this.isAtBottom()) {
+      this.animateToTopOrBottom(true)
+    }
+
+    if (this._stickingToEnds.top &amp;&amp; !this.isAtTop()) {
+      this.animateToTopOrBottom(false)
+    }
+
+    this._didManualScroll = false
+
+    //TODO Remove this code if we really don&apos;t want overscroll animation
+    /*/!* Check if we can scroll anywhere at all, and if the physics engine is sleeping. In that case make an overscroll
+     * animation *!/
+     if (this._physicsEngine.isSleeping() &amp;&amp; this._group.getMaxScrollOffset()) {
+     if ((scrollOffset === 0 &amp;&amp; this._firstNodeIndex === 0) || (this.isAtBottom() &amp;&amp; this._lastNodeIndex === Infinity)) {
+     this._startOverscrollAnimation()
+     }
+     } else if (!this.isAtBottom() &amp;&amp; scrollOffset !== 0) {
+     this._physicsEngine.sleep()
+     }*/
+    let extraTranslate = [0, 0, 0]
+    /* Adjust transform and size to extra bounds */
+    extraTranslate[this.options.layoutDirection] = -this.options.extraBoundsSpace[0]
+    let expandedSize = [...size]
+    expandedSize[this.options.layoutDirection] += this.options.extraBoundsSpace[0] + this.options.extraBoundsSpace[1]
+
+    if (!this._physicsEngine.isSleeping()) {
+      extraTranslate[this.options.layoutDirection] += this._scrollParticle.getPosition1D()
+    }
+
+    transform = Transform.thenMove(transform, extraTranslate)
+
+    if (didLayout) {
+      this._eventOutput.emit(&apos;layoutend&apos;, eventData)
+      /* Removed the logic for emitting pagechange, for now. TODO: Possibly, add it back */
+    }
+
+    // Return the spec
+    return {
+      transform,
+      size: expandedSize,
+      opacity: context.opacity,
+      origin: context.origin,
+      target: this._group.render()
+    }
+  }
+
+  //todo remove
+  _startOverscrollAnimation () {
+    let scrollVelocity = this._previousValues.scrollDelta / Engine.getFrameTimeDelta()
+    this._scrollParticle.setVelocity1D(Math.min(scrollVelocity, 10))
+    this._physicsEngine.wake()
+  }
+
+  render () {
+    return this._id
+  }
+
+  getID () {
+    return this._id
+  }
+}</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
