@@ -884,13 +884,14 @@ export class OptionObserver extends EventEmitter {
 
     _handleResultingUpdates() {
         let triggerIndices = this._updatesForNextTick[OptionObserver.triggers];
-        if (triggerIndices) {
+        if (triggerIndices && Object.keys(triggerIndices).length) {
             for (let index in triggerIndices) {
                 this.triggerMethodForIndex(this.options, index);
+                delete triggerIndices[index];
             }
-            delete this._updatesForNextTick[OptionObserver.triggers];
             /* Reflush to take the changes made by the trigger methods into account */
             this.flushUpdates();
+            delete this._updatesForNextTick[OptionObserver.triggers];
         }
 
         /* Currently, all renderables are "one dimensional", they only have one name. That is why this is just a simple
