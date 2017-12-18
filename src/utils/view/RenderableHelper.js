@@ -540,7 +540,7 @@ export class RenderableHelper {
             }
             /* When the renderable used to be true sized, and now isn't, the size property has to be reset in order for the renderable
             *  to read the context size*/
-            if (trueSizedInfo && !isTrueSized) {
+            if (trueSizedInfo && !isTrueSized && size) {
                 renderable.setSize(null);
             }
         }
