@@ -487,7 +487,7 @@ export class RenderableHelper {
     _handleDecoratorTransitions(renderableName, decorations, inQueue) {
         let {tweenTransitions} = decorations;
         if (tweenTransitions) {
-            if(!inQueue){
+            if (!inQueue) {
                 /* If it's not a queued animation, then it means that it is something that should execute asap and cancelled the last animaiton */
                 this.cancelRenderableTransition(renderableName);
             }
@@ -495,9 +495,9 @@ export class RenderableHelper {
             let priority = this._newRenderables[renderableName] ?
                 undefined : tweenTransitions[0].transition.queuePriority;
 
-            this._ongoingTransitions[renderableName] = { callbacks: [], priority };
-            if(typeof priority === 'number'){
-                if(this._mostUrgentTransitionPriority === undefined){
+            this._ongoingTransitions[renderableName] = {callbacks: [], priority};
+            if (typeof priority === 'number') {
+                if (this._mostUrgentTransitionPriority === undefined) {
                     this._mostUrgentTransitionPriority = priority;
                 } else {
                     this._mostUrgentTransitionPriority = Math.min(this._mostUrgentTransitionPriority, priority);
@@ -540,7 +540,7 @@ export class RenderableHelper {
             }
             /* When the renderable used to be true sized, and now isn't, the size property has to be reset in order for the renderable
             *  to read the context size*/
-            if(trueSizedInfo && !isTrueSized){
+            if (trueSizedInfo && !isTrueSized) {
                 renderable.setSize(null);
             }
         }
@@ -655,7 +655,7 @@ export class RenderableHelper {
     async setViewFlowState(stateName = '', flowOptions) {
         let steps = flowOptions.viewStates[stateName]
 
-        if(!steps) {
+        if (!steps) {
             Utils.warn(`Warning: flow state name '${stateName}' does not exist`);
             return false;
         }
@@ -865,8 +865,8 @@ export class RenderableHelper {
         this.applyDecoratorFunctionsToRenderable(decorations, renderablePrototype.getDirectlyAppliedDecoratorFunctions());
     }
 
-    waitForRenderableTransition(renderableID){
-        if(this._ongoingTransitions[renderableID]){
+    waitForRenderableTransition(renderableID) {
+        if (this._ongoingTransitions[renderableID]) {
             return new Promise((resolve, reject) => {
                 this._ongoingTransitions[renderableID].callbacks.push({resolve, reject})
             })
@@ -875,7 +875,7 @@ export class RenderableHelper {
         return Promise.resolve();
     }
 
-    cancelRenderableTransition(renderableID){
+    cancelRenderableTransition(renderableID) {
         this._terminateRenderableTransition(renderableID, false);
     }
 
@@ -885,23 +885,21 @@ export class RenderableHelper {
 
     _terminateRenderableTransition(renderableID, wasSuccessful) {
         let ongoingTransitions = this._ongoingTransitions[renderableID];
-        if(!ongoingTransitions){
+        if (!ongoingTransitions) {
             return;
         }
-        for(let transitionCallback of ongoingTransitions.callbacks){
+        for (let transitionCallback of ongoingTransitions.callbacks) {
             wasSuccessful ? transitionCallback.resolve(renderableID) : transitionCallback.reject({reason: 'Canceled'});
         }
         delete this._ongoingTransitions[renderableID];
         this._determineMostUrgentTransitionPriority();
-        /*this._mostUrgentTransitionPriority =
-            Math.min(...Object.entries(this._ongoingTransitions).map(([_, {priority}]) => firstTransition.queuePriority))*/
     }
 
     _determineMostUrgentTransitionPriority() {
         let lowestPriority;
-        for(let [_, {priority}] of Object.entries(this._ongoingTransitions)){
-            if(priority !== undefined){
-                if(lowestPriority === undefined){
+        for (let [_, {priority}] of Object.entries(this._ongoingTransitions)) {
+            if (priority !== undefined) {
+                if (lowestPriority === undefined) {
                     lowestPriority = Infinity;
                 }
                 lowestPriority = Math.min(lowestPriority, priority);
@@ -914,7 +912,7 @@ export class RenderableHelper {
         for (let [renderableID, transitions] of Object.entries(this._queuedRenderableTransitions || {})) {
 
             let priority = transitions[0].transition.queuePriority;
-            if(this._mostUrgentTransitionPriority !== undefined && priority > this._mostUrgentTransitionPriority){
+            if (this._mostUrgentTransitionPriority !== undefined && priority > this._mostUrgentTransitionPriority) {
                 this._delayedTransitions[renderableID] = transitions;
                 continue;
             }
