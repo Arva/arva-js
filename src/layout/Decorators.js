@@ -1182,7 +1182,7 @@ class Flow {
       }, decoratorTypes.viewOrChild)
   }
 
-  transition(transition) {
+  transition(transition = {}) {
       return (layoutDecorator) => {
           return this.createChainableDecorator((decorations) => {
               let layoutDecorations = {};
