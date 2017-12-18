@@ -929,10 +929,13 @@ export class RenderableHelper {
                 (() => {
                     Object.assign(this._queuedRenderableTransitions, this._delayedTransitions);
                     /* Only apply the callback if there are transitions left in queue */
-                    if(!transitions.length){
+                    if (!transitions.length) {
                         this.completeRenderableTransition(renderableID);
                     } else {
-                        this._ongoingTransitions[renderableID].priority = transitions[0].transition.queuePriority;
+                        let ongoingTransition = this._ongoingTransitions[renderableID];
+                        if (ongoingTransition) {
+                            ongoingTransition.priority = transitions[0].transition.queuePriority;
+                        }
                         this._determineMostUrgentTransitionPriority();
                         this._queuedRenderableTransitions[renderableID] = transitions;
                     }
