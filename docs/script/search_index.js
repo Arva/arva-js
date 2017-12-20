@@ -30,6 +30,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "arva-js/src/surfaces/bgimagesurface.js~bgimagesurface",
+    "variable/index.html#static-variable-BgImageSurface",
+    "<span>BgImageSurface</span> <span class=\"search-result-import-path\">arva-js/src/surfaces/BgImageSurface.js</span>",
+    "variable"
+  ],
+  [
     "arva-js/src/utils/blobhelper.js~blobhelper",
     "class/src/utils/BlobHelper.js~BlobHelper.html",
     "<span>BlobHelper</span> <span class=\"search-result-import-path\">arva-js/src/utils/BlobHelper.js</span>",
@@ -82,6 +88,12 @@ window.esdocSearchIndex = [
     "class/src/surfaces/Dropdown.js~Dropdown.html",
     "<span>Dropdown</span> <span class=\"search-result-import-path\">arva-js/src/surfaces/Dropdown.js</span>",
     "class"
+  ],
+  [
+    "arva-js/src/utils/easing.js~easing",
+    "variable/index.html#static-variable-Easing",
+    "<span>Easing</span> <span class=\"search-result-import-path\">arva-js/src/utils/Easing.js</span>",
+    "variable"
   ],
   [
     "arva-js/src/layout/decorators.js~event",
@@ -3151,13 +3163,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/data/local/localmodel.js~localmodel#id",
-    "class/src/data/local/LocalModel.js~LocalModel.html#instance-get-id",
+    "class/src/data/local/LocalModel.js~LocalModel.html#instance-set-id",
     "src/data/local/LocalModel.js~LocalModel#id",
     "member"
   ],
   [
     "src/data/local/localmodel.js~localmodel#id",
-    "class/src/data/local/LocalModel.js~LocalModel.html#instance-set-id",
+    "class/src/data/local/LocalModel.js~LocalModel.html#instance-get-id",
     "src/data/local/LocalModel.js~LocalModel#id",
     "member"
   ],
@@ -3924,6 +3936,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/surfaces/bgimagesurface.js",
+    "file/src/surfaces/BgImageSurface.js.html",
+    "src/surfaces/BgImageSurface.js",
+    "file"
+  ],
+  [
     "src/surfaces/dropdown.js",
     "file/src/surfaces/Dropdown.js.html",
     "src/surfaces/Dropdown.js",
@@ -4276,6 +4294,12 @@ window.esdocSearchIndex = [
     "class/src/utils/DialogManager.js~DialogManager.html#instance-method-show",
     "src/utils/DialogManager.js~DialogManager#show",
     "method"
+  ],
+  [
+    "src/utils/easing.js",
+    "file/src/utils/Easing.js.html",
+    "src/utils/Easing.js",
+    "file"
   ],
   [
     "src/utils/iconloader.js",
