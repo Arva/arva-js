@@ -1,5 +1,5 @@
 nav.navigation {
-    background-color: #2c3b3e;
+    background-color: #2B2B2B;
     color: white;
     border-right: none;
     padding-top: 100px;
@@ -144,7 +144,7 @@ h1[data-ice="anchor"].inner-link-active h3[data-ice="anchor"].inner-link-active 
 }
 
 .inner-link-active {
-    background: #2c3b3e !important
+    background: #2B2B2B !important
 }
 
 /* Style the 'attribute' column not to look so much like a list if there's only one item */
@@ -187,7 +187,7 @@ thead td {
 /* Start here */
 
 h3[data-ice="anchor"].inner-link-active{
-    background-color: #2c3b3e;
+    background-color: #2B2B2B;
     color:white !important;
     border-radius: 5px;
     padding-top:10px;

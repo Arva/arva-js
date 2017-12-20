@@ -5,14 +5,19 @@ we leverage complete built-in animation capabilities along with powerful state m
 In other words, this is not only an **animation library** (GreenSock, Velocity.js etc), nor an **application framework** (React, Angular, etc), but a holistic solution of both.
 
 Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for **styling** of the content, whereas **positioning** and **sizing** is handled through different processes.
-Arva astracts away some of the concerns that many front-end developers face,
+Arva abstracts away some of the concerns that many front-end developers face,
 which includes CSS deep-dives and directives like `display: inline-block` `margin:auto`, `position:relative`, `clear:left`, `float: right`, `zoom: 1` `overflow: auto`, `-webkit-box-sizing: border-box` and so on.
 
-Even modern paradigms like `flexbox` won't be necessary anymore. In addition, arva refrains from using any templating language, and only uses standard EcmaScript syntax. Let's get started.
+Even modern paradigms like `flexbox` won't be necessary anymore. In addition, Arva refrains from using any templating language, and only uses standard EcmaScript syntax. Let's get started.
 
 # Layout and hierarchy
 
-The API surface of layout in much smaller than that of css, and an example is usually the best way to start out an explanation. We demonstrate how to construct the following layout:
+The API surface of Arva [layout](https://github.com/Arva/demo) in much smaller than that of CSS. We have 11 main layout operators to learn once, which can be combined with each other
+to create powerful permutations of features.
+
+An example is usually the best way to start out an explanation!
+
+We demonstrate how to construct the following layout:
 
 ![layout-example =250x](asset/layout.png)
 
@@ -77,10 +82,10 @@ Is the same as
 
 # Animations and states
 
-Animation states can be defined using the [flow](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow) operator.
+Animations can be described using the [flow](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow) operator.
 
 The core concept of Flow is to animate using any of the existing *layout* operators.
-When the renderable changes from one state to another using the [layout](http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout) operations,
+When the renderable changes from one state to another using the layout operations,
 their **layout properties** are tweened into each other, creating the effect of seamless animation.
 
 
@@ -125,8 +130,9 @@ The `backgroundColor` can then be referenced inside the view:
 ```
     background = Surface.with({
         properties:
-            {backgroundColor: this.options.backgroundColor
-         }
+        {
+        backgroundColor: this.options.backgroundColor
+        }
     })
 ```
 
@@ -146,16 +152,13 @@ It can be changed through different triggers, one being [events](http://localhos
 
 ## Two-way data binding
 
-Data can go two ways. An example of data that becomes modified is the value of the [InputSurface](http://localhost:63342/arva-js/docs/class/src/surfaces/InputSurface.js~InputSurface.html).
+Data can go two ways. Referencing `inputOptions` creates a bi-directional data binding, where the value will be automatically synchronized.
 ```
     @layout.dock.top()
         .size(undefined, true)
     question = InputSurface.with({
         placeholder: 'What is your name?',
-        @bindings.onChange((value) => {
-            this.options.myName = value;
-        })
-        value: this.options.myName
+        value: this.inputOptions.myName
     })
 
     @layout.dock.top()

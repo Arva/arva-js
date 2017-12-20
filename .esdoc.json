@@ -19,7 +19,7 @@
         "unexportedIdentifier": {"enable": false},
         "typeInference": {"enable": true},
         "brand": {
-          "logo": "./esdoc-res/arva_on_black.jpg",
+          "logo": "./esdoc-res/arvalogo.png",
           "title": "Arva",
           "description": "this is awesome library",
           "repository": "https://github.com/Arva/arva-js",
