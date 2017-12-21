@@ -19,7 +19,8 @@ import {ReflowingScrollView}        from './ReflowingScrollView.js';
 import {combineOptions}             from '../utils/CombineOptions.js';
 
 /**
- * A FlexScrollView with enhanced functionality for maintaining a two-way connection with a PrioritisedArray.
+ * A component for displaying multiple elements based on a two-way connection with a PrioritisedArray,
+ * with support for grouping, sorting and header.
  */
 //TODO Fix so that the background is scrollable (full size)
 export class DataBoundScrollView extends ReflowingScrollView {

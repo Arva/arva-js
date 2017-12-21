@@ -4,8 +4,11 @@
 import EventEmitter     from 'eventemitter3'
 import { ObjectHelper }               from 'arva-js/utils/ObjectHelper.js'
 
-let isObserved = Symbol('isObserved')
+let isObserved = Symbol('isObserved');
 
+/**
+ * Observes an array for changes and emits events for parties interested in knowing the new states of the array
+ */
 export class ArrayObserver extends EventEmitter {
 
   _dirtyPositions = {}

@@ -1,4 +1,6 @@
-# Prerequisites
+# Getting started
+
+## Prerequisites
 * An installation of NPM and basic understanding of it.
 * Basic understanding of Javascript and the ES6/7 (ES2015) semantics.
 

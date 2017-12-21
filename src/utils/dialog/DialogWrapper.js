@@ -5,7 +5,10 @@
 import {View}               from '../../core/View.js';
 import {layout}             from '../../layout/Decorators.js';
 
-@layout.scrollable({overscroll: false, scrollSync: {preventDefault: false}})
+/**
+ * Classed used to wrap a dialog, in order to provide a scrollable dialog with appropriate sizing
+ */
+@layout.scrollable({overscroll: false})
 export class DialogWrapper extends View {
 
     /**

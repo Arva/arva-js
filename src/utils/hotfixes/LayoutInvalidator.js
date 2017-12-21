@@ -8,6 +8,10 @@ import ImageSurface     from 'famous/surfaces/ImageSurface.js';
 import ElementOutput    from 'famous/core/ElementOutput.js';
 
 
+/**
+ * Fixing browser bugs, this method makes sure that the layout of a certain DOM element gets invalidated
+ * @param element
+ */
 export let invalidateLayoutForElement = (element) => {
     var disp = element.style.display;
     element.style.display = 'none';

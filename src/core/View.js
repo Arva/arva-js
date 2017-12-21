@@ -648,6 +648,8 @@ export class View extends FamousView {
             }.bind(this)
         });
 
+        this.layout.__hiddenViewName__ = this._name();
+
         this._eventInput.on('recursiveReflow', (reflowData) => {
             /* Modify the reflow data so that it's clear what things have been reflown */
             reflowData[this.getID()] = true;

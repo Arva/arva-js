@@ -1016,7 +1016,7 @@ export const layout = new Layout();
 
 
 /**
- * Function used to show things in a dynamic manner, depending on the options passed.
+ * Decorator that is passed a callback in order to apply other decorators as a function of options passed
  *
  * @example
  * @dynamic(options =>

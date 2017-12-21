@@ -17,6 +17,9 @@ var window = this;
 var global = this;
 var tempKeys = [];
 
+/**
+ * @ignore
+ */
 export class SharePointClient extends EventEmitter {
 
     get refreshTimer() {

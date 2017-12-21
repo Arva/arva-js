@@ -42,12 +42,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "arva-js/src/utils/di/decorators.js~classprovider",
-    "class/src/utils/di/Decorators.js~ClassProvider.html",
-    "<span>ClassProvider</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
-    "class"
-  ],
-  [
     "arva-js/src/core/controller.js~controller",
     "class/src/core/Controller.js~Controller.html",
     "<span>Controller</span> <span class=\"search-result-import-path\">arva-js/src/core/Controller.js</span>",
@@ -102,18 +96,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "arva-js/src/utils/request/requestclient.js~existsrequest",
-    "function/index.html#static-function-ExistsRequest",
-    "<span>ExistsRequest</span> <span class=\"search-result-import-path\">arva-js/src/utils/request/RequestClient.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/di/decorators.js~factoryprovider",
-    "class/src/utils/di/Decorators.js~FactoryProvider.html",
-    "<span>FactoryProvider</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
-    "class"
-  ],
-  [
     "arva-js/src/layout/decorators.js~flow",
     "class/src/layout/Decorators.js~Flow.html",
     "<span>Flow</span> <span class=\"search-result-import-path\">arva-js/src/layout/Decorators.js</span>",
@@ -126,27 +108,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "arva-js/src/utils/request/requestclient.js~getrequest",
-    "function/index.html#static-function-GetRequest",
-    "<span>GetRequest</span> <span class=\"search-result-import-path\">arva-js/src/utils/request/RequestClient.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/di/decorators.js~inject",
-    "class/src/utils/di/Decorators.js~Inject.html",
-    "<span>Inject</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
-    "class"
-  ],
-  [
     "arva-js/src/utils/injection.js~injection",
     "class/src/utils/Injection.js~Injection.html",
     "<span>Injection</span> <span class=\"search-result-import-path\">arva-js/src/utils/Injection.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/utils/di/injector.js~injector",
-    "class/src/utils/di/Injector.js~Injector.html",
-    "<span>Injector</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Injector.js</span>",
     "class"
   ],
   [
@@ -216,27 +180,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "arva-js/src/utils/request/xmlparser.js~parsestringtoxml",
-    "function/index.html#static-function-ParseStringToXml",
-    "<span>ParseStringToXml</span> <span class=\"search-result-import-path\">arva-js/src/utils/request/XmlParser.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/request/requestclient.js~postrequest",
-    "function/index.html#static-function-PostRequest",
-    "<span>PostRequest</span> <span class=\"search-result-import-path\">arva-js/src/utils/request/RequestClient.js</span>",
-    "function"
-  ],
-  [
     "arva-js/src/data/prioritisedarray.js~prioritisedarray",
     "class/src/data/PrioritisedArray.js~PrioritisedArray.html",
     "<span>PrioritisedArray</span> <span class=\"search-result-import-path\">arva-js/src/data/PrioritisedArray.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/utils/di/decorators.js~provide",
-    "class/src/utils/di/Decorators.js~Provide.html",
-    "<span>Provide</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
     "class"
   ],
   [
@@ -270,27 +216,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "arva-js/src/data/datasources/sharepoint/spsoapadapter/settings.js~settings",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Settings.js~Settings.html",
-    "<span>Settings</span> <span class=\"search-result-import-path\">arva-js/src/data/datasources/SharePoint/SPSoapAdapter/Settings.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html",
-    "<span>SharePointClient</span> <span class=\"search-result-import-path\">arva-js/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js</span>",
-    "class"
-  ],
-  [
     "arva-js/src/utils/view/sizeresolver.js~sizeresolver",
     "class/src/utils/view/SizeResolver.js~SizeResolver.html",
     "<span>SizeResolver</span> <span class=\"search-result-import-path\">arva-js/src/utils/view/SizeResolver.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/utils/di/decorators.js~superconstructor",
-    "class/src/utils/di/Decorators.js~SuperConstructor.html",
-    "<span>SuperConstructor</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
     "class"
   ],
   [
@@ -312,24 +240,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "arva-js/src/utils/di/decorators.js~transientscope",
-    "class/src/utils/di/Decorators.js~TransientScope.html",
-    "<span>TransientScope</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
-    "class"
-  ],
-  [
-    "arva-js/src/layout/truesizedlayoutdockhelper.js~truesizedlayoutdockhelper",
-    "function/index.html#static-function-TrueSizedLayoutDockHelper",
-    "<span>TrueSizedLayoutDockHelper</span> <span class=\"search-result-import-path\">arva-js/src/layout/TrueSizedLayoutDockHelper.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/request/urlparser.js~urlparser",
-    "function/index.html#static-function-UrlParser",
-    "<span>UrlParser</span> <span class=\"search-result-import-path\">arva-js/src/utils/request/UrlParser.js</span>",
-    "function"
-  ],
-  [
     "arva-js/src/utils/view/utils.js~utils",
     "class/src/utils/view/Utils.js~Utils.html",
     "<span>Utils</span> <span class=\"search-result-import-path\">arva-js/src/utils/view/Utils.js</span>",
@@ -346,12 +256,6 @@ window.esdocSearchIndex = [
     "class/src/surfaces/WebGLSurface.js~WebGLSurface.html",
     "<span>WebGLSurface</span> <span class=\"search-result-import-path\">arva-js/src/surfaces/WebGLSurface.js</span>",
     "class"
-  ],
-  [
-    "arva-js/src/utils/di/decorators.js~annotate",
-    "function/index.html#static-function-annotate",
-    "<span>annotate</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
-    "function"
   ],
   [
     "arva-js/src/layout/decorators.js~bindings",
@@ -375,18 +279,6 @@ window.esdocSearchIndex = [
     "arva-js/src/utils/combineoptions.js~combineoptions",
     "function/index.html#static-function-combineOptions",
     "<span>combineOptions</span> <span class=\"search-result-import-path\">arva-js/src/utils/CombineOptions.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/layout/decoratorhelpers.js~createchainabledecorator",
-    "function/index.html#static-function-createChainableDecorator",
-    "<span>createChainableDecorator</span> <span class=\"search-result-import-path\">arva-js/src/layout/DecoratorHelpers.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/di/providers.js~createproviderfromfnorclass",
-    "function/index.html#static-function-createProviderFromFnOrClass",
-    "<span>createProviderFromFnOrClass</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Providers.js</span>",
     "function"
   ],
   [
@@ -420,39 +312,9 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "arva-js/src/utils/di/decorators.js~hasannotation",
-    "function/index.html#static-function-hasAnnotation",
-    "<span>hasAnnotation</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/di/decorators.js~inject",
-    "function/index.html#static-function-inject",
-    "<span>inject</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
-    "function"
-  ],
-  [
     "arva-js/src/utils/hotfixes/layoutinvalidator.js~invalidatelayoutforelement",
     "function/index.html#static-function-invalidateLayoutForElement",
     "<span>invalidateLayoutForElement</span> <span class=\"search-result-import-path\">arva-js/src/utils/hotfixes/LayoutInvalidator.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/di/util.js~isfunction",
-    "function/index.html#static-function-isFunction",
-    "<span>isFunction</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Util.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/di/util.js~isobject",
-    "function/index.html#static-function-isObject",
-    "<span>isObject</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Util.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/di/util.js~isuppercase",
-    "function/index.html#static-function-isUpperCase",
-    "<span>isUpperCase</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Util.js</span>",
     "function"
   ],
   [
@@ -474,45 +336,9 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "arva-js/src/utils/di/util.js~ownkeys",
-    "variable/index.html#static-variable-ownKeys",
-    "<span>ownKeys</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Util.js</span>",
-    "variable"
-  ],
-  [
-    "arva-js/src/layout/decoratorhelpers.js~prepdecoratedrenderable",
-    "function/index.html#static-function-prepDecoratedRenderable",
-    "<span>prepDecoratedRenderable</span> <span class=\"search-result-import-path\">arva-js/src/layout/DecoratorHelpers.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/layout/decoratorhelpers.js~prepprototypedecorations",
-    "function/index.html#static-function-prepPrototypeDecorations",
-    "<span>prepPrototypeDecorations</span> <span class=\"search-result-import-path\">arva-js/src/layout/DecoratorHelpers.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/di/decorators.js~provide",
-    "function/index.html#static-function-provide",
-    "<span>provide</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/di/decorators.js~readannotations",
-    "function/index.html#static-function-readAnnotations",
-    "<span>readAnnotations</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Decorators.js</span>",
-    "function"
-  ],
-  [
     "arva-js/src/utils/callbackhelpers.js~successanderrortopromise",
     "function/index.html#static-function-successAndErrorToPromise",
     "<span>successAndErrorToPromise</span> <span class=\"search-result-import-path\">arva-js/src/utils/CallbackHelpers.js</span>",
-    "function"
-  ],
-  [
-    "arva-js/src/utils/di/util.js~tostring",
-    "function/index.html#static-function-toString",
-    "<span>toString</span> <span class=\"search-result-import-path\">arva-js/src/utils/di/Util.js</span>",
     "function"
   ],
   [
@@ -2820,12 +2646,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/data/datasources/sharepoint/spsoapadapter/settings.js~settings.localkeyprefix",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Settings.js~Settings.html#static-get-localKeyPrefix",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Settings.js~Settings.localKeyPrefix",
-    "member"
-  ],
-  [
     "src/data/datasources/sharepoint/spsoapadapter/sharepoint.js",
     "file/src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js.html",
     "src/data/datasources/SharePoint/SPSoapAdapter/SharePoint.js",
@@ -2842,264 +2662,6 @@ window.esdocSearchIndex = [
     "file/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js.html",
     "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js",
     "file"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_activatechangetoken",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_activateChangeToken",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_activateChangeToken",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_active",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-_active",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_active",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_clearnextpage",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_clearNextPage",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_clearNextPage",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_deactivatechangetoken",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_deactivateChangeToken",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_deactivateChangeToken",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_formatrecord",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_formatRecord",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_formatRecord",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_getlistitemsdefaultconfiguration",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_getListItemsDefaultConfiguration",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_getListItemsDefaultConfiguration",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_getlistservice",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_getListService",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_getListService",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_getresults",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_getResults",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_getResults",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_getusergroupdefaultconfiguration",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_getUserGroupDefaultConfiguration",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_getUserGroupDefaultConfiguration",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_getusergroupservice",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_getUserGroupService",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_getUserGroupService",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_handledeleted",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_handleDeleted",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_handleDeleted",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_handleinit",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_handleInit",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_handleInit",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_handlenexttoken",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_handleNextToken",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_handleNextToken",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_handleremove",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_handleRemove",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_handleRemove",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_handleset",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_handleSet",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_handleSet",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_initializesettings",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_initializeSettings",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_initializeSettings",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_ischilditem",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_isChildItem",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_isChildItem",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_islimitexceeded",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_isLimitExceeded",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_isLimitExceeded",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_parsepath",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_parsePath",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_parsePath",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_refresh",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_refresh",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_refresh",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_refreshtimer",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-_refreshTimer",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_refreshTimer",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_setnextpage",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_setNextPage",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_setNextPage",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_updatecache",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_updateCache",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_updateCache",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#_updatelistitemsdefaultconfiguration",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-_updateListItemsDefaultConfiguration",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#_updateListItemsDefaultConfiguration",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#cache",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-cache",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#cache",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#childid",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-childID",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#childID",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#constructor",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-constructor-constructor",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#constructor",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#dispose",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-dispose",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#dispose",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#explicitrowlimit",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-explicitRowLimit",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#explicitRowLimit",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#getauth",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-getAuth",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#getAuth",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#hasnoserverresponse",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-hasNoServerResponse",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#hasNoServerResponse",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#init",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-init",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#init",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#interval",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-interval",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#interval",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#ischild",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-isChild",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#isChild",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#lastchangetoken",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-lastChangeToken",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#lastChangeToken",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#pagesize",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-pageSize",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#pageSize",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#refreshtimer",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-set-refreshTimer",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#refreshTimer",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#refreshtimer",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-get-refreshTimer",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#refreshTimer",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#remove",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-remove",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#remove",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#retriever",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-retriever",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#retriever",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#set",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-set",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#set",
-    "method"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#settings",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-member-settings",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#settings",
-    "member"
-  ],
-  [
-    "src/data/datasources/sharepoint/spsoapadapter/worker/sharepointclient.js~sharepointclient#subscribetochanges",
-    "class/src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient.html#instance-method-subscribeToChanges",
-    "src/data/datasources/SharePoint/SPSoapAdapter/Worker/SharePointClient.js~SharePointClient#subscribeToChanges",
-    "method"
   ],
   [
     "src/data/datasources/sharepoint/spsoapadapter/worker/soapclient.js",
@@ -4608,30 +4170,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/utils/di/decorators.js~inject#constructor",
-    "class/src/utils/di/Decorators.js~Inject.html#instance-constructor-constructor",
-    "src/utils/di/Decorators.js~Inject#constructor",
-    "method"
-  ],
-  [
-    "src/utils/di/decorators.js~inject#tokens",
-    "class/src/utils/di/Decorators.js~Inject.html#instance-member-tokens",
-    "src/utils/di/Decorators.js~Inject#tokens",
-    "member"
-  ],
-  [
-    "src/utils/di/decorators.js~provide#constructor",
-    "class/src/utils/di/Decorators.js~Provide.html#instance-constructor-constructor",
-    "src/utils/di/Decorators.js~Provide#constructor",
-    "method"
-  ],
-  [
-    "src/utils/di/decorators.js~provide#token",
-    "class/src/utils/di/Decorators.js~Provide.html#instance-member-token",
-    "src/utils/di/Decorators.js~Provide#token",
-    "member"
-  ],
-  [
     "src/utils/di/hashsum.js",
     "file/src/utils/di/HashSum.js.html",
     "src/utils/di/HashSum.js",
@@ -4642,90 +4180,6 @@ window.esdocSearchIndex = [
     "file/src/utils/di/Injector.js.html",
     "src/utils/di/Injector.js",
     "file"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_cache",
-    "class/src/utils/di/Injector.js~Injector.html#instance-member-_cache",
-    "src/utils/di/Injector.js~Injector#_cache",
-    "member"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_collectproviderswithannotation",
-    "class/src/utils/di/Injector.js~Injector.html#instance-method-_collectProvidersWithAnnotation",
-    "src/utils/di/Injector.js~Injector#_collectProvidersWithAnnotation",
-    "method"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_hasproviderfor",
-    "class/src/utils/di/Injector.js~Injector.html#instance-method-_hasProviderFor",
-    "src/utils/di/Injector.js~Injector#_hasProviderFor",
-    "method"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_instantiatedefaultprovider",
-    "class/src/utils/di/Injector.js~Injector.html#instance-method-_instantiateDefaultProvider",
-    "src/utils/di/Injector.js~Injector#_instantiateDefaultProvider",
-    "method"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_loadfnorclass",
-    "class/src/utils/di/Injector.js~Injector.html#instance-method-_loadFnOrClass",
-    "src/utils/di/Injector.js~Injector#_loadFnOrClass",
-    "method"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_loadmodules",
-    "class/src/utils/di/Injector.js~Injector.html#instance-method-_loadModules",
-    "src/utils/di/Injector.js~Injector#_loadModules",
-    "method"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_parent",
-    "class/src/utils/di/Injector.js~Injector.html#instance-member-_parent",
-    "src/utils/di/Injector.js~Injector#_parent",
-    "member"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_providers",
-    "class/src/utils/di/Injector.js~Injector.html#instance-member-_providers",
-    "src/utils/di/Injector.js~Injector#_providers",
-    "member"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_retrievetokens",
-    "class/src/utils/di/Injector.js~Injector.html#instance-method-_retrieveTokens",
-    "src/utils/di/Injector.js~Injector#_retrieveTokens",
-    "method"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_scopes",
-    "class/src/utils/di/Injector.js~Injector.html#instance-member-_scopes",
-    "src/utils/di/Injector.js~Injector#_scopes",
-    "member"
-  ],
-  [
-    "src/utils/di/injector.js~injector#_tokencache",
-    "class/src/utils/di/Injector.js~Injector.html#instance-member-_tokenCache",
-    "src/utils/di/Injector.js~Injector#_tokenCache",
-    "member"
-  ],
-  [
-    "src/utils/di/injector.js~injector#constructor",
-    "class/src/utils/di/Injector.js~Injector.html#instance-constructor-constructor",
-    "src/utils/di/Injector.js~Injector#constructor",
-    "method"
-  ],
-  [
-    "src/utils/di/injector.js~injector#createchild",
-    "class/src/utils/di/Injector.js~Injector.html#instance-method-createChild",
-    "src/utils/di/Injector.js~Injector#createChild",
-    "method"
-  ],
-  [
-    "src/utils/di/injector.js~injector#get",
-    "class/src/utils/di/Injector.js~Injector.html#instance-method-get",
-    "src/utils/di/Injector.js~Injector#get",
-    "method"
   ],
   [
     "src/utils/di/providers.js",
@@ -4833,12 +4287,6 @@ window.esdocSearchIndex = [
     "src/utils/hotfixes/polyfills/startswith.js",
     "file/src/utils/hotfixes/polyfills/StartsWith.js.html",
     "src/utils/hotfixes/polyfills/StartsWith.js",
-    "file"
-  ],
-  [
-    "src/utils/request/requestclient.js",
-    "file/src/utils/request/RequestClient.js.html",
-    "src/utils/request/RequestClient.js",
     "file"
   ],
   [

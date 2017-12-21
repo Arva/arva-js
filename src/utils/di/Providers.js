@@ -47,7 +47,9 @@ var EmptyFunction = Object.getPrototypeOf(Function);
 //
 // - all the state is immutable (constructed)
 //
-// TODO(vojta): super constructor - should be only allowed during the constructor call?
+/**
+ * @ignore
+ */
 class ClassProvider {
     constructor(clazz, params) {
         // TODO(vojta): can we hide this.provider? (only used for hasAnnotation(provider.provider))
@@ -130,6 +132,9 @@ class ClassProvider {
 
 // FactoryProvider knows how to create instance from a factory function.
 // - all the state is immutable
+/**
+ * @ignore
+ */
 class FactoryProvider {
     constructor(factoryFunction, params) {
         this.provider = factoryFunction;
@@ -147,7 +152,9 @@ class FactoryProvider {
     }
 }
 
-
+/**
+ * @ignore
+ */
 export function createProviderFromFnOrClass(fnOrClass, annotations) {
     if (isClass(fnOrClass)) {
         return new ClassProvider(fnOrClass, annotations.params);

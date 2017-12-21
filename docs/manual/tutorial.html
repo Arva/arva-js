@@ -13,7 +13,7 @@
 
 <header>
   <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.png" style="width:34px;"></a>
-  
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
   
@@ -45,7 +45,8 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/installation.html"><a href="manual/installation.html" data-ice="link">Prerequisites</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/installation.html"><a href="manual/installation.html" data-ice="link">Getting started</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/installation.html"><a href="manual/installation.html#prerequisites" data-ice="link">Prerequisites</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/installation.html"><a href="manual/installation.html#installation" data-ice="link">Installation</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/installation.html"><a href="manual/installation.html#on-we-go-" data-ice="link">On we go!</a></li>
 </ul>
@@ -66,14 +67,13 @@
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="what--39-s-arva-js-">What&apos;s Arva JS?</h1><p>Arva is a fresh-cut framework for building interactive applications. When we talk about <strong>applications</strong> that are <strong>interactive</strong>,
 we leverage complete built-in animation capabilities along with powerful state maintenance to successfully maintain UI interaction in a fluid way.
 In other words, this is not only an <strong>animation library</strong> (GreenSock, Velocity.js etc), nor an <strong>application framework</strong> (React, Angular, etc), but a holistic solution of both.</p>
-<p>Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for <strong>styling</strong> of the content, whereas <strong>positioning</strong> and <strong>sizing</strong> is handled through different processes.
+<p>Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for <strong>styling</strong> of the content, whereas <strong>positioning</strong> and <strong>sizing</strong> is handled in a more pragmatic way.
 Arva abstracts away some of the concerns that many front-end developers face,
 which includes CSS deep-dives and directives like <code>display: inline-block</code> <code>margin:auto</code>, <code>position:relative</code>, <code>clear:left</code>, <code>float: right</code>, <code>zoom: 1</code> <code>overflow: auto</code>, <code>-webkit-box-sizing: border-box</code> and so on.</p>
 <p>Even modern paradigms like <code>flexbox</code> won&apos;t be necessary anymore. In addition, Arva refrains from using any templating language, and only uses standard EcmaScript syntax. Let&apos;s get started.</p>
 <h1 id="layout-and-hierarchy">Layout and hierarchy</h1><p>The API surface of Arva <a href="https://github.com/Arva/demo">layout</a> in much smaller than that of CSS. We have 11 main layout operators to learn once, which can be combined with each other
 to create powerful permutations of features.</p>
-<p>An example is usually the best way to start out an explanation!</p>
-<p>We demonstrate how to construct the following layout:</p>
+<p>And because an example is usually the best way to start out an explanation, we demonstrate how to construct the following layout.</p>
 <p><img src="./manual/asset/layout.png" alt="layout-example =250x"></p>
 <p>We see a top bar, a background color, and a bottom button, along with some box shadows to create a sense of depth in line with the current fashion of material design.</p>
 <p>This is achieved with the following code.</p>
@@ -91,19 +91,20 @@ export class RootView extends View {
 
     @layout
         /* Docking makes something appear at the top with a height of 44 pixels */
-        .dock.top(44)
+        .dock.top(48)
     /* This is a top bar */
     topBar = TopBar.with({title: &apos;Dashboard&apos;})
 
     @layout
         /* Stick bottom right, and translate upwards/left for margin*/
         .stick.bottomRight()
-        .translate(-10, -10, 0)
-        .size(52, 52)
+        .translate(-16, -16, 0)
+        .size(64, 64)
     bottomButton = Button.with()
 
 }</code>
-</code></pre><p><a href="https://github.com/Arva/demo">Full source code can be found here under &apos;layout&apos;</a>
+</code></pre><p>These definitions heavily make use of <a href="https://github.com/tc39/proposal-class-fields">class fields</a> and <a href="https://github.com/tc39/proposal-decorators">decorators</a>.</p>
+<p><a href="https://github.com/Arva/demo">Full source code can be found here under &apos;layout&apos;</a>
 For API reference regarding layout, see the <a href="http://arva.io/arva-js/class/src/layout/Decorators.js~Layout.html">docs</a>.</p>
 <p>As you can see, all decorators of the same type (<a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout">layout</a>, <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event">event</a>, and <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow">flow</a>) can be chained when used.</p>
 <p>For example,</p>
@@ -120,7 +121,8 @@ When the renderable changes from one state to another using the layout operation
 their <strong>layout properties</strong> are tweened into each other, creating the effect of seamless animation.</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">    @flow.transition({duration: 200, curve: Easing.inCubic})(
         layout.size(300, 300)
-    )</code>
+    )
+    animatedSurface = Surface.with({properties: {backgroundColor: &apos;red&apos;}});</code>
 </code></pre>
 <p>For a contextual example of using flow and animation, we made a sample component for showing and hiding a menu:</p>
 <p><img src="./manual/asset/animation-demo.gif" alt="animation"></p>
@@ -141,7 +143,7 @@ class HomeView extends View {
 <pre><code><code class="source-code prettyprint">    background = Surface.with({
         properties:
         {
-        backgroundColor: this.options.backgroundColor
+            backgroundColor: this.options.backgroundColor
         }
     })</code>
 </code></pre><p>It can be changed through different triggers, one being <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event">events</a>.</p>
@@ -302,9 +304,8 @@ in an additive nature from the previous position, while tasks like centering con
 </code></pre>
 <h1 id="the-bigger-picture">The bigger picture</h1><p>We will continue to improve Arva JS in every aspect, including performance, UX possibilities and code brevity. It&apos;s a framework
 that is going to be frequently revised and evaluated for its goals.</p>
-<p>Arva JS is sometimes referred to as <em>Arva foundation</em> or <em>Arva engine</em> and is a part of a bigger scheme of making
-easy and attractive development possible for more people. <em>Arva Studio</em> is under development in order to provide a no-code
-springboard for rapid application development.</p>
+<p>Arva Foundation is just the start of a series of tools to accelerate digital product development.
+If you want a sneak peak into our future, have a look at [arva.io].</p>
 </div>
 </div>
 

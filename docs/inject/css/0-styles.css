@@ -130,7 +130,6 @@ table.summary tbody td:nth-child(1) {
 /* Hack for making the anchors scroll down beneath header */
 h3[data-ice="anchor"] {
     border-top: 40px solid transparent;
-    margin-top: -40px !important;
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding;
     background-clip: padding-box;

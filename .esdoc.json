@@ -28,8 +28,8 @@
           "image": "http://arva.io/img/logo-arva.png"
         },
         "manual": {
-          "index": "./esdoc-res/getting-started/installation.md",
-          "globalIndex": true,
+          "index": "./esdoc-res/tutorial.md",
+          "globalIndex": false,
           "asset":"./esdoc-res/manual-asset",
           "files":["./esdoc-res/tutorial.md",
                    "./esdoc-res/getting-started/installation.md",

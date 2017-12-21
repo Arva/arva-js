@@ -7,6 +7,12 @@
 
  */
 
+/**
+ * @ignore
+ * @param text
+ * @returns {*}
+ * @constructor
+ */
 export function ParseStringToXml(text) {
     try {
         var xml = null;

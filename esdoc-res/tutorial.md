@@ -4,20 +4,19 @@ Arva is a fresh-cut framework for building interactive applications. When we tal
 we leverage complete built-in animation capabilities along with powerful state maintenance to successfully maintain UI interaction in a fluid way.
 In other words, this is not only an **animation library** (GreenSock, Velocity.js etc), nor an **application framework** (React, Angular, etc), but a holistic solution of both.
 
-Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for **styling** of the content, whereas **positioning** and **sizing** is handled through different processes.
+Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for **styling** of the content, whereas **positioning** and **sizing** is handled in a more pragmatic way.
 Arva abstracts away some of the concerns that many front-end developers face,
 which includes CSS deep-dives and directives like `display: inline-block` `margin:auto`, `position:relative`, `clear:left`, `float: right`, `zoom: 1` `overflow: auto`, `-webkit-box-sizing: border-box` and so on.
 
 Even modern paradigms like `flexbox` won't be necessary anymore. In addition, Arva refrains from using any templating language, and only uses standard EcmaScript syntax. Let's get started.
+
 
 # Layout and hierarchy
 
 The API surface of Arva [layout](https://github.com/Arva/demo) in much smaller than that of CSS. We have 11 main layout operators to learn once, which can be combined with each other
 to create powerful permutations of features.
 
-An example is usually the best way to start out an explanation!
-
-We demonstrate how to construct the following layout:
+And because an example is usually the best way to start out an explanation, we demonstrate how to construct the following layout.
 
 ![layout-example =250x](asset/layout.png)
 
@@ -42,20 +41,22 @@ export class RootView extends View {
 
     @layout
         /* Docking makes something appear at the top with a height of 44 pixels */
-        .dock.top(44)
+        .dock.top(48)
     /* This is a top bar */
     topBar = TopBar.with({title: 'Dashboard'})
 
     @layout
         /* Stick bottom right, and translate upwards/left for margin*/
         .stick.bottomRight()
-        .translate(-10, -10, 0)
-        .size(52, 52)
+        .translate(-16, -16, 0)
+        .size(64, 64)
     bottomButton = Button.with()
 
 }
 
 ```
+
+These definitions heavily make use of [class fields](https://github.com/tc39/proposal-class-fields) and [decorators](https://github.com/tc39/proposal-decorators).
 
 [Full source code can be found here under 'layout'](https://github.com/Arva/demo)
 For API reference regarding layout, see the [docs](http://arva.io/arva-js/class/src/layout/Decorators.js~Layout.html).
@@ -93,6 +94,7 @@ their **layout properties** are tweened into each other, creating the effect of 
     @flow.transition({duration: 200, curve: Easing.inCubic})(
         layout.size(300, 300)
     )
+    animatedSurface = Surface.with({properties: {backgroundColor: 'red'}});
 ```
 
 For a contextual example of using flow and animation, we made a sample component for showing and hiding a menu:
@@ -131,7 +133,7 @@ The `backgroundColor` can then be referenced inside the view:
     background = Surface.with({
         properties:
         {
-        backgroundColor: this.options.backgroundColor
+            backgroundColor: this.options.backgroundColor
         }
     })
 ```
@@ -343,6 +345,5 @@ Here's the code, with plenty of comments, for clarity:
 We will continue to improve Arva JS in every aspect, including performance, UX possibilities and code brevity. It's a framework
 that is going to be frequently revised and evaluated for its goals.
 
-Arva JS is sometimes referred to as *Arva foundation* or *Arva engine* and is a part of a bigger scheme of making
-easy and attractive development possible for more people. *Arva Studio* is under development in order to provide a no-code
-springboard for rapid application development.
+Arva Foundation is just the start of a series of tools to accelerate digital product development.
+If you want a sneak peak into our future, have a look at [arva.io].

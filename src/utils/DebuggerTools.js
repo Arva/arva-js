@@ -2,7 +2,9 @@
  * Created by lundfall on 06/07/2017.
  */
 import {Surface}            from 'arva-js/surfaces/Surface.js';
+import SpecParser           from 'famous/core/SpecParser.js'
 import Entity               from 'famous/core/Entity.js'
+import RenderNode           from 'famous/core/RenderNode.js'
 import { View }             from 'arva-js/core/View.js'
 import { PrioritisedArray } from 'arva-js/data/PrioritisedArray.js'
 import { ObjectHelper }     from 'arva-js/utils/ObjectHelper.js'
@@ -180,3 +182,28 @@ window.debugFunction = (object, name) => {
         originalFunction.call(object, ...arguments);
     };
 };
+
+
+RenderNode._applyCommit = (spec, context, cacheStorage, nestedList = []) => {
+    var result = SpecParser.parse(spec, context);
+    var keys = Object.keys(result);
+    for (var i = 0; i < keys.length; i++) {
+        var id = keys[i];
+        var childNode = Entity.get(id);
+        var commitParams = result[id];
+        commitParams.allocator = context.allocator;
+        var commitResult = childNode.commit(commitParams);
+        if (commitResult) {
+            var thingsToAdd = childNode.__hiddenViewName__ ? [childNode.__hiddenViewName__] :  [];
+            thingsToAdd = thingsToAdd.concat(childNode._view && childNode._view.__hiddenRenderableName__ || [])
+            /* Replace white space since adding white space to a class name causes the DOM to revolt */
+                .map((string) => string.replace(' ', ''));
+            RenderNode._applyCommit(commitResult, context, cacheStorage, nestedList.concat(thingsToAdd));
+        } else {
+            cacheStorage[id] = commitParams;
+            childNode.setAttributes && childNode.setAttributes({'data-name': childNode.__hiddenRenderableName__ || ''});
+            childNode.setClasses && childNode.setClasses(nestedList);
+        }
+    }
+};
+

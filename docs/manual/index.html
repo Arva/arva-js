@@ -13,7 +13,7 @@
 
 <header>
   <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.png" style="width:34px;"></a>
-  
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
   
@@ -45,7 +45,8 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/installation.html"><a href="manual/installation.html" data-ice="link">Prerequisites</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/installation.html"><a href="manual/installation.html" data-ice="link">Getting started</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/installation.html"><a href="manual/installation.html#prerequisites" data-ice="link">Prerequisites</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/installation.html"><a href="manual/installation.html#installation" data-ice="link">Installation</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/installation.html"><a href="manual/installation.html#on-we-go-" data-ice="link">On we go!</a></li>
 </ul>
@@ -64,18 +65,248 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="github-markdown">
-  <div class="manual-user-index" data-ice="manualUserIndex"><h1 id="prerequisites">Prerequisites</h1><ul>
-<li>An installation of NPM and basic understanding of it.</li>
-<li>Basic understanding of Javascript and the ES6/7 (ES2015) semantics.</li>
-</ul>
-<h2 id="installation">Installation</h2><p>The easiest way to get started quickly is by cloning the <a href="https://github.com/Arva/arva-seed">Arva Seed</a> project. This project contains all the necessary components and default
-settings to build a hello world application across multiple platforms.</p>
-<pre><code class="lang-bash"><code class="source-code prettyprint">npm install -g cordova@6.5.0
-git clone https://github.com/Arva/arva-seed.git
-cd arva-seed
-npm i</code>
+  <div class="manual-user-index" data-ice="manualUserIndex"><h1 id="what--39-s-arva-js-">What&apos;s Arva JS?</h1><p>Arva is a fresh-cut framework for building interactive applications. When we talk about <strong>applications</strong> that are <strong>interactive</strong>,
+we leverage complete built-in animation capabilities along with powerful state maintenance to successfully maintain UI interaction in a fluid way.
+In other words, this is not only an <strong>animation library</strong> (GreenSock, Velocity.js etc), nor an <strong>application framework</strong> (React, Angular, etc), but a holistic solution of both.</p>
+<p>Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for <strong>styling</strong> of the content, whereas <strong>positioning</strong> and <strong>sizing</strong> is handled in a more pragmatic way.
+Arva abstracts away some of the concerns that many front-end developers face,
+which includes CSS deep-dives and directives like <code>display: inline-block</code> <code>margin:auto</code>, <code>position:relative</code>, <code>clear:left</code>, <code>float: right</code>, <code>zoom: 1</code> <code>overflow: auto</code>, <code>-webkit-box-sizing: border-box</code> and so on.</p>
+<p>Even modern paradigms like <code>flexbox</code> won&apos;t be necessary anymore. In addition, Arva refrains from using any templating language, and only uses standard EcmaScript syntax. Let&apos;s get started.</p>
+<h1 id="layout-and-hierarchy">Layout and hierarchy</h1><p>The API surface of Arva <a href="https://github.com/Arva/demo">layout</a> in much smaller than that of CSS. We have 11 main layout operators to learn once, which can be combined with each other
+to create powerful permutations of features.</p>
+<p>And because an example is usually the best way to start out an explanation, we demonstrate how to construct the following layout.</p>
+<p><img src="asset/layout.png" alt="layout-example =250x"></p>
+<p>We see a top bar, a background color, and a bottom button, along with some box shadows to create a sense of depth in line with the current fashion of material design.</p>
+<p>This is achieved with the following code.</p>
+<pre><code><code class="source-code prettyprint">
+export class RootView extends View {
+
+    @layout
+        /* Take up the full space*/
+        .fullSize()
+        /* -1 negative z-index to make space for the foreground content*/
+        .translate(0, 0, -1)
+        /* The surface is the most fundamental element to compose views with */
+    background = Surface.with({properties: {backgroundColor: &apos;aliceblue&apos; }});
+
+
+    @layout
+        /* Docking makes something appear at the top with a height of 44 pixels */
+        .dock.top(48)
+    /* This is a top bar */
+    topBar = TopBar.with({title: &apos;Dashboard&apos;})
+
+    @layout
+        /* Stick bottom right, and translate upwards/left for margin*/
+        .stick.bottomRight()
+        .translate(-16, -16, 0)
+        .size(64, 64)
+    bottomButton = Button.with()
+
+}</code>
+</code></pre><p>These definitions heavily make use of <a href="https://github.com/tc39/proposal-class-fields">class fields</a> and <a href="https://github.com/tc39/proposal-decorators">decorators</a>.</p>
+<p><a href="https://github.com/Arva/demo">Full source code can be found here under &apos;layout&apos;</a>
+For API reference regarding layout, see the <a href="http://arva.io/arva-js/class/src/layout/Decorators.js~Layout.html">docs</a>.</p>
+<p>As you can see, all decorators of the same type (<a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout">layout</a>, <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event">event</a>, and <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow">flow</a>) can be chained when used.</p>
+<p>For example,</p>
+<pre><code><code class="source-code prettyprint">    @layout.dock.top()
+        .size(undefined, true)
+    centeredText = Surface.with({content: &apos;This is centered!&apos;})</code>
+</code></pre><p>Is the same as</p>
+<pre><code><code class="source-code prettyprint">    @layout.dock.top()
+    @layout.size(undefined, true)
+    centeredText = Surface.with({content: &apos;This is centered!&apos;})</code>
+</code></pre><h1 id="animations-and-states">Animations and states</h1><p>Animations can be described using the <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow">flow</a> operator.</p>
+<p>The core concept of Flow is to animate using any of the existing <em>layout</em> operators.
+When the renderable changes from one state to another using the layout operations,
+their <strong>layout properties</strong> are tweened into each other, creating the effect of seamless animation.</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">    @flow.transition({duration: 200, curve: Easing.inCubic})(
+        layout.size(300, 300)
+    )
+    animatedSurface = Surface.with({properties: {backgroundColor: &apos;red&apos;}});</code>
 </code></pre>
-<h2 id="on-we-go-">On we go!</h2><p>Excited? You should be! Let&apos;s move on!</p>
+<p>For a contextual example of using flow and animation, we made a sample component for showing and hiding a menu:</p>
+<p><img src="asset/animation-demo.gif" alt="animation"></p>
+<p><a href="https://github.com/Arva/demo">Source code can be found here under &apos;stateful-animations&apos;</a></p>
+<h1 id="data-binding-and-views">Data binding and Views</h1><p>Every view is passed options by using the static method <code>with</code>:</p>
+<pre><code><code class="source-code prettyprint">class HomeView extends View {
+    @layout.fullSize()
+    background = Surface.with({properties: {backgroundColor: &apos;red&apos;}})
+}</code>
+</code></pre><p>(See the full source code of the view <a href="https://pastebin.com/WzUJW3Vc">here</a>)</p>
+<p>In order to change an option dynamically, the background color in the example is defined as an option:</p>
+<pre><code><code class="source-code prettyprint">@bindings.setup({
+    backgroundColor: &apos;red&apos;
+})
+class HomeView extends View {
+....</code>
+</code></pre><p>The <code>backgroundColor</code> can then be referenced inside the view:</p>
+<pre><code><code class="source-code prettyprint">    background = Surface.with({
+        properties:
+        {
+            backgroundColor: this.options.backgroundColor
+        }
+    })</code>
+</code></pre><p>It can be changed through different triggers, one being <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event">events</a>.</p>
+<pre><code><code class="source-code prettyprint">    @event.on(&apos;click&apos;, function() {
+        this.options.backgroundColor = &apos;green&apos;;
+    })
+    background = Surface.with({
+            properties:
+                {backgroundColor: this.options.backgroundColor
+             }
+        })</code>
+</code></pre><h2 id="two-way-data-binding">Two-way data binding</h2><p>Data can go two ways. Referencing <code>inputOptions</code> creates a bi-directional data binding, where the value will be automatically synchronized.</p>
+<pre><code><code class="source-code prettyprint">    @layout.dock.top()
+        .size(undefined, true)
+    question = InputSurface.with({
+        placeholder: &apos;What is your name?&apos;,
+        value: this.inputOptions.myName
+    })
+
+    @layout.dock.top()
+        .size(undefined, true)
+    answer = Surface.with({
+        content: this.options.myName ?
+        `Your name is ${this.options.myName}` : `You have no name`
+    })</code>
+</code></pre><p>For a more advanced example on databinding, we made an app that could come in handy when trying to calculate the
+value of your car after a crash:</p>
+<p><img src="asset/dbinding-demo.gif" alt="logo"></p>
+<p><a href="https://github.com/Arva/demo">Source code can be found here under &apos;data-binding&apos;</a></p>
+<h1 id="but-what-about-react-">But what about React?</h1><p>At first glance, it might not be evident what the benefit of Arva is over other frameworks. In particular, the
+absence of JSX or templating language seems foreign as almost every other framework is using their own custom language.
+An app written with Arva is written with plain (draft stage) ECMAScript syntax. The strict adherence to this standard future-proofs Arva to
+be able to run natively in the browser, and also opens up for more super powers as the ECMAScript standard progresses further.</p>
+<p>Another important difference to recall is that Arva is an MVC framework, where heavy data logic is put in the controller, rather
+than being view-only, as is the case with frameworks like React. React and Arva do in this regard have different approaches,
+since React is a framework intended as a component of a bigger picture, whereas Arva is the stand-alone solution for your entire app.</p>
+<p>Let&apos;s consider a very simple example of an Arva view and its (approximate) counter-part in React,
+to serve as a basis for further discussion.</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">@bindings.setup({
+    titleText: &apos;Welcome&apos;
+})
+class HomeView extends View {
+    @layout.dock.top(44)
+    topBar = TopBar.with({titleText:this.options.titleText})
+
+    @layout.dock.fill()
+    content = Content.with()
+
+    changeTitle(newTitle) {
+        this.options.titleText = newTitle
+    }
+}</code>
+</code></pre>
+<p>And now in React. Note that this definition won&apos;t include positioning and sizing, which would need custom CSS/HTML configurations.</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">class HomeComponent extends Component {
+    constructor(props, context){
+        super(props, context);
+        this.state = {
+            titleText: props.titleText
+        }
+    }
+    changeTitle(newTitle) {
+        this.setState({titleText: newTitle})
+    }
+
+    render() {
+        return (
+            &lt;TopBar titleText=this.state.titleText/&gt;
+            &lt;Content /&gt;
+        )
+    }
+
+}
+HomeComponent.defaultProps = {titleText: &apos;Welcome&apos;};</code>
+</code></pre>
+<h2 id="state-updates">State updates</h2><p>React is focused on building sound app logic, on simple views using the pure <code>render</code> function. Arva does not have a
+render function, which means that when an update is needed (<code>setState</code> in React, or option assignment in Arva), Arva
+can go a different route. When titleText is called, the function assigning <code>HomeView.topBar</code> will be called again
+(<code>TopBar.with({titleText:this.options.titleText})</code>), so that the TopBar updates.</p>
+<p>In the case React, the render() function will be called upon invalidation, causing a re-render of both the TopBar <em>and</em> the content.</p>
+<p>We chose to optimize state updates by taking control over the <code>options</code> object of each view, linking the accesses of each
+option to their relevant child views. When the child views are updated, the new options will be diffed with the old ones
+in order to restrict what children should be updated inside <em>that</em> view. The getters and setters work for an arbitrary
+level of nestedness inside the <code>options</code> object.</p>
+<p>Based on the above description, one might object with the concern that performing deep checks for every update sounds
+really inefficient. In response to that we&apos;ve learned by experience that the different <code>options</code> objects are generally
+not nested nor overly complicated, but rather the <em>View hierarchy</em> tends to be much more intricate. By avoiding huge
+renders of completely updated view hierarchy we instead focus on limiting this and focusing on detecting a limited
+subset of <code>option</code> updates. For React developers, you might think of the options propagation to children as
+ if every View was a <code>PureComponent</code>.</p>
+<h2 id="layout-and-animation">Layout and Animation</h2><p>By not using JSX or other markup, we can use ES2017 decorators to focus on layout. Layout is abstracted away from the user
+in order to provide flexible animations. The actual HTML output of Arva results in absolutely positioned elements in a rather
+ flat structure, in order to be as flexible as possible. When using a normal framework that requires you to define the
+ HTML manually, animations are usually implemented in a bit more awkward fashion.</p>
+<p>All positioning and sizing done through decorators is hardware accelerated, so
+the programmer can comfortably know that the animations defined won&apos;t stress the browser unnecessarily.
+The decorator structure of Arva provides a natural solution for layout definition. In order to clarify why this is important,
+ we will revisit the example we covered in a previous section, with the animating hamburger icon:</p>
+<p><img src="asset/button.gif" alt="button"></p>
+<p>The animation declaration is optimized in being as straight forward as possible, so that transition states are defined
+in an additive nature from the previous position, while tasks like centering content in relation to parent and proportional
+ size are still easy to achieve.</p>
+<p>Here&apos;s the code, with plenty of comments, for clarity:</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">
+    /* We start with the top part of the hamburger,
+     * which starts in a horizontal state, which we name &apos;straight&apos;
+     */
+    @flow.defaultState(&apos;straight&apos;, {}, layout
+    /* We center it and translate 8 pixels upwards */
+            .stick.center()
+            .translate(0, -8, 0)
+    /* Size is 60% of parent size and 3 pixels high */
+            .size(0.6, 3)
+    /* No rotation */
+            .rotate(0, 0, 0))
+    /* This is the animation for going to the X.
+     * We call the state of this part &quot;tilted&quot;. */
+    @flow.stateStep(&apos;tilted&apos;, {}, layout
+    /* The first part of tilting the stick involves
+     * centering all three lines together.
+     * That means that we center the top part, by translating it to the middle */
+        .translate(0, 0, 0))
+    @flow.stateStep(&apos;tilted&apos;, {}, layout
+    /* We then rotate it 45 degrees, which is the same as Math.PI / 4 */
+        .rotate(0, 0, Math.PI / 4)
+    )
+    /* We defined a simple component with a white background
+     * which is used for every portion of the icon
+     */
+    topStick = WhiteShape.with();
+
+    /* The middle part is easy. We just hide it when the icon turns into
+     * the X (since that&apos;s just two lines instaed of three) */
+    @flow.defaultState(&apos;shown&apos;, {}, layout
+        .stick.center()
+        .translate(0, 0, 0)
+        .size(0.6, 3)
+        .opacity(1))
+    @flow.stateStep(&apos;hidden&apos;, {}, layout
+        .opacity(0))
+    centerStick = WhiteShape.with();
+
+    /* The bottom part is very similar to the top one,
+     * but with a rotation going in the opposite direction,
+     * and a translate 8 pixels down instead of 8 pixels up
+     */
+    @flow.stateStep(&apos;tilted&apos;, {}, layout
+        .translate(0, 0, 0))
+    @flow.stateStep(&apos;tilted&apos;, {}, layout
+        .rotate(0, 0, -Math.PI / 4)
+    )
+    @flow.defaultState(&apos;straight&apos;, {}, layout
+        .translate(0, 8, 0)
+        .stick.center()
+        .rotate(0, 0, 0)
+        .size(0.6, 3))
+    bottomStick = WhiteShape.with();</code>
+</code></pre>
+<h1 id="the-bigger-picture">The bigger picture</h1><p>We will continue to improve Arva JS in every aspect, including performance, UX possibilities and code brevity. It&apos;s a framework
+that is going to be frequently revised and evaluated for its goals.</p>
+<p>Arva Foundation is just the start of a series of tools to accelerate digital product development.
+If you want a sneak peak into our future, have a look at [arva.io].</p>
 </div>
 
   
@@ -85,15 +316,14 @@ npm i</code>
   <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
         <div data-ice="card"><h1>The bigger picture</h1><p>We will continue to improve Arva JS in every aspect, including performance, UX possibilities and code brevity. It&apos;s a framework
-that is going to be frequently revised and evaluated for its goals.</p><p>Arva JS is sometimes referred to as <em>Arva foundation</em> or <em>Arva engine</em> and is a part of a bigger scheme of making
-easy and attractive development possible for more people. <em>Arva Studio</em> is under development in order to provide a no-code
-springboard for rapid application development.</p></div>
+that is going to be frequently revised and evaluated for its goals.</p><p>Arva Foundation is just the start of a series of tools to accelerate digital product development.
+If you want a sneak peak into our future, have a look at [arva.io].</p></div>
         <a data-ice="link" href="manual/tutorial.html#the-bigger-picture"></a>
       </div>
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Prerequisites</h1><ul>
+        <div data-ice="card"><h1>Getting started</h1><h2>Prerequisites</h2><ul>
 <li>An installation of NPM and basic understanding of it.</li>
 <li>Basic understanding of Javascript and the ES6/7 (ES2015) semantics.</li>
 </ul><h2>Installation</h2><p>The easiest way to get started quickly is by cloning the <a href="https://github.com/Arva/arva-seed">Arva Seed</a> project. This project contains all the necessary components and default

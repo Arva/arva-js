@@ -11,28 +11,45 @@ import {isFunction} from './Util.js';
 // A built-in token.
 // Used to ask for pre-injected parent constructor.
 // A class constructor can ask for this.
+/**
+ * @ignore
+ */
 class SuperConstructor {
 }
 
 // A built-in scope.
 // Never cache.
+/**
+ * @ignore
+ */
 class TransientScope {
 }
 
+/**
+ * @ignore
+ */
 class Inject {
     constructor(...tokens) {
         this.tokens = tokens;
     }
 }
 
+/**
+ * @ignore
+ */
 class Provide {
     constructor(token) {
         this.token = token;
     }
 }
-
+/**
+ * @ignore
+ */
 class ClassProvider {
 }
+/**
+ * @ignore
+ */
 class FactoryProvider {
 }
 
@@ -41,6 +58,9 @@ class FactoryProvider {
 
 // Append annotation on a function or class.
 // This can be helpful when not using ES6+.
+/**
+ * @ignore
+ */
 function annotate(fn, annotation) {
     fn.annotations = fn.annotations || [];
     fn.annotations.push(annotation);
@@ -48,6 +68,9 @@ function annotate(fn, annotation) {
 
 
 // Read annotations on a function or class and return whether given annotation is present.
+/**
+ * @ignore
+ */
 function hasAnnotation(fn, annotationClass) {
     if (!fn.annotations || fn.annotations.length === 0) {
         return false;
@@ -64,6 +87,9 @@ function hasAnnotation(fn, annotationClass) {
 
 
 // Read annotations on a function or class and collect "interesting" metadata:
+/**
+ * @ignore
+ */
 function readAnnotations(fn) {
     var collectedAnnotations = {
         // Description of the provided value.
@@ -115,18 +141,27 @@ function readAnnotations(fn) {
 }
 
 // Decorator versions of annotation classes
+/**
+ * @ignore
+ */
 function inject(...tokens) {
     return function (fn) {
         annotate(fn, new Inject(...tokens));
     };
 }
 
+/**
+ * @ignore
+ */
 function inject(...tokens) {
     return function (fn) {
         annotate(fn, new Inject(...tokens));
     };
 }
 
+/**
+ * @ignore
+ */
 function provide(...tokens) {
     return function (fn) {
         annotate(fn, new Provide(...tokens));

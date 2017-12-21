@@ -37,6 +37,9 @@ function constructResolvingMessage(resolving, token) {
 //   - provider
 //   - value (cache/calling provider)
 // - loading different "providers" and modules
+/**
+ * @ignore
+ */
 class Injector {
 
     constructor(modules = [], parentInjector = null, providers = new Map(), scopes = []) {

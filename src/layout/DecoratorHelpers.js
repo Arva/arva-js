@@ -1,7 +1,7 @@
 import { RenderablePrototype }      from 'famous/utilities/RenderablePrototype.js'
 
 /**
- *
+ *  @ignore
  * @param viewOrRenderable
  * @param renderableName
  * @param descriptor
@@ -51,6 +51,9 @@ export function prepDecoratedRenderable (viewOrRenderable, renderableName, descr
 }
 
 /**
+ *
+ * @ignore
+ *
  * Extracts a decorations object
  *
  * @param {View} prototype
@@ -79,6 +82,7 @@ export function prepPrototypeDecorations (prototype) {
 export let decoratorTypes = {childDecorator: 1, viewDecorator: 2, viewOrChild: 3};
 
 /**
+ * @ignore
  *
  * @param {Function} callback accepting the following arguments: decorations, type, viewOrRenderable, renderableName, descriptor
  * @param {Number} type One of the available decorator types

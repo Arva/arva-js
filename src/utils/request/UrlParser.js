@@ -9,6 +9,7 @@
 
 
 /**
+ * @ignore
  * Parses a url
  * @param url
  * @returns {*}

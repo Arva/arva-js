@@ -10,6 +10,8 @@
 import LayoutUtility from 'famous-flex/LayoutUtility';
 
 /**
+ *
+ * @ignore
  * @class
  * @param {LayoutContext} context layout-context
  * @param {Object} [options] additional options
