@@ -1,12 +1,5 @@
 
-
-# Arva
-
-Arva Foundation is the core of the Arva User Experience Platform where developers have complete freedom to hack their creations.
-Built to be a complete substitute for frameworks like React and Angular, Arva plays well with others by emphasising on ECMAScript syntax
-and aiming for compatability with the W3C Components specification.
-
-## Why Arva?
+# Why Arva?
 
 
 Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for **styling** of the content, whereas **positioning** and **sizing** is handled through different processes.

@@ -1,7 +1,7 @@
 # What's Arva JS?
 
-Arva is a fresh-cut framework for building interactive applications. When we talk about **applications** that are **interactive**,
-we leverage complete built-in animation capabilities along with powerful state maintenance to successfully maintain UI interaction in a fluid way.
+Arva is a fresh-cut framework for building interactive applications. **Applications** that are **interactive**
+leverage complete built-in animation capabilities along with powerful state maintenance that successfully maintains UI interaction in a highly interactive and fluid way.
 In other words, this is not only an **animation library** (GreenSock, Velocity.js etc), nor an **application framework** (React, Angular, etc), but a holistic solution of both.
 
 Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for **styling** of the content, whereas **positioning** and **sizing** is handled in a more pragmatic way.
@@ -13,7 +13,7 @@ Even modern paradigms like `flexbox` won't be necessary anymore. In addition, Ar
 
 # Layout and hierarchy
 
-The API surface of Arva [layout](https://github.com/Arva/demo) in much smaller than that of CSS. We have 11 main layout operators to learn once, which can be combined with each other
+The API surface of Arva [layout](https://github.com/Arva/demo) in much smaller than that of CSS. We have 11 available layout operators to be learned once, which can be combined with each other
 to create powerful permutations of features.
 
 And because an example is usually the best way to start out an explanation, we demonstrate how to construct the following layout.
@@ -56,7 +56,7 @@ export class RootView extends View {
 
 ```
 
-These definitions heavily make use of [class fields](https://github.com/tc39/proposal-class-fields) and [decorators](https://github.com/tc39/proposal-decorators).
+These definitions heavily make ES6 features [class fields](https://github.com/tc39/proposal-class-fields) and [decorators](https://github.com/tc39/proposal-decorators).
 
 [Full source code can be found here under 'layout'](https://github.com/Arva/demo)
 For API reference regarding layout, see the [docs](http://arva.io/arva-js/class/src/layout/Decorators.js~Layout.html).
@@ -256,8 +256,8 @@ level of nestedness inside the `options` object.
 
 Based on the above description, one might object with the concern that performing deep checks for every update sounds
 really inefficient. In response to that we've learned by experience that the different `options` objects are generally
-not nested nor overly complicated, but rather the *View hierarchy* tends to be much more intricate. By avoiding huge
-renders of completely updated view hierarchy we instead focus on limiting this and focusing on detecting a limited
+not nested or rather shallow, but rather the *View hierarchy* tends to be much more intricate. By avoiding huge
+(virtual) renders of completely updated view hierarchy we instead focus on limiting this and focusing on detecting a limited
 subset of `option` updates. For React developers, you might think of the options propagation to children as
  if every View was a `PureComponent`.
 
@@ -284,59 +284,79 @@ in an additive nature from the previous position, while tasks like centering con
 Here's the code, with plenty of comments, for clarity:
 
 ```javascript
-
     /* We start with the top part of the hamburger,
-     * which starts in a horizontal state, which we name 'straight'
-     */
-    @flow.defaultState('straight', {}, layout
-    /* We center it and translate 8 pixels upwards */
-            .stick.center()
-            .translate(0, -8, 0)
+    * which starts in a horizontal state
+    */
+    /* We center it as default, but it's translated relative to that further down */
+    @layout.stick.center()
     /* Size is 60% of parent size and 3 pixels high */
-            .size(0.6, 3)
-    /* No rotation */
-            .rotate(0, 0, 0))
-    /* This is the animation for going to the X.
-     * We call the state of this part "tilted". */
-    @flow.stateStep('tilted', {}, layout
-    /* The first part of tilting the stick involves
-     * centering all three lines together.
-     * That means that we center the top part, by translating it to the middle */
-        .translate(0, 0, 0))
-    @flow.stateStep('tilted', {}, layout
-    /* We then rotate it 45 degrees, which is the same as Math.PI / 4 */
-        .rotate(0, 0, Math.PI / 4)
+        .size(0.6, 3)
+    /* options.isOpen is a boolean signaling whether the menu is open or not */
+    @dynamic(({isOpen}) =>
+        /* This is the animation for going to the X.
+        * This makes the top bar tilted. */
+        isOpen ? flow
+                .transition()(
+                    /* The first part of tilting the stick involves
+                    * centering all three lines together.
+                    * That means that we center the top part, by translating it to the middle */
+                    layout
+                        .translate(0, 0, 0))
+                .transition()(
+                    /* We then rotate it 45 degrees, which is the same as Math.PI / 4 */
+                    layout
+                        .rotate(0, 0, Math.PI / 4))
+            :
+            /* We translate 8 pixels upwards in the default state */
+            flow.transition()(
+                /* (if coming back), compress again before going to the original state */
+                layout.rotate(0, 0, 0)
+            ).transition() (
+                layout.translate(0, -8, 0)
+            )
     )
     /* We defined a simple component with a white background
-     * which is used for every portion of the icon
-     */
+    * which is used for every portion of the icon
+    */
     topStick = WhiteShape.with();
 
     /* The middle part is easy. We just hide it when the icon turns into
-     * the X (since that's just two lines instaed of three) */
-    @flow.defaultState('shown', {}, layout
-        .stick.center()
-        .translate(0, 0, 0)
-        .size(0.6, 3)
-        .opacity(1))
-    @flow.stateStep('hidden', {}, layout
-        .opacity(0))
+    *  the X (since that's just two lines instaed of three) */
+    @dynamic(({isOpen}) =>
+        isOpen ? flow.transition()(
+            layout.opacity(0)
+            ) :
+            flow.transition()(
+                layout
+                    .stick.center()
+                    .translate(0, 0, 0)
+                    .size(0.6, 3)
+                    .opacity(1)
+            )
+    )
     centerStick = WhiteShape.with();
 
     /* The bottom part is very similar to the top one,
-     * but with a rotation going in the opposite direction,
-     * and a translate 8 pixels down instead of 8 pixels up
-     */
-    @flow.stateStep('tilted', {}, layout
-        .translate(0, 0, 0))
-    @flow.stateStep('tilted', {}, layout
-        .rotate(0, 0, -Math.PI / 4)
+    * but with a rotation going in the opposite direction,
+    * and a translate 8 pixels down instead of 8 pixels up
+    */
+    @layout.stick.center()
+        .size(0.6, 3)
+    @dynamic(({isOpen}) =>
+        isOpen ? flow
+                .transition({})(
+                    layout
+                        .translate(0, 0, 0))
+                .transition()(
+                    layout
+                        .rotate(0, 0, - Math.PI / 4))
+            :
+            flow.transition()(
+                layout.rotate(0, 0, 0)
+            ).transition() (
+                layout.translate(0, 8, 0)
+            )
     )
-    @flow.defaultState('straight', {}, layout
-        .translate(0, 8, 0)
-        .stick.center()
-        .rotate(0, 0, 0)
-        .size(0.6, 3))
     bottomStick = WhiteShape.with();
 ```
 

@@ -64,14 +64,14 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="what--39-s-arva-js-">What&apos;s Arva JS?</h1><p>Arva is a fresh-cut framework for building interactive applications. When we talk about <strong>applications</strong> that are <strong>interactive</strong>,
-we leverage complete built-in animation capabilities along with powerful state maintenance to successfully maintain UI interaction in a fluid way.
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="what--39-s-arva-js-">What&apos;s Arva JS?</h1><p>Arva is a fresh-cut framework for building interactive applications. <strong>Applications</strong> that are <strong>interactive</strong>
+leverage complete built-in animation capabilities along with powerful state maintenance that successfully maintains UI interaction in a highly interactive and fluid way.
 In other words, this is not only an <strong>animation library</strong> (GreenSock, Velocity.js etc), nor an <strong>application framework</strong> (React, Angular, etc), but a holistic solution of both.</p>
 <p>Arva solves the problem of layout and animation without the need to bother with CSS nor HTML. While CSS is still used for <strong>styling</strong> of the content, whereas <strong>positioning</strong> and <strong>sizing</strong> is handled in a more pragmatic way.
 Arva abstracts away some of the concerns that many front-end developers face,
 which includes CSS deep-dives and directives like <code>display: inline-block</code> <code>margin:auto</code>, <code>position:relative</code>, <code>clear:left</code>, <code>float: right</code>, <code>zoom: 1</code> <code>overflow: auto</code>, <code>-webkit-box-sizing: border-box</code> and so on.</p>
 <p>Even modern paradigms like <code>flexbox</code> won&apos;t be necessary anymore. In addition, Arva refrains from using any templating language, and only uses standard EcmaScript syntax. Let&apos;s get started.</p>
-<h1 id="layout-and-hierarchy">Layout and hierarchy</h1><p>The API surface of Arva <a href="https://github.com/Arva/demo">layout</a> in much smaller than that of CSS. We have 11 main layout operators to learn once, which can be combined with each other
+<h1 id="layout-and-hierarchy">Layout and hierarchy</h1><p>The API surface of Arva <a href="https://github.com/Arva/demo">layout</a> in much smaller than that of CSS. We have 11 available layout operators to be learned once, which can be combined with each other
 to create powerful permutations of features.</p>
 <p>And because an example is usually the best way to start out an explanation, we demonstrate how to construct the following layout.</p>
 <p><img src="./manual/asset/layout.png" alt="layout-example =250x"></p>
@@ -103,7 +103,7 @@ export class RootView extends View {
     bottomButton = Button.with()
 
 }</code>
-</code></pre><p>These definitions heavily make use of <a href="https://github.com/tc39/proposal-class-fields">class fields</a> and <a href="https://github.com/tc39/proposal-decorators">decorators</a>.</p>
+</code></pre><p>These definitions heavily make ES6 features <a href="https://github.com/tc39/proposal-class-fields">class fields</a> and <a href="https://github.com/tc39/proposal-decorators">decorators</a>.</p>
 <p><a href="https://github.com/Arva/demo">Full source code can be found here under &apos;layout&apos;</a>
 For API reference regarding layout, see the <a href="http://arva.io/arva-js/class/src/layout/Decorators.js~Layout.html">docs</a>.</p>
 <p>As you can see, all decorators of the same type (<a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-layout">layout</a>, <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-event">event</a>, and <a href="http://localhost:63342/arva-js/docs/variable/index.html#static-variable-flow">flow</a>) can be chained when used.</p>
@@ -230,8 +230,8 @@ in order to restrict what children should be updated inside <em>that</em> view. 
 level of nestedness inside the <code>options</code> object.</p>
 <p>Based on the above description, one might object with the concern that performing deep checks for every update sounds
 really inefficient. In response to that we&apos;ve learned by experience that the different <code>options</code> objects are generally
-not nested nor overly complicated, but rather the <em>View hierarchy</em> tends to be much more intricate. By avoiding huge
-renders of completely updated view hierarchy we instead focus on limiting this and focusing on detecting a limited
+not nested or rather shallow, but rather the <em>View hierarchy</em> tends to be much more intricate. By avoiding huge
+(virtual) renders of completely updated view hierarchy we instead focus on limiting this and focusing on detecting a limited
 subset of <code>option</code> updates. For React developers, you might think of the options propagation to children as
  if every View was a <code>PureComponent</code>.</p>
 <h2 id="layout-and-animation">Layout and Animation</h2><p>By not using JSX or other markup, we can use ES2017 decorators to focus on layout. Layout is abstracted away from the user
@@ -247,59 +247,79 @@ The decorator structure of Arva provides a natural solution for layout definitio
 in an additive nature from the previous position, while tasks like centering content in relation to parent and proportional
  size are still easy to achieve.</p>
 <p>Here&apos;s the code, with plenty of comments, for clarity:</p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">
-    /* We start with the top part of the hamburger,
-     * which starts in a horizontal state, which we name &apos;straight&apos;
-     */
-    @flow.defaultState(&apos;straight&apos;, {}, layout
-    /* We center it and translate 8 pixels upwards */
-            .stick.center()
-            .translate(0, -8, 0)
+<pre><code class="lang-javascript"><code class="source-code prettyprint">    /* We start with the top part of the hamburger,
+    * which starts in a horizontal state
+    */
+    /* We center it as default, but it&apos;s translated relative to that further down */
+    @layout.stick.center()
     /* Size is 60% of parent size and 3 pixels high */
-            .size(0.6, 3)
-    /* No rotation */
-            .rotate(0, 0, 0))
-    /* This is the animation for going to the X.
-     * We call the state of this part &quot;tilted&quot;. */
-    @flow.stateStep(&apos;tilted&apos;, {}, layout
-    /* The first part of tilting the stick involves
-     * centering all three lines together.
-     * That means that we center the top part, by translating it to the middle */
-        .translate(0, 0, 0))
-    @flow.stateStep(&apos;tilted&apos;, {}, layout
-    /* We then rotate it 45 degrees, which is the same as Math.PI / 4 */
-        .rotate(0, 0, Math.PI / 4)
+        .size(0.6, 3)
+    /* options.isOpen is a boolean signaling whether the menu is open or not */
+    @dynamic(({isOpen}) =&gt;
+        /* This is the animation for going to the X.
+        * This makes the top bar tilted. */
+        isOpen ? flow
+                .transition()(
+                    /* The first part of tilting the stick involves
+                    * centering all three lines together.
+                    * That means that we center the top part, by translating it to the middle */
+                    layout
+                        .translate(0, 0, 0))
+                .transition()(
+                    /* We then rotate it 45 degrees, which is the same as Math.PI / 4 */
+                    layout
+                        .rotate(0, 0, Math.PI / 4))
+            :
+            /* We translate 8 pixels upwards in the default state */
+            flow.transition()(
+                /* (if coming back), compress again before going to the original state */
+                layout.rotate(0, 0, 0)
+            ).transition() (
+                layout.translate(0, -8, 0)
+            )
     )
     /* We defined a simple component with a white background
-     * which is used for every portion of the icon
-     */
+    * which is used for every portion of the icon
+    */
     topStick = WhiteShape.with();
 
     /* The middle part is easy. We just hide it when the icon turns into
-     * the X (since that&apos;s just two lines instaed of three) */
-    @flow.defaultState(&apos;shown&apos;, {}, layout
-        .stick.center()
-        .translate(0, 0, 0)
-        .size(0.6, 3)
-        .opacity(1))
-    @flow.stateStep(&apos;hidden&apos;, {}, layout
-        .opacity(0))
+    *  the X (since that&apos;s just two lines instaed of three) */
+    @dynamic(({isOpen}) =&gt;
+        isOpen ? flow.transition()(
+            layout.opacity(0)
+            ) :
+            flow.transition()(
+                layout
+                    .stick.center()
+                    .translate(0, 0, 0)
+                    .size(0.6, 3)
+                    .opacity(1)
+            )
+    )
     centerStick = WhiteShape.with();
 
     /* The bottom part is very similar to the top one,
-     * but with a rotation going in the opposite direction,
-     * and a translate 8 pixels down instead of 8 pixels up
-     */
-    @flow.stateStep(&apos;tilted&apos;, {}, layout
-        .translate(0, 0, 0))
-    @flow.stateStep(&apos;tilted&apos;, {}, layout
-        .rotate(0, 0, -Math.PI / 4)
+    * but with a rotation going in the opposite direction,
+    * and a translate 8 pixels down instead of 8 pixels up
+    */
+    @layout.stick.center()
+        .size(0.6, 3)
+    @dynamic(({isOpen}) =&gt;
+        isOpen ? flow
+                .transition({})(
+                    layout
+                        .translate(0, 0, 0))
+                .transition()(
+                    layout
+                        .rotate(0, 0, - Math.PI / 4))
+            :
+            flow.transition()(
+                layout.rotate(0, 0, 0)
+            ).transition() (
+                layout.translate(0, 8, 0)
+            )
     )
-    @flow.defaultState(&apos;straight&apos;, {}, layout
-        .translate(0, 8, 0)
-        .stick.center()
-        .rotate(0, 0, 0)
-        .size(0.6, 3))
     bottomStick = WhiteShape.with();</code>
 </code></pre>
 <h1 id="the-bigger-picture">The bigger picture</h1><p>We will continue to improve Arva JS in every aspect, including performance, UX possibilities and code brevity. It&apos;s a framework
