@@ -953,7 +953,8 @@ export class View extends FamousView {
                 renderable = factoryFunction(this.options);
             }
 
-            if (Array.isArray(renderable)) {
+
+            if (Array.isArray(renderable) || renderable instanceof MappedArray) {
                 renderableIsArray = true;
                 let renderables = renderable instanceof MappedArray ? renderable.getArray() : renderable;
                 if (currentRenderable && !Array.isArray(currentRenderable)) {
