@@ -191,7 +191,7 @@ export class PrioritisedArray {
       }
     } else if (model instanceof Object) {
       /* Let's try to parse the object using property reflection */
-      var options = { dataSource: this._dataSource };
+      let options = { dataSource: this._dataSource };
       /* Prevent child_added from being fired immediately when the model is created by creating a promise that resolves
        * the ID that shouldn't be synced twice
        */
@@ -362,6 +362,14 @@ export class PrioritisedArray {
   }
 
   /**
+   * Proxies PrioArray.sort() to its underlying Array cache
+   * @returns {*}
+   */
+  sort() {
+    return this._children.sort.apply(this._children, arguments);
+  }
+
+  /**
    * Proxies PrioArray.map() to its underlying Array cache.
    * @returns {*}
    */
@@ -452,15 +460,6 @@ export class PrioritisedArray {
     for (let child of this._children) {
       yield child;
     }
-  }
-
-  /**
-   * Whenever this PrioArray is typecasted, its underlying Array cache is returned.
-   * @param hint
-   * @returns {Array}
-   */
-  [Symbol.toPrimitive](hint) {
-    return "" + this._children;
   }
 
   /**
