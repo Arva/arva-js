@@ -123,12 +123,13 @@ export class DataBoundScrollView extends ReflowingScrollView {
         }
 
 
-        if (this.options.dataSource && this.options.dataSources) {
+        if (dataSource && this.options.dataSources) {
             throw new Error('Both the single dataSource and the multiple dataSources is set, please decide for one or the other');
         }
         if (this.options.dataSources) {
             this._bindMultipleDataSources(this.options.dataSources);
         } else if (dataSource) {
+
             this._bindDataSource(dataSource);
         }
     }
@@ -180,7 +181,6 @@ export class DataBoundScrollView extends ReflowingScrollView {
      */
     setdataSource(dataSource) {
         this.clearDataSource();
-        this.options.dataSource = dataSource;
         this._bindDataSource(dataSource);
     }
 
@@ -209,7 +209,7 @@ export class DataBoundScrollView extends ReflowingScrollView {
      * @returns {*}
      */
     getDataSource() {
-        return this.options.dataSource;
+        return this._singleDataSource;
     }
 
 
@@ -242,8 +242,8 @@ export class DataBoundScrollView extends ReflowingScrollView {
 
             }
             return Promise.all(filterPromises);
-        } else if (this.options.dataSource) {
-            for (let entry of this.options.dataSource || []) {
+        } else if (this._singleDataSource) {
+            for (let entry of this._singleDataSource || []) {
                 filterPromises.push(this._reloadEntryFromFilter(entry, this.options.dataFilter, 0));
             }
             return Promise.all(filterPromises);
@@ -771,7 +771,7 @@ export class DataBoundScrollView extends ReflowingScrollView {
      * @private
      */
     _bindDataSource(dataSource, index = 0) {
-
+        this._singleDataSource = dataSource;
         if (this.options.chatScrolling) {
             //TODO: This won't work with multiple dataSources
             dataSource.on('ready', () => this._allChildrenAdded = true);
@@ -896,14 +896,14 @@ export class DataBoundScrollView extends ReflowingScrollView {
 
         if (viewIndex === -1) {
 
-            let modelIndex = findIndex(this.options.dataSource, function (model) {
+            let modelIndex = findIndex(this._singleDataSource, function (model) {
                 return model.id === id;
             });
 
             if (modelIndex === 0 || modelIndex === -1) {
                 return this._isDescending ? this._dataSource ? this._dataSource.getLength() - 1 : 0 : 0;
             } else {
-                let nextModel = this.options.dataSource[this._isDescending ? modelIndex + 1 : modelIndex - 1];
+                let nextModel = this._singleDataSource[this._isDescending ? modelIndex + 1 : modelIndex - 1];
                 let nextIndex = this._findData(nextModel.id, nextModel.dataSourceIndex).position;
                 if (nextIndex > -1) {
                     return this._isDescending ? nextIndex === 0 ? 0 : nextIndex - 1 :
