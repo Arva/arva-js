@@ -27,12 +27,12 @@ import {
     FullSizeLayoutHelper,
     TraditionalLayoutHelper
 }
-    from '../utils/view/LayoutHelpers.js'
-import {RenderableHelper} from '../utils/view/RenderableHelper.js'
-import {ReflowingScrollView} from '../components/ReflowingScrollView.js'
-import {MappedArray} from '../utils/view/ArrayObserver.js'
-import {combineOptions} from '../utils/CombineOptions.js'
-import {OptionObserver} from '../utils/view/OptionObserver.js'
+                                from '../utils/view/LayoutHelpers.js'
+import {RenderableHelper}       from '../utils/view/RenderableHelper.js'
+import {ReflowingScrollView}    from '../components/ReflowingScrollView.js'
+import {MappedArray}            from '../utils/view/ArrayObserver.js'
+import {combineOptions}         from '../utils/CombineOptions.js'
+import {OptionObserver}         from '../utils/view/OptionObserver.js'
 
 /**
  * An Arva View. This is the heart of Arva and responsible for providing state management and animation.
@@ -937,81 +937,9 @@ export class View extends FamousView {
 
         let localRenderableName = renderableInitializer.localName;
         let currentRenderable = this[localRenderableName];
-        let renderable;
-        let dynamicDecorations = [];
-        let renderableIsArray = false;
         this._optionObserver.recordForRenderable(localRenderableName, () => {
-            /* Make sure we have proper this scoping inside the initializer */
-            renderable = renderableInitializer.call(this, this.options);
-
-            /* Call the dynamic decorations, while we're recording */
-            dynamicDecorations = decoratorFunctions.map((dynamicDecorator) => dynamicDecorator(this.options));
-
-            /* Allow class property to be a function that returns a renderable */
-            if (typeof renderable === 'function') {
-                let factoryFunction = renderable;
-                renderable = factoryFunction(this.options);
-            }
-
-
-            if (Array.isArray(renderable) || renderable instanceof MappedArray) {
-                renderableIsArray = true;
-                let renderables = renderable instanceof MappedArray ? renderable.getArray() : renderable;
-                if (currentRenderable && !Array.isArray(currentRenderable)) {
-                    throw new Error('Cannot dynamically reassign renderable to array')
-                }
-                let currentRenderables = currentRenderable || [];
-
-                let index, totalLength = renderables.length;
-
-                if (!renderables.length) {
-                    /* Insert an empty surface in order to preserver order of the sequence of (docked) renderables
-                     * TODO: This is dirty but seemingly inevitable, think of other solutions */
-                    let placeholderRenderable = Surface.with();
-                    renderables = [placeholderRenderable];
-                    dynamicDecorations = () =>
-                        layout.dock.left(0).size(0)
-
-                }
-
-                let actualRenderables = new Array(totalLength);
-                let dockedRenderables = this._renderableHelper.getRenderableGroup('docked');
-                for (index = 0; index < renderables.length; index++) {
-                    actualRenderables[index] = this._arrangeRenderableAssignment(currentRenderables[index],
-                        renderables[index],
-                        dynamicDecorations,
-                        localRenderableName,
-                        decorations,
-                        true);
-                    if (index) {
-                        if (dockedRenderables && dockedRenderables.has(Utils.getRenderableID(actualRenderables[index]))) {
-                            /* Make sure that the order is correct */
-                            this.prioritiseDockAfter(actualRenderables[index], actualRenderables[index - 1])
-                        }
-                    }
-                }
-
-
-                for (; index < currentRenderables.length; index++) {
-                    this.removeRenderable(currentRenderables[index])
-                }
-
-                this._readjustRenderableInitializer(localRenderableName);
-                this[localRenderableName] = actualRenderables
-            }
-
-            if (!renderableIsArray) {
-                this._arrangeRenderableAssignment(currentRenderable, renderable, dynamicDecorations, localRenderableName, decorations)
-            }
-
-            return renderable;
-        });
-        if (dynamicDecorations.length) {
-            this._doReflow();
-        }
-
-
-        return renderable;
+            return this._createRenderableFromInitializer(renderableInitializer, decorations, localRenderableName, currentRenderable, decoratorFunctions);
+        })
     }
 
     /**
@@ -1151,9 +1079,9 @@ export class View extends FamousView {
         let {value: [, extraRenderableInitializers]} = extraLayout.renderableConstructors.entries().next();
         for (let localRenderableName in extraRenderableInitializers) {
             let renderableInitializer = extraRenderableInitializers[localRenderableName];
-            this._arrangeRenderableAssignment(this[localRenderableName], renderableInitializer(),
-                renderableInitializer.decorations && renderableInitializer.decorations.dynamicFunctions || [],
-                localRenderableName, renderableInitializer.decorations)
+            this._createRenderableFromInitializer(renderableInitializer, renderableInitializer.decorations, localRenderableName, undefined, renderableInitializer.decorations && renderableInitializer.decorations.dynamicFunctions || []);
+            //TODO Make a better solution for preventing locaRenderableName to be added to the this scope in this situation (will provide conflits)
+            delete this[localRenderableName];
         }
     }
 
@@ -1223,5 +1151,78 @@ export class View extends FamousView {
 
     get inputOptions() {
         return this._optionObserver.getInputOptions();
+    }
+
+    _createRenderableFromInitializer(renderableInitializer, decorations, localRenderableName, currentRenderable, decoratorFunctions) {
+
+        let renderable;
+        let renderableIsArray = false;
+
+        /* Make sure we have proper this scoping inside the initializer */
+        renderable = renderableInitializer.call(this, this.options);
+
+        /* Call the dynamic decorations, while we're recording */
+        let dynamicDecorations = decoratorFunctions.map((dynamicDecorator) => dynamicDecorator(this.options));
+
+        /* Allow class property to be a function that returns a renderable */
+        if (typeof renderable === 'function') {
+            let factoryFunction = renderable;
+            renderable = factoryFunction(this.options);
+        }
+
+        if (Array.isArray(renderable) || renderable instanceof MappedArray) {
+            renderableIsArray = true;
+            let renderables = renderable instanceof MappedArray ? renderable.getArray() : [...renderable];
+            if (currentRenderable && !Array.isArray(currentRenderable)) {
+                throw new Error('Cannot dynamically reassign renderable to array')
+            }
+            let currentRenderables = currentRenderable || [];
+
+            let index, totalLength = renderables.length;
+
+            if (!renderables.length) {
+                /* Insert an empty surface in order to preserver order of the sequence of (docked) renderables
+                 * TODO: This is dirty but seemingly inevitable, think of other solutions */
+                let placeholderRenderable = Surface.with();
+                renderables = [placeholderRenderable];
+                dynamicDecorations = () =>
+                    layout.dock.left(0).size(0)
+
+            }
+
+            let actualRenderables = new Array(totalLength);
+                let dockedRenderables = this._renderableHelper.getRenderableGroup('docked');
+                for (index = 0; index < renderables.length; index++) {
+                    actualRenderables[index] = this._arrangeRenderableAssignment(currentRenderables[index],
+                        renderables[index],
+                        dynamicDecorations,
+                        localRenderableName,
+                        decorations,
+                        true);
+                    if (index) {
+                        if (dockedRenderables && dockedRenderables.has(Utils.getRenderableID(actualRenderables[index]))) {
+                            /* Make sure that the order is correct */
+                            this.prioritiseDockAfter(actualRenderables[index], actualRenderables[index - 1])
+                        }
+                    }
+                }
+
+            for (; index < currentRenderables.length; index++) {
+                this.removeRenderable(currentRenderables[index])
+            }
+
+            this._readjustRenderableInitializer(localRenderableName);
+            this[localRenderableName] = actualRenderables
+        }
+
+        if (!renderableIsArray) {
+            this._arrangeRenderableAssignment(currentRenderable, renderable, dynamicDecorations, localRenderableName, decorations)
+        }
+
+        if (dynamicDecorations.length) {
+            this._doReflow();
+        }
+        return renderable;
+
     }
 }

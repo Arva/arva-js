@@ -1025,7 +1025,7 @@ export const layout = new Layout();
  * mainComponent = MainComponent.with({options: this.options})
  *
  *
- * @param dynamicFunction
+ * @param dynamicFunctions
  */
 export const dynamic = (dynamicFunction) =>
   createChainableDecorator((decorations) => {

@@ -924,7 +924,7 @@ export class RenderableHelper {
             this.applyDecoratorObjectToRenderable(renderableID, currentTransitionObject.decorations, true);
 
             context.transition(renderableID, currentTransitionObject.transition,
-                (() => {
+                ((isImmediate) => {
                     Object.assign(this._queuedRenderableTransitions, this._delayedTransitions);
                     /* Only apply the callback if there are transitions left in queue */
                     if (!transitions.length) {
@@ -936,6 +936,9 @@ export class RenderableHelper {
                         }
                         this._determineMostUrgentTransitionPriority();
                         this._queuedRenderableTransitions[renderableID] = transitions;
+                    }
+                    if(isImmediate){
+                        this.flushTransitions(context);
                     }
                     this._sizeResolver.requestReflow();
                 }));
