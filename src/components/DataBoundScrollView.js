@@ -1104,4 +1104,8 @@ export class DataBoundScrollView extends ReflowingScrollView {
         let internalDataSourceData = this._findData(id, dataSourceIndex) || { position: -1 };
         return internalDataSourceData.position;
     }
+
+    static with(options) {
+        return new RenderablePrototype(this, options)
+    }
 }
