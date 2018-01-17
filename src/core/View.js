@@ -881,6 +881,7 @@ export class View extends FamousView {
         this._renderableConstructors = {};
 
         this._bindingTriggers = [];
+        this._extraRenderables = {}
 
     }
 
@@ -998,6 +999,7 @@ export class View extends FamousView {
         }
         let renderablePrototype = newRenderable instanceof RenderablePrototype && newRenderable;
         if (renderablePrototype) {
+            this._doReflow();
             let {options, type, children} = renderablePrototype;
             if (oldRenderable && oldRenderable.constructor === type && oldRenderable.setNewOptions) {
                 oldRenderable.setNewOptions(options);
@@ -1079,7 +1081,8 @@ export class View extends FamousView {
         let {value: [, extraRenderableInitializers]} = extraLayout.renderableConstructors.entries().next();
         for (let localRenderableName in extraRenderableInitializers) {
             let renderableInitializer = extraRenderableInitializers[localRenderableName];
-            this._createRenderableFromInitializer(renderableInitializer, renderableInitializer.decorations, localRenderableName, undefined, renderableInitializer.decorations && renderableInitializer.decorations.dynamicFunctions || []);
+            let renderable = this._createRenderableFromInitializer(renderableInitializer, renderableInitializer.decorations, localRenderableName, /*undefined*/this._extraRenderables[localRenderableName], renderableInitializer.decorations && renderableInitializer.decorations.dynamicFunctions || []);
+            this._extraRenderables[localRenderableName] = renderable;
             //TODO Make a better solution for preventing locaRenderableName to be added to the this scope in this situation (will provide conflits)
             delete this[localRenderableName];
         }
@@ -1097,7 +1100,11 @@ export class View extends FamousView {
         /* Clone the decorator properties, because otherwise every view of the same type willl share them between
          * the same corresponding renderable. TODO: profiling reveals that cloneDeep affects performance
          */
-        return cloneDeep(extend({}, decorations, renderable.decorations || {}));
+        return cloneDeepWith(extend({}, decorations, renderable.decorations || {}), (property, propertyName) => {
+            if (propertyName === 'descriptor') {
+                return null;
+            }
+        });
     }
 
     /**
@@ -1171,52 +1178,9 @@ export class View extends FamousView {
         }
 
         if (Array.isArray(renderable) || renderable instanceof MappedArray) {
-            renderableIsArray = true;
-            let renderables = renderable instanceof MappedArray ? renderable.getArray() : [...renderable];
-            if (currentRenderable && !Array.isArray(currentRenderable)) {
-                throw new Error('Cannot dynamically reassign renderable to array')
-            }
-            let currentRenderables = currentRenderable || [];
-
-            let index, totalLength = renderables.length;
-
-            if (!renderables.length) {
-                /* Insert an empty surface in order to preserver order of the sequence of (docked) renderables
-                 * TODO: This is dirty but seemingly inevitable, think of other solutions */
-                let placeholderRenderable = Surface.with();
-                renderables = [placeholderRenderable];
-                dynamicDecorations = () =>
-                    layout.dock.left(0).size(0)
-
-            }
-
-            let actualRenderables = new Array(totalLength);
-                let dockedRenderables = this._renderableHelper.getRenderableGroup('docked');
-                for (index = 0; index < renderables.length; index++) {
-                    actualRenderables[index] = this._arrangeRenderableAssignment(currentRenderables[index],
-                        renderables[index],
-                        dynamicDecorations,
-                        localRenderableName,
-                        decorations,
-                        true);
-                    if (index) {
-                        if (dockedRenderables && dockedRenderables.has(Utils.getRenderableID(actualRenderables[index]))) {
-                            /* Make sure that the order is correct */
-                            this.prioritiseDockAfter(actualRenderables[index], actualRenderables[index - 1])
-                        }
-                    }
-                }
-
-            for (; index < currentRenderables.length; index++) {
-                this.removeRenderable(currentRenderables[index])
-            }
-
-            this._readjustRenderableInitializer(localRenderableName);
-            this[localRenderableName] = actualRenderables
-        }
-
-        if (!renderableIsArray) {
-            this._arrangeRenderableAssignment(currentRenderable, renderable, dynamicDecorations, localRenderableName, decorations)
+            renderable = this._arrangeRenderableArray(renderable, currentRenderable, dynamicDecorations, localRenderableName, decorations);
+        } else {
+            renderable = this._arrangeRenderableAssignment(currentRenderable, renderable, dynamicDecorations, localRenderableName, decorations)
         }
 
         if (dynamicDecorations.length) {
@@ -1224,5 +1188,50 @@ export class View extends FamousView {
         }
         return renderable;
 
+    }
+
+    _arrangeRenderableArray(renderable, currentRenderable, dynamicDecorations, localRenderableName, decorations) {
+        let renderables = renderable instanceof MappedArray ? renderable.getArray() : [...renderable];
+        if (currentRenderable && !Array.isArray(currentRenderable)) {
+            throw new Error('Cannot dynamically reassign renderable to array')
+        }
+        let currentRenderables = currentRenderable || [];
+
+        let index, totalLength = renderables.length;
+
+        if (!renderables.length) {
+            /* Insert an empty surface in order to preserver order of the sequence of (docked) renderables
+             * TODO: This is dirty but seemingly inevitable, think of other solutions */
+            let placeholderRenderable = Surface.with();
+            renderables = [placeholderRenderable];
+            dynamicDecorations = () =>
+                layout.dock.left(0).size(0)
+
+        }
+        /* Initialize the renderable to an empty array and then fill it */
+        renderable = new Array(totalLength);
+        let dockedRenderables = this._renderableHelper.getRenderableGroup('docked');
+        for (index = 0; index < renderables.length; index++) {
+            renderable[index] = this._arrangeRenderableAssignment(currentRenderables[index],
+                renderables[index],
+                dynamicDecorations,
+                localRenderableName,
+                decorations,
+                true);
+            if (index) {
+                if (dockedRenderables && dockedRenderables.get(Utils.getRenderableID(renderable[index])) !== undefined) {
+                    /* Make sure that the order is correct */
+                    this.prioritiseDockAfter(renderable[index], renderable[index - 1])
+                }
+            }
+        }
+
+        for (; index < currentRenderables.length; index++) {
+            this.removeRenderable(currentRenderables[index])
+        }
+
+        this._readjustRenderableInitializer(localRenderableName);
+        this[localRenderableName] = renderable;
+        return renderable;
     }
 }
