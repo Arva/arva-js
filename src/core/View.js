@@ -9,6 +9,7 @@
 
 import extend                   from 'lodash/extend.js'
 import cloneDeep                from 'lodash/cloneDeep.js'
+import cloneDeepWith            from 'lodash/cloneDeepWith.js'
 import FamousView               from 'famous/core/View.js'
 import {RenderablePrototype}    from 'famous/utilities/RenderablePrototype.js'
 import LayoutController         from 'famous-flex/LayoutController.js'
