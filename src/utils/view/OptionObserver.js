@@ -97,7 +97,7 @@ export class OptionObserver extends EventEmitter {
     recordForRenderable(renderableName, callback) {
         this._recordForEntry([renderableName], false);
         callback();
-        this._stopRecordingForEntry(renderableName);
+        this._stopRecordingForEntry([renderableName], false);
     }
 
     /**
@@ -158,10 +158,6 @@ export class OptionObserver extends EventEmitter {
 
         this._recordForTriggerMethod(() =>
             this._bindingsTriggerMethods[index](this), index);
-        /* Prevent the trigger method from being triggered within the next flush. This is important
-         * to do in case the trigger function sets variables that it also gets, (ie if(!options.color) options.color = 'red')
-         */
-        this.preventEntryFromBeingUpdated([OptionObserver.triggers, index])
     }
 
     preventEntryFromBeingUpdated(entryNames) {
@@ -169,20 +165,29 @@ export class OptionObserver extends EventEmitter {
     }
 
 
-    allowEntryToBeUpdated(entryNames){
-        let forbiddenUpdates = this._forbiddenUpdatesForNextTick;
-        for(let [index, entryName] of entryNames.entries()){
-            let forbiddenUpdateKeys = Object.keys(forbiddenUpdates);
-            if(forbiddenUpdateKeys.length === 1 || index === entryNames.length - 1){
-                delete forbiddenUpdates[forbiddenUpdateKeys[0]];
+    allowEntryToBeUpdated(entryNames) {
+        this._deleteInNestedStructure(this._forbiddenUpdatesForNextTick, entryNames);
+    }
+
+    /**
+     * @param inObject
+     * @param nestedPropertyPath
+     * @private
+     */
+    _deleteInNestedStructure(inObject, nestedPropertyPath){
+        for (let [index, entryName] of nestedPropertyPath.entries()) {
+            let inObjectKeys = Object.keys(inObject);
+            if (inObjectKeys.length === 1 || index === nestedPropertyPath.length - 1) {
+                delete inObject[inObjectKeys[0]];
                 break;
             }
-            forbiddenUpdates = forbiddenUpdates[entryName];
-            if(!forbiddenUpdates){
+            inObject = inObject[entryName];
+            if (!inObject) {
                 return;
             }
         }
     }
+
 
 
     setup() {
@@ -205,6 +210,7 @@ export class OptionObserver extends EventEmitter {
     }
 
     /**
+     * TODO Make private
      * Similar to _.get, except that it returns notFound (a symbol) when not found. It also supports tarversing listeners
      * @param object
      * @param path
@@ -252,7 +258,7 @@ export class OptionObserver extends EventEmitter {
         /* Make sure that we are not updating something that is forbidden during this tick */
         let forbiddenUpdatePathsForNextTick = Object.keys(forbiddenUpdatesForNextTick).concat(
             forbiddenUpdatesForNextTick[OptionObserver.triggers] ? OptionObserver.triggers : []);
-        if(forbiddenUpdatePathsForNextTick.length){
+        if (forbiddenUpdatePathsForNextTick.length) {
             paths = paths.filter((path) => {
                 return this.accessObjectPath(this._forbiddenUpdatesForNextTick, path) === notFound
             });
@@ -264,7 +270,7 @@ export class OptionObserver extends EventEmitter {
     _recordForTriggerMethod(callback, triggerIndex) {
         this._recordForEntry([OptionObserver.triggers, triggerIndex], true);
         callback();
-        this._stopRecordingForEntry(OptionObserver.triggers)
+        this._stopRecordingForEntry([OptionObserver.triggers, triggerIndex], true)
     }
 
     /**
@@ -277,16 +283,14 @@ export class OptionObserver extends EventEmitter {
         this._accommodateInsideObject(this._activeRecordings, entryNames, {});
         this._beginListenerTreeUpdates(entryNames);
         this._listenForModelUpdates(entryNames);
-        //todo need to set optionRecorder as a symbol
+        if (allowSetters) {
+            /* Be sure to avoid infinite loops if there are setters that trigger getters that are matched to this
+            * recording */
+            this.preventEntryFromBeingUpdated(entryNames);
+        }
         let opOptionTrigger = this.accessObjectPath(this._activeRecordings, entryNames)[optionRecorder] = ({type, propertyName, nestedPropertyPath}) => {
-            if (type === 'setter') {
-                if (allowSetters) {
-                    /* Be sure to avoid infinite loops if there are setters that trigger getters that are matched to this
-                     *  recording */
-                    this.preventEntryFromBeingUpdated(entryNames)
-                } else {
-                    this._throwError('Setting an option during instanciation of renderable')
-                }
+            if (type === 'setter' && !allowSetters) {
+                this._throwError('Setting an option during instanciation of renderable')
             } else {
                 let localListenerTree = this._accessListener(nestedPropertyPath.concat(propertyName));
                 this._addToListenerTree(entryNames, localListenerTree)
@@ -349,23 +353,28 @@ export class OptionObserver extends EventEmitter {
         }
     }
 
-    _endListenerTreeUpdates(renderableName) {
-        if (this._listenerTreeMetaData[renderableName].listenersChanged) {
-            let oldListeners = this._reverseListenerTree[renderableName];
+    /**
+     *
+     * @private
+     * @param entryNames
+     */
+    _endListenerTreeUpdates(entryNames) {
+        if (this.accessObjectPath(this._listenerTreeMetaData, entryNames).listenersChanged) {
+            let oldListeners = this.accessObjectPath(this._reverseListenerTree, entryNames);
             /* Remove the old listeners and add the new ones again. In this way, we get O(n + m) complexity
              *  instead of O(m*n) */
             for (let listenerTree of oldListeners) {
-                delete listenerTree[renderableName]
+                this._deleteInNestedStructure(listenerTree, entryNames);
             }
-            let newListeners = this._newReverseListenerTree[renderableName];
+            let newListeners = this.accessObjectPath(this._newReverseListenerTree, entryNames);
 
             for (let listenerTree of newListeners) {
-                listenerTree[renderableName] = true
+                this._accommodateInsideObject(listenerTree, entryNames, true);
             }
 
         }
-        this._reverseListenerTree[renderableName] = this._newReverseListenerTree[renderableName];
-        delete this._newReverseListenerTree[renderableName]
+        this._accommodateInsideObject(this._reverseListenerTree, entryNames, this._newReverseListenerTree);
+        this._deleteInNestedStructure(this._newReverseListenerTree, entryNames);
     }
 
     _beginListenerTreeUpdates(entryNames) {
@@ -385,15 +394,19 @@ export class OptionObserver extends EventEmitter {
 
     /**
      * Called when a renderable shouldn't be recorded anymore
-     * @param entryName
+     * @param entryNames
+     * @param {Boolean} didAllowSetters
      */
-    _stopRecordingForEntry(entryName) {
-        this._endListenerTreeUpdates(entryName);
+    _stopRecordingForEntry(entryNames, didAllowSetters = false) {
+        this._endListenerTreeUpdates(entryNames);
+        if(didAllowSetters){
+            this.allowEntryToBeUpdated(entryNames);
+        }
         PrioritisedObject.removePropertyGetterSpy();
-        this.removeListener('optionTrigger', this._activeRecordings[entryName][optionRecorder]);
+        this.removeListener('optionTrigger', this.accessObjectPath(this._activeRecordings, entryNames.concat(optionRecorder)));
         // Todo when we start listening for mapcalled, use this code (if that is what we'll do)
         //this.removeListener('mapCalled', this._activeRecordings[entryName][arrayRecorder]);
-        delete this._activeRecordings[entryName]
+        this._deleteInNestedStructure(this._activeRecordings, entryNames);
     }
 
     /**
@@ -479,9 +492,21 @@ export class OptionObserver extends EventEmitter {
     _addGetterSetterHook(object, key, value, nestedPropertyPath, listenerTree) {
         ObjectHelper.addGetSetPropertyWithShadow(object, key, value, true, true,
             (info) =>
-                this._onEventTriggered({...info, type: 'setter', parentObject: object, nestedPropertyPath, listenerTree})
+                this._onEventTriggered({
+                    ...info,
+                    type: 'setter',
+                    parentObject: object,
+                    nestedPropertyPath,
+                    listenerTree
+                })
             , (info) =>
-                this._onEventTriggered({...info, type: 'getter', parentObject: object, nestedPropertyPath, listenerTree}))
+                this._onEventTriggered({
+                    ...info,
+                    type: 'getter',
+                    parentObject: object,
+                    nestedPropertyPath,
+                    listenerTree
+                }))
     }
 
     /**
@@ -527,8 +552,8 @@ export class OptionObserver extends EventEmitter {
                 this._updateOptionsStructure([propertyName], parentObject, nestedPropertyPath, [oldValue]);
             }
             this._ignoreListeners = false;
-        } else if (info.type === 'getter' && info.listenerTree[storedInputOption]){
-            for(let inputOption of info.listenerTree[storedInputOption]){
+        } else if (info.type === 'getter' && info.listenerTree[storedInputOption]) {
+            for (let inputOption of info.listenerTree[storedInputOption]) {
                 inputOption.updateValueIfNecessary();
             }
         }
@@ -552,7 +577,7 @@ export class OptionObserver extends EventEmitter {
         this._flushArrayObserverChanges();
         /* Do a traverse only for the leafs of the new updates, to avoid doing extra work */
         this._deepTraverseWithShallowArrays(this._newOptionUpdates, (nestedPropertyPath, updateObjectParent, updateObject, propertyName, [defaultOptionParent, listenerTree, optionObject]) => {
-                    this._handleNewOptionUpdateLeaf(nestedPropertyPath, updateObject, propertyName, defaultOptionParent, listenerTree, optionObject);
+                this._handleNewOptionUpdateLeaf(nestedPropertyPath, updateObject, propertyName, defaultOptionParent, listenerTree, optionObject);
             }, [this.defaultOptions, this._listenerTree, this.options],
             [true, false, false],
             true
@@ -632,7 +657,6 @@ export class OptionObserver extends EventEmitter {
     }
 
 
-
     _getDeeplyNestedListenerPaths(localListenerTree, accumulator = []) {
         if (localListenerTree === true) {
             return accumulator;
@@ -689,8 +713,8 @@ export class OptionObserver extends EventEmitter {
         let onModelChanged = (model, changedProperties) =>
             this._onModelChanged(model, changedProperties, property, nestedPropertyPath);
         let isListening = false;
-        for(let property of Object.keys(model)){
-            if(!localListenerTree[property]){
+        for (let property of Object.keys(model)) {
+            if (!localListenerTree[property]) {
                 localListenerTree[property] = {[listeners]: {}};
             }
         }
@@ -852,7 +876,6 @@ export class OptionObserver extends EventEmitter {
     }
 
 
-
     _iterateInObjectPath(object, path, callback) {
         for (let pathString of path) {
             let objectToPassToCallback = notFound;
@@ -876,7 +899,7 @@ export class OptionObserver extends EventEmitter {
     }
 
     whenSettled() {
-        if(Object.keys(this._updatesForNextTick).length || Object.keys(this._newOptionUpdates).length){
+        if (Object.keys(this._updatesForNextTick).length || Object.keys(this._newOptionUpdates).length) {
             return new Promise((resolve) => this.once('settled', resolve));
         }
         return Promise.resolve();
@@ -982,7 +1005,7 @@ export class OptionObserver extends EventEmitter {
          * TODO: Come up with a more robust solution for default options of arrays */
         if (newValue === undefined && (!parentIsArray || newValueParent.length === 0)) {
             newValue = defaultOption;
-            if(onChangeFunction){
+            if (onChangeFunction) {
                 onChangeFunction(newValue);
             }
             if (Utils.isPlainObject(newValue)) {
