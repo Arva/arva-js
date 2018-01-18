@@ -47,6 +47,8 @@ export let onOptionChange = Symbol('onOptionChange'),
 
 //TODO Think how to solve the case when this.options is passed as a whole to a renderable, maybe there should be a way to state explicit dependence if needed. Maybe implementing a getter trigger of the option on the view can be a viable idea
 
+//TODO Properly mark correct methods to be public/private
+
 export class OptionObserver extends EventEmitter {
     /* The structure of what thing in the objects is mapped to the corresponding renderable update */
     _listenerTree = {};
@@ -174,7 +176,7 @@ export class OptionObserver extends EventEmitter {
      * @param nestedPropertyPath
      * @private
      */
-    _deleteInNestedStructure(inObject, nestedPropertyPath){
+    _deleteInNestedStructure(inObject, nestedPropertyPath) {
         for (let [index, entryName] of nestedPropertyPath.entries()) {
             let inObjectKeys = Object.keys(inObject);
             if (inObjectKeys.length === 1 || index === nestedPropertyPath.length - 1) {
@@ -291,7 +293,7 @@ export class OptionObserver extends EventEmitter {
         let opOptionTrigger = this.accessObjectPath(this._activeRecordings, entryNames)[optionRecorder] = ({type, propertyName, nestedPropertyPath}) => {
             if (type === 'setter' && !allowSetters) {
                 this._throwError('Setting an option during instanciation of renderable')
-            } else {
+            } else if (type === 'getter') {
                 let localListenerTree = this._accessListener(nestedPropertyPath.concat(propertyName));
                 this._addToListenerTree(entryNames, localListenerTree)
             }
@@ -399,7 +401,7 @@ export class OptionObserver extends EventEmitter {
      */
     _stopRecordingForEntry(entryNames, didAllowSetters = false) {
         this._endListenerTreeUpdates(entryNames);
-        if(didAllowSetters){
+        if (didAllowSetters) {
             this.allowEntryToBeUpdated(entryNames);
         }
         PrioritisedObject.removePropertyGetterSpy();
