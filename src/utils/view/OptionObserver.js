@@ -1054,7 +1054,7 @@ export class OptionObserver extends EventEmitter {
      */
     _setupArray(nestedPropertyPath, newValue, listenerTree, outerPropertyName, defaultOption) {
         if (!listenerTree[isArrayListener]) {
-            this._throwError(`The parameter ${nestedPropertyPath.concat(outerPropertyName).join('->')} is not registered as an array in the listener tree.`)
+            this._throwError(`The parameter ${nestedPropertyPath.concat(outerPropertyName).join('->')} was specified as [${newValue}] but was not registered as an array in bindings.setup().`)
         }
 
         if (ArrayObserver.isArrayObserved(newValue)) {
