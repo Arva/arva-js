@@ -5,6 +5,7 @@ import {Surface}             from '../surfaces/Surface.js';
 import FamousContext         from 'famous/core/Context.js';
 import Timer                 from 'famous/utilities/Timer';
 import Easing                from 'famous/transitions/Easing.js';
+import Engine                from 'famous/core/Engine';
 import AnimationController   from 'famous-flex/AnimationController';
 
 import {Injection}           from './Injection.js';
@@ -64,7 +65,7 @@ export class DialogManager extends View {
         }, {propagate: false});
 
 
-        document.addEventListener("backbutton", ()=> this.canCancel && this.close());
+        document.addEventListener('backbutton', ()=> this.canCancel && this.close());
         this.background.on('click', ()=> this.canCancel && this.close());
     }
 
@@ -76,6 +77,8 @@ export class DialogManager extends View {
      * @returns {*}
      */
     show({dialog, canCancel = true, killOldDialog = true, shouldGoToRoute = null}) {
+
+        this._lastDialogShownFrameIndex = Engine.getCurrentFrameIndex();
         if(!dialog){
             throw new Error('No dialog specified in show() function of DialogManager');
         }
@@ -159,7 +162,6 @@ export class DialogManager extends View {
         return this._hasOpenDialog;
     }
 
-
     dialogComplete() {
         if (!this._resolveDialogComplete) {
             if(!this.hasOpenDialog()){
@@ -172,6 +174,10 @@ export class DialogManager extends View {
             return this._resolveDialogPromise;
         }
 
+    }
+
+    isShownInCurrentFrame(){
+        return Engine.getCurrentFrameIndex() === this._lastDialogShownFrameIndex;
     }
 
     /**
