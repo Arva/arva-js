@@ -49,7 +49,6 @@ export class InputOption {
 
     [unwrapValue] (theForeignOptionObserver, theForeignNestedPropertyPath) {
 
-
         let storedInputOptions = this[listenerTree][storedInputOption];
         if(!storedInputOptions){
             storedInputOptions = this[listenerTree][storedInputOption] = [];
@@ -66,8 +65,14 @@ export class InputOption {
         if(theForeignOptionObserver && theForeignOptionObserver !== this[foreignOptionObserver]){
             this._setupForeignOptionObserverListener(theForeignOptionObserver)
         }
-
-        return storedOptionsObserver.accessObjectPath(this[optionObserver].getOptions(), this[nestedPropertyPath].concat(this[propertyName]));
+        /* We can not possibly invalidate the value, while unwrapping it, because that is likely going to lead to
+        *  an infinite loop. Value invalidation is meant to be used when accessing the value normally. Therefore, it
+        *  needs to be forced to false while we are accessing the object path*/
+        let valueShouldBeInvalidateCache = this._valueShouldBeInvalidated;
+        this._valueShouldBeInvalidated = false;
+        let result = storedOptionsObserver.accessObjectPath(this[optionObserver].getOptions(), this[nestedPropertyPath].concat(this[propertyName]));
+        this._valueShouldBeInvalidated = valueShouldBeInvalidateCache;
+        return result;
     };
 
     updateValueIfNecessary(){
