@@ -959,6 +959,10 @@ export class OptionObserver extends EventEmitter {
      */
     _processNewOptionUpdates({nestedPropertyPath, defaultOption, newValue, propertyName, newValueParent, listenerTree, defaultOptionParent}) {
 
+        if(typeof newValueParent !== 'object'){
+            this._throwError(`Assigned primitive value ${newValueParent} to compound option ${nestedPropertyPath}`);
+        }
+
         let valueIsModelProperty = newValueParent instanceof Model && typeof defaultOptionParent === 'function';
 
         let parentIsArray = Array.isArray(defaultOptionParent);
@@ -1185,6 +1189,7 @@ export class OptionObserver extends EventEmitter {
     }
 
     _handleNewOptionUpdateLeaf(nestedPropertyPath, updateObject, propertyName, defaultOptionParent, listenerTree, optionObject) {
+
         let newValue = updateObject[newChanges],
             oldValue = updateObject[originalValue];
         let defaultOption = defaultOptionParent[propertyName];
@@ -1193,7 +1198,7 @@ export class OptionObserver extends EventEmitter {
         if (Utils.isPlainObject(defaultOptionParent)) {
             this._processImmediateOptionReassignment({
                 newValue, oldValue, defaultOption
-            })
+            });
         }
 
         this._processNewOptionUpdates({
