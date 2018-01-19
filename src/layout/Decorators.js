@@ -146,16 +146,17 @@ class Layout {
     _dockTo(dockMethod, size, space, zIndex) {
         return this.createChainableDecorator((decorations) => {
 
-            if (decorations.dock) {
-                space = space || decorations.dock.space
-            }
-
             let width = dockMethod === 'left' || dockMethod === 'right' ? size : undefined;
             let height = dockMethod === 'top' || dockMethod === 'bottom' ? size : undefined;
 
             let twoDimensionalSize = [width, height];
             // Todo refactor also the z index to the dock, probably
-            decorations.dock = {space, dockMethod, size: twoDimensionalSize};
+            decorations.dock =
+                {
+                    space: space !== undefined ? space : (decorations.dock && decorations.dock.space),
+                    dockMethod,
+                    size: twoDimensionalSize
+                };
 
             if (!decorations.translate) {
                 decorations.translate = [0, 0, 0]
