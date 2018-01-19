@@ -243,17 +243,24 @@ export class RenderableHelper {
 
         /* If we clip, then we need to create a containerSurface */
         if (clip) {
-            let clipSize = clip.size
-            /* Resolve clipSize specified as undefined */
-            let containerSurface = new ContainerSurface({
-                size: clipSize,
-                properties: {overflow: 'hidden', ...clip.properties}
-            })
-            containerSurface.add(renderable)
-            if (renderable.pipe) {
-                renderable.pipe(containerSurface._eventOutput)
+            let clipSize = clip.size;
+
+            let existingContainerSurface = renderable.containerSurface;
+            if(existingContainerSurface){
+                existingContainerSurface.setSize(clipSize);
+            } else {
+                /* Resolve clipSize specified as undefined */
+                let containerSurface = new ContainerSurface({
+                    size: clipSize,
+                    properties: {overflow: 'hidden', ...clip.properties}
+                });
+                containerSurface.add(renderable);
+                if (renderable.pipe) {
+                    renderable.pipe(containerSurface._eventOutput)
+                }
+                renderable.containerSurface = containerSurface;
             }
-            renderable.containerSurface = containerSurface
+
         }
 
         if (animation) {
@@ -399,7 +406,8 @@ export class RenderableHelper {
                 this._groupedRenderables[groupName] = new OrderedHashMap()
             }
             /* We save the both the renderable and the renderable counterpart in pairs */
-            this._groupedRenderables[groupName].set(renderableName, [renderable, renderableCounterpart])
+            /* Convert to string because the ordered hash map makes difference between numbers and strings */
+            this._groupedRenderables[groupName].set('' + renderableName, [renderable, renderableCounterpart])
         }
     }
 
