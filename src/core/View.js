@@ -72,8 +72,8 @@ export class View extends FamousView {
         this._copyPrototypeProperties();
         this._initDataStructures();
         this._initOwnDecorations();
-        this._initOptions(options);
         this._initUtils();
+        this._initOptions(options);
         this._constructDecoratedRenderables();
 
         this._createLayoutController();
