@@ -64,12 +64,9 @@ export class DockedLayoutHelper extends BaseLayoutHelper {
         let dockedNames = dockedRenderables ? dockedRenderables.keys() : [];
         for (let renderableName of dockedNames) {
             let [renderable, renderableCounterpart] = dockedRenderables.get(renderableName);
-            let marginsForRenderable = renderable.decorations.dynamicDockPadding && renderable.decorations.dynamicDockPadding(context.size);
-            if(marginsForRenderable){
-                dockHelper.marginRelatively(
-                    marginsForRenderable, margins);
-            }
-            let { dockSize, translate, innerSize, space = (ownDecorations.dockSpacing || 0) } = this._prepareForDockedRenderable(renderable, renderableCounterpart, context, extraTranslate, marginsForRenderable || margins);
+            let renderableMargins = this._adjustToRelativeRenderableMargins(renderable, dockHelper, margins, context.size);
+
+            let { dockSize, translate, innerSize, space = (ownDecorations.dockSpacing || 0) } = this._prepareForDockedRenderable(renderable, renderableCounterpart, context, extraTranslate, renderableMargins || margins);
 
             let { callback, transition } = this._getRenderableFlowInformation(renderable);
             let { dock, rotate, origin, scale, skew, opacity } = renderable.decorations;
@@ -85,12 +82,7 @@ export class DockedLayoutHelper extends BaseLayoutHelper {
                     scale,
                     skew
                 });
-
-                /* Reset to the old margins */
-                if(marginsForRenderable){
-                    dockHelper.marginRelatively(
-                        margins, marginsForRenderable);
-                }
+                this._resetRelativeRenderableMargins(renderableMargins, dockHelper, margins);
             }
         }
 
@@ -101,7 +93,8 @@ export class DockedLayoutHelper extends BaseLayoutHelper {
             let { decorations } = renderable;
             let { rotate, origin, opacity, skew, scale } = decorations;
             decorations.dock.size = dockHelper.getFillSize();
-            let { translate, innerSize } = this._prepareForDockedRenderable(renderable, renderableCounterpart, context, extraTranslate, margins);
+            let renderableMargins = this._adjustToRelativeRenderableMargins(renderable, dockHelper, margins, context.size);
+            let { translate, innerSize } = this._prepareForDockedRenderable(renderable, renderableCounterpart, context, extraTranslate, renderableMargins || margins);
             let { callback, transition } = this._getRenderableFlowInformation(renderable);
             dockHelper.fill(renderableName, innerSize, translate, {
                 rotate,
@@ -113,6 +106,26 @@ export class DockedLayoutHelper extends BaseLayoutHelper {
                 skew,
                 scale
             });
+            this._resetRelativeRenderableMargins(renderableMargins, dockHelper, margins);
+        }
+    }
+
+    _adjustToRelativeRenderableMargins(renderable, dockHelper, defaultMargins, contextSize) {
+        let marginsForRenderable = renderable.decorations.dynamicDockPadding && renderable.decorations.dynamicDockPadding(contextSize);
+        if(marginsForRenderable){
+            dockHelper.marginRelatively(
+                marginsForRenderable, defaultMargins);
+            return marginsForRenderable;
+        }
+    }
+
+
+
+    _resetRelativeRenderableMargins(renderableMargins, dockHelper, defaultMargins) {
+        /* Reset to the old margins */
+        if(renderableMargins){
+            dockHelper.marginRelatively(
+                defaultMargins, renderableMargins);
         }
     }
 
@@ -216,6 +229,7 @@ export class DockedLayoutHelper extends BaseLayoutHelper {
         return findIndex(dockTypes, (dockMethods) => ~dockMethods.indexOf(dockMethodToGet));
     }
 
+
     /**
      * Calculates the bounding box size for all the renderables passed to the function
      * @param {OrderedHashMap} dockedRenderables A map containing Array-pairs of [renderable, renderableCounterpart] containing the things that are attached to the sides.
@@ -271,7 +285,6 @@ export class DockedLayoutHelper extends BaseLayoutHelper {
         }
         return dockSize;
     }
-
 
     _getRegularDockBoundingBoxInfo(dockedRenderables, ownDecorations) {
         let { dockMethod } = dockedRenderables.get(dockedRenderables.keyAt(0))[0].decorations.dock;
