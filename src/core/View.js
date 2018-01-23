@@ -1121,10 +1121,17 @@ export class View extends FamousView {
             };
 
             /* TODO Think of a more clever solution than receiving the optionObserver as an argument */
-            this._bindingTriggers.push((optionObserver) => {
+            this._bindingTriggers.push(async (optionObserver) => {
                 this.options = optionObserver.getOptions();
                 /* TODO: Change this to a getter function or at least figure out a plan how to handle default options */
-                triggerMethod.call(this, this.options, optionObserver.defaultOptions);
+                try {
+                    await triggerMethod.call(this, this.options, optionObserver.defaultOptions);
+                } catch (error){
+                    /* If the reason of the error was that the transition was cancelled, fail silently*/
+                    if(error.reason !== 'Canceled'){
+                        throw new Error(error);
+                    }
+                }
             });
         }
 
