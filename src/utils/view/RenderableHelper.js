@@ -81,11 +81,11 @@ export class RenderableHelper {
      */
     _setupAllRenderableListeners(renderableName, enabled = true) {
         /* If the this._renderableCounterparts equivalent doesn't have the pipe function as is the case with the draggable, then use the regular renderable */
-        let renderableOrEquivalent = this._getPipeableRenderableFromName(renderableName)
+        let renderableOrEquivalent = this._getPipeableRenderableFromName(renderableName);
         if (enabled) {
-            this._pipeRenderable(renderableOrEquivalent, renderableName)
+            this._pipeRenderable(renderableOrEquivalent, renderableName);
         } else {
-            this._unpipeRenderable(renderableOrEquivalent, renderableName)
+            this._unpipeRenderable(renderableOrEquivalent, renderableName);
         }
         let {decorations} = this._renderables[renderableName]
         if (decorations) {
