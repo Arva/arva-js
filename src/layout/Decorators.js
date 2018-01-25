@@ -936,6 +936,9 @@ class Layout {
      * @returns {Layout} A chainable function
      */
     dockPadding(...margins) {
+        if(Array.isArray(margins[0])){
+            throw new Error('Please pass multiple arguments to layout.dockPadding() not an array');
+        }
         return this.createChainableDecorator((decorations) => {
             decorations.viewMargins = LayoutUtility.normalizeMargins(margins)
         }, decoratorTypes.viewDecorator)
@@ -970,7 +973,7 @@ class Layout {
             let normalisedPadding = LayoutUtility.normalizeMargins(defaultPadding);
 
             /* Default to 16px dockPadding */
-            this.dockPadding(normalisedPadding);
+            this.dockPadding(...normalisedPadding);
 
             /* Calculate the dockPadding dynamically every time the View's size changes.
              * The results from calling this method are further handled in View.js.
