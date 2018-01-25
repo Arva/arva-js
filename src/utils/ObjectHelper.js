@@ -78,7 +78,7 @@ export class ObjectHelper {
     /* Adds a property with given enumerability and writability to object. If writable, uses a hidden object.shadow
      * property to save the actual data state, and object[propName] with gettter/setter to the shadow. Allows for a
      * callback to be triggered upon every set.   */
-    static addPropertyToObject(object, propName, prop, enumerable = true, writable = true, setCallback = null, getCallback = null, useAccessors = true) {
+    static addPropertyToObject(object, propName, prop, enumerable = true, writable = true, setCallback = null, getCallback = null, useAccessors = true, shadowProperty = 'shadow') {
         /* If property is non-writable, we won't need a shadowed prop for the getters/setters */
         if (!writable || !useAccessors) {
             let descriptor = {
@@ -88,7 +88,7 @@ export class ObjectHelper {
             };
             Object.defineProperty(object, propName, descriptor);
         } else {
-            ObjectHelper.addGetSetPropertyWithShadow(object, propName, prop, enumerable, writable, setCallback, getCallback);
+            ObjectHelper.addGetSetPropertyWithShadow(object, propName, prop, enumerable, writable, setCallback, getCallback, shadowProperty);
         }
     }
 
@@ -102,26 +102,26 @@ export class ObjectHelper {
     }
 
     /* Adds given property to the object with get() and set() accessors, and saves actual data in object.shadow */
-    static addGetSetPropertyWithShadow(object, propName, prop, enumerable = true, writable = true, setCallback = null, getCallback = null, appendToGetter = false) {
-        ObjectHelper.buildPropertyShadow(object, propName, prop);
-        ObjectHelper.buildGetSetProperty(object, propName, enumerable, writable, setCallback, getCallback, appendToGetter);
+    static addGetSetPropertyWithShadow(object, propName, prop, enumerable = true, writable = true, setCallback = null, getCallback = null, appendToGetter = false, shadowProperty = 'shadow') {
+        ObjectHelper.buildPropertyShadow(object, propName, prop, shadowProperty);
+        ObjectHelper.buildGetSetProperty(object, propName, enumerable, writable, setCallback, getCallback, appendToGetter, shadowProperty);
     }
 
     /* Creates or extends object.shadow to contain a property with name propName */
-    static buildPropertyShadow(object, propName, prop) {
+    static buildPropertyShadow(object, propName, prop, shadowProperty) {
         let shadow = {};
 
         try {
             /* If a shadow property already exists, we should extend instead of overwriting it. */
-            if ('shadow' in object) {
-                shadow = object.shadow;
+            if (shadowProperty in object) {
+                shadow = object[shadowProperty];
             }
         } catch (error) {
             return;
         }
 
         shadow[propName] = prop;
-        Object.defineProperty(object, 'shadow', {
+        Object.defineProperty(object, shadowProperty, {
             writable: true,
             configurable: true,
             enumerable: false,
@@ -138,11 +138,13 @@ export class ObjectHelper {
      * @param {Function} setCallback
      * @param {Function} getCallback A function that takes as a single argument the property that is about to be get. Should
      * return that thing as well
+     * @param appendToGetter
+     * @param shadowPropertyName
      */
-    static buildGetSetProperty(object, propName, enumerable = true, writable = true, setCallback = null, getCallback = null, appendToGetter = false) {
+    static buildGetSetProperty(object, propName, enumerable = true, writable = true, setCallback = null, getCallback = null, appendToGetter = false, shadowPropertyName = 'shadow') {
         if(appendToGetter){
           let existingPropertyDescriptor = Object.getOwnPropertyDescriptor(object, propName);
-          if(existingPropertyDescriptor.get){
+          if(existingPropertyDescriptor && existingPropertyDescriptor.get){
             let existingGetCallBack = getCallback, previousGetCallback = existingPropertyDescriptor.get;
             getCallback = () => {
               previousGetCallback();
@@ -158,15 +160,15 @@ export class ObjectHelper {
                 if (getCallback && typeof setCallback === 'function') {
                     getCallback({
                         propertyName: propName,
-                        value: object.shadow[propName]
+                        value: object[shadowPropertyName][propName]
                     });
                 }
-                return object.shadow[propName];
+                return object[shadowPropertyName][propName];
             },
             set: function (value) {
                 if (writable) {
-                    let oldValue = object.shadow[propName];
-                    object.shadow[propName] = value;
+                    let oldValue = object[shadowPropertyName][propName];
+                    object[shadowPropertyName][propName] = value;
                     if (setCallback && typeof setCallback === 'function') {
                         setCallback({
                             propertyName: propName,

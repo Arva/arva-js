@@ -3,7 +3,8 @@
  * //TODO Support caching
  */
 import {Utils}                  from './Utils';
-import {storedArrayObserver}    from './OptionObserver';
+import {storedArrayObserver,
+    shadow}                     from './OptionObserver.js';
 import {Model}                  from '../../core/Model';
 
 /* */
@@ -39,9 +40,8 @@ export class LazyLoadedOptionClone {
                         }
                         return cachedShallowClone[property];
                     }
-                    //TODO Implement a different solution for changing the value without consequences. This relies on 'shadow' that will be deprecated at some point
                     return cachedShallowClone[property] = LazyLoadedOptionClone.get(TargetObjectType,
-                        optionToClone.shadow[property],
+                        optionToClone[shadow][property],
                         /* Access the listener tree by using dedicated method to be sure that it's done correctly */
                         listenerTree[property],
                         nestedPropertyPath.concat(property),

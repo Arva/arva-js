@@ -2,7 +2,8 @@
  * Created by lundfall on 04/07/2017.
  */
 import EventEmitter     from 'eventemitter3'
-import { ObjectHelper }               from 'arva-js/utils/ObjectHelper.js'
+import { ObjectHelper } from 'arva-js/utils/ObjectHelper.js'
+import {shadow}         from './OptionObserver';
 
 let isObserved = Symbol('isObserved');
 
@@ -76,7 +77,7 @@ export class ArrayObserver extends EventEmitter {
       this._dirtyPositions[index] = true;
     }, () => {
       this.emit('accessed', {index});
-    });
+    }, false, shadow);
     this._hookFunction(index, this._array[index]);
   }
 

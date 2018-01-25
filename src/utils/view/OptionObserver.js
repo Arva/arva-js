@@ -39,7 +39,8 @@ export let onOptionChange = Symbol('onOptionChange'),
     storedArrayObserver = Symbol('storedArrayObserver'),
     notFound = Symbol('notFound'),
     listeners = Symbol('listeners'),
-    optionMetaData = Symbol('optionMetaData');
+    optionMetaData = Symbol('optionMetaData'),
+    shadow = Symbol('shadow');
 
 //TODO fix falsey value checks, should behave differently for undefined and false
 
@@ -508,7 +509,7 @@ export class OptionObserver extends EventEmitter {
                     parentObject: object,
                     nestedPropertyPath,
                     listenerTree
-                }))
+                }), false, shadow)
     }
 
     /**
