@@ -1,6 +1,7 @@
 /**
  * Created by lundfall on 06/07/2017.
  */
+import ElementOutput        from 'famous/core/ElementOutput.js';
 import {Surface}            from 'arva-js/surfaces/Surface.js';
 import SpecParser           from 'famous/core/SpecParser.js'
 import Entity               from 'famous/core/Entity.js'
@@ -36,6 +37,12 @@ View.prototype.getSize = function () {
     console.groupEnd(this.constructor.name);
     return returnValue;
 };
+
+let originalAttach = ElementOutput.prototype.attach;
+ElementOutput.prototype.attach = function (elm) {
+    elm._object = this;
+    return originalAttach.call(this, ...arguments);
+}
 
 let originalCopyPrototypeProperties= View.prototype._copyPrototypeProperties;
 View.prototype._copyPrototypeProperties = function () {
