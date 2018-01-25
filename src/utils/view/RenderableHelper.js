@@ -269,14 +269,19 @@ export class RenderableHelper {
 
         if (swipableOptions) {
             renderable = this._initSwipable(swipableOptions, renderable);
-        } else if (draggableOptions && !renderable.node) {
-            renderable.node = new RenderNode();
-            let draggable = new Draggable(draggableOptions);
-            renderable.draggable = draggable;
-            renderable.node.add(draggable).add(renderable);
-            renderable.pipe(draggable);
-            //TODO: We don't do an unpiping of the draggable, which might be dangerous
-            draggable.pipe(renderable._eventOutput);
+        } else if (draggableOptions) {
+            /* If draggable is already initialized */
+            if(renderable.draggable){
+                renderable.draggable.setOptions(draggableOptions);
+            } else {
+                renderable.node = new RenderNode();
+                let draggable = new Draggable(draggableOptions);
+                renderable.draggable = draggable;
+                renderable.node.add(draggable).add(renderable);
+                renderable.pipe(draggable);
+                //TODO: We don't do an unpiping of the draggable, which might be dangerous
+                draggable.pipe(renderable._eventOutput);
+            }
         } else if (modifier) {
             renderable.node = new RenderNode();
             renderable.node.add(modifier).add(renderable);
