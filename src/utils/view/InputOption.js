@@ -48,7 +48,7 @@ export class InputOption {
     };
 
     [unwrapValue] (theForeignOptionObserver, theForeignNestedPropertyPath) {
-
+        // TODO: Throw a helpful error when this[listenerTree] is undefined due to declaring an unkown option
         let storedInputOptions = this[listenerTree][storedInputOption];
         if(!storedInputOptions){
             storedInputOptions = this[listenerTree][storedInputOption] = [];
