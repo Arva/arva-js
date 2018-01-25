@@ -585,7 +585,7 @@ export class RenderableHelper {
         }
     }
 
-    applyDecoratorFunctionsToRenderable(renderable, decorators) {
+    applyDecoratorFunctionsToRenderable(renderable, decorators = []) {
         for (let decorator of decorators) {
             /* There can be existing decorators already, which are preserved. We are extending the decorators object,
              * by first creating a fake renderable that gets decorators */
