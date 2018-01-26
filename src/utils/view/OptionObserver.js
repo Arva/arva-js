@@ -493,6 +493,7 @@ export class OptionObserver extends EventEmitter {
      * @private
      */
     _addGetterSetterHook(object, key, value, nestedPropertyPath, listenerTree) {
+
         ObjectHelper.addGetSetPropertyWithShadow(object, key, value, true, true,
             (info) =>
                 this._onEventTriggered({
@@ -572,7 +573,7 @@ export class OptionObserver extends EventEmitter {
      */
     _updateOptionsStructure(changedProperties, parentObject, nestedPropertyPath, oldValues = []) {
         for (let [index, property] of changedProperties.entries()) {
-            this._markPropertyAsUpdated(nestedPropertyPath, property, parentObject[property], oldValues[index])
+            this._markPropertyAsUpdated(nestedPropertyPath, property, parentObject[shadow] && parentObject[shadow][property] !== undefined ? parentObject[shadow][property] : parentObject[property], oldValues[index])
         }
     }
 
@@ -781,7 +782,7 @@ export class OptionObserver extends EventEmitter {
                     value,
                     callback,
                     extraObjectProcessor(extraObjectsToTraverse.map(
-                        (extraObjectToTraverse) => extraObjectToTraverse[key] || {}
+                        (extraObjectToTraverse) => (extraObjectToTraverse[shadow] ? extraObjectToTraverse[shadow][key] : extraObjectToTraverse[key]) || {}
                     ), key, extraObjectsToTraverse),
                     extraObjectProcessor,
                     onlyForLeaves,
@@ -1011,7 +1012,7 @@ export class OptionObserver extends EventEmitter {
          * If the new value is undefined, and the array has been emptied, then we assign this to the default option.
          * TODO: Come up with a more robust solution for default options of arrays */
         if (newValue === undefined && (!parentIsArray || newValueParent.length === 0)) {
-            newValue = defaultOption;
+            newValue = Array.isArray(defaultOption) ? defaultOption.map((unit) => Utils.isPlainObject(unit) ? ({...unit}) : unit) : defaultOption;
             if (onChangeFunction) {
                 onChangeFunction(newValue);
             }
@@ -1031,8 +1032,9 @@ export class OptionObserver extends EventEmitter {
         }
 
         //TODO clean up code if needed (why is it even needed?)
+
         for (let property of Object.keys(defaultOptionParent)
-            .filter((property) => Utils.isPlainObject(defaultOptionParent[property]) && newValueParent[property] === undefined)
+            .filter((property) => Utils.isPlainObject(defaultOptionParent[property]) && newValueParent[shadow][property] === undefined)
             ) {
             newValueParent[property] = {}
         }
@@ -1070,7 +1072,6 @@ export class OptionObserver extends EventEmitter {
         let arrayObserver = new ArrayObserver(newValue, (index, value) => {
             /* copy the listener tree information */
             listenerTree[index] = listenerTree.value;
-            //TODO This might be overkill since it's already handled in the flush function (Try removing code below and see if it still works)
             value = this._processNewOptionUpdates({
                 defaultOptionParent: defaultOption,
                 nestedPropertyPath: nestedPropertyPath.concat(outerPropertyName),
@@ -1212,7 +1213,7 @@ export class OptionObserver extends EventEmitter {
             listenerTree: innerListenerTree
         });
 
-        /* If the parent is a model or function, then no need to continue */
+        /* If the parent is a model, function, array, or number, then no need to continue */
         if (!Utils.isPlainObject(defaultOption)) {
             return
         }
@@ -1229,7 +1230,7 @@ export class OptionObserver extends EventEmitter {
                 defaultOptionParent,
                 listenerTree: listenerTreeParent[propertyName]
             })
-        }, [innerListenerTree, optionObject[propertyName]], [false, false])
+        }, [innerListenerTree, optionObject[shadow] ? optionObject[shadow][propertyName] : optionObject[propertyName]], [false, false])
     }
 
 

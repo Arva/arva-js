@@ -7,9 +7,9 @@
 
  */
 
-import _each                from 'lodash/each.js'
-import merge                from 'lodash/merge.js';
-import extend               from 'lodash/extend.js';
+import _each from 'lodash/each.js'
+import merge from 'lodash/merge.js';
+import extend from 'lodash/extend.js';
 
 export class ObjectHelper {
 
@@ -103,6 +103,9 @@ export class ObjectHelper {
 
     /* Adds given property to the object with get() and set() accessors, and saves actual data in object.shadow */
     static addGetSetPropertyWithShadow(object, propName, prop, enumerable = true, writable = true, setCallback = null, getCallback = null, appendToGetter = false, shadowProperty = 'shadow') {
+        if((propName in object) && Object.getOwnPropertyDescriptor(object, propName).get){
+            return;
+        }
         ObjectHelper.buildPropertyShadow(object, propName, prop, shadowProperty);
         ObjectHelper.buildGetSetProperty(object, propName, enumerable, writable, setCallback, getCallback, appendToGetter, shadowProperty);
     }
@@ -111,22 +114,21 @@ export class ObjectHelper {
     static buildPropertyShadow(object, propName, prop, shadowProperty) {
         let shadow = {};
 
-        try {
-            /* If a shadow property already exists, we should extend instead of overwriting it. */
-            if (shadowProperty in object) {
-                shadow = object[shadowProperty];
-            }
-        } catch (error) {
-            return;
+        /* If a shadow property already exists, we should extend instead of overwriting it. */
+        if (shadowProperty in object) {
+            shadow = object[shadowProperty];
+        } else {
+            Object.defineProperty(object, shadowProperty, {
+                writable: true,
+                configurable: true,
+                enumerable: false,
+                value: shadow
+            });
         }
 
+
         shadow[propName] = prop;
-        Object.defineProperty(object, shadowProperty, {
-            writable: true,
-            configurable: true,
-            enumerable: false,
-            value: shadow
-        });
+
     }
 
     /**
@@ -142,22 +144,22 @@ export class ObjectHelper {
      * @param shadowPropertyName
      */
     static buildGetSetProperty(object, propName, enumerable = true, writable = true, setCallback = null, getCallback = null, appendToGetter = false, shadowPropertyName = 'shadow') {
-        if(appendToGetter){
-          let existingPropertyDescriptor = Object.getOwnPropertyDescriptor(object, propName);
-          if(existingPropertyDescriptor && existingPropertyDescriptor.get){
-            let existingGetCallBack = getCallback, previousGetCallback = existingPropertyDescriptor.get;
-            getCallback = () => {
-              previousGetCallback();
-              existingGetCallBack();
+        if (appendToGetter) {
+            let existingPropertyDescriptor = Object.getOwnPropertyDescriptor(object, propName);
+            if (existingPropertyDescriptor && existingPropertyDescriptor.get) {
+                let existingGetCallBack = getCallback, previousGetCallback = existingPropertyDescriptor.get;
+                getCallback = () => {
+                    previousGetCallback();
+                    existingGetCallBack();
+                }
             }
-          }
         }
 
         let descriptor = {
             enumerable: enumerable,
             configurable: true,
             get: function () {
-                if (getCallback && typeof setCallback === 'function') {
+                if (getCallback) {
                     getCallback({
                         propertyName: propName,
                         value: object[shadowPropertyName][propName]
@@ -169,7 +171,7 @@ export class ObjectHelper {
                 if (writable) {
                     let oldValue = object[shadowPropertyName][propName];
                     object[shadowPropertyName][propName] = value;
-                    if (setCallback && typeof setCallback === 'function') {
+                    if (setCallback) {
                         setCallback({
                             propertyName: propName,
                             newValue: value,

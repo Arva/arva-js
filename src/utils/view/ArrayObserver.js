@@ -72,13 +72,13 @@ export class ArrayObserver extends EventEmitter {
       return;
     }
 
-    ObjectHelper.addGetSetPropertyWithShadow(this._array, index, this._array[index], false, true, ({newValue, oldValue}) => {
+    ObjectHelper.addGetSetPropertyWithShadow(this._array, index, this._array[index], true, true, ({newValue, oldValue}) => {
       this.emit('replaced', {newValue, oldValue, index});
       this._dirtyPositions[index] = true;
     }, () => {
       this.emit('accessed', {index});
     }, false, shadow);
-    this._hookFunction(index, this._array[index]);
+    this._hookFunction(index, this._array[shadow][index]);
   }
 
   _hijackMapper (callback) {

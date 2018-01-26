@@ -66,7 +66,7 @@ export class View extends FamousView {
      */
     constructor(options = {}, children) {
 
-        super(options);
+        super();
 
 
         this._copyPrototypeProperties();
@@ -1101,11 +1101,11 @@ export class View extends FamousView {
         /* Clone the decorator properties, because otherwise every view of the same type willl share them between
          * the same corresponding renderable. TODO: profiling reveals that cloneDeep affects performance
          */
-        return cloneDeepWith(extend({}, decorations, renderable.decorations || {}), (property, propertyName) => {
+        return extend({}, decorations, renderable.decorations || {});/*cloneDeepWith(extend({}, decorations, renderable.decorations || {}), (property, propertyName) => {
             if (propertyName === 'descriptor') {
                 return null;
             }
-        });
+        });*/
     }
 
     /**
