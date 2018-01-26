@@ -763,7 +763,7 @@ export class View extends FamousView {
 
         /* Move over all renderable- and decoration information that decorators.js set to the View prototype */
         for (let name of ['decorationsMap', 'renderableConstructors']) {
-            this[name] = cloneDeep(prototype[name]) || new Map()
+            this[name] = new Map(prototype[name]);
         }
     }
 
