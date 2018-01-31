@@ -15,13 +15,13 @@ import {layout}              from '../layout/Decorators.js';
 import {DialogWrapper}       from './dialog/DialogWrapper.js';
 
 
-export class DialogManager extends View {
+class DialogManager extends View {
 
     @layout.fullSize()
     @layout.animate({showInitially: false, animation: AnimationController.Animation.Fade})
     /* Add huge translations to make sure that it appears above everything else */
     @layout.translate(0, 0, 9000)
-    background = new Surface({
+    background = Surface.with({
         properties: {
             backgroundColor: "rgba(0,0,0,0.4)"
         }
@@ -38,9 +38,13 @@ export class DialogManager extends View {
     dialog = View.empty();
 
     canCancel = true;
+    initialized = false;
 
-    constructor(options = {}) {
-        super(options);
+    initialize() {
+        if(this.initialized){
+            return;
+        }
+        this.initialized = true;
         /* For ionic-plugin-keyboard */
         if (window.Keyboard) {
             /* Prevent keyboard from showing */
@@ -202,3 +206,5 @@ export class DialogManager extends View {
 
     }
 }
+
+export let dialogManager = new DialogManager();
