@@ -110,10 +110,24 @@ export class RenderableHelper {
                  */
                 subscriptionType = renderable.removeListener ? 'removeListener' : 'off';
             }
-            let eventName = subscription.eventName;
-            let callback = subscription.callback;
+            let {eventName, callback} = subscription;
+            /* If we are registering the listener for the first time, bind the method */
+            if(subscriptionType === 'on'){
+                let originalCallback = callback;
+                callback = this._bindMethod(subscription.callback);
+                callback.originalCallback = originalCallback;
+            } else {
+                /* If it's refering to an existing callback, try to find that one */
+                let listeners =
+                    renderable &&
+                    renderable._eventOutput &&
+                    renderable._eventOutput.listeners &&
+                    renderable._eventOutput.listeners[eventName];
+
+                    callback = listeners.find(method => method.originalCallback === callback) || callback;
+            }
             if (subscriptionType in renderable) {
-                renderable[subscriptionType](eventName, this._bindMethod(callback), options)
+                renderable[subscriptionType](eventName, callback, options);
             }
         }
     }

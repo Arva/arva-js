@@ -1037,8 +1037,6 @@ export class View extends FamousView {
                  */
                 this._readjustRenderableInitializer(localRenderableName);
             }
-            /* This is a very inefficient of keeping the current decorators. That's why .with should be used at all times possible */
-            this._renderableHelper.applyDecoratorObjectToRenderable(Utils.getRenderableID(newRenderable), decorations);
         } else {
             this._assignNewRenderable(newRenderable, localRenderableName, decorations, isArray)
         }

@@ -34,7 +34,7 @@ export class LazyLoadedOptionClone {
             }
             Object.defineProperty(root, property, {
                 get: () => {
-                    if (cachedShallowClone[property]) {
+                    if (cachedShallowClone[property] !== undefined) {
                         if (cachedShallowClone[property] === deleted) {
                             return undefined;
                         }
@@ -59,6 +59,8 @@ export class LazyLoadedOptionClone {
             } else {
                 arrayObserver.on('removed', ({index}) => cachedShallowClone[index] = deleted);
                 arrayObserver.on('added', ({index}) => addCloneGetter(index));
+                /* Replaced means we should invalidate the cache */
+                arrayObserver.on('replaced', ({index}) => cachedShallowClone[index] = undefined);
             }
         }
 
