@@ -99,14 +99,16 @@ export class Utils {
         let extractedRenderableID = (renderable.getID ?
             renderable.getID() :
             (renderable.layout ? renderable.layout.id : renderable.id));
-        return extractedRenderableID !== undefined ? extractedRenderableID : renderable._id;
+        let resultingID = extractedRenderableID !== undefined ? extractedRenderableID : renderable._id;
+        /* Be sure to conver the resulting ID to string in order to make sure that everything works as expected */
+        return resultingID && ("" + resultingID);
     }
 
     /**
      * For entities that handle options parameters (OptionObserver, LazyLoadedOptionClone) can be important to know whether
      * an object is a plain object or not
      *
-     * @param object
+     *  @param object
      * @returns {boolean}
      */
     static isPlainObject(object) {
