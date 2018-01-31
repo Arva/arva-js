@@ -137,14 +137,13 @@ export class ArrayObserver extends EventEmitter {
   _splice (start, deleteCount, ...itemsToAddAndDeletedElements) {
 
     let deletedElements =
-      itemsToAddAndDeletedElements.slice(-deleteCount)
-    let itemsToAdd = itemsToAddAndDeletedElements.slice(0, -deleteCount)
+      itemsToAddAndDeletedElements.slice(-deleteCount);
+    let addCount = itemsToAddAndDeletedElements.slice(0, -deleteCount).length;
 
-    let maxIndex = Math.max(deletedElements.length, itemsToAdd.length)
-    for (let index = start; index < maxIndex; index++) {
-      if (index < deletedElements.length) {
-        this.emit('removed', {index, oldValue: deletedElements[index]})
-      }
+    let netDeleteCount = deleteCount - addCount;
+    let previousLength = this._array.length + netDeleteCount;
+    for (let index = this._array.length; index < previousLength; index++) {
+      this.emit('removed', {index, oldValue: this._array[index - netDeleteCount]});
     }
 
   }
