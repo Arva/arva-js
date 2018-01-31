@@ -1209,11 +1209,11 @@ export class View extends FamousView {
 
         if (!renderables.length) {
             /* Insert an empty surface in order to preserver order of the sequence of (docked) renderables
-             * TODO: This is dirty but seemingly inevitable, think of other solutions */
+             * TODO: This is dirty but seemingly inevitable, think of other solutions. At least it shouldn't be hard-coded
+             * to dock from a certain direction */
             let placeholderRenderable = Surface.with();
             renderables = [placeholderRenderable];
-            dynamicDecorations = () =>
-                layout.dock.left(0).size(0)
+            dynamicDecorations = [layout.dock.top(0)];
 
         }
         /* Initialize the renderable to an empty array and then fill it */
