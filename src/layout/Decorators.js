@@ -12,6 +12,7 @@ import extend                   from 'lodash/extend.js'
 import AnimationController      from 'famous-flex/AnimationController.js'
 import LayoutUtility            from 'famous-flex/LayoutUtility.js'
 import Easing                   from 'famous/transitions/Easing.js'
+import Transform                from 'famous/core/Transform.js'
 
 import { Utils }                    from '../utils/view/Utils.js'
 import { onOptionChange }           from '../utils/view/OptionObserver'
@@ -836,9 +837,11 @@ class Layout {
         return this.createChainableDecorator((decorations) => {
             decorations.animation = merge({
                 showInitially: true,
-                animation: AnimationController.Animation.FadedZoom,
-                show: {transition: options.transition || {curve: Easing.outCubic, duration: 250}},
-                hide: {transition: options.transition || {curve: Easing.inCubic, duration: 250}}
+                animation: function() {
+                    /* Slide up from 16 pixels below and fade in */
+                    return {transform: Transform.translate(0, 16, 0), opacity: 0};
+                },
+                transition: options.transition || {curve: Easing.outCubic, duration: 200}
             }, options)
         }, decoratorTypes.childDecorator)
     }

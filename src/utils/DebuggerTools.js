@@ -58,8 +58,8 @@ PrioritisedArray.prototype._buildFromSnapshot = function () {
 
 let originalConstructLayoutController = View.prototype._createLayoutController;
 View.prototype._createLayoutController = function () {
-  originalConstructLayoutController.call(this, ...arguments)
-  this.layout._view = this
+  originalConstructLayoutController.call(this, ...arguments);
+  this._view = this
 };
 
 let secretRedBackground = Symbol('secretRedBackground');

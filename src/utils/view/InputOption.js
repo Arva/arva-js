@@ -1,19 +1,19 @@
 import {notFound, OptionObserver, listeners} from './OptionObserver';
 
-export let changeValue = Symbol('changeValue'),
-    unwrapValue = Symbol('unwrapValue'),
-    storedInputOption = Symbol('storedInputOption');
+export let changeValue  = Symbol('changeValue'),
+    unwrapValue         = Symbol('unwrapValue'),
+    storedInputOption   = Symbol('storedInputOption');
 
 /* Every property has to be represented by Symbols in order to avoid any collisions with option names */
-let nestedPropertyPath = Symbol('nestedPropertyPath'),
-    optionParentObject = Symbol('optionParentObject'),
-    foreignNestedPropertyPath = Symbol('foreignNestedPropertyPath'),
-    propertyName = Symbol('propertyName'),
-    optionObject = Symbol('optionObject'),
-    optionObserver = Symbol('optionObserver'),
+let nestedPropertyPath          = Symbol('nestedPropertyPath'),
+    optionParentObject          = Symbol('optionParentObject'),
+    foreignNestedPropertyPath   = Symbol('foreignNestedPropertyPath'),
+    propertyName                = Symbol('propertyName'),
+    optionObject                = Symbol('optionObject'),
+    optionObserver              = Symbol('optionObserver'),
     /* This is the option observer that consumes the input option */
-    foreignOptionObserver = Symbol('optionObserver'),
-    listenerTree = Symbol('listenerTree');
+    foreignOptionObserver       = Symbol('optionObserver'),
+    listenerTree                = Symbol('listenerTree');
 
 /**
  * Represents an option where data flows upwards

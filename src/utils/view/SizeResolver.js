@@ -67,6 +67,12 @@ export class SizeResolver extends EventEmitter {
         return (size[0] !== null && size[1] !== null) ? size : null;
     }
 
+
+    isSingleSizeResolvableWithoutContextSize(singleSize) {
+        let resolvedSingleSize = this.resolveSingleSize(singleSize, [NaN, NaN], dimension);
+        return !(Number.isNaN(resolvedSingleSize) || resolvedSingleSize === undefined);
+    }
+
     /**
      * Resolves a single dimension (i.e. x or y) size of a renderable.
      * @param {Number|Boolean|Object|Undefined|Function} renderableSize Renderable's single dimension size.
@@ -95,6 +101,7 @@ export class SizeResolver extends EventEmitter {
      * @param dim the dimensions e.g. 0,1 that should be processed
      * @param {Renderable} renderableCounterpart. The renderable counter-part (e.g. AnimationController, RenderNode, or ContainerSurface).
      * @param {Array} specifiedSize The size as specified
+     * @param contextSize
      * @returns {Number} size[dim] will be returned with a non-truesized value
      * @private
      */
@@ -119,7 +126,7 @@ export class SizeResolver extends EventEmitter {
                 let renderableIsView = renderable instanceof View;
                 /* If the renderable isn't displaying, we must simply consider it final.
                  TODO: There might be better ways to reason about non-displaying renderables  */
-                let sizeConsideredFinal = !(renderableIsView && renderable.layout.isDisplaying()) ||
+                let sizeConsideredFinal = !(renderableIsView && renderable.isDisplaying) ||
                     ((renderableIsView && (renderable._initialised && !renderable.containsUncalculatedSurfaces())) || !renderableIsView);
                 if (size[dim] === true && twoDimensionalSize[dim] === undefined && sizeConsideredFinal) {
                     Utils.warn(`True sized renderable '${renderable.constructor.name}' is taking up the entire context size.`);
@@ -139,7 +146,7 @@ export class SizeResolver extends EventEmitter {
 
             if (!trueSizedSurfaceInfo) {
                 /* Seems like the surface isn't properly configured, let's get that going */
-                trueSizedSurfaceInfo = this.configureTrueSizedSurface(renderable, specifiedSize);
+                trueSizedSurfaceInfo = this.configureTrueSizedSurface(renderable, specifiedSize, contextSize);
             }
             let { isUncalculated, trueSizedDimensions } = trueSizedSurfaceInfo;
 
@@ -360,11 +367,9 @@ export class SizeResolver extends EventEmitter {
                 trueSizedInfo.isUncalculated = false;
                 this.requestRecursiveReflow();
             }
-
             return true;
         } else {
-            this.requestReflow();
-            this.requestLayoutControllerReflow();
+            Engine.doubleStep();
             return false;
         }
     }
@@ -377,17 +382,15 @@ export class SizeResolver extends EventEmitter {
         this.emit('reflow');
     }
 
-    requestLayoutControllerReflow() {
-        this.emit('layoutControllerReflow');
-    }
-
     /**
-     * Sets up a true sized surface
-     * @param renderable
-     * @returns {{isUncalculated: boolean, trueSizedDimensions: boolean[], name: *}} an entry in this._trueSizedSurfaceInfo
-     * @private
-     */
-    configureTrueSizedSurface(renderable, specifiedSize) {
+    * Sets up a true sized surface
+    * @param renderable
+    * @param specifiedSize
+    * @param contextSize
+    * @returns {{isUncalculated: boolean, trueSizedDimensions: boolean[], name: *}} an entry in this._trueSizedSurfaceInfo
+    * @private
+    */
+    configureTrueSizedSurface(renderable, specifiedSize, contextSize) {
         let trueSizedDimensions = specifiedSize.map((singleSize) => this.isValueTrueSized(singleSize));
         let trueSizedSurfaceInfo = {
             isUncalculated: true,
@@ -400,22 +403,23 @@ export class SizeResolver extends EventEmitter {
         this._trueSizedSurfaceInfo.set(renderable, trueSizedSurfaceInfo);
 
 
-        this._evaluateTrueSizedSurface(renderable);
+        this._evaluateTrueSizedSurface(renderable, contextSize);
 
         return trueSizedSurfaceInfo;
     }
 
     /**
-     * Investigates the surfaces to see in which way the size should be estimated.
-     *
-     * Currently disabled due to browser and font difficulties
-     * @param renderable
-     * @returns {*}
-     * @private
-     */
-    async _evaluateTrueSizedSurface(renderable) {
+    * Investigates the surfaces to see in which way the size should be estimated.
+    *
+    * Currently disabled due to browser and font difficulties
+    * @param renderable
+    * @param contextSize
+    * @returns {*}
+    * @private
+    */
+    async _evaluateTrueSizedSurface(renderable, contextSize = null) {
         //TODO Re-enable the canvas sizing once its been stabilizied
-        return this._setupSurfaceGetsSizeFromDOM(renderable);
+        return this._setupSurfaceGetsSizeFromDOM(renderable, contextSize);
 
         let trueSizedSurfaceInfo = this._trueSizedSurfaceInfo.get(renderable);
 
@@ -430,7 +434,6 @@ export class SizeResolver extends EventEmitter {
             trueSizedSurfaceInfo.size = [...renderable.size];
             return;
         }
-
         if (!widthExplicitlySet && this._doesBrowserNeedBugFixForSurface(renderable)) {
             this._patchCanvasBug(renderable);
             Timer.after(() => {
@@ -446,24 +449,24 @@ export class SizeResolver extends EventEmitter {
     /**
      * Sets up that the surface should estimate its own size by querying the DOM (the less performant option)
      * @param renderable
-     * @private
+     * @param currentContextSize
+ * @private
      */
-    _setupSurfaceGetsSizeFromDOM(renderable) {
-
+    _setupSurfaceGetsSizeFromDOM(renderable, currentContextSize = null) {
 
         let trueSizeSurfaceInfo = this._trueSizedSurfaceInfo.get(renderable);
-        let { resizeFromCanvasListener, deployFromCanvasListener, trueSizedDimensions } = trueSizeSurfaceInfo;
+        let {specifiedSize, size, resizeFromCanvasListener, deployFromCanvasListener, trueSizedDimensions } = trueSizeSurfaceInfo;
+
+
 
         /* Need to set the Surface 'size' property in order to get resize notifications */
         renderable.setSize(trueSizedDimensions.map((isTrueSized) => isTrueSized || undefined));
 
-        if (resizeFromCanvasListener) {
-            renderable.removeListener('resize', resizeFromCanvasListener);
-        }
-        if (deployFromCanvasListener) {
-            renderable.removeListener('deploy', deployFromCanvasListener);
-        }
+
         if (!trueSizeSurfaceInfo.resizeFromDOMListener) {
+
+            Engine.doubleStep();
+
             let resizeListener = trueSizeSurfaceInfo.resizeFromDOMListener = () => {
                 this._tryCalculateTrueSizedSurface(renderable);
                 /* Because the resize is triggered before the DOM manipulations happened, also
