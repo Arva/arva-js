@@ -1,19 +1,19 @@
 import {notFound, OptionObserver, listeners} from './OptionObserver';
 
-export let changeValue = Symbol('changeValue'),
-    unwrapValue = Symbol('unwrapValue'),
-    storedInputOption = Symbol('storedInputOption');
+export let changeValue  = Symbol('changeValue'),
+    unwrapValue         = Symbol('unwrapValue'),
+    storedInputOption   = Symbol('storedInputOption');
 
 /* Every property has to be represented by Symbols in order to avoid any collisions with option names */
-let nestedPropertyPath = Symbol('nestedPropertyPath'),
-    optionParentObject = Symbol('optionParentObject'),
-    foreignNestedPropertyPath = Symbol('foreignNestedPropertyPath'),
-    propertyName = Symbol('propertyName'),
-    optionObject = Symbol('optionObject'),
-    optionObserver = Symbol('optionObserver'),
+let nestedPropertyPath          = Symbol('nestedPropertyPath'),
+    optionParentObject          = Symbol('optionParentObject'),
+    foreignNestedPropertyPath   = Symbol('foreignNestedPropertyPath'),
+    propertyName                = Symbol('propertyName'),
+    optionObject                = Symbol('optionObject'),
+    optionObserver              = Symbol('optionObserver'),
     /* This is the option observer that consumes the input option */
-    foreignOptionObserver = Symbol('optionObserver'),
-    listenerTree = Symbol('listenerTree');
+    foreignOptionObserver       = Symbol('optionObserver'),
+    listenerTree                = Symbol('listenerTree');
 
 /**
  * Represents an option where data flows upwards
@@ -49,11 +49,8 @@ export class InputOption {
 
     [unwrapValue] (theForeignOptionObserver, theForeignNestedPropertyPath) {
         // TODO: Throw a helpful error when this[listenerTree] is undefined due to declaring an unkown option
-        let storedInputOptions = this[listenerTree][storedInputOption];
-        if(!storedInputOptions){
-            storedInputOptions = this[listenerTree][storedInputOption] = [];
-        }
-        storedInputOptions.push(this);
+        this[listenerTree][storedInputOption] = this;
+
         this[foreignNestedPropertyPath] = theForeignNestedPropertyPath;
         let storedOptionsObserver = this[optionObserver];
 
@@ -68,15 +65,14 @@ export class InputOption {
         /* We can not possibly invalidate the value, while unwrapping it, because that is likely going to lead to
         *  an infinite loop. Value invalidation is meant to be used when accessing the value normally. Therefore, it
         *  needs to be forced to false while we are accessing the object path*/
-        let valueShouldBeInvalidateCache = this._valueShouldBeInvalidated;
-        this._valueShouldBeInvalidated = false;
+        this._valueIsUnwrapping = true;
         let result = storedOptionsObserver.accessObjectPath(this[optionObserver].getOptions(), this[nestedPropertyPath].concat(this[propertyName]));
-        this._valueShouldBeInvalidated = valueShouldBeInvalidateCache;
+        this._valueIsUnwrapping = false;
         return result;
     };
 
     updateValueIfNecessary(){
-        if(this._valueShouldBeInvalidated){
+        if(this._valueShouldBeInvalidated && !this._valueIsUnwrapping){
             this[foreignOptionObserver].flushUpdates();
         }
     }

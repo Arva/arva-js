@@ -13,7 +13,7 @@ import Context                  from 'famous/core/Context.js';
 import AnimationController      from 'famous-flex/AnimationController.js';
 
 import {provide}                from '../utils/di/Decorators.js';
-import {DialogManager}          from '../utils/DialogManager.js';
+import {dialogManager}          from '../utils/DialogManager.js';
 import {ArvaRouter}             from '../routers/ArvaRouter.js';
 import {Injection}              from '../utils/Injection.js';
 import {Router}                 from './Router.js';
@@ -60,7 +60,8 @@ export class App {
         /**
          * The dialog manager used to show and hide dialogs
          */
-        this.dialogManager = Injection.get(DialogManager);
+        dialogManager.initialize()
+        this.dialogManager = dialogManager;
 
         /**
          * The router of the application

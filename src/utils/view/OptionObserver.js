@@ -493,7 +493,6 @@ export class OptionObserver extends EventEmitter {
      * @private
      */
     _addGetterSetterHook(object, key, value, nestedPropertyPath, listenerTree) {
-
         ObjectHelper.addGetSetPropertyWithShadow(object, key, value, true, true,
             (info) =>
                 this._onEventTriggered({
@@ -557,9 +556,7 @@ export class OptionObserver extends EventEmitter {
             }
             this._ignoreListeners = false;
         } else if (info.type === 'getter' && info.listenerTree[storedInputOption]) {
-            for (let inputOption of info.listenerTree[storedInputOption]) {
-                inputOption.updateValueIfNecessary();
-            }
+            info.listenerTree[storedInputOption].updateValueIfNecessary();
         }
     }
 
@@ -992,7 +989,7 @@ export class OptionObserver extends EventEmitter {
         let newValueIsInputOption = newValue instanceof InputOption;
 
         if (onChangeFunction !== undefined && !newValueIsInputOption) {
-            onChangeFunction(newValue)
+            onChangeFunction(newValue);
         } else if (newValueIsInputOption) {
             let inputOptionObject = newValue;
             onChangeFunction = (innerValue) => inputOptionObject[changeValue](innerValue);
@@ -1001,7 +998,7 @@ export class OptionObserver extends EventEmitter {
         }
 
         if (valueIsModelProperty) {
-            return
+            return;
         }
 
         let valueToLinkTo;
@@ -1012,7 +1009,7 @@ export class OptionObserver extends EventEmitter {
          * If the new value is undefined, and the array has been emptied, then we assign this to the default option.
          * TODO: Come up with a more robust solution for default options of arrays */
         if (newValue === undefined && (!parentIsArray || newValueParent.length === 0)) {
-            newValue = Array.isArray(defaultOption) ? defaultOption.map((unit) => Utils.isPlainObject(unit) ? ({...unit}) : unit) : defaultOption;
+            newValue = defaultOption;
             if (onChangeFunction) {
                 onChangeFunction(newValue);
             }
@@ -1032,7 +1029,6 @@ export class OptionObserver extends EventEmitter {
         }
 
         //TODO clean up code if needed (why is it even needed?)
-
         for (let property of Object.keys(defaultOptionParent)
             .filter((property) => Utils.isPlainObject(defaultOptionParent[property]) && newValueParent[shadow][property] === undefined)
             ) {
@@ -1069,19 +1065,23 @@ export class OptionObserver extends EventEmitter {
             return
         }
         /* Continue traversing down the array and update the rest like normal, using the array observer as a stepping stone*/
-        let arrayObserver = new ArrayObserver(newValue, (index, value) => {
+        let onArrayChanged = (index, value) => {
             /* copy the listener tree information */
             listenerTree[index] = listenerTree.value;
-            value = this._processNewOptionUpdates({
-                defaultOptionParent: defaultOption,
-                nestedPropertyPath: nestedPropertyPath.concat(outerPropertyName),
-                defaultOption: defaultOption[index],
-                newValueParent: newValue,
-                newValue: value,
-                propertyName: index,
-                listenerTree: listenerTree[index]
-            });
+            //TODO This might be overkill since it's already handled in the flush function (Try removing code below and see if it still works)
+            //value = this._processNewOptionUpdates( {
+            //    defaultOptionParent: defaultOption,
+            //    nestedPropertyPath: nestedPropertyPath.concat(outerPropertyName),
+            //    defaultOption: defaultOption[index],
+            //    newValueParent: newValue,
+            //    newValue: value,
+            //    propertyName: index,
+            //    listenerTree: listenerTree[index]
+            //});
 
+            if(!value){
+                return;
+            }
             this._deepTraverse(defaultOption[0], (innerNestedPropertyPath, defaultOptionParent, defaultOption, propertyName, [newValueParent, listenerTreeParent]) => {
 
                 this._processNewOptionUpdates({
@@ -1094,7 +1094,8 @@ export class OptionObserver extends EventEmitter {
                     newValueParent
                 })
             }, [value, listenerTree.value])
-        });
+        };
+        let arrayObserver = new ArrayObserver(newValue, onArrayChanged);
 
         listenerTree[storedArrayObserver] = arrayObserver;
 
@@ -1104,12 +1105,14 @@ export class OptionObserver extends EventEmitter {
                 //todo this isn't used. DOes it need to be here?
                 this.emit('mapCalled', {nestedPropertyPath, listenerTree, originalMapFunction, passedMapper})
         );
-        let onArrayChanged = ({index, newValue, oldValue}) => {
-            this._markPropertyAsUpdated(nestedPropertyPath.concat(outerPropertyName), index, newValue, oldValue)
+
+        let onArrayMoreChanged = ({index, newValue, oldValue}) => {
+            this._markPropertyAsUpdated(nestedPropertyPath.concat(outerPropertyName), index, newValue, oldValue);
+            onArrayChanged(index, newValue);
         };
-        arrayObserver.on('replaced', onArrayChanged);
-        arrayObserver.on('added', onArrayChanged);
-        arrayObserver.on('removed', onArrayChanged);
+        arrayObserver.on('replaced', onArrayMoreChanged);
+        arrayObserver.on('added', onArrayMoreChanged);
+        arrayObserver.on('removed', onArrayMoreChanged);
         this._arrayObservers.push(arrayObserver)
 
     }
@@ -1277,3 +1280,4 @@ export class OptionObserver extends EventEmitter {
 
 /* Flush updates, if they exist, every tick */
 Timer.every(OptionObserver._flushAllUpdates);
+

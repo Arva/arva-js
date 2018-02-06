@@ -11,7 +11,7 @@ import EventEmitter             from 'eventemitter3';
 import AnimationController      from 'famous-flex/AnimationController.js';
 
 import {Dialog}                 from '../components/Dialog.js';
-import {DialogManager}          from '../utils/DialogManager.js';
+import {dialogManager}          from '../utils/DialogManager.js';
 import {inject}                 from '../utils/di/Decorators.js';
 import {ObjectHelper}           from '../utils/ObjectHelper.js';
 import {Router}                 from './Router.js';
@@ -22,7 +22,7 @@ import {Router}                 from './Router.js';
  * corresponds to a subroute (Usually defaulting to Index), and every controller maps to a parent-route (usually called Home)
  * The controller methods should return views or dialogs. These will be displayed by the framework when the route is entered.
  */
-@inject(Router, AnimationController, DialogManager)
+@inject(Router, AnimationController)
 export class Controller extends EventEmitter {
 
     /**
@@ -31,7 +31,7 @@ export class Controller extends EventEmitter {
      * @param {AnimationController} context Injected animationController used by the app
      * @param {DialogManager} dialogManager The dialog manager that shows and hides dialogs
      */
-    constructor(router, context, dialogManager) {
+    constructor(router, context) {
         super();
 
         /**

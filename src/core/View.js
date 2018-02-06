@@ -12,10 +12,12 @@ import cloneDeep                from 'lodash/cloneDeep.js'
 import cloneDeepWith            from 'lodash/cloneDeepWith.js'
 import FamousView               from 'famous/core/View.js'
 import {RenderablePrototype}    from 'famous/utilities/RenderablePrototype.js'
-import LayoutController         from 'famous-flex/LayoutController.js'
 import {Surface}                from '../surfaces/Surface.js'
 import Engine                   from 'famous/core/Engine.js'
+import Entity                   from 'famous/core/Entity.js'
 import LayoutUtility            from 'famous-flex/LayoutUtility.js';
+import LayoutNode               from 'famous-flex/LayoutNode.js';
+import LayoutNodeManager        from 'famous-flex/LayoutNodeManager.js';
 
 import {limit}                  from 'arva-js/utils/Limiter.js'
 
@@ -27,8 +29,7 @@ import {
     DockedLayoutHelper,
     FullSizeLayoutHelper,
     TraditionalLayoutHelper
-}
-                                from '../utils/view/LayoutHelpers.js'
+}                               from '../utils/view/LayoutHelpers.js'
 import {RenderableHelper}       from '../utils/view/RenderableHelper.js'
 import {ReflowingScrollView}    from '../components/ReflowingScrollView.js'
 import {MappedArray}            from '../utils/view/ArrayObserver.js'
@@ -77,7 +78,6 @@ export class View extends FamousView {
         this._constructDecoratedRenderables();
 
         this._createLayoutController();
-        this._initTrueSizedBookkeeping();
         this._setupExtraRenderables(children);
 
     }
@@ -105,11 +105,7 @@ export class View extends FamousView {
     }
 
     _doReflow() {
-        if (!this.layout) {
-            /* Reflowing before construction, no need to bother */
-            return
-        }
-        this.layout.reflowLayout()
+        this._isDirty = true;
     }
 
     /**
@@ -157,7 +153,7 @@ export class View extends FamousView {
         this._renderableHelper.applyDecoratorFunctionsToRenderable(renderable, decorators);
         this._assignRenderable(renderable);
         this[id] = renderable;
-        this.layout.reflowLayout();
+        this._doReflow();
         return renderable
     }
 
@@ -168,6 +164,7 @@ export class View extends FamousView {
         if (!renderable) {
             return Utils.warn(`${this._name()}: Removing renderable that doesn't exist`);
         }
+        renderable.isDisplaying = false;
         let renderableID = Utils.getRenderableID(renderable);
         if (!this.renderables[renderableID]) {
             Utils.warn(`Failed to remove renderable ${renderableID} from ${this._name()} because the renderable doesn't exist in the parent scope`);
@@ -176,7 +173,7 @@ export class View extends FamousView {
         this._renderableHelper.removeRenderable(renderableID);
         /* Delete operator isn't allowed here (probably) because the initializer is non-configurable */
         this[this._IDtoLocalRenderableName[renderableID]] = undefined;
-        this.layout.reflowLayout()
+        this._doReflow();
     }
 
     hasRenderable(renderable) {
@@ -343,6 +340,7 @@ export class View extends FamousView {
     replaceRenderable(oldRenderable, newRenderable) {
         let oldRenderableID = Utils.getRenderableID(oldRenderable),
             newRenderableID = Utils.getRenderableID(newRenderable);
+        oldRenderable.isDisplaying = true;
         this._renderableHelper.replaceRenderable(oldRenderableID, newRenderable, Utils.getRenderableID(newRenderable));
         let localRenderableName = this._IDtoLocalRenderableName[newRenderableID] = this._IDtoLocalRenderableName[oldRenderableID];
         this.reflowRecursively();
@@ -459,44 +457,6 @@ export class View extends FamousView {
         }
     }
 
-    /**
-     * Returns true if the view is currently displaying
-     * @returns {boolean}
-     */
-    isDisplaying() {
-        return this.layout.isDisplaying();
-    }
-
-    /**
-     * Set a maximum width of the view
-     * @param {Number} width
-     */
-    setMaxContentWidth(width) {
-        if (this.decorations.dynamicDockPadding) {
-            this.onNewSize((size) => {
-                this.decorations.viewMargins = this.decorations.dynamicDockPadding(size, width);
-                this.reflowRecursively();
-            });
-            const sizeCache = this.layout._contextSizeCache;
-            const alteredSizeCache = [
-                sizeCache[0] + 1,
-                sizeCache[1] + 1
-            ];
-            this.layout._eventOutput.emit('sizeChanged', {
-                oldSize: sizeCache,
-                size: alteredSizeCache
-            });
-        } else {
-            let defaultPadding = [0, 16, 0, 16];
-            let normalisedPadding = LayoutUtility.normalizeMargins(defaultPadding);
-            this.decorations.dynamicDockPadding = function (size, newWidth = width) {
-                let sideWidth = size[0] > newWidth + 32 ? (size[0] - newWidth) / 2 : normalisedPadding[1];
-                return [normalisedPadding[0], sideWidth, normalisedPadding[2], sideWidth];
-            };
-
-            this.setMaxContentWidth(width);
-        }
-    }
 
     /**
      * Inits the utils that are used as helper classes for the view
@@ -504,8 +464,11 @@ export class View extends FamousView {
      */
     _initUtils() {
         this._sizeResolver = new SizeResolver();
-        this._sizeResolver.on('layoutControllerReflow', this._requestLayoutControllerReflow.bind(this));
-        this._sizeResolver.on('reflow', () => this.layout.reflowLayout());
+        /**
+         * @deprecated
+         */
+        this._sizeResolver.on('layoutControllerReflow', this._doReflow());
+        this._sizeResolver.on('reflow', () => this._doReflow());
         this._sizeResolver.on('reflowRecursively', this.reflowRecursively.bind(this));
         this._dockedRenderablesHelper = new DockedLayoutHelper(this._sizeResolver);
         this._fullSizeLayoutHelper = new FullSizeLayoutHelper(this._sizeResolver);
@@ -516,16 +479,6 @@ export class View extends FamousView {
             this._getIDFromLocalName.bind(this),
             this.renderables,
             this._sizeResolver);
-    }
-
-
-    /** Requests for a parent LayoutController trying to resolve the size of this view
-     * @private
-     */
-    _requestLayoutControllerReflow() {
-        this._nodes = {_trueSizeRequested: true};
-        //TODO: Do we really need to emit this?
-        this._eventOutput.emit('layoutControllerReflow')
     }
 
     /**
@@ -568,17 +521,7 @@ export class View extends FamousView {
      */
     _assignRenderable(renderable) {
         this._renderableHelper.assignRenderable(renderable, Utils.getRenderableID(renderable));
-        if (Utils.renderableIsSurface(renderable)) {
-            let sizeSpecification =
-                (renderable.decorations.dock && renderable.decorations.dock.size) ||
-                renderable.decorations.size;
-            if (sizeSpecification && (sizeSpecification[0] === true || sizeSpecification[1] === true)) {
-                this._sizeResolver.configureTrueSizedSurface(
-                    renderable,
-                    sizeSpecification
-                )
-            }
-        }
+        /* We used to call configureTrueSizedSurface here, but that call was to removed to improve logical order of flow */
     }
 
     /**
@@ -601,55 +544,14 @@ export class View extends FamousView {
     }
 
     /**
-     * Combines all layouts defined in subclasses of the View into a single layout for the LayoutController.
+     * Creates all the control flow necessary for layout
+     *
      * @returns {void}
      * @private
      */
     _createLayoutController() {
-        let hasFlowyRenderables = this._renderableHelper.hasFlowyRenderables();
-        this.layout = new LayoutController({
-            flow: !!this.decorations.useFlow || hasFlowyRenderables,
-            partialFlow: true,
-            nativeScroll: !!this.decorations.nativeScrollable,
-            perspective: !!this.decorations.perspective,
-            flowOptions: this.decorations.flowOptions || {spring: {period: 200}},
-            layout: function (context, options) {
-
-                /* Because views that extend this View class first call super() and then define their renderables,
-                 * we wait until the first engine render tick to add our renderables to the layout, when the view will have declared them all.
-                 * layout.setDataSource() will automatically pipe events from the renderables to this View. */
-                if (!this._initialised) {
-                    this.layout.setDataSource(this.renderables);
-                    this._renderableHelper.pipeAllRenderables();
-                    this._renderableHelper.initializeAnimations();
-                    this._initialised = true;
-                    this.layout.reflowLayout();
-
-                    /*
-                     * When the data source is set, it will not be reflected in the context yet because the layout is already
-                     * prepared for the previous (empty) renderable data source. Therefore, it's a waste of resources
-                     * and mysterious bugs to continue. We will wait for the next rendering cycle. However, if views
-                     * are only having decorated renderables, then we don't have to do this whatsoever
-                     */
-                    return
-                }
-
-                /* Layout all renderables that have decorators (e.g. @someDecorator) */
-                this._layoutDecoratedRenderables(context, options);
-                if (this.decorations.customLayoutFunction) {
-                    this.decorations.customLayoutFunction(context)
-                }
-
-                this._doTrueSizedSurfacesBookkeeping();
-
-                /* Legacy context.set() based layout functions */
-                if (this.layouts.length) {
-                    this._callLegacyLayoutFunctions(context, options)
-                }
-            }.bind(this)
-        });
-
-        this.layout.__hiddenViewName__ = this._name();
+        this._lastKnownSize = [NaN, NaN];
+        this.id = Entity.register(this);
 
         this._eventInput.on('recursiveReflow', (reflowData) => {
             /* Modify the reflow data so that it's clear what things have been reflown */
@@ -657,16 +559,85 @@ export class View extends FamousView {
             this._doReflow();
         });
 
+        this._nodes = new LayoutNodeManager(LayoutNode, null, false);
+
         /* Add the layoutController to this View's rendering context. */
         this._prepareLayoutController();
 
         if ((this.decorations.scrollableOptions || this.decorations.nativeScrollable) && !this._renderableHelper.getRenderableGroup('fullSize')) {
             this.addRenderable(new Surface(), layout.fullSize().translate(0, 0, -10))
         }
+
+        this._renderableHelper.pipeAllRenderables();
+        this._renderableHelper.initializeAnimations();
+        this._initialised = true;
     }
 
+    _layout(context, options) {
+
+            this._lastKnownSize = [...context.size];
+
+            /* Layout all renderables that have decorators (e.g. @someDecorator) */
+            this._layoutDecoratedRenderables(context, options);
+            if (this.decorations.customLayoutFunction) {
+                this.decorations.customLayoutFunction(context)
+            }
+
+            /* Legacy context.set() based layout functions */
+            if (this.layouts.length) {
+                this._callLegacyLayoutFunctions(context, options)
+            }
+
+    }
+
+    commit(context){
+        this.isDisplaying = true;
+        let sizeChanged = context.size.some((size, index) => size !== this._lastKnownSize[index]);
+            if (sizeChanged) {
+                this._eventOutput.emit('newSize', [...context.size]);
+            }
+            let  result;
+        if (sizeChanged ||
+            this._isDirty ||
+            this._nodes._trueSizeRequested ||
+            this.options.alwaysLayout) {
+
+            this._layout(this._nodes.prepareForLayout(
+                undefined,
+                this.renderables, {
+                    size: context.size
+                }
+            ), {});
+                result = this._nodes.buildSpecAndDestroyUnrenderedNodes();
+                this._lastResultModified = true;
+            } else /*if (this._hasOngoingTransition)*/{
+                result = this._nodes.buildSpecAndDestroyUnrenderedNodes();
+            }
+            this._isDirty = false;
+            this._hasOngoingTransition = result && result.ongoingTransition;
+
+
+        if(result){
+            let targets = result.specs;
+            for (let target of targets) {
+                if (target.renderNode) {
+                    target.target = target.renderNode.render();
+                }
+            }
+            this._target = {target: targets};
+        }
+
+        return {...context, ...this._target};
+    }
+
+    render() {
+        return this.id;
+    }
+
+
+
     getID() {
-        return this.layout.id
+        return this.id;
     }
 
     /**
@@ -693,8 +664,6 @@ export class View extends FamousView {
     }
 
     /**
-     * Either adds this.layout (a LayoutController) to the current View, or a FlexScrollView containing this.layout if this view
-     * has been decorated with a @scrollable.
      * @returns {void}
      * @private
      */
@@ -702,13 +671,9 @@ export class View extends FamousView {
         let {scrollableOptions} = this.decorations;
         if (scrollableOptions) {
             this._scrollView = new ReflowingScrollView(scrollableOptions);
-            this.layout.getSize = this.getSize.bind(this);
-            this._scrollView.push(this.layout);
+            this._scrollView.push(this);
             this.pipe(this._scrollView);
             this.add(this._scrollView);
-        }
-        else {
-            this.add(this.layout)
         }
     }
 
@@ -817,22 +782,8 @@ export class View extends FamousView {
         this._setupExtraRenderables(children);
     }
 
-    _doTrueSizedSurfacesBookkeeping() {
-        this._nodes._trueSizeRequested = false
-    }
 
-    _initTrueSizedBookkeeping() {
-        this.layout.on('sizeChanged', ({oldSize, size}) => {
-            if (size[0] !== oldSize[0] ||
-                size[1] !== oldSize[1]) {
-                this._sizeResolver.doTrueSizedBookkeeping();
-                this._eventOutput.emit('newSize', size);
-            }
-        });
-        /* Hack to make the layoutcontroller reevaluate sizes on resize of the parent */
-        this._nodes = {_trueSizedRequested: false}
-        /* This needs to be set in order for the LayoutNodeManager to be happy */
-    }
+
 
     _initOptions(options) {
         if (!Utils.isPlainObject(options)) {
@@ -1037,8 +988,6 @@ export class View extends FamousView {
                  */
                 this._readjustRenderableInitializer(localRenderableName);
             }
-            /* This is a very inefficient of keeping the current decorators. That's why .with should be used at all times possible */
-            this._renderableHelper.applyDecoratorObjectToRenderable(Utils.getRenderableID(newRenderable), decorations);
         } else {
             this._assignNewRenderable(newRenderable, localRenderableName, decorations, isArray)
         }
@@ -1126,9 +1075,9 @@ export class View extends FamousView {
                 /* TODO: Change this to a getter function or at least figure out a plan how to handle default options */
                 try {
                     await triggerMethod.call(this, this.options, optionObserver.defaultOptions);
-                } catch (error){
+                } catch (error) {
                     /* If the reason of the error was that the transition was cancelled, fail silently*/
-                    if(error.reason !== 'Canceled'){
+                    if (error.reason !== 'Canceled') {
                         throw new Error(error);
                     }
                 }
@@ -1209,11 +1158,11 @@ export class View extends FamousView {
 
         if (!renderables.length) {
             /* Insert an empty surface in order to preserver order of the sequence of (docked) renderables
-             * TODO: This is dirty but seemingly inevitable, think of other solutions */
+             * TODO: This is dirty but seemingly inevitable, think of other solutions. At least it shouldn't be hard-coded
+             * to dock from a certain direction */
             let placeholderRenderable = Surface.with();
             renderables = [placeholderRenderable];
-            dynamicDecorations = () =>
-                layout.dock.left(0).size(0)
+            dynamicDecorations = [layout.dock.top(0)];
 
         }
         /* Initialize the renderable to an empty array and then fill it */
