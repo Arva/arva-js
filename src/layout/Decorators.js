@@ -8,6 +8,7 @@
  */
 import merge                    from 'lodash/merge.js'
 import extend                   from 'lodash/extend.js'
+import browser                  from 'bowser';
 
 import AnimationController      from 'famous-flex/AnimationController.js'
 import LayoutUtility            from 'famous-flex/LayoutUtility.js'
@@ -16,8 +17,8 @@ import Easing                   from 'famous/transitions/Easing.js'
 import { Utils }                    from '../utils/view/Utils.js'
 import { onOptionChange }           from '../utils/view/OptionObserver'
 import {  prepDecoratedRenderable,
-prepPrototypeDecorations, decoratorTypes,
-createChainableDecorator}            from './DecoratorHelpers';
+    prepPrototypeDecorations, decoratorTypes,
+    createChainableDecorator}            from './DecoratorHelpers';
 
 
 /**
@@ -901,6 +902,10 @@ class Layout {
      * @returns {Layout} A chainable function
      */
     nativeScrollable(options = {}) {
+        /* Hot-fix: native scrollable has bugs for Safari */
+        if (browser.safari) {
+            return layout.scrollable(options);
+        }
         let {scrollY = true, scrollX = false} = options;
         return this.createChainableDecorator((decorations) => {
             decorations.nativeScrollable = {scrollY, scrollX}
