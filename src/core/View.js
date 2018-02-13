@@ -136,7 +136,7 @@ export class View extends FamousView {
      * @returns {Boolean}
      */
     containsUncalculatedSurfaces() {
-        return this._sizeResolver.containsUncalculatedSurfaces()
+        return this._sizeResolver.containsUncalculatedSurfaces();
     }
 
     /**
