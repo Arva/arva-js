@@ -601,7 +601,8 @@ export class View extends FamousView {
             this._isDirty ||
             this._nodes._trueSizeRequested ||
             this.options.alwaysLayout) {
-
+            /* Set isDirty to false before layout, so that if reflow is performed during layout we're still able to catch that */
+            this._isDirty = false;
             this._layout(this._nodes.prepareForLayout(
                 undefined,
                 this.renderables, {
@@ -613,7 +614,6 @@ export class View extends FamousView {
             } else /*if (this._hasOngoingTransition)*/{
                 result = this._nodes.buildSpecAndDestroyUnrenderedNodes();
             }
-            this._isDirty = false;
             this._hasOngoingTransition = result && result.ongoingTransition;
 
 
