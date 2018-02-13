@@ -11,6 +11,8 @@ import _each from 'lodash/each.js'
 import merge from 'lodash/merge.js';
 import extend from 'lodash/extend.js';
 
+let getCallbackSymbol = Symbol('getCallback'), setCallbackSymbol = Symbol('setCallback');
+
 export class ObjectHelper {
 
     /* Sets enumerability of methods and all properties starting with '_' on an object to false,
@@ -105,8 +107,14 @@ export class ObjectHelper {
     static addGetSetPropertyWithShadow(object, propName, prop, enumerable = true, writable = true, setCallback = null, getCallback = null, appendToGetter = false, shadowProperty = 'shadow') {
         if((propName in object) && Object.getOwnPropertyDescriptor(object, propName).get){
             object[shadowProperty][propName] = prop;
+            object[shadowProperty][setCallbackSymbol] = setCallback;
+            object[shadowProperty][getCallbackSymbol] = getCallback;
             return;
         }
+
+
+
+
         ObjectHelper.buildPropertyShadow(object, propName, prop, shadowProperty);
         ObjectHelper.buildGetSetProperty(object, propName, enumerable, writable, setCallback, getCallback, appendToGetter, shadowProperty);
     }
@@ -155,11 +163,13 @@ export class ObjectHelper {
                 }
             }
         }
-
+        object[shadowPropertyName][setCallbackSymbol] = setCallback;
+        object[shadowPropertyName][getCallbackSymbol] = getCallback;
         let descriptor = {
             enumerable: enumerable,
             configurable: true,
             get: function () {
+                let getCallback = object[shadowPropertyName][getCallbackSymbol];
                 if (getCallback) {
                     getCallback({
                         propertyName: propName,
@@ -169,6 +179,7 @@ export class ObjectHelper {
                 return object[shadowPropertyName][propName];
             },
             set: function (value) {
+                let setCallback = object[shadowPropertyName][setCallbackSymbol];
                 if (writable) {
                     let oldValue = object[shadowPropertyName][propName];
                     object[shadowPropertyName][propName] = value;
