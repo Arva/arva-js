@@ -104,6 +104,7 @@ export class ObjectHelper {
     /* Adds given property to the object with get() and set() accessors, and saves actual data in object.shadow */
     static addGetSetPropertyWithShadow(object, propName, prop, enumerable = true, writable = true, setCallback = null, getCallback = null, appendToGetter = false, shadowProperty = 'shadow') {
         if((propName in object) && Object.getOwnPropertyDescriptor(object, propName).get){
+            object[shadowProperty][propName] = prop;
             return;
         }
         ObjectHelper.buildPropertyShadow(object, propName, prop, shadowProperty);
