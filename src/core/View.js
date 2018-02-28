@@ -670,6 +670,7 @@ export class View extends FamousView {
     _prepareLayoutController() {
         let {scrollableOptions} = this.decorations;
         if (scrollableOptions) {
+            //TODO Scrolling doesn't work, there are fallacies with this code
             this._scrollView = new ReflowingScrollView(scrollableOptions);
             this._scrollView.push(this);
             this.pipe(this._scrollView);
